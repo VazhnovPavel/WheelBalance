@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SpringDemoBot" />
-        <module name="WheelBalanceGitHub" />
+        <module name="WheelBalance" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SpringDemoBot" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SpringDemoBot" options="-parameters" />
-      <module name="WheelBalanceGitHub" options="-parameters" />
+      <module name="WheelBalance" options="-parameters" />
     </option>
   </component>
 </project>
