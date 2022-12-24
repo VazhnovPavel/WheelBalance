@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.testSpringBoot.SpringDemoBot.SpringDemoBotApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.331 s - in com.testSpringBoot.SpringDemoBot.SpringDemoBotApplicationTests

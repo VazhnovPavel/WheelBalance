@@ -1,0 +1,4 @@
+com/testSpringBoot/SpringDemoBot/config/BotConfig.class
+com/testSpringBoot/SpringDemoBot/service/TelegramBot.class
+com/testSpringBoot/SpringDemoBot/config/BotInitializer.class
+com/testSpringBoot/SpringDemoBot/SpringDemoBotApplication.class
