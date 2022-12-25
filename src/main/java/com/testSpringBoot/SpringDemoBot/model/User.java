@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
-@Entity( name = "usersDataTable")
+@Entity( name = "users_Data_Table")
 public class User {
     @Id
     private long chatId; //это наш primary key

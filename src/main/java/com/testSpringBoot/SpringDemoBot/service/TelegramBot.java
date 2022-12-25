@@ -24,13 +24,10 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-import javax.xml.stream.events.Comment;
-import java.security.Key;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+
 
     @Slf4j
     @Component
@@ -47,6 +44,7 @@ import java.util.Locale;
             "Попробуем? ");
     static final String YES_BUTTON = "YES_BUTTON";
         static final String NO_BUTTON = "NO_BUTTON";
+        static final String ERROR_OCCURED = "Error occurred: ";
     static final String HELP_TEXT = "/start - запустить бота \n\n" +
             "/addSection - добавить свой раздел в “Колесо” \n\n" +
             "/deleteSection - удалить раздел из “Колеса” \n\n" +
@@ -109,28 +107,30 @@ import java.util.Locale;
                                 //после /send пишем сообщение, которое хотим отправить
                 var users = userRepository.findAll();
                 for(User user: users){
-                    sendMessage(user.getChatId(),textToSend);
+                    prepareAndSendMessage(user.getChatId(),textToSend);
                 }
             }
+else {                                                      //Switch срабатывает, если не было send
+                switch (messageText.toLowerCase()) {
+                    case "/start":
+                        // передаем Имя пользователя
+                        registerUser(update.getMessage());
+                        startCommandReceived(chatID, update.getMessage().getChat().getFirstName());
+                        break;
+                    case "/help":
+                        prepareAndSendMessage(chatID, HELP_TEXT);
+                        break;
+                    case "да":
+                        prepareAndSendMessage(chatID, "В какое время вам было бы удобно получать вопросы? Напишите в " +
+                                "формате ЧЧ:ММ по Москве");
+                        break;
+                    case "/time_to_questions":
+                        timeToQuestions(chatID);
+                        break;
 
-            switch (messageText.toLowerCase()) {
-                case "/start":
-                    // передаем Имя пользователя
-                    registerUser(update.getMessage());
-                    startCommandReceived(chatID,update.getMessage().getChat().getFirstName());
-                    break;
-                case  "/help":
-                    sendMessage(chatID,HELP_TEXT);
-                    break;
-                case "да":
-                    sendMessage(chatID,"В какое время вам было бы удобно получать вопросы? Напишите в " +
-                            "формате ЧЧ:ММ по Москве");
-                    break;
-                case "/time_to_questions":
-                    timeToQuestions(chatID);
-                    break;
-
-                default: sendMessage(chatID,"Я не знаю, как работать с этой командой");
+                    default:
+                        prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
+                }
             }
 
         } else if (update.hasCallbackQuery()) {                      //провереям, вдруг помимо текста нам передали значение
@@ -170,12 +170,8 @@ import java.util.Locale;
             markupInline.setKeyboard(rowsInLine);
             message.setReplyMarkup(markupInline);
 
-            try {
-                execute(message);
-            }
-            catch(TelegramApiException e) {
-                log.error("Error occurred: " + e.getMessage());
-            }
+
+            executedMessage(message);
         }
 
         private void registerUser(Message msg) {
@@ -193,18 +189,16 @@ import java.util.Locale;
     }
 
     private void startCommandReceived(long chatID, String name){            //метод обработки сообщения
-        //String answer = "Привет "+ name+" ,как делы?";
+
         sendMessage(chatID,name + START_MESSAGE);
         log.info("Replied to user" + name );
+
     }
     //метод отправки сообщения пользоваелю
     public void sendMessage(long chatID,String texToSend) {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(chatID);
-        sendMessage.setText(texToSend);
-
-
-
+        SendMessage message = new SendMessage();
+        message.setChatId(chatID);
+        message.setText(texToSend);
 
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
@@ -214,7 +208,6 @@ import java.util.Locale;
         row.add("Пока нет");
         keyboardRows.add(row);
 
-
 //        row = new KeyboardRow(); // еще один ряд кнопок
 //        row.add("Добавить свой раздел");
 //        row.add("Удалить раздел");
@@ -222,36 +215,50 @@ import java.util.Locale;
 //        keyboardRows.add(row);
 
         keyboardMarkup.setKeyboard(keyboardRows); //добавляем в клавиатуру наши ряды
-        sendMessage.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру
+        message.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру
 
-        try {
-            execute(sendMessage);
-        }
-        catch(TelegramApiException e) {
-            log.error("Error occurred: " + e.getMessage());
-        }
+        executedMessage(message);                           //ПРОВЕРИТЬ
+
     }
-    //@Scheduled   (cron ="${cron.scheduler}")                       //чтобы запускался автоматически
+    @Scheduled   (cron ="0 * * * * *")                       //чтобы запускался автоматически
     private void SendAskUser(){
         var askUser = askUserRepository.findAll(); // все записи, которые есть в таблице
         var users = userRepository.findAll();
         for (AskUser ask: askUser){
             for (User user : users){
-                // SendMessage(user.getChatId(),ask.getTextAskUser());
+                prepareAndSendMessage(user.getChatId(),ask.getTextAskUser());
             }
         }
-
     }
     private void executeEditMessageText(String text, long chatId, long messageId){
         EditMessageText message = new EditMessageText();   // меняем введеннный текст
         message.setChatId(chatId);
         message.setText(text);
         message.setMessageId((int) messageId);   //должно быть не просто отправлено, а заменено в сообщении
+
         try {
             execute(message);
         }
         catch(TelegramApiException e) {
-            log.error("Error occurred: " + e.getMessage());
+            log.error(ERROR_OCCURED + e.getMessage());
         }
+        //executedMessage(message);          // почему то не хочет вставать
+
     }
+    private void executedMessage(SendMessage message){
+        try {
+            execute(message);
+        }
+        catch(TelegramApiException e) {
+            log.error(ERROR_OCCURED+ e.getMessage());
+        }
+
+    }
+    private void prepareAndSendMessage(long chatID, String texToSend){
+        SendMessage message = new SendMessage();
+        message.setChatId(chatID);
+        message.setText(texToSend);
+        executedMessage(message);
+    }
+
 }
