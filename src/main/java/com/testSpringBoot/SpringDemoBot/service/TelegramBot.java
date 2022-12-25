@@ -5,6 +5,7 @@ import com.testSpringBoot.SpringDemoBot.model.AskUser;
 import com.testSpringBoot.SpringDemoBot.model.AskUserRepository;
 import com.testSpringBoot.SpringDemoBot.model.User;
 import com.testSpringBoot.SpringDemoBot.model.UserRepository;
+import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,12 +13,15 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -36,11 +40,13 @@ import java.util.Locale;
     @Autowired
     private AskUserRepository askUserRepository;
     final BotConfig config;
-    static final String START_MESSAGE = " Привет! Я помогу тебе отслеживать твое состояние во всех основных аспектах " +
+    static final String START_MESSAGE = EmojiParser.parseToUnicode(" Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных аспектах " +
             "жизни (или в каких пожелаешь).\n\n Я буду ежедневно задавать тебе простые вопросы об аспектах твоей жизни, " +
             "а тебе нужно будет ответить по десятибалльной шкале, насколько ты удовлетворен на данный момент.\n\n " +
             "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n" +
-            "Попробуем? ";
+            "Попробуем? ");
+    static final String YES_BUTTON = "YES_BUTTON";
+        static final String NO_BUTTON = "NO_BUTTON";
     static final String HELP_TEXT = "/start - запустить бота \n\n" +
             "/addSection - добавить свой раздел в “Колесо” \n\n" +
             "/deleteSection - удалить раздел из “Колеса” \n\n" +
@@ -96,6 +102,17 @@ import java.util.Locale;
         if (update.hasMessage() && update.getMessage().hasText()){              // если нам прислали текст, то...
             String messageText = update.getMessage().getText() ;
             long chatID = update.getMessage().getChatId();
+
+            if (messageText.contains("/send") && (config.getOwnerId() == chatID)){
+                var textToSend
+                        = EmojiParser.parseToUnicode(messageText.substring(messageText.indexOf(" ")));
+                                //после /send пишем сообщение, которое хотим отправить
+                var users = userRepository.findAll();
+                for(User user: users){
+                    sendMessage(user.getChatId(),textToSend);
+                }
+            }
+
             switch (messageText.toLowerCase()) {
                 case "/start":
                     // передаем Имя пользователя
@@ -109,12 +126,59 @@ import java.util.Locale;
                     sendMessage(chatID,"В какое время вам было бы удобно получать вопросы? Напишите в " +
                             "формате ЧЧ:ММ по Москве");
                     break;
+                case "/time_to_questions":
+                    timeToQuestions(chatID);
+                    break;
+
                 default: sendMessage(chatID,"Я не знаю, как работать с этой командой");
             }
+
+        } else if (update.hasCallbackQuery()) {                      //провереям, вдруг помимо текста нам передали значение
+            String callBackData = update.getCallbackQuery().getData();
+            long messageId = update.getCallbackQuery().getMessage().getMessageId();
+            long chatId = update.getCallbackQuery().getMessage().getChatId();
+
+            if(callBackData.equals(YES_BUTTON)){
+                String text = "Ты нажал ДА";
+                executeEditMessageText(text,chatId,messageId);
+            } else if (callBackData.equals(NO_BUTTON)) {
+                String text = "Ты нажал НЕТ";
+                executeEditMessageText(text,chatId,messageId);
+            }
+
         }
     }
 
-    private void registerUser(Message msg) {
+        private void timeToQuestions(long chatID) {   //реализуем клавиатуру на вопросе
+            SendMessage message = new SendMessage();
+            message.setChatId(chatID);
+            message.setText("В какое время вам было бы удобно получать вопросы? Напишите в \" +\n" +
+                    "\"формате ЧЧ:ММ по Москве");
+            InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+            List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+            List<InlineKeyboardButton> rowInline = new ArrayList<>();
+            var buttonYES = new InlineKeyboardButton();
+            buttonYES.setText("Да");
+            buttonYES.setCallbackData(YES_BUTTON); // позволяет боту понять, какая кнопка была нажата
+            var buttonNO = new InlineKeyboardButton();
+            buttonNO.setText("Пошел нахуй");
+            buttonNO.setCallbackData(NO_BUTTON);
+            rowInline.add(buttonYES);
+            rowInline.add(buttonNO);
+
+            rowsInLine.add(rowInline);
+            markupInline.setKeyboard(rowsInLine);
+            message.setReplyMarkup(markupInline);
+
+            try {
+                execute(message);
+            }
+            catch(TelegramApiException e) {
+                log.error("Error occurred: " + e.getMessage());
+            }
+        }
+
+        private void registerUser(Message msg) {
         if (userRepository.findById(msg.getChatId()).isEmpty()) {         //Если новый user id, то...
             var chatId = msg.getChatId();
             var chat = msg.getChat();
@@ -138,6 +202,9 @@ import java.util.Locale;
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatID);
         sendMessage.setText(texToSend);
+
+
+
 
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
@@ -164,15 +231,27 @@ import java.util.Locale;
             log.error("Error occurred: " + e.getMessage());
         }
     }
-   // @Scheduled   (cron ="${cron.scheduler}")                       //чтобы запускался автоматически
+    //@Scheduled   (cron ="${cron.scheduler}")                       //чтобы запускался автоматически
     private void SendAskUser(){
         var askUser = askUserRepository.findAll(); // все записи, которые есть в таблице
         var users = userRepository.findAll();
         for (AskUser ask: askUser){
             for (User user : users){
-              //  prepareAndSendMessage(user.getChatId(),ask.getAd());
+                // SendMessage(user.getChatId(),ask.getTextAskUser());
             }
         }
 
+    }
+    private void executeEditMessageText(String text, long chatId, long messageId){
+        EditMessageText message = new EditMessageText();   // меняем введеннный текст
+        message.setChatId(chatId);
+        message.setText(text);
+        message.setMessageId((int) messageId);   //должно быть не просто отправлено, а заменено в сообщении
+        try {
+            execute(message);
+        }
+        catch(TelegramApiException e) {
+            log.error("Error occurred: " + e.getMessage());
+        }
     }
 }

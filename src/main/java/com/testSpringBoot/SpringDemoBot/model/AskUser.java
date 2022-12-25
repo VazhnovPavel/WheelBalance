@@ -10,10 +10,10 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
-@Entity( name = "adsTable")
+@Entity( name = "askUserTable")
 public class AskUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)   // спринг сам генерирует id
     private long id;
-    private String ad;     // текст, который мы отправляем пользователям
+    private String textAskUser;     // текст, который мы отправляем пользователям
 }
