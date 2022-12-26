@@ -127,13 +127,12 @@ else {                                                      //Switch сраба�
                     case "/time_to_questions":
                         timeToQuestions(chatID);
                         break;
-
                     default:
                         prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
                 }
             }
 
-        } else if (update.hasCallbackQuery()) {                      //провереям, вдруг помимо текста нам передали значение
+        } else if (update.hasCallbackQuery()) {           //провереям, вдруг помимо текста нам передали значение
             String callBackData = update.getCallbackQuery().getData();
             long messageId = update.getCallbackQuery().getMessage().getMessageId();
             long chatId = update.getCallbackQuery().getMessage().getChatId();
@@ -208,7 +207,7 @@ else {                                                      //Switch сраба�
         row.add("Пока нет");
         keyboardRows.add(row);
 
-//        row = new KeyboardRow(); // еще один ряд кнопок
+//        row = new KeyboardRow();             // еще один ряд кнопок
 //        row.add("Добавить свой раздел");
 //        row.add("Удалить раздел");
 //        row.add("Изменить время вопросов");
@@ -217,10 +216,10 @@ else {                                                      //Switch сраба�
         keyboardMarkup.setKeyboard(keyboardRows); //добавляем в клавиатуру наши ряды
         message.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру
 
-        executedMessage(message);                           //ПРОВЕРИТЬ
+        executedMessage(message);
 
     }
-    @Scheduled   (cron ="0 * * * * *")                       //чтобы запускался автоматически
+    @Scheduled   (cron ="${interval-in-cron} ")                     //чтобы запускался автоматически
     private void SendAskUser(){
         var askUser = askUserRepository.findAll(); // все записи, которые есть в таблице
         var users = userRepository.findAll();
@@ -242,7 +241,6 @@ else {                                                      //Switch сраба�
         catch(TelegramApiException e) {
             log.error(ERROR_OCCURED + e.getMessage());
         }
-        //executedMessage(message);          // почему то не хочет вставать
 
     }
     private void executedMessage(SendMessage message){
