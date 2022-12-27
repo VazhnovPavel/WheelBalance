@@ -639,3 +639,443 @@ java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "this.t
 2022-12-27 13:57:45,071 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.784 seconds (JVM running for 2.169)
 2022-12-27 13:57:49,483 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
 2022-12-27 13:57:58,347 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:59:55,221 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:59:55,230 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:59:55,233 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:59:58,054 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8998 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:59:58,054 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:59:58,205 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:59:58,221 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:59:58,356 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:59:58,375 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:59:58,443 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:59:58,471 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:59:58,543 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:59:58,548 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:59:58,755 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:59:58,758 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:59:59,420 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:59:59,711 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.762 seconds (JVM running for 2.206)
+2022-12-27 14:00:06,398 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 14:00:38,930 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:00:38,935 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 14:00:38,938 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 14:00:42,131 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 9018 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 14:00:42,132 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 14:00:42,319 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 14:00:42,341 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2022-12-27 14:00:42,458 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 14:00:42,481 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 14:00:42,543 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 14:00:42,571 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 14:00:42,637 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 14:00:42,643 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 14:00:42,840 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 14:00:42,843 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:00:43,489 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 14:00:43,766 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.829 seconds (JVM running for 2.12)
+2022-12-27 14:00:46,870 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 14:14:02,460 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:14:02,465 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 14:14:02,469 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 14:14:05,315 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 9221 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 14:14:05,316 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 14:14:05,489 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 14:14:05,510 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2022-12-27 14:14:05,640 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 14:14:05,658 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 14:14:05,717 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 14:14:05,748 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 14:14:05,867 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 14:14:05,873 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 14:14:06,190 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 14:14:06,195 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:14:07,022 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 14:14:07,318 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.138 seconds (JVM running for 2.424)
+2022-12-27 14:14:20,650 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 14:31:17,500 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:31:17,519 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 14:31:17,523 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 14:31:21,043 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 9432 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 14:31:21,043 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 14:31:21,194 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 14:31:21,211 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 14:31:21,351 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 14:31:21,373 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 14:31:21,430 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 14:31:21,463 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 14:31:21,592 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 14:31:21,598 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 14:31:21,835 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 14:31:21,838 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:31:22,521 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 14:31:22,825 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.914 seconds (JVM running for 2.468)
+2022-12-27 14:31:27,239 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 14:34:05,917 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:34:05,923 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 14:34:05,926 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 14:34:08,698 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 9482 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 14:34:08,699 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 14:34:08,857 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 14:34:08,881 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+2022-12-27 14:34:09,003 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 14:34:09,019 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 14:34:09,071 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 14:34:09,098 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 14:34:09,173 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 14:34:09,179 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 14:34:09,404 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 14:34:09,406 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 14:34:10,233 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 14:34:10,544 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.966 seconds (JVM running for 2.205)
+2022-12-27 14:40:21,960 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m42s669ms).
+2022-12-27 14:50:33,691 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m41s723ms).
+2022-12-27 15:21:27,599 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 15:44:13,440 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m9s256ms).
+2022-12-27 15:44:19,543 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 15:45:15,897 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m2s462ms).
+2022-12-27 15:46:52,826 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m36s929ms).
+2022-12-27 15:47:58,877 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m6s52ms).
+2022-12-27 15:49:11,399 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m12s521ms).
+2022-12-27 15:53:48,188 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m36s789ms).
+2022-12-27 15:54:35,900 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 15:57:29,484 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m3s663ms).
+2022-12-27 15:58:18,359 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s875ms).
+2022-12-27 15:59:19,507 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 15:59:27,499 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m9s141ms).
+2022-12-27 16:01:25,943 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 17:01:44,979 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 17:01:49,042 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m50s912ms).
+2022-12-27 17:02:40,498 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s456ms).
+2022-12-27 17:05:44,679 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m4s181ms).
+2022-12-27 17:31:08,618 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m23s939ms).
+2022-12-27 17:47:14,625 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m6s7ms).
+2022-12-27 17:47:20,130 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2022-12-27 18:07:36,325 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:07:36,343 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:07:36,351 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:07:39,756 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11296 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:07:39,756 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:07:39,963 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:07:39,987 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:07:40,118 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:07:40,139 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:07:40,198 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:07:40,238 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:07:40,376 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:07:40,383 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:07:40,628 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:07:40,631 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:07:41,130 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:07:41,364 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.755 seconds (JVM running for 2.122)
+2022-12-27 18:07:55,497 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 18:11:42,850 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:11:42,856 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:11:42,858 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:11:44,926 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11352 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:11:44,928 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:11:45,157 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:11:45,174 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:11:45,302 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:11:45,326 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:11:45,384 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:11:45,447 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:11:45,519 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:11:45,524 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:11:45,750 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:11:45,753 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:11:46,305 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:11:46,533 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.898 seconds (JVM running for 2.218)
+2022-12-27 18:11:52,592 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 18:13:31,433 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:13:31,438 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:13:31,441 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:13:34,379 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11381 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:13:34,380 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:13:34,544 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:13:34,559 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:13:34,697 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:13:34,713 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:13:34,765 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:13:34,797 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:13:34,868 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:13:34,873 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:13:35,088 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:13:35,091 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:13:36,232 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:13:36,476 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.24 seconds (JVM running for 2.663)
+2022-12-27 18:14:46,485 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 18:15:54,425 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:15:54,431 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:15:54,433 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:15:57,203 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11414 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:15:57,204 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:15:57,366 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:15:57,381 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:15:57,504 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:15:57,519 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:15:57,568 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:15:57,605 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:15:57,674 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:15:57,679 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:15:57,879 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:15:57,882 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:15:58,523 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:15:58,761 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.698 seconds (JVM running for 1.969)
+2022-12-27 18:16:35,131 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:16:35,144 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:16:35,146 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:16:37,700 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11433 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:16:37,701 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:16:37,870 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:16:37,886 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:16:38,024 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:16:38,039 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:16:38,090 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:16:38,120 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:16:38,193 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:16:38,201 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:16:38,494 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:16:38,496 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:16:39,167 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:16:39,547 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.965 seconds (JVM running for 2.209)
+2022-12-27 18:20:13,094 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:20:13,100 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:20:13,102 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:20:16,162 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11483 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:20:16,163 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:20:16,375 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:20:16,407 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:20:16,527 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:20:16,544 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:20:16,606 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:20:16,638 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:20:16,705 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:20:16,710 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:20:16,934 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:20:16,936 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:20:17,498 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:20:17,732 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.7 seconds (JVM running for 2.016)
+2022-12-27 18:20:22,912 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 18:38:18,655 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:38:18,664 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 18:38:18,684 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 18:38:21,886 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MBP-Pavel with PID 11715 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 18:38:21,889 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 18:38:22,135 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 18:38:22,159 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2022-12-27 18:38:22,285 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 18:38:22,307 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 18:38:22,411 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 18:38:22,444 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 18:38:22,573 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 18:38:22,580 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 18:38:22,821 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 18:38:22,824 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:38:23,367 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 18:38:23,600 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.856 seconds (JVM running for 2.161)
+2022-12-27 18:38:30,622 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 18:42:08,608 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s889ms).

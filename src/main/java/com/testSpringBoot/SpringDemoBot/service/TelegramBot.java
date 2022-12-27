@@ -43,6 +43,8 @@ import java.util.List;
             "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n");
     static final String YES_BUTTON = "YES_BUTTON";
         static final String NO_BUTTON = "NO_BUTTON";
+        static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
+        static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
         static final String ERROR_OCCURED = "Error occurred: ";
     static final String HELP_TEXT = "/start - запустить бота \n\n" +
             "/addSection - добавить свой раздел в “Колесо” \n\n" +
@@ -109,8 +111,12 @@ import java.util.List;
                     prepareAndSendMessage(user.getChatId(),textToSend);
                 }
             }
+            else if (messageText.matches("^\\d{2}:\\d{2}$")){     //Если юзер передает дату в формате ЧЧ:ММ
+                System.out.println("Пользователь ввел время для вопросов");
+                verificationTimeQuestion(chatID,messageText);
+            }
 else {                                                      //Switch срабатывает, если не было send
-                switch (messageText.toLowerCase()) {
+                switch (messageText /*.toLowerCase()*/) {
                     case "/start":
                         // передаем Имя пользователя
                         registerUser(update.getMessage(),update);
@@ -124,15 +130,10 @@ else {                                                      //Switch сраба�
                     case "да":
                         prepareAndSendMessage(chatID, "В какое время вам было бы удобно получать вопросы? Напишите в " +
                                 "формате ЧЧ:ММ по Москве");
-                        break;
-                    case "/time_to_questions":
-                        timeToQuestions(chatID);
-                        break;
-                    case "/start/time_to_questions":
-                        timeToQuestions(chatID);
                     default:
                         prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
                 }
+
             }
 
         } else if (update.hasCallbackQuery()) {           //провереям, вдруг помимо текста нам передали значение
@@ -148,32 +149,21 @@ else {                                                      //Switch сраба�
                 String text = "Ты нажал НЕТ";
                 executeEditMessageText(text,chatId,messageId);
             }
-
+            else if (callBackData.equals(NO_BUTTON_verificationTimeQuestion)) {
+                System.out.println("Пользователь сказал, что задал неправильное время");
+                //тут нужен метод добавление времени в БД
+            }
+            else if (callBackData.equals(YES_BUTTON_verificationTimeQuestion)) {
+                System.out.println("Пользователь задал верное время");
+                //тут нужен метод добавление времени в БД
+            }
         }
     }
 
         private void timeToQuestions(long chatID) {   //реализуем клавиатуру на вопросе
             SendMessage message = new SendMessage();
             message.setChatId(chatID);
-            message.setText("В какое время вам было бы удобно получать вопросы? Напишите в \" +\n" +
-                    "\"формате ЧЧ:ММ по Москве");
-
-            InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-            List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
-            List<InlineKeyboardButton> rowInline = new ArrayList<>();
-            var buttonYES = new InlineKeyboardButton();
-            buttonYES.setText("Да");
-            buttonYES.setCallbackData(YES_BUTTON); // позволяет боту понять, какая кнопка была нажата
-            var buttonNO = new InlineKeyboardButton();
-            buttonNO.setText("Пошел нахуй");
-            buttonNO.setCallbackData(NO_BUTTON);
-            rowInline.add(buttonYES);
-            rowInline.add(buttonNO);
-            rowsInLine.add(rowInline);
-            markupInline.setKeyboard(rowsInLine);
-            message.setReplyMarkup(markupInline);
-
-
+            message.setText("В какое время вам было бы удобно получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
             executedMessage(message);
         }
 
@@ -293,6 +283,29 @@ else {                                                      //Switch сраба�
         var buttonNO = new InlineKeyboardButton();
         buttonNO.setText(no);
         buttonNO.setCallbackData(NO_BUTTON);
+        rowInline.add(buttonYES);
+        rowInline.add(buttonNO);
+        rowsInLine.add(rowInline);
+        markupInline.setKeyboard(rowsInLine);
+        message.setReplyMarkup(markupInline);
+
+
+        executedMessage(message);
+    }
+    private void verificationTimeQuestion(long chatID,String messageText){
+        SendMessage message = new SendMessage();
+        message.setChatId(chatID);
+        String[] parts = messageText.split(":");
+        message.setText("Вы хотите получать вопросы в "+ parts[0]+ " часов "+ parts[1]+" минут, верно?");
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+        var buttonYES = new InlineKeyboardButton();
+        buttonYES.setText("Да верно");
+        buttonYES.setCallbackData(YES_BUTTON_verificationTimeQuestion); // позволяет боту понять, какая кнопка была нажата
+        var buttonNO = new InlineKeyboardButton();
+        buttonNO.setText("Нет, не верно");
+        buttonNO.setCallbackData(NO_BUTTON_verificationTimeQuestion);
         rowInline.add(buttonYES);
         rowInline.add(buttonNO);
         rowsInLine.add(rowInline);
