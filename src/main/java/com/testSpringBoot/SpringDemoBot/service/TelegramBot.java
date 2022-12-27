@@ -114,7 +114,7 @@ else {                                                      //Switch сраба�
                 switch (messageText.toLowerCase()) {
                     case "/start":
                         // передаем Имя пользователя
-                        registerUser(update.getMessage());
+                        registerUser(update.getMessage(),update);
                         startCommandReceived(chatID, update.getMessage().getChat().getFirstName());
                         break;
                     case "/help":
@@ -153,6 +153,7 @@ else {                                                      //Switch сраба�
             message.setChatId(chatID);
             message.setText("В какое время вам было бы удобно получать вопросы? Напишите в \" +\n" +
                     "\"формате ЧЧ:ММ по Москве");
+
             InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
             List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
             List<InlineKeyboardButton> rowInline = new ArrayList<>();
@@ -173,16 +174,21 @@ else {                                                      //Switch сраба�
             executedMessage(message);
         }
 
-        private void registerUser(Message msg) {
+        private void registerUser(Message msg, Update update) {
         if (userRepository.findById(msg.getChatId()).isEmpty()) {         //Если новый user id, то...
             var chatId = msg.getChatId();
             var chat = msg.getChat();
+
             User user = new User();    // создаем юзера
+
             user.setChatId(chatId);
-            user.setFirstName(user.getFirstName());       // берем данные о юзере
-            user.setLastName(user.getLastName());
+            user.setFirstName(update.getMessage().getChat().getFirstName());       // берем данные о юзере
+            user.setLastName(update.getMessage().getChat().getLastName());
+            user.setUserName("@"+ update.getMessage().getChat().getUserName());
             user.setRegisteredAt(new Timestamp(System.currentTimeMillis()));  // время регистрации
+
             userRepository.save(user);
+
             log.info("User saved" + user);
         }
     }
@@ -199,6 +205,8 @@ else {                                                      //Switch сраба�
         message.setChatId(chatID);
         message.setText(texToSend);
 
+        ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
+ /*
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
 
@@ -215,7 +223,8 @@ else {                                                      //Switch сраба�
 
         keyboardMarkup.setKeyboard(keyboardRows); //добавляем в клавиатуру наши ряды
         message.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру
-
+        */
+////////////////ПОСТОЯННАЯ КЛАВИАТУРА КОНЕЦ/////
         executedMessage(message);
 
     }
@@ -229,6 +238,10 @@ else {                                                      //Switch сраба�
             }
         }
     }
+
+    /////////////////////ДАЛЬШЕ РЕФАКТОРИНГ///////////////////////////////////////////////////
+
+
     private void executeEditMessageText(String text, long chatId, long messageId){
         EditMessageText message = new EditMessageText();   // меняем введеннный текст
         message.setChatId(chatId);

@@ -1,16 +1,28 @@
 package com.testSpringBoot.SpringDemoBot.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
-@Entity( name = "users_Data_Table")
+@Entity( name = "all_user_data")
 public class User {
     @Id
     private long chatId; //это наш primary key
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "user_name")
     private String userName;
+    @Column(name = "registered_at")
+    private Timestamp registeredAt;
+    @Column(name = "time_to_questions")
+    private Timestamp timeToQuestions;
+    @Column(name = "number_wheel_id")
+    private Timestamp numberWheelId;
+
+
 
     public long getChatId() {
         return chatId;
@@ -52,6 +64,22 @@ public class User {
         this.registeredAt = registeredAt;
     }
 
+    public Timestamp getTimeToQuestions() {
+        return timeToQuestions;
+    }
+
+    public void setTimeToQuestions(Timestamp timeToQuestions) {
+        this.timeToQuestions = timeToQuestions;
+    }
+
+    public Timestamp getNumberWheelId() {
+        return numberWheelId;
+    }
+
+    public void setNumberWheelId(Timestamp numberWheelId) {
+        this.numberWheelId = numberWheelId;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -60,8 +88,8 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", registeredAt=" + registeredAt +
+                ", timeToQuestions=" + timeToQuestions +
+                ", numberWheelId=" + numberWheelId +
                 '}';
     }
-
-    private Timestamp registeredAt;
 }
