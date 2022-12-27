@@ -40,8 +40,7 @@ import java.util.List;
     static final String START_MESSAGE = EmojiParser.parseToUnicode(" Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных аспектах " +
             "жизни (или в каких пожелаешь).\n\n Я буду ежедневно задавать тебе простые вопросы об аспектах твоей жизни, " +
             "а тебе нужно будет ответить по десятибалльной шкале, насколько ты удовлетворен на данный момент.\n\n " +
-            "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n" +
-            "Попробуем? ");
+            "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n");
     static final String YES_BUTTON = "YES_BUTTON";
         static final String NO_BUTTON = "NO_BUTTON";
         static final String ERROR_OCCURED = "Error occurred: ";
@@ -116,6 +115,8 @@ else {                                                      //Switch сраба�
                         // передаем Имя пользователя
                         registerUser(update.getMessage(),update);
                         startCommandReceived(chatID, update.getMessage().getChat().getFirstName());
+
+
                         break;
                     case "/help":
                         prepareAndSendMessage(chatID, HELP_TEXT);
@@ -127,6 +128,8 @@ else {                                                      //Switch сраба�
                     case "/time_to_questions":
                         timeToQuestions(chatID);
                         break;
+                    case "/start/time_to_questions":
+                        timeToQuestions(chatID);
                     default:
                         prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
                 }
@@ -140,6 +143,7 @@ else {                                                      //Switch сраба�
             if(callBackData.equals(YES_BUTTON)){
                 String text = "Ты нажал ДА";
                 executeEditMessageText(text,chatId,messageId);
+                timeToQuestions(chatId);
             } else if (callBackData.equals(NO_BUTTON)) {
                 String text = "Ты нажал НЕТ";
                 executeEditMessageText(text,chatId,messageId);
@@ -165,7 +169,6 @@ else {                                                      //Switch сраба�
             buttonNO.setCallbackData(NO_BUTTON);
             rowInline.add(buttonYES);
             rowInline.add(buttonNO);
-
             rowsInLine.add(rowInline);
             markupInline.setKeyboard(rowsInLine);
             message.setReplyMarkup(markupInline);
@@ -197,6 +200,10 @@ else {                                                      //Switch сраба�
 
         sendMessage(chatID,name + START_MESSAGE);
         log.info("Replied to user" + name );
+        String yes = "ДА(смарт)";
+        String no = "Нет(смарт)";
+        smartKeyboard(chatID,yes,no);
+
 
     }
     //метод отправки сообщения пользоваелю
@@ -206,24 +213,23 @@ else {                                                      //Switch сраба�
         message.setText(texToSend);
 
         ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
- /*
-        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
+       /* ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
 
         KeyboardRow row = new KeyboardRow(); // создаем ряд кнопок
         row.add("Да");
         row.add("Пока нет");
+
         keyboardRows.add(row);
 
-//        row = new KeyboardRow();             // еще один ряд кнопок
-//        row.add("Добавить свой раздел");
-//        row.add("Удалить раздел");
-//        row.add("Изменить время вопросов");
-//        keyboardRows.add(row);
+        row = new KeyboardRow();             // еще один ряд кнопок
+        row.add("Добавить свой раздел");
+       row.add("Удалить раздел");
+       row.add("Изменить время вопросов");
+        keyboardRows.add(row);
 
         keyboardMarkup.setKeyboard(keyboardRows); //добавляем в клавиатуру наши ряды
-        message.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру
-        */
+        message.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру*/
 ////////////////ПОСТОЯННАЯ КЛАВИАТУРА КОНЕЦ/////
         executedMessage(message);
 
@@ -269,6 +275,31 @@ else {                                                      //Switch сраба�
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText(texToSend);
+        executedMessage(message);
+    }
+
+    private void  smartKeyboard( long chatID,String  yes, String no){
+
+        SendMessage message = new SendMessage();
+        message.setChatId(chatID);
+        message.setText("Попробуем?");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+        var buttonYES = new InlineKeyboardButton();
+        buttonYES.setText(yes);
+        buttonYES.setCallbackData(YES_BUTTON); // позволяет боту понять, какая кнопка была нажата
+        var buttonNO = new InlineKeyboardButton();
+        buttonNO.setText(no);
+        buttonNO.setCallbackData(NO_BUTTON);
+        rowInline.add(buttonYES);
+        rowInline.add(buttonNO);
+        rowsInLine.add(rowInline);
+        markupInline.setKeyboard(rowsInLine);
+        message.setReplyMarkup(markupInline);
+
+
         executedMessage(message);
     }
 

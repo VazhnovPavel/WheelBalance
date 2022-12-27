@@ -268,3 +268,374 @@ java.net.SocketTimeoutException: Read timed out
 2022-12-27 12:50:11,479 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-12-27 12:50:11,483 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
 2022-12-27 12:50:11,485 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:04:23,956 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 7903 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:04:23,957 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:04:24,140 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:04:24,162 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:04:24,288 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:04:24,312 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:04:24,368 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:04:24,400 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:04:24,494 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:04:24,500 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:04:24,734 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:04:24,737 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:04:25,520 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:04:25,811 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.976 seconds (JVM running for 2.382)
+2022-12-27 13:04:26,420 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:29:38,024 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:29:38,036 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:29:38,040 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:29:43,660 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8246 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:29:43,661 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:29:43,849 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:29:43,877 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:29:44,034 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:29:44,054 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:29:44,114 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:29:44,146 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:29:44,253 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:29:44,260 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:29:44,572 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:29:44,577 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:29:45,290 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:29:45,573 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.056 seconds (JVM running for 2.37)
+2022-12-27 13:29:51,303 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:32:11,876 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:32:11,880 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:32:11,883 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:32:14,837 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8282 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:32:14,838 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:32:14,981 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:32:14,997 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:32:15,126 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:32:15,142 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:32:15,192 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:32:15,221 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:32:15,296 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:32:15,301 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:32:15,505 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:32:15,508 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:32:16,127 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:32:16,416 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.675 seconds (JVM running for 2.104)
+2022-12-27 13:32:23,620 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:32:34,442 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:32:34,447 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:32:34,449 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:32:37,665 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8300 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:32:37,666 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:32:37,888 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:32:37,908 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:32:38,050 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:32:38,066 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:32:38,123 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:32:38,151 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:32:38,220 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:32:38,225 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:32:38,487 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:32:38,490 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:32:39,106 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:32:39,413 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.868 seconds (JVM running for 2.15)
+2022-12-27 13:32:43,692 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:32:43,698 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] Cannot invoke "String.isEmpty()" because "this.text" is null
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "this.text" is null
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.validate(SendMessage.java:130)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendMethodRequest(DefaultAbsSender.java:1070)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1044)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.executedMessage(TelegramBot.java:265)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.smartKeyboard(TelegramBot.java:298)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:121)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2022-12-27 13:33:13,176 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:33:13,183 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:33:13,185 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:35:13,751 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8335 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:35:13,752 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:35:13,930 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:35:13,952 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:35:14,087 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:35:14,116 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:35:14,170 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:35:14,199 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:35:14,271 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:35:14,276 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:35:14,508 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:35:14,511 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:35:16,895 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:35:17,658 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 4.026 seconds (JVM running for 4.273)
+2022-12-27 13:35:22,220 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:35:22,224 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] Cannot invoke "String.isEmpty()" because "this.text" is null
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "this.text" is null
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.validate(SendMessage.java:130)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendMethodRequest(DefaultAbsSender.java:1070)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1044)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.executedMessage(TelegramBot.java:265)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.smartKeyboard(TelegramBot.java:298)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:121)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2022-12-27 13:37:38,388 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:37:38,395 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:37:38,399 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:37:41,140 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8365 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:37:41,140 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:37:41,320 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:37:41,338 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:37:41,466 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:37:41,485 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:37:41,541 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:37:41,568 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:37:41,641 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:37:41,646 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:37:41,851 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:37:41,853 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:37:42,522 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:37:42,808 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.781 seconds (JVM running for 2.028)
+2022-12-27 13:37:48,838 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:38:15,477 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:38:15,483 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:38:15,486 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:38:18,297 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8384 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:38:18,297 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:38:18,537 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:38:18,558 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:38:18,676 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:38:18,694 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:38:18,745 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:38:18,772 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:38:18,853 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:38:18,858 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:38:19,064 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:38:19,067 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:38:19,903 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:38:20,200 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.02 seconds (JVM running for 2.32)
+2022-12-27 13:38:25,045 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:38:25,049 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] Cannot invoke "String.isEmpty()" because "this.text" is null
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "this.text" is null
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.validate(SendMessage.java:130)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendMethodRequest(DefaultAbsSender.java:1070)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1044)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.executedMessage(TelegramBot.java:265)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.smartKeyboard(TelegramBot.java:301)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:121)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2022-12-27 13:39:03,328 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:39:03,334 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:39:03,338 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:39:05,983 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8411 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:39:05,983 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:39:06,160 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:39:06,179 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:39:06,316 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:39:06,331 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:39:06,382 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:39:06,413 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:39:06,484 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:39:06,492 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:39:06,706 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:39:06,708 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:39:07,335 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:39:07,615 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.783 seconds (JVM running for 2.037)
+2022-12-27 13:39:11,904 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:41:15,158 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:41:15,164 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:41:15,167 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:41:18,423 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8493 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:41:18,424 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:41:18,592 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:41:18,609 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:41:18,734 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:41:18,750 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:41:18,804 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:41:18,839 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:41:18,907 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:41:18,914 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:41:19,170 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:41:19,173 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:41:20,014 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:41:20,341 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.046 seconds (JVM running for 2.501)
+2022-12-27 13:41:24,110 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:41:24,288 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] Cannot invoke "String.isEmpty()" because "this.text" is null
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "this.text" is null
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.validate(SendMessage.java:130)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendMethodRequest(DefaultAbsSender.java:1070)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1044)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.executedMessage(TelegramBot.java:288)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.startCommandReceived(TelegramBot.java:226)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:118)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2022-12-27 13:41:40,304 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:41:40,308 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:41:40,314 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:41:43,197 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8563 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:41:43,198 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:41:43,436 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:41:43,452 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:41:43,572 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:41:43,587 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:41:43,643 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:41:43,681 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:41:43,759 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:41:43,765 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:41:44,005 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:41:44,008 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:41:44,741 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:41:45,037 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.975 seconds (JVM running for 2.224)
+2022-12-27 13:41:49,175 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:42:27,338 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:42:27,342 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:42:27,344 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:42:29,955 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8585 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:42:29,955 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:42:30,115 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:42:30,132 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:42:30,258 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:42:30,275 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:42:30,325 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:42:30,354 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:42:30,423 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:42:30,429 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:42:30,631 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:42:30,634 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:42:31,381 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:42:31,697 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.883 seconds (JVM running for 2.128)
+2022-12-27 13:42:34,052 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:45:16,346 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:45:16,350 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:45:16,369 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:45:18,998 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8623 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:45:18,999 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:45:19,168 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:45:19,184 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:45:19,335 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:45:19,351 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:45:19,405 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:45:19,435 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:45:19,508 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:45:19,514 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:45:19,784 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:45:19,788 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:45:20,626 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:45:20,921 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.036 seconds (JVM running for 2.275)
+2022-12-27 13:45:24,521 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:46:06,984 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:47:45,703 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:47:45,708 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:47:45,711 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:47:48,697 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8651 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:47:48,698 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:47:48,855 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:47:48,871 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:47:49,004 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:47:49,026 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:47:49,079 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:47:49,109 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:47:49,180 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:47:49,185 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:47:49,406 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:47:49,409 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:47:50,033 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:47:50,320 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.728 seconds (JVM running for 2.138)
+2022-12-27 13:47:53,147 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:48:51,493 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:48:51,501 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:48:51,503 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:48:53,939 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8687 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:48:53,940 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:48:54,142 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:48:54,161 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:48:54,288 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:48:54,308 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:48:54,368 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:48:54,398 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:48:54,466 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:48:54,472 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:48:54,683 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:48:54,688 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:48:55,494 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:48:55,790 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.994 seconds (JVM running for 2.231)
+2022-12-27 13:48:59,509 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:49:20,549 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:49:20,555 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:49:20,557 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:49:23,362 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8709 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:49:23,363 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:49:23,533 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:49:23,566 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:49:23,703 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:49:23,718 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:49:23,774 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:49:23,806 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:49:23,892 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:49:23,901 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:49:24,136 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:49:24,140 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:49:24,775 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:49:25,045 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.798 seconds (JVM running for 2.041)
+2022-12-27 13:49:28,292 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:50:01,044 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:53:02,037 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:53:02,044 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:53:02,048 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:53:05,272 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8762 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:53:05,273 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:53:05,462 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:53:05,485 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:53:05,634 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:53:05,650 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:53:05,708 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:53:05,736 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:53:05,815 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:53:05,821 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:53:06,051 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:53:06,054 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:53:06,781 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:53:07,077 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.915 seconds (JVM running for 2.371)
+2022-12-27 13:54:39,508 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:54:39,512 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:54:39,519 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:54:42,407 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8823 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:54:42,408 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:54:42,570 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:54:42,588 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:54:42,720 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:54:42,751 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:54:42,811 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:54:42,841 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:54:42,916 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:54:42,922 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:54:43,127 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:54:43,131 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:54:43,801 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:54:44,105 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.856 seconds (JVM running for 2.14)
+2022-12-27 13:54:49,364 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:57:40,335 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:57:40,339 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-12-27 13:57:40,342 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-12-27 13:57:43,388 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 8899 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2022-12-27 13:57:43,389 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-12-27 13:57:43,540 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 13:57:43,557 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2022-12-27 13:57:43,683 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 13:57:43,704 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-27 13:57:43,756 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 13:57:43,793 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-12-27 13:57:43,873 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-12-27 13:57:43,880 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-27 13:57:44,119 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 13:57:44,122 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 13:57:44,733 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2022-12-27 13:57:45,071 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.784 seconds (JVM running for 2.169)
+2022-12-27 13:57:49,483 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2022-12-27 13:57:58,347 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
