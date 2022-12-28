@@ -18,7 +18,7 @@ public class User {
     @Column(name = "registered_at")
     private Timestamp registeredAt;
     @Column(name = "time_to_questions")
-    private Timestamp timeToQuestions;
+    private String timeToQuestions;
     @Column(name = "number_wheel_id")
     private Timestamp numberWheelId;
 
@@ -64,11 +64,11 @@ public class User {
         this.registeredAt = registeredAt;
     }
 
-    public Timestamp getTimeToQuestions() {
+    public String getTimeToQuestions() {
         return timeToQuestions;
     }
 
-    public void setTimeToQuestions(Timestamp timeToQuestions) {
+    public void setTimeToQuestions(String timeToQuestions) {
         this.timeToQuestions = timeToQuestions;
     }
 
