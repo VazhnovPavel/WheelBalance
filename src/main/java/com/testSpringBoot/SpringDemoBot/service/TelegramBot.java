@@ -1,15 +1,10 @@
 package com.testSpringBoot.SpringDemoBot.service;
 
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
-import com.testSpringBoot.SpringDemoBot.model.AskUser;
-import com.testSpringBoot.SpringDemoBot.model.AskUserRepository;
-import com.testSpringBoot.SpringDemoBot.model.User;
-import com.testSpringBoot.SpringDemoBot.model.UserRepository;
+import com.testSpringBoot.SpringDemoBot.model.*;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -50,7 +45,8 @@ import java.util.List;
         static final String ERROR_OCCURED = "Error occurred: ";
         private String textTimetoQuestions;
 
-        static final String HELP_TEXT = "/start - запустить бота \n\n" +
+        static final String HELP_TEXT =
+                "/start - запустить бота \n\n" +
                 "/addSection - добавить свой раздел в “Колесо” \n\n" +
                 "/deleteSection - удалить раздел из “Колеса” \n\n" +
                 "/renameSection - переименовать раздел из “Колеса” \n\n" +
@@ -81,7 +77,6 @@ import java.util.List;
             listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
             listofCommands.add(new BotCommand("/month", "Просто попробуем добавить строку"));
 
-
             try {
                 this.execute(new SetMyCommands(listofCommands, new BotCommandScopeDefault(), null));
             } catch (TelegramApiException e) {
@@ -101,8 +96,8 @@ import java.util.List;
 
         @Override
         public void onUpdateReceived(Update update) {
-
-            if (update.hasMessage() && update.getMessage().hasText()) {              // если нам прислали текст, то...
+            //  если нам прислали текст, то...
+            if (update.hasMessage() && update.getMessage().hasText()) {
                 String messageText = update.getMessage().getText();
                 long chatID = update.getMessage().getChatId();
 
@@ -114,62 +109,61 @@ import java.util.List;
                     for (User user : users) {
                         prepareAndSendMessage(user.getChatId(), textToSend);
                     }
-                } else if (messageText.matches("^\\d{2}:\\d{2}$")) {     //Если юзер передает дату в формате ЧЧ:ММ
+                    //Если юзер передает дату в формате ЧЧ:ММ
+                } else if (messageText.matches("^\\d{2}:\\d{2}$")) {
                     log.info("Пользователь ввел время для вопросов");
                     setTextTimetoQuestions(messageText);
                     verificationTimeQuestion(chatID, messageText);
-                } else {                                                      //Switch срабатывает, если не было send
+                } else {
+                    //Switch срабатывает, если не было send
                     switch (messageText /*.toLowerCase()*/) {
                         case "/start":
                             // передаем Имя пользователя
                             registerUser(update.getMessage(), update);
                             startCommandReceived(chatID, update.getMessage().getChat().getFirstName());
-
-
                             break;
                         case "/help":
                             prepareAndSendMessage(chatID, HELP_TEXT);
                             break;
                         case "да":
-                            prepareAndSendMessage(chatID, "В какое время вам было бы удобно получать вопросы? Напишите в " +
-                                    "формате ЧЧ:ММ по Москве");
+                            prepareAndSendMessage(chatID, "В какое время вам было бы удобно " +
+                                    "получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
                         default:
                             prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
                     }
 
                 }
 
-            } else if (update.hasCallbackQuery()) {           //провереям, вдруг помимо текста нам передали значение
+            }
+            //провереям, вдруг помимо текста нам передали значение
+            else if (update.hasCallbackQuery()) {
                 String callBackData = update.getCallbackQuery().getData();
                 long messageId = update.getCallbackQuery().getMessage().getMessageId();
                 long chatId = update.getCallbackQuery().getMessage().getChatId();
 
-
                 if (callBackData.equals(YES_BUTTON)) {
-                    String text = "Ты нажал(а) ДА";
-                    executeEditMessageText(text, chatId, messageId);
+                    executeEditMessageText("Ты нажал(а) ДА", chatId, messageId);
                     timeToQuestions(chatId);
+
                 } else if (callBackData.equals(NO_BUTTON)) {
-                    String text = "Ты нажал(а) НЕТ";
-                    executeEditMessageText(text, chatId, messageId);
+                    executeEditMessageText("Ты нажал(а) НЕТ", chatId, messageId);
+
                 } else if (callBackData.equals(NO_BUTTON_verificationTimeQuestion)) {
-                    log.info("Пользователь сказал, что задал неправильное время");
-                    SendMessage message = new SendMessage();
-                    message.setChatId(chatId);
-                    message.setText("Давай попробуем еще раз");
-                    executedMessage(message);
+                    log.info("Пользователь ввел некоректные данные");
+                    sendMessage(chatId, "Попробуйте еще раз");
                     timeToQuestions(chatId);
 
                 } else if (callBackData.equals(YES_BUTTON_verificationTimeQuestion)) {
-                    log.info("Пользователь задал верное время");
-                    //тут нужен метод добавление времени в БД
-                    // public static  String textTimeToQuest;
+                    log.info("Пользователь ввел корректные данные");
                     addTimeToDB(chatId, getTextTimetoQuestions());
+                    sendMessage(chatId, "Пока наш бот может отправлять сообщение только в одно время " +
+                            "(20:00 по МСК). Но мы сохраняем ваши предпочтения, и как только доделаем, бот будет " +
+                            "присылать сообщения в ваше указанное время");
                 }
             }
         }
-
-        private void timeToQuestions(long chatID) {   //реализуем клавиатуру на вопросе
+        //реализуем клавиатуру на вопросе
+        private void timeToQuestions(long chatID) {
             SendMessage message = new SendMessage();
             message.setChatId(chatID);
             message.setText("В какое время вам было бы удобно получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
@@ -177,33 +171,30 @@ import java.util.List;
         }
 
         private void registerUser(Message msg, Update update) {
-            if (userRepository.findById(msg.getChatId()).isEmpty()) {         //Если новый user id, то...
-                var chatId = msg.getChatId();
-                var chat = msg.getChat();
-
-                User user = new User();    // создаем юзера
-
-                user.setChatId(chatId);
-                user.setFirstName(update.getMessage().getChat().getFirstName());       // берем данные о юзере
+            // Check if user already exists
+            if (userRepository.findById(msg.getChatId()).isEmpty()) {
+                // Create new user
+                User user = new User();
+                user.setChatId(msg.getChatId());
+                user.setFirstName(update.getMessage().getChat().getFirstName());
                 user.setLastName(update.getMessage().getChat().getLastName());
                 user.setUserName("@" + update.getMessage().getChat().getUserName());
-                user.setRegisteredAt(new Timestamp(System.currentTimeMillis()));  // время регистрации
+                user.setRegisteredAt(new Timestamp(System.currentTimeMillis()));
 
+                // Save user to repository
                 userRepository.save(user);
-
-                log.info("User saved" + user);
+                log.info("Saved user: " + user);
             }
         }
 
-        private void startCommandReceived(long chatID, String name) {            //метод обработки сообщения
 
+
+
+        private void startCommandReceived(long chatID, String name) {
+            // Send message and create reply keyboard
             sendMessage(chatID, name + START_MESSAGE);
             log.info("Replied to user" + name);
-            String yes = "ДА(смарт)";
-            String no = "Нет(смарт)";
-            smartKeyboard(chatID, yes, no);
-
-
+            smartKeyboard(chatID, "ДА", "Нет");
         }
 
         //метод отправки сообщения пользоваелю
@@ -278,53 +269,67 @@ import java.util.List;
         }
 
         private void smartKeyboard(long chatID, String yes, String no) {
-
+            // Create message and reply markup
             SendMessage message = new SendMessage();
             message.setChatId(chatID);
             message.setText("Попробуем?");
-
             InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
             List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
             List<InlineKeyboardButton> rowInline = new ArrayList<>();
-            var buttonYES = new InlineKeyboardButton();
-            buttonYES.setText(yes);
-            buttonYES.setCallbackData(YES_BUTTON); // позволяет боту понять, какая кнопка была нажата
-            var buttonNO = new InlineKeyboardButton();
-            buttonNO.setText(no);
-            buttonNO.setCallbackData(NO_BUTTON);
-            rowInline.add(buttonYES);
-            rowInline.add(buttonNO);
+            rowInline.add(createInlineKeyboardButton(yes, YES_BUTTON));
+            rowInline.add(createInlineKeyboardButton(no, NO_BUTTON));
             rowsInLine.add(rowInline);
             markupInline.setKeyboard(rowsInLine);
             message.setReplyMarkup(markupInline);
 
-
+            // Send message
             executedMessage(message);
         }
+
+
+
+
+
 
         private void verificationTimeQuestion(long chatID, String messageText) {
+            // Extract hour and minute from messageText
+            String[] parts = messageText.split(":");
+            int hour = Integer.parseInt(parts[0]);
+            int minute = Integer.parseInt(parts[1]);
+
+            // Validate hour and minute
+            if (hour < 0 || hour >= 24 || minute < 0 || minute >= 60) {
+                prepareAndSendMessage(chatID, "Неправильный формат даты, попробуйте еще раз");
+                return;
+            }
+
+            // Create message and reply markup
             SendMessage message = new SendMessage();
             message.setChatId(chatID);
-            String[] parts = messageText.split(":");
-            message.setText("Вы хотите получать вопросы в " + parts[0] + " часов " + parts[1] + " минут, верно?");
+            message.setText("Вы хотите получать вопросы в " + hour + " часов " + minute + " минут?");
             InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
             List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
             List<InlineKeyboardButton> rowInline = new ArrayList<>();
-            var buttonYES = new InlineKeyboardButton();
-            buttonYES.setText("Да верно");
-            buttonYES.setCallbackData(YES_BUTTON_verificationTimeQuestion); // позволяет боту понять, какая кнопка была нажата
-            var buttonNO = new InlineKeyboardButton();
-            buttonNO.setText("Нет, не верно");
-            buttonNO.setCallbackData(NO_BUTTON_verificationTimeQuestion);
-            rowInline.add(buttonYES);
-            rowInline.add(buttonNO);
+            rowInline.add(createInlineKeyboardButton("Да, верно", YES_BUTTON_verificationTimeQuestion));
+            rowInline.add(createInlineKeyboardButton("Нет, исправить", NO_BUTTON_verificationTimeQuestion));
             rowsInLine.add(rowInline);
             markupInline.setKeyboard(rowsInLine);
             message.setReplyMarkup(markupInline);
 
-
+            // Send message
             executedMessage(message);
         }
+
+        private InlineKeyboardButton createInlineKeyboardButton(String text, String callbackData) {
+            InlineKeyboardButton button = new InlineKeyboardButton();
+            button.setText(text);
+            button.setCallbackData(callbackData);
+            return button;
+        }
+
+
+
+
 
         private void addTimeToDB(long chatId, String timeToQuestions) {
 
@@ -336,14 +341,7 @@ import java.util.List;
             userRepository.save(user);
             log.info("Добавили время в базу данных" + user);
 
-
-
-
-
-
         }
-
-
 
 
 
@@ -356,4 +354,5 @@ import java.util.List;
         public void setTextTimetoQuestions(String textTimetoQuestions) {
             this.textTimetoQuestions = textTimetoQuestions;
         }
+
 }
