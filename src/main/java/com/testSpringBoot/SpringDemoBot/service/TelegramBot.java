@@ -22,7 +22,9 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.persistence.EntityNotFoundException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -32,7 +34,9 @@ import java.util.List;
         @Autowired
         private UserRepository userRepository;
         @Autowired
-        private AskUserRepository askUserRepository;
+        private DataBaseQuestRepository dataBaseQuestRepository;
+        @Autowired
+        private SendAllUserRepository sendAllUserRepository;
         final BotConfig config;
         static final String START_MESSAGE = EmojiParser.parseToUnicode(" Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных аспектах " +
                 "жизни (или в каких пожелаешь).\n\n Я буду ежедневно задавать тебе простые вопросы об аспектах твоей жизни, " +
@@ -159,6 +163,7 @@ import java.util.List;
                     sendMessage(chatId, "Пока наш бот может отправлять сообщение только в одно время " +
                             "(20:00 по МСК). Но мы сохраняем ваши предпочтения, и как только доделаем, бот будет " +
                             "присылать сообщения в ваше указанное время");
+                    addDataBaseQuest(chatId);
                 }
             }
         }
@@ -225,12 +230,13 @@ import java.util.List;
             executedMessage(message);
 
         }
-
-        @Scheduled(cron = "${interval-in-cron} ")                     //чтобы запускался автоматически
+        //чтобы запускался автоматически
+        @Scheduled(cron = "${interval-in-cron} ")
         private void SendAskUser() {
-            var askUser = askUserRepository.findAll(); // все записи, которые есть в таблице
+            // все записи, которые есть в таблице
+            var askUser = sendAllUserRepository.findAll();
             var users = userRepository.findAll();
-            for (AskUser ask : askUser) {
+            for (SendAllUser ask : askUser) {
                 for (User user : users) {
                     prepareAndSendMessage(user.getChatId(), ask.getTextAskUser());
                 }
@@ -342,11 +348,6 @@ import java.util.List;
             log.info("Добавили время в базу данных" + user);
 
         }
-
-
-
-
-
         public String getTextTimetoQuestions() {
             return textTimetoQuestions;
         }
@@ -354,5 +355,23 @@ import java.util.List;
         public void setTextTimetoQuestions(String textTimetoQuestions) {
             this.textTimetoQuestions = textTimetoQuestions;
         }
+        private void addDataBaseQuest (Long chatId){
+            DataBaseQuest userDB = new DataBaseQuest();
+            List<String> questions = Arrays.asList("Как здоровье?", "Как работа?", "Саморазвитие?"
+                    , "Как деньги?", "Как вещи?", "Как отношения?", "Развлечения?"
+                    , "Семья?", "Как крастота?");
+            try {
+                userDB.setChat_id(chatId);
+                for (String question : questions) {
+                    userDB.setQuest(question);
+                    dataBaseQuestRepository.save(userDB);
+                }
+                log.info("Saved user to DB: " + userDB);
+                System.out.println("Пользователь добавлен в базу данных");
+            } catch (Exception e) {
+                log.error("Error saving user to DB: " + userDB, e);
+                System.out.println("Ошибка добавления пользователя в базу данных: " + e);
+            }
+        }
 
-}
+    }

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity( name = "ask_user_table")
-public class AskUser {
+public class SendAllUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)   // спринг сам генерирует id
     private long id;
