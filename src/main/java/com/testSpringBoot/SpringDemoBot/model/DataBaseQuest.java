@@ -51,7 +51,6 @@ public class DataBaseQuest {
         return "DataBaseQuest{" +
                 "chat_id=" + chat_id +
                 ", quest='" + quest + '\'' +
-                ", date=" + date +
                 '}';
     }
 }

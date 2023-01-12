@@ -1,37 +1,39 @@
 package com.testSpringBoot.SpringDemoBot.model;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
-@Service
-@Slf4j
+@Component
 public class CreateDateColumn {
-    private final DataBaseQuestRepository dataBaseQuestRepository;
 
-    public CreateDateColumn(DataBaseQuestRepository dataBaseQuestRepository) {
-        this.dataBaseQuestRepository = dataBaseQuestRepository;
-    }
+    @Scheduled(cron = "* */10 * * * *")
+    public void addNewColumn() {
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory();
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String today = "\"" + formatter.format(new Date()) + "\"";
+        String sql = "ALTER TABLE public.data_base_quest ADD " + today + "  VARCHAR(255)";
 
-    @Scheduled(cron = "0 * * * * *")
-    public void scheduleTask() {
-        createWithCurrentDate();
-    }
-
-    public void createWithCurrentDate() {
-        DataBaseQuest dataBaseQuest = new DataBaseQuest();
-        dataBaseQuest.setDate(LocalDate.now());
-        LocalDate date = LocalDate.now();
-        if(dataBaseQuestRepository.findByDate(date).isPresent()){
-            log.info("Date already exists: {}", date);
-            return;
-        }
         try {
-            dataBaseQuestRepository.save(dataBaseQuest);
+            session.createSQLQuery(sql).executeUpdate();
         }
-            catch  (Exception e) {
-                log.error("Error saving Table to DB: " +  e);
-                System.out.println("Ошибка добавления столбца Текущей даты в базу данных: " + e);
-            }
+        catch (Exception e){
+
+        }
+        finally {
+            session.getTransaction().commit();
+        }
     }
 }
