@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-
+@Slf4j
 @Component
 public class CreateDateColumn {
 
@@ -30,7 +30,7 @@ public class CreateDateColumn {
             session.createSQLQuery(sql).executeUpdate();
         }
         catch (Exception e){
-
+            log.info("Проверка прошла успешно, столбец уже создан");
         }
         finally {
             session.getTransaction().commit();

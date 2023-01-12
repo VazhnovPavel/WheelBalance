@@ -339,13 +339,10 @@ import java.util.List;
         }
 
 
-
-
-
         private void addTimeToDB(long chatId, String timeToQuestions) {
 
             String[] parts = timeToQuestions.split(":");
-            timeToQuestions = "* " + parts[1] + " " + parts[0] + " * " + "*" + " *" + " *";
+            timeToQuestions = "* " + parts[1] + " " + parts[0] + " * " + "*" + " *" ;
             log.error(timeToQuestions);     //конвертируем дату в формат cron
             User user = userRepository.findById(chatId).orElseThrow(() -> new EntityNotFoundException());
             user.setTimeToQuestions(timeToQuestions);
@@ -378,6 +375,4 @@ import java.util.List;
                 System.out.println("Ошибка добавления пользователя в базу данных: " + e);
             }
         }
-
-
     }
