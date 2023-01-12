@@ -26,21 +26,23 @@ public class SchedulerService {
             String cronExpression = user.getTimeToQuestions();
             System.out.println("cronExpression = " + cronExpression);
             try {
-                //далее магия от ИИ
                 CronSequenceGenerator generator = new CronSequenceGenerator(cronExpression);
+
                 Date nextExecutionTime = generator.next(new Date());
-                System.out.println("nextExecutionTime = "+ nextExecutionTime);
-                if(nextExecutionTime != null && nextExecutionTime.after(new Date())){
-                    //caseQuestion(chatId);
-                    System.out.println("Программа была тут");
+                System.out.println("nextExecutionTime = " + nextExecutionTime );
+                Date currentDate = new Date();
+                System.out.println("currentDate = " + currentDate );
+                if(nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()){
+                    caseQuestion();
+
                 }
             } catch (IllegalArgumentException e) {
-                // Handle invalid cron expression
                 System.out.println("Какая то ошибка" + e);
             }
         }
     }
-    private void caseQuestion(Long chatId) {
-        // do something
+    private void caseQuestion() {
+
+        System.out.println("Время cron соответствует текущему времени");
     }
 }
