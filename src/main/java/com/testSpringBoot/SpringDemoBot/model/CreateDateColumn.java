@@ -22,8 +22,8 @@ public class CreateDateColumn {
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
         session.beginTransaction();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-        String today = "\"" + formatter.format(new Date()) + "\"";
+        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
+        String today ="\""+ "date_"+ formatter.format(new Date()) + "\"";
         String sql = "ALTER TABLE public.data_base_quest ADD " + today + "  VARCHAR(255)";
 
         try {

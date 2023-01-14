@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -33,7 +34,9 @@ import java.util.Date;
 import java.util.List;
 
 
-    @Slf4j
+
+
+@Slf4j
     @Component
     public class TelegramBot extends TelegramLongPollingBot {
         @Autowired
@@ -42,6 +45,7 @@ import java.util.List;
         private DataBaseQuestRepository dataBaseQuestRepository;
         @Autowired
         private SendAllUserRepository sendAllUserRepository;
+
         final BotConfig config;
         static final String START_MESSAGE = EmojiParser.parseToUnicode(" Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных аспектах " +
                 "жизни (или в каких пожелаешь).\n\n Я буду ежедневно задавать тебе простые вопросы об аспектах твоей жизни, " +
@@ -165,9 +169,8 @@ import java.util.List;
                 } else if (callBackData.equals(YES_BUTTON_verificationTimeQuestion)) {
                     log.info("Пользователь ввел корректные данные");
                     addTimeToDB(chatId, getTextTimetoQuestions());
-                    sendMessage(chatId, "Пока наш бот может отправлять сообщение только в одно время " +
-                            "(20:00 по МСК). Но мы сохраняем ваши предпочтения, и как только доделаем, бот будет " +
-                            "присылать сообщения в ваше указанное время");
+                    sendMessage(chatId, "Наш бот сохранил время, но пока он не присылает вопросы." +
+                            " Мы работаем над этим");
                     addDataBaseQuest(chatId);
                 }
             }
@@ -359,13 +362,18 @@ import java.util.List;
         }
         private void addDataBaseQuest (Long chatId){
             DataBaseQuest userDB = new DataBaseQuest();
+
+            DataBaseQuestId id = new DataBaseQuestId();
+
             List<String> questions = Arrays.asList("Как здоровье?", "Как работа?", "Саморазвитие?"
                     , "Как деньги?", "Как вещи?", "Как отношения?", "Развлечения?"
                     , "Семья?", "Как крастота?");
             try {
-                userDB.setChat_id(chatId);
+
+                id.setChat_id(chatId);
+                userDB.setId(id);
                 for (String question : questions) {
-                    userDB.setQuest(question);
+                    id.setQuest(question);
                     dataBaseQuestRepository.save(userDB);
                 }
                 log.info("Saved user to DB: " + userDB);
@@ -375,4 +383,5 @@ import java.util.List;
                 System.out.println("Ошибка добавления пользователя в базу данных: " + e);
             }
         }
+
     }

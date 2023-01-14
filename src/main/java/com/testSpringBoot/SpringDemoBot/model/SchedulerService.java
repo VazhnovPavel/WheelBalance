@@ -20,29 +20,27 @@ public class SchedulerService {
 
     @Scheduled(cron = "0 * * * * *")
     public void scheduleQuestions() {
-        System.out.println("Программа побывала тут");
         List<User> userList = repository.findAll();
         for (User user: userList) {
             String cronExpression = user.getTimeToQuestions();
-            System.out.println("cronExpression = " + cronExpression);
+            Long chat_id = user.getChatId();
             try {
                 CronSequenceGenerator generator = new CronSequenceGenerator(cronExpression);
-
                 Date nextExecutionTime = generator.next(new Date());
-                System.out.println("nextExecutionTime = " + nextExecutionTime );
                 Date currentDate = new Date();
-                System.out.println("currentDate = " + currentDate );
-                if(nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()){
-                    caseQuestion();
 
+                if(nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()){
+                    caseQuestion(chat_id);
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Какая то ошибка" + e);
             }
         }
     }
-    private void caseQuestion() {
-
+    private void caseQuestion(Long chat_id) {
         System.out.println("Время cron соответствует текущему времени");
+        CheckAndSendQuest checkAndSendQuest = new CheckAndSendQuest();
+        System.out.println(chat_id);
+        checkAndSendQuest.checkDateAndChatId(chat_id);
     }
 }
