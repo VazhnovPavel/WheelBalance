@@ -370,7 +370,7 @@ import java.util.List;
                     , "Семья?", "Как крастота?");
             try {
 
-                id.setChat_id(chatId);
+                id.setChatId(chatId);
                 userDB.setId(id);
                 for (String question : questions) {
                     id.setQuest(question);

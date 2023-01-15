@@ -15,7 +15,7 @@ import java.io.Serializable;
         public DataBaseQuestId() {
         }
         @Column(name = "chat_id", insertable = false, updatable = false)
-        private long chat_id;
+        private long chatId;
         @Column(name = "quest", insertable = false, updatable = false)
         private String quest;
     }

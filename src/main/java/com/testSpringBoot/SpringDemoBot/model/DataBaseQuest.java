@@ -12,7 +12,8 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Entity(name = "data_base_quest")
+@Entity
+@Table(name = "data_base_quest")
 public class DataBaseQuest implements Serializable {
 
     @Column(name = "date")

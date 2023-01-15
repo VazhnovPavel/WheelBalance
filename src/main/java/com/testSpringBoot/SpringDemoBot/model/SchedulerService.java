@@ -2,6 +2,7 @@ package com.testSpringBoot.SpringDemoBot.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronExpression;
 import org.springframework.scheduling.support.CronSequenceGenerator;
@@ -14,6 +15,8 @@ import java.util.List;
 
 @Service
 public class SchedulerService {
+    @Autowired
+    private  JdbcTemplate jdbcTemplate;
 
     @Autowired
     private UserRepository repository;
@@ -39,8 +42,7 @@ public class SchedulerService {
     }
     private void caseQuestion(Long chat_id) {
         System.out.println("Время cron соответствует текущему времени");
-        CheckAndSendQuest checkAndSendQuest = new CheckAndSendQuest();
-        System.out.println(chat_id);
+        CheckAndSendQuest checkAndSendQuest = new CheckAndSendQuest(jdbcTemplate);
         checkAndSendQuest.checkDateAndChatId(chat_id);
     }
 }
