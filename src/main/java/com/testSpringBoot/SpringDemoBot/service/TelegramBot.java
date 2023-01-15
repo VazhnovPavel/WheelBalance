@@ -10,8 +10,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -28,6 +31,7 @@ import javax.persistence.EntityNotFoundException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -38,15 +42,17 @@ import java.util.List;
 
 @Slf4j
     @Component
-    public class TelegramBot extends TelegramLongPollingBot {
+public class TelegramBot extends TelegramLongPollingBot {
         @Autowired
         private UserRepository userRepository;
         @Autowired
         private DataBaseQuestRepository dataBaseQuestRepository;
         @Autowired
         private SendAllUserRepository sendAllUserRepository;
+        @Autowired
+        private JdbcTemplate jdbcTemplate;
 
-        final BotConfig config;
+         BotConfig config;
         static final String START_MESSAGE = EmojiParser.parseToUnicode(" Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных аспектах " +
                 "жизни (или в каких пожелаешь).\n\n Я буду ежедневно задавать тебе простые вопросы об аспектах твоей жизни, " +
                 "а тебе нужно будет ответить по десятибалльной шкале, насколько ты удовлетворен на данный момент.\n\n " +
@@ -266,9 +272,11 @@ import java.util.List;
 
         }
 
-        private void executedMessage(SendMessage message) {
+        public void executedMessage(SendMessage message) {
             try {
+
                 execute(message);
+                System.out.println("Сообщение пользователю отправлено");
             } catch (TelegramApiException e) {
                 log.error(ERROR_OCCURED + e.getMessage());
             }
@@ -362,12 +370,11 @@ import java.util.List;
         }
         private void addDataBaseQuest (Long chatId){
             DataBaseQuest userDB = new DataBaseQuest();
-
             DataBaseQuestId id = new DataBaseQuestId();
 
             List<String> questions = Arrays.asList("Как здоровье?", "Как работа?", "Саморазвитие?"
                     , "Как деньги?", "Как вещи?", "Как отношения?", "Развлечения?"
-                    , "Семья?", "Как крастота?");
+                    , "Семья?", "Как крастота?" , "Как друзья?");
             try {
 
                 id.setChatId(chatId);
@@ -377,11 +384,74 @@ import java.util.List;
                     dataBaseQuestRepository.save(userDB);
                 }
                 log.info("Saved user to DB: " + userDB);
-                System.out.println("Пользователь добавлен в базу данных");
+
             } catch (Exception e) {
                 log.error("Error saving user to DB: " + userDB, e);
-                System.out.println("Ошибка добавления пользователя в базу данных: " + e);
+
+            }
+        }
+        //СКАНИРУЕМ КАЖДУЮ МИНУТУ СПИСОК НА НАЛИЧИЕ СОВПАДЕНИЙ CRON
+        @Scheduled(cron = "0 * * * * *")
+        public void schedulerService(){
+            List<User> userList = userRepository.findAll();
+                for (User user: userList) {
+                    String cronExpression = user.getTimeToQuestions();
+                    Long chat_id = user.getChatId();
+                    try {
+                        CronSequenceGenerator generator = new CronSequenceGenerator(cronExpression);
+                        Date nextExecutionTime = generator.next(new Date());
+                        Date currentDate = new Date();
+
+                        if(nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()){
+                            log.info("Время cron соответствует текущему времени");
+                            checkDateAndChatId(chat_id);
+                        }
+                    } catch (IllegalArgumentException e) {
+                        log.info("Какая то ошибка" + e);
+                    }
+                }
+        }
+
+
+    //КАКИЕ СТОЛБЦЫ quest СВОБОДНЫ У ДАННОГО chat_id ЗА ПОСЛЕДНИЕ 3 ДНЯ
+    public void checkDateAndChatId(Long chat_id) {
+        log.info("Выполнение запроса для получения квеста");
+        LocalDate today = LocalDate.now();
+        LocalDate yesterday = today.minusDays(1);
+        LocalDate dayBeforeYesterday = today.minusDays(2);
+        String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String formattedYesterdayDate = yesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String formattedDayBeforeYesterdayDate = dayBeforeYesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String sql = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
+                + " IS NULL AND date_" + formattedYesterdayDate
+                + " IS NULL AND date_" + formattedDayBeforeYesterdayDate
+                + " IS NULL) ORDER BY random() LIMIT 3";
+        List<String> quests = null;
+        try {
+            quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) -> rs.getString("quest"));
+        } catch (Exception e) {
+            log.error("Error while executing query", e);
+        }
+        log.info("quest = " + quests);
+        sendQuest(chat_id, quests);
+    }
+        //СПИСОК ИЗ 3 РАНДОМНЫХ ВОПРОСОВ, ПОДПАДАЮЩИХ ПОД УСЛОВИЕ
+        private void sendQuest(Long chatId, List<String> quests) {
+            System.out.println("User " + chatId + " Received questions " + quests);
+            SendMessage message = new SendMessage();
+            message.setChatId(chatId);
+            for(String quest : quests) {
+                message.setText(quest);
+                executedMessage(message);
             }
         }
 
-    }
+
+
+
+
+
+
+
+
+}

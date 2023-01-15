@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class SchedulerService {
-    @Autowired
+   /* @Autowired
     private  JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -44,5 +44,5 @@ public class SchedulerService {
         System.out.println("Время cron соответствует текущему времени");
         CheckAndSendQuest checkAndSendQuest = new CheckAndSendQuest(jdbcTemplate);
         checkAndSendQuest.checkDateAndChatId(chat_id);
-    }
+    }*/
 }
