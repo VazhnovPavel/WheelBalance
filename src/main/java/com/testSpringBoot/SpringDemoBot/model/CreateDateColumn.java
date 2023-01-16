@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class CreateDateColumn {
 
-    @Scheduled(cron = "0 */10 * * * *")
+    @Scheduled(cron = "0 * * * * *")
     public void addNewColumn() {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -24,7 +24,10 @@ public class CreateDateColumn {
         session.beginTransaction();
         SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
         String today ="\""+ "date_"+ formatter.format(new Date()) + "\"";
-        String sql = "ALTER TABLE public.data_base_quest ADD " + today + "  VARCHAR(255)";
+       // String sql = "ALTER TABLE public.data_base_quest ADD " + today + "  VARCHAR(255)";
+        String sql = "ALTER TABLE public.data_base_quest ADD " + today + "  INTEGER";
+       // String sql = "ALTER TABLE public.data_base_quest ALTER COLUMN " + today + " INTEGER";
+
 
         try {
             session.createSQLQuery(sql).executeUpdate();
