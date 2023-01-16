@@ -11,6 +11,5 @@ import java.time.LocalDate;
 @Repository
 public interface DataBaseQuestRepository extends JpaRepository<DataBaseQuest, DataBaseQuestId> {
 
-
 }
 

@@ -21,7 +21,6 @@ public class DataBaseQuest implements Serializable {
     @EmbeddedId
     private DataBaseQuestId id;
 
-
     public DataBaseQuest() {
     }
 

@@ -5,6 +5,7 @@ import com.testSpringBoot.SpringDemoBot.model.*;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
 
+import org.aspectj.weaver.patterns.TypePatternQuestions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -19,12 +20,14 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.persistence.EntityNotFoundException;
@@ -61,6 +64,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         static final String NO_BUTTON = "NO_BUTTON";
         static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
         static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
+        static final String BUTTON_1= "1";
+        static final String BUTTON_2= "2";
+
         static final String ERROR_OCCURED = "Error occurred: ";
         private String textTimetoQuestions;
 
@@ -157,6 +163,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             //провереям, вдруг помимо текста нам передали значение
             else if (update.hasCallbackQuery()) {
                 String callBackData = update.getCallbackQuery().getData();
+
                 long messageId = update.getCallbackQuery().getMessage().getMessageId();
                 long chatId = update.getCallbackQuery().getMessage().getChatId();
 
@@ -175,10 +182,22 @@ public class TelegramBot extends TelegramLongPollingBot {
                 } else if (callBackData.equals(YES_BUTTON_verificationTimeQuestion)) {
                     log.info("Пользователь ввел корректные данные");
                     addTimeToDB(chatId, getTextTimetoQuestions());
-                    sendMessage(chatId, "Наш бот сохранил время, но пока он не присылает вопросы." +
+                    sendMessage(chatId, "Наш бот сохранил время, но пока он только присылает вопросы." +
                             " Мы работаем над этим");
                     addDataBaseQuest(chatId);
+                } else if (callBackData.startsWith("BUTTON_")) {
+
+                    String[] data = callBackData.split("_");
+                    int answer = Integer.parseInt(data[1]);
+                    executeEditMessageText("Вы оценили на  " + answer , chatId, messageId);
+                    String quest = data[2];
+                    saveAnswerToDb(chatId,quest,answer);
+                    checkDateAndChatId(chatId);
+
                 }
+
+
+
             }
         }
         //реализуем клавиатуру на вопросе
@@ -383,7 +402,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                     id.setQuest(question);
                     dataBaseQuestRepository.save(userDB);
                 }
-                log.info("Saved user to DB: " + userDB);
+                log.info("Пользователь обновил время получения вопросов " + userDB);
+                System.out.println("Пользователь обновил время получения вопросов");
 
             } catch (Exception e) {
                 log.error("Error saving user to DB: " + userDB, e);
@@ -414,7 +434,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     //КАКИЕ СТОЛБЦЫ quest СВОБОДНЫ У ДАННОГО chat_id ЗА ПОСЛЕДНИЕ 3 ДНЯ
-    public void checkDateAndChatId(Long chat_id) {
+    /*public void checkDateAndChatId(Long chat_id) {
         log.info("Выполнение запроса для получения квеста");
         LocalDate today = LocalDate.now();
         LocalDate yesterday = today.minusDays(1);
@@ -429,22 +449,76 @@ public class TelegramBot extends TelegramLongPollingBot {
         List<String> quests = null;
         try {
             quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) -> rs.getString("quest"));
+
         } catch (Exception e) {
             log.error("Error while executing query", e);
         }
         log.info("quest = " + quests);
         sendQuest(chat_id, quests);
+    }*/
+
+    public void checkDateAndChatId(Long chat_id) {
+        log.info("Выполнение запроса для получения квеста");
+        LocalDate today = LocalDate.now();
+        LocalDate yesterday = today.minusDays(1);
+        LocalDate dayBeforeYesterday = today.minusDays(2);
+        String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String formattedYesterdayDate = yesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String formattedDayBeforeYesterdayDate = dayBeforeYesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String sql = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
+                + " IS NULL AND date_" + formattedYesterdayDate
+                + " IS NULL AND date_" + formattedDayBeforeYesterdayDate
+                + " IS NULL) ORDER BY random() LIMIT 1";
+        String sqlToday = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
+                + " IS NULL ) ";
+        List<String> quests = null;
+        List<String> questsToday = null;
+        try {
+            quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) -> rs.getString("quest"));
+            questsToday = jdbcTemplate.query(sqlToday, new Object[]{chat_id}, (rs, rowNum) -> rs.getString("quest"));
+
+        } catch (Exception e) {
+            log.error("Error while executing query", e);
+        }
+        log.info("quest = " + quests);
+        if (questsToday != null && questsToday.size() <= 10 && questsToday.size() > 7) {
+            sendQuest(chat_id, quests);
+        } else {
+            sendEndMessage(chat_id);
+        }
     }
-        //СПИСОК ИЗ 3 РАНДОМНЫХ ВОПРОСОВ, ПОДПАДАЮЩИХ ПОД УСЛОВИЕ
-        private void sendQuest(Long chatId, List<String> quests) {
-            System.out.println("User " + chatId + " Received questions " + quests);
-            SendMessage message = new SendMessage();
-            message.setChatId(chatId);
-            for(String quest : quests) {
+////////////////////////////////////////////
+
+    public void sendQuest(Long chatId, List<String> quests) {
+        System.out.println("User " + chatId + " Received questions " + quests);
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        for(String quest : quests) {
                 message.setText(quest);
                 executedMessage(message);
+                getKeyboard(chatId,quest);
+        }
+    }
+    private void getKeyboard(Long chatID, String quest){
+        SendMessage message = new SendMessage();
+        message.setChatId(chatID);
+        message.setText("Выбери вариант от 1 до 10");
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+        for (int i = 1; i < 11; i++) {
+            String answerNumber = String.valueOf(i);
+            rowInline.add(createInlineKeyboardButton(answerNumber, "BUTTON_" + answerNumber + "_"+ quest));
+            if (rowInline.size() == 5) {
+                rowsInLine.add(rowInline);
+                rowInline = new ArrayList<>();
             }
         }
+        rowsInLine.add(rowInline);
+        markupInline.setKeyboard(rowsInLine);
+        message.setReplyMarkup(markupInline);
+        executedMessage(message);
+    }
 
 
 
@@ -454,4 +528,32 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
 
+
+
+
+
+   /* private void sendNextQuestion(long chatId) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText(quests.get(currentQuestion));
+        executedMessage(message);
+        getKeyboard(chatId);
+    }*/
+    private void saveAnswerToDb(long chatId, String question, int answer) {
+        log.info("Солнце  я тут c " + chatId + question + answer);
+        LocalDate today = LocalDate.now();
+        String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String dateColumn = "date_" + formattedTodayDate;
+        String sql = "UPDATE data_base_quest SET " + dateColumn + " = ? WHERE chat_id = ? AND quest = ?";
+        jdbcTemplate.update(sql, answer, chatId, question);
+    }
+
+
+
+    private void sendEndMessage(long chatId) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText("Спасибо за ответы! Завтра спишемся в то же время");
+        executedMessage(message);
+    }
 }

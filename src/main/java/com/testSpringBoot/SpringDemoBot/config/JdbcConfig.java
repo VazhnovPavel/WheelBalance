@@ -1,4 +1,4 @@
-package com.testSpringBoot.SpringDemoBot.model;
+package com.testSpringBoot.SpringDemoBot.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
