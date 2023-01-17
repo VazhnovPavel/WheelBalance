@@ -12,9 +12,11 @@ import org.hibernate.cfg.Configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
@@ -34,15 +36,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.persistence.EntityNotFoundException;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
-
-
 
 
 @Slf4j
@@ -59,6 +58,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         private SendAllUserRepository sendAllUserRepository;
         @Autowired
         private JdbcTemplate jdbcTemplate;
+        @Autowired
+        private DataBase dataBase;
 
         BotConfig config;
 
@@ -168,6 +169,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "да":
                         prepareAndSendMessage(chatID, "В какое время тебе было бы удобно " +
                                 "получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
+                    case "/stat7days":
+                        getStatFrom7days(chatID);
+                        break;
                     default:
                         prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
                 }
@@ -521,12 +525,21 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-        private void sendEndMessage ( long chatId){
+    private void sendEndMessage (long chatId){
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
-        message.setText("Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09");
+        message.setText("Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
+                "Узнать статистику за последние 7 дней /stat7days");
         executedMessage(message);
+        if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            getStatFrom7days(chatId);
+        }
+
     }
+
+
+
+
 
     private String createEmoji(int answer){
         String rating;
@@ -577,6 +590,29 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         return rating;
     }
+    private void getStatFrom7days(Long chatId){
+
+        try {
+            SendMessage message = new SendMessage();
+            message.setChatId(chatId);
+            List<String> meanQuest = dataBase.getMeanQuest(chatId);
+            StringBuilder mean = new StringBuilder();
+            for(String s : meanQuest) {
+                mean.append(s).append("\n");
+            }
+            message.setText("Среднее значение за последние 7 дней: \n\n" + mean);
+            executedMessage(message);
+        }
+        catch (Exception e){
+            log.info("ОШИБКААААААА" + e);
+        }
+
+    }
+
+
+
+
+
 
 
 
@@ -584,4 +620,5 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
 }
+
 

@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class CreateDateColumn {
 
-    @Scheduled(cron = "0 * * * * *")
+    @Scheduled(cron = "0 */10 * * * *")
     public void addNewColumn() {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
