@@ -421,7 +421,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         List<String> questions = Arrays.asList("Как здоровье?", "Как работа?", "Саморазвитие?"
                 , "Как деньги?", "Как вещи?", "Как отношения?", "Развлечения?"
-                , "Семья?", "Как крастота?", "Как друзья?");
+                , "Семья?", "Как красота?", "Как друзья?");
         try {
 
             id.setChatId(chatId);

@@ -1,4 +1,6 @@
-2023-01-18 03:50:08,859 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+2023-01-19 00:15:38,278 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 00:16:00,045 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 00:26:34,440 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
 java.net.SocketTimeoutException: Read timed out
 	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
 	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
@@ -28,7 +30,10 @@ java.net.SocketTimeoutException: Read timed out
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 09:02:24,215 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+2023-01-19 01:23:16,682 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 03:01:55,336 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 03:02:00,013 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 03:12:28,250 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
 java.net.SocketTimeoutException: Read timed out
 	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
 	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
@@ -58,13 +63,9 @@ java.net.SocketTimeoutException: Read timed out
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 10:30:43,441 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 10:30:43,444 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 10:30:43,444 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 10:30:43,444 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 10:30:43,444 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 10:30:43,510 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 11:19:59,195 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+2023-01-19 04:50:36,294 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 06:01:17,416 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 06:01:29,758 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
 java.net.SocketTimeoutException: Read timed out
 	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
 	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
@@ -94,103 +95,7 @@ java.net.SocketTimeoutException: Read timed out
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 11:52:45,361 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
-java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
-	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
-	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
-	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
-	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
-	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 11:59:25,011 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 11:59:25,013 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 11:59:25,014 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 11:59:25,014 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 11:59:25,014 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 11:59:25,063 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 11:59:25,087 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 11:59:25,087 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 11:59:25,087 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 12:00:00,038 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 12:00:00,039 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 12:00:00,039 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 12:00:00,040 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 12:00:00,040 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 12:00:00,075 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 12:00:00,086 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 12:00:00,086 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 12:00:00,086 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 12:10:00,052 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 12:10:00,055 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 12:10:00,055 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 12:10:00,056 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 12:10:00,056 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 12:10:00,116 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 12:10:00,166 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 12:10:00,166 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 12:10:00,167 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 12:20:00,086 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 12:20:00,090 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 12:20:00,090 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 12:20:00,090 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 12:20:00,090 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 12:20:00,159 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 12:20:00,196 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 12:20:00,196 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 12:20:00,196 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 14:33:49,870 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
-java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
-	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
-	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
-	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
-	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
-	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:57:01,004 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org: nodename nor servname provided, or not known
+2023-01-19 06:01:30,279 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org: nodename nor servname provided, or not known
 java.net.UnknownHostException: api.telegram.org: nodename nor servname provided, or not known
 	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
 	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
@@ -211,7 +116,7 @@ java.net.UnknownHostException: api.telegram.org: nodename nor servname provided,
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:57:01,407 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 06:01:30,650 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -229,7 +134,7 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:57:02,357 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 06:01:31,037 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -247,7 +152,7 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:57:03,725 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 06:01:32,244 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -265,7 +170,7 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:57:06,171 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 06:01:34,113 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -283,7 +188,7 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:57:09,421 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 06:01:35,968 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -301,43 +206,9 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 14:59:22,110 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 14:59:22,112 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 14:59:22,112 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 14:59:22,112 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 14:59:22,112 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 14:59:22,168 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 14:59:22,203 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 14:59:22,203 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 14:59:22,204 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 15:00:00,050 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 15:00:00,051 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 15:00:00,051 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 15:00:00,051 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 15:00:00,051 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 15:00:00,088 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 15:00:00,097 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 15:00:00,097 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 15:00:00,097 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 15:10:00,051 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 15:10:00,054 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 15:10:00,054 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 15:10:00,054 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 15:10:00,054 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 15:10:00,110 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 15:10:00,139 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 15:10:00,139 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 15:10:00,139 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 15:20:00,049 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 15:20:00,052 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 15:20:00,053 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 15:20:00,053 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 15:20:00,053 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 15:20:00,122 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 15:20:00,160 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 15:20:00,160 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 15:20:00,160 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 17:09:15,290 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+2023-01-19 06:02:00,041 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 08:13:01,863 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 08:28:30,660 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
 java.net.SocketTimeoutException: Read timed out
 	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
 	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
@@ -367,48 +238,10 @@ java.net.SocketTimeoutException: Read timed out
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:13:35,970 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 17:13:35,974 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 17:13:35,974 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 17:13:35,974 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 17:13:35,974 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 17:13:36,044 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 17:13:36,086 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 17:13:36,087 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 17:13:36,087 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 17:20:00,053 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 17:20:00,056 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 17:20:00,056 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 17:20:00,056 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 17:20:00,056 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 17:20:00,123 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 17:20:00,159 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 17:20:00,159 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 17:20:00,159 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 17:27:18,507 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Пользователь ввел время для вопросов
-2023-01-18 17:27:20,855 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Пользователь ввел корректные данные
-2023-01-18 17:27:20,855 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] * 00 20 * * *
-2023-01-18 17:27:20,890 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-01-11 11:19:16.41, timeToQuestions=* 00 20 * * *, numberWheelId=null}
-2023-01-18 17:27:21,135 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Пользователь обновил время получения вопросов com.testSpringBoot.SpringDemoBot.model.DataBaseQuest@57806d51
-2023-01-18 17:30:00,039 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 17:30:00,041 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 17:30:00,041 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 17:30:00,041 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 17:30:00,041 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 17:30:00,096 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 17:30:00,124 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 17:30:00,125 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 17:30:00,125 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 17:40:00,108 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-01-18 17:40:00,109 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-01-18 17:40:00,109 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-01-18 17:40:00,109 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-01-18 17:40:00,110 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-01-18 17:40:00,165 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
-2023-01-18 17:40:00,211 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-01-18 17:40:00,211 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_18_01_2023" of relation "data_base_quest" already exists
-2023-01-18 17:40:00,211 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-01-18 17:41:23,322 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+2023-01-19 09:49:01,875 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 10:07:47,582 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 10:08:03,548 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 10:26:13,425 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
 java.net.SocketTimeoutException: Read timed out
 	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
 	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
@@ -438,7 +271,44 @@ java.net.SocketTimeoutException: Read timed out
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:23,833 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org: nodename nor servname provided, or not known
+2023-01-19 11:31:48,604 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 11:31:48,605 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 11:31:48,605 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 11:31:48,605 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 11:31:48,605 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 11:31:48,668 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 12:14:24,312 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:14:58,400 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2023-01-19 12:14:58,911 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org: nodename nor servname provided, or not known
 java.net.UnknownHostException: api.telegram.org: nodename nor servname provided, or not known
 	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
 	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
@@ -459,7 +329,8 @@ java.net.UnknownHostException: api.telegram.org: nodename nor servname provided,
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:24,130 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 12:15:00,011 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:15:05,147 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -477,97 +348,7 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:25,041 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
-java.net.UnknownHostException: api.telegram.org
-	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:25,861 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
-java.net.UnknownHostException: api.telegram.org
-	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:28,230 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
-java.net.UnknownHostException: api.telegram.org
-	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:30,278 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
-java.net.UnknownHostException: api.telegram.org
-	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:33,125 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
-java.net.UnknownHostException: api.telegram.org
-	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:38,387 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org: nodename nor servname provided, or not known
+2023-01-19 12:15:17,691 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org: nodename nor servname provided, or not known
 java.net.UnknownHostException: api.telegram.org: nodename nor servname provided, or not known
 	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
 	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
@@ -588,7 +369,7 @@ java.net.UnknownHostException: api.telegram.org: nodename nor servname provided,
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
-2023-01-18 17:41:48,351 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
+2023-01-19 12:25:01,082 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] api.telegram.org
 java.net.UnknownHostException: api.telegram.org
 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519)
@@ -606,3 +387,543 @@ java.net.UnknownHostException: api.telegram.org
 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2023-01-19 12:25:35,040 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:26:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:27:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:28:00,012 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:29:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:30:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:31:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:31:47,935 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 12:31:47,936 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 12:31:47,936 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 12:31:47,936 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 12:31:47,936 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 12:31:48,007 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 12:31:48,054 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 12:31:48,054 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 12:31:48,054 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 12:32:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:33:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:34:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:35:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:36:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:37:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:38:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:39:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:40:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:40:00,066 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 12:40:00,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 12:40:00,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 12:40:00,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 12:40:00,067 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 12:40:00,141 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 12:40:00,173 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 12:40:00,173 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 12:40:00,173 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 12:41:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:42:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:43:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:44:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:45:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:46:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:47:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:48:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:49:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:50:00,085 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 12:50:00,087 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 12:50:00,087 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 12:50:00,087 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 12:50:00,087 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 12:50:00,139 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 12:50:00,210 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 12:50:00,210 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 12:50:00,211 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 12:50:00,213 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:51:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:52:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:53:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:54:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:55:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:55:59,997 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:57:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:58:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 12:59:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:00:00,029 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 13:00:00,032 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 13:00:00,032 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 13:00:00,032 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 13:00:00,032 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 13:00:00,102 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 13:00:00,127 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 13:00:00,128 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 13:00:00,128 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 13:00:00,131 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:01:00,092 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:02:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:03:00,013 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:04:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:05:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:06:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:07:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:08:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:09:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:10:00,093 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 13:10:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 13:10:00,095 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 13:10:00,095 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 13:10:00,095 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 13:10:00,167 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 13:10:00,204 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 13:10:00,204 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 13:10:00,204 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 13:10:00,207 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:11:00,055 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:12:00,128 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:13:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:14:00,013 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:15:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:16:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:17:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:18:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:19:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:20:00,038 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:20:00,141 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 13:20:00,143 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 13:20:00,144 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 13:20:00,144 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 13:20:00,144 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 13:20:00,202 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 13:20:00,237 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 13:20:00,237 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 13:20:00,237 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 13:21:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 13:21:50,058 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 19:59:00,568 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 2149 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-01-19 19:59:00,571 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-01-19 19:59:00,929 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-19 19:59:00,964 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
+2023-01-19 19:59:01,081 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-01-19 19:59:01,162 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-19 19:59:01,198 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-19 19:59:01,280 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-19 19:59:01,599 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-01-19 19:59:01,828 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 19:59:01,828 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 19:59:02,666 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-19 19:59:02,683 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 19:59:03,626 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-01-19 19:59:03,751 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-01-19 19:59:03,885 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.566 seconds (JVM running for 4.042)
+2023-01-19 19:59:57,997 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Saved user: User{chatId=370905158, firstName='Салахутдинова', lastName='Ксения', userName='@salah_komyza', registeredAt=2023-01-19 19:59:57.954, timeToQuestions=null, numberWheelId=null}
+2023-01-19 19:59:58,102 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Replied to userСалахутдинова
+2023-01-19 20:00:00,146 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-01-19 20:00:00,146 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Выполнение запроса для получения квеста
+2023-01-19 20:00:00,163 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] quest = [Как друзья?]
+2023-01-19 20:00:00,488 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-01-19 20:00:00,489 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Выполнение запроса для получения квеста
+2023-01-19 20:00:00,491 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] quest = [Семья?]
+2023-01-19 20:00:00,718 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:00:00,718 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:00:00,831 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 20:00:00,832 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 20:00:00,832 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 20:00:00,832 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 20:00:00,833 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 20:00:00,852 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 20:00:00,884 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 20:00:00,884 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 20:00:00,887 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 20:00:20,311 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-01-19 20:00:22,975 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Пользователь ввел корректные данные
+2023-01-19 20:00:22,976 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] * 01 20 * * *
+2023-01-19 20:00:22,993 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Добавили время в базу данныхUser{chatId=370905158, firstName='Салахутдинова', lastName='Ксения', userName='@salah_komyza', registeredAt=2023-01-19 19:59:57.954, timeToQuestions=* 01 20 * * *, numberWheelId=null}
+2023-01-19 20:00:23,154 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Пользователь обновил время получения вопросов com.testSpringBoot.SpringDemoBot.model.DataBaseQuest@558c804f
+2023-01-19 20:01:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:01:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-01-19 20:01:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Выполнение запроса для получения квеста
+2023-01-19 20:01:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] quest = [Как вещи?]
+2023-01-19 20:01:08,917 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Солнце  я тут c 370905158Как вещи?5
+2023-01-19 20:01:08,920 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Выполнение запроса для получения квеста
+2023-01-19 20:01:08,921 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] quest = [Саморазвитие?]
+2023-01-19 20:01:11,720 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Солнце  я тут c 370905158Саморазвитие?5
+2023-01-19 20:01:11,722 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Выполнение запроса для получения квеста
+2023-01-19 20:01:11,724 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] quest = [Как друзья?]
+2023-01-19 20:01:13,859 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Солнце  я тут c 370905158Как друзья?5
+2023-01-19 20:01:13,861 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Выполнение запроса для получения квеста
+2023-01-19 20:01:13,862 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] quest = [Как отношения?]
+2023-01-19 20:02:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:03:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:03:20,929 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 20:03:25,002 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 2215 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-01-19 20:03:25,003 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-01-19 20:03:25,164 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-19 20:03:25,186 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2023-01-19 20:03:25,282 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-01-19 20:03:25,332 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-19 20:03:25,351 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-19 20:03:25,413 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-19 20:03:25,544 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-01-19 20:03:25,644 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 20:03:25,644 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 20:03:25,774 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-19 20:03:25,777 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 20:03:26,262 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-01-19 20:03:26,366 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-01-19 20:03:26,485 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.628 seconds (JVM running for 2.185)
+2023-01-19 20:04:00,126 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:05:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:06:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:07:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:08:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:09:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:10:00,152 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 20:10:00,152 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 20:10:00,153 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 20:10:00,153 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 20:10:00,154 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 20:10:00,185 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 20:10:00,241 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 20:10:00,241 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 20:10:00,245 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 20:10:00,249 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:11:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:12:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:13:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:14:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:15:00,009 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:16:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:17:00,007 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:22:33,599 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:23:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:24:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:30:01,905 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 20:30:01,905 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 20:30:01,906 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 20:30:01,906 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 20:30:01,906 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 20:30:02,025 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 20:30:02,046 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 20:30:02,046 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 20:30:02,046 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 20:30:28,311 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:31:00,012 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:34:45,533 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:35:00,011 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:36:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:37:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:38:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:39:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:40:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:41:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:42:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:42:45,534 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 20:42:45,535 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 20:42:45,535 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 20:42:45,535 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 20:42:45,535 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 20:42:45,591 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 20:42:45,616 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 20:42:45,616 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 20:42:45,617 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 20:43:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:43:04,660 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2023-01-19 20:44:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:45:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:46:00,034 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:47:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:48:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:49:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:50:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:50:00,053 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 20:50:00,053 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 20:50:00,053 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 20:50:00,053 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 20:50:00,053 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 20:50:00,104 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 20:50:00,138 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 20:50:00,138 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 20:50:00,138 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 20:51:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:52:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:53:18,516 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:54:00,000 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:55:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:56:00,005 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:57:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:58:50,142 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 20:59:00,010 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:00:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:12:31,274 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:12:39,872 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 21:12:39,873 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 21:12:39,873 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 21:12:39,873 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 21:12:39,873 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 21:12:39,916 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 21:12:39,938 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 21:12:39,938 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 21:12:39,938 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 21:13:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:14:00,011 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:15:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:19:54,953 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:20:00,010 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:20:59,998 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:22:00,008 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:29:08,190 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:30:00,012 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:30:03,066 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 21:30:03,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 21:30:03,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 21:30:03,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 21:30:03,067 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 21:30:03,124 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 21:30:03,153 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 21:30:03,153 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 21:30:03,154 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 21:37:11,379 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:38:00,011 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:39:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:41:13,385 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:41:42,811 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [Wheel_Balance_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2023-01-19 21:42:00,046 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:43:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:44:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:45:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:46:00,040 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:47:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:47:24,767 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 21:47:24,769 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 21:47:24,769 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 21:47:24,769 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 21:47:24,769 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 21:47:24,852 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 21:47:24,884 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 21:47:24,884 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 21:47:24,884 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 21:48:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:49:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:50:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:50:00,093 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 21:50:00,095 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 21:50:00,095 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 21:50:00,095 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 21:50:00,095 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 21:50:00,150 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 21:50:00,159 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 21:50:00,159 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 21:50:00,159 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 21:50:33,187 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 21:50:35,830 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 3291 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-01-19 21:50:35,832 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-01-19 21:50:36,041 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-19 21:50:36,064 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2023-01-19 21:50:36,139 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-01-19 21:50:36,188 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-19 21:50:36,209 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-19 21:50:36,271 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-19 21:50:36,411 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-01-19 21:50:36,530 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 21:50:36,530 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 21:50:36,674 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-19 21:50:36,677 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 21:50:37,633 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-01-19 21:50:37,748 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-01-19 21:50:37,944 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.3 seconds (JVM running for 2.807)
+2023-01-19 21:51:00,144 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:52:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:53:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:54:00,010 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:55:00,004 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:56:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:57:00,038 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:58:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 21:59:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:00:00,149 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 22:00:00,149 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 22:00:00,149 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 22:00:00,149 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 22:00:00,151 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 22:00:00,176 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 22:00:00,217 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 22:00:00,217 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 22:00:00,224 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 22:00:00,227 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:01:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:02:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:03:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:04:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:05:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:06:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:07:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:08:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:09:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:10:00,040 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 22:10:00,042 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 22:10:00,042 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 22:10:00,042 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 22:10:00,042 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 22:10:00,075 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 22:10:00,084 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 22:10:00,084 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 22:10:00,084 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 22:10:00,089 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:11:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:12:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:13:00,011 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:14:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:15:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:16:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:17:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:18:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:19:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:20:00,051 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 22:20:00,052 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 22:20:00,052 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 22:20:00,052 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 22:20:00,052 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 22:20:00,090 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 22:20:00,105 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 22:20:00,105 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 22:20:00,105 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 22:20:00,110 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:21:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:22:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:23:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:24:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:24:59,999 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:26:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:27:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:28:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:29:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:30:00,035 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 22:30:00,037 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 22:30:00,037 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 22:30:00,037 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 22:30:00,037 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 22:30:00,092 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 22:30:00,114 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 22:30:00,114 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 22:30:00,115 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 22:30:00,119 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:31:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:32:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:33:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:34:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:35:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:36:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:37:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:38:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:39:00,012 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:40:00,061 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 22:40:00,063 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 22:40:00,063 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 22:40:00,063 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 22:40:00,064 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 22:40:00,095 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 22:40:00,103 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 22:40:00,103 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 22:40:00,103 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 22:40:00,107 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:41:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:42:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:43:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:44:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:45:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:46:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:47:00,010 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:48:00,013 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:49:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:50:00,044 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-01-19 22:50:00,045 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-01-19 22:50:00,046 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-01-19 22:50:00,046 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-01-19 22:50:00,046 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-01-19 22:50:00,080 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2023-01-19 22:50:00,093 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-01-19 22:50:00,093 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_19_01_2023" of relation "data_base_quest" already exists
+2023-01-19 22:50:00,093 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-01-19 22:50:00,098 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:51:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:52:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:53:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:54:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:55:00,050 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-19 22:55:59,964 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 22:58:11,866 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 4048 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-01-19 22:58:11,867 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-01-19 22:58:12,060 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-19 22:58:12,081 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2023-01-19 22:58:12,170 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-01-19 22:58:12,216 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-19 22:58:12,237 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-19 22:58:12,294 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-19 22:58:12,425 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-01-19 22:58:12,521 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 22:58:12,522 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-01-19 22:58:12,654 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-19 22:58:12,657 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-19 22:58:13,835 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-01-19 22:58:13,948 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-01-19 22:58:14,140 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.442 seconds (JVM running for 2.795)
+2023-01-19 22:58:14,817 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [Wheel_Balance_bot Telegram Executor] Replied to userPavel
+2023-01-19 22:58:22,929 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
