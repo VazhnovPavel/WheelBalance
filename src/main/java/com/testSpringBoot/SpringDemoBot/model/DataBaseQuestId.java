@@ -18,5 +18,8 @@ import java.io.Serializable;
         private long chatId;
         @Column(name = "quest", insertable = false, updatable = false)
         private String quest;
+        @Column(name = "quest_string",insertable = false, updatable = false)
+        private String questString;
+
     }
 

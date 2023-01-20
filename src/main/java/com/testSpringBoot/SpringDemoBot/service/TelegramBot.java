@@ -43,41 +43,41 @@ import java.util.Date;
 @Slf4j
     @Component
 public class TelegramBot extends TelegramLongPollingBot {
-        @Autowired
-        private UserRepository userRepository;
-        @Autowired
-        private DataBaseQuestRepository dataBaseQuestRepository;
-        @Autowired
-        private SendAllUserRepository sendAllUserRepository;
-        @Autowired
-        private JdbcTemplate jdbcTemplate;
-        @Autowired
-        private DataBase dataBase;
-        BotConfig config;
-        static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
-                "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
-                "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
-                "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n";
-        static final String YES_BUTTON = "YES_BUTTON";
-        static final String NO_BUTTON = "NO_BUTTON";
-        static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
-        static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
-        static final String ERROR_OCCURED = "Error occurred: ";
-        private String textTimetoQuestions;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private DataBaseQuestRepository dataBaseQuestRepository;
+    @Autowired
+    private SendAllUserRepository sendAllUserRepository;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private DataBase dataBase;
+    BotConfig config;
+    static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
+            "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
+            "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
+            "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n";
+    static final String YES_BUTTON = "YES_BUTTON";
+    static final String NO_BUTTON = "NO_BUTTON";
+    static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
+    static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
+    static final String ERROR_OCCURED = "Error occurred: ";
+    private String textTimetoQuestions;
 
-        static final String HELP_TEXT =
-                "/start - запустить бота \n\n" +
-                        "/addSection - добавить свой раздел в “Колесо” \n\n" +
-                        "/deleteSection - удалить раздел из “Колеса” \n\n" +
-                        "/renameSection - переименовать раздел из “Колеса” \n\n" +
-                        "/help - вывести все команды \n\n" +
-                        "/deleteAll - удалить все данные о пользователе \n\n" +
-                        "/download - скачать все данные в формате таблицы \n\n" +
-                        "/when - настроить время для вопросов \n\n" +
-                        "/addSkip - ввести запись в дневник за прошедшую дату \n\n" +
-                        "/freeSession - получить бесплатную консультацию от психолога/коуча \n\n" +
-                        "/week - показать статистику за неделю \n\n" +
-                        "/month - показать статистику за месяц ";
+    static final String HELP_TEXT =
+            "/start - запустить бота \n\n" +
+                    "/addSection - добавить свой раздел в “Колесо” \n\n" +
+                    "/deleteSection - удалить раздел из “Колеса” \n\n" +
+                    "/renameSection - переименовать раздел из “Колеса” \n\n" +
+                    "/help - вывести все команды \n\n" +
+                    "/deleteAll - удалить все данные о пользователе \n\n" +
+                    "/download - скачать все данные в формате таблицы \n\n" +
+                    "/when - настроить время для вопросов \n\n" +
+                    "/addSkip - ввести запись в дневник за прошедшую дату \n\n" +
+                    "/freeSession - получить бесплатную консультацию от психолога/коуча \n\n" +
+                    "/week - показать статистику за неделю \n\n" +
+                    "/month - показать статистику за месяц ";
 
 
     public TelegramBot(BotConfig config) {
@@ -91,7 +91,7 @@ public class TelegramBot extends TelegramLongPollingBot {
          */
 
         List<BotCommand> listofCommands = new ArrayList<>();
-        listofCommands.add(new BotCommand("/start", "Start" ));
+        listofCommands.add(new BotCommand("/start", "Start"));
         listofCommands.add(new BotCommand("/addSection", "добавить свой раздел в “Колесо” "));
         listofCommands.add(new BotCommand("/deleteSection", "удалить раздел из “Колеса”"));
         listofCommands.add(new BotCommand("/renameSection", "переименовать раздел из “Колеса”"));
@@ -119,21 +119,22 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-        @Override
-        public String getBotUsername () {
+    @Override
+    public String getBotUsername() {
         return config.getBotName();
     }
 
-        @Override
-        public String getBotToken () {
+    @Override
+    public String getBotToken() {
         return config.getToken();
     }
-        /**
-         * Если нам прислали текст или значение
-        */
 
-        @Override
-        public void onUpdateReceived (Update update){
+    /**
+     * Если нам прислали текст или значение
+     */
+
+    @Override
+    public void onUpdateReceived(Update update) {
 
 
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -222,15 +223,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 int answer = Integer.parseInt(data[1]);
                 String emojiNumber = createEmoji(answer);
                 executeEditMessageText("Вы оценили на  " + emojiNumber, chatId, messageId);
-                String quest = data[2];
-                saveAnswerToDb(chatId, quest, answer);
+                String quests = data[2];
+                saveAnswerToDb(chatId, quests, answer);
                 checkDateAndChatId(chatId);
 
             }
         }
     }
 
-        private void timeToQuestions ( long chatID){
+    private void timeToQuestions(long chatID) {
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText("В какое время тебе было бы удобно получать вопросы?\n\n" +
@@ -239,11 +240,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
-        private void registerUser (Message msg, Update update){
+    private void registerUser(Message msg, Update update) {
 
-            /**
-             * провереям, существует ли данный пользователь
-             */
+        /**
+         * провереям, существует ли данный пользователь
+         */
 
         if (userRepository.findById(msg.getChatId()).isEmpty()) {
             User user = new User();
@@ -259,7 +260,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-        private void startCommandReceived ( long chatID, String name){
+    private void startCommandReceived(long chatID, String name) {
         sendMessage(chatID, name + START_MESSAGE);
         log.info("Replied to user" + name);
         smartKeyboard(chatID, "ДА", "Нет");
@@ -267,15 +268,15 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-        public void sendMessage ( long chatID, String texToSend){
+    public void sendMessage(long chatID, String texToSend) {
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText(texToSend);
         executedMessage(message);
-        }
+    }
 
 
-        ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
+    ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
        /* ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
 
@@ -300,8 +301,8 @@ public class TelegramBot extends TelegramLongPollingBot {
      * Админ может вызвать эту команду из без @Scheduled с помощью команды /send
      */
 
-        // @Scheduled(cron = "${interval-in-cron} ")
-        private void SendAskUser () {
+    // @Scheduled(cron = "${interval-in-cron} ")
+    private void SendAskUser() {
         var askUser = sendAllUserRepository.findAll();
         var users = userRepository.findAll();
         for (SendAllUser ask : askUser) {
@@ -316,7 +317,7 @@ public class TelegramBot extends TelegramLongPollingBot {
      */
 
 
-        private void executeEditMessageText (String text,long chatId, long messageId){
+    private void executeEditMessageText(String text, long chatId, long messageId) {
         EditMessageText message = new EditMessageText();
         message.setChatId(chatId);
         message.setText(text);
@@ -328,7 +329,8 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error(ERROR_OCCURED + e.getMessage());
         }
     }
-        public void executedMessage (SendMessage message){
+
+    public void executedMessage(SendMessage message) {
         try {
             execute(message);
         } catch (TelegramApiException e) {
@@ -336,16 +338,17 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-        private void prepareAndSendMessage ( long chatID, String texToSend){
+    private void prepareAndSendMessage(long chatID, String texToSend) {
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText(texToSend);
         executedMessage(message);
     }
+
     /**
      * Создает смарт клавиатуру с двумя кнопками
      */
-        private void smartKeyboard ( long chatID, String yes, String no){
+    private void smartKeyboard(long chatID, String yes, String no) {
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText("Попробуем?");
@@ -360,11 +363,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         executedMessage(message);
     }
+
     /**
      * Если пользователь ввел числовое значение, проверяем Маску на добавление времени для вопросов
      */
 
-        private void verificationTimeQuestion ( long chatID, String messageText){
+    private void verificationTimeQuestion(long chatID, String messageText) {
         String[] parts = messageText.split(":");
         int hour = Integer.parseInt(parts[0]);
         int minute = Integer.parseInt(parts[1]);
@@ -388,7 +392,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
-        private InlineKeyboardButton createInlineKeyboardButton (String text, String callbackData){
+    private InlineKeyboardButton createInlineKeyboardButton(String text, String callbackData) {
         InlineKeyboardButton button = new InlineKeyboardButton();
         button.setText(text);
         button.setCallbackData(callbackData);
@@ -398,7 +402,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     /**
      * Добавляет введенное время пользователя в базу данных в формате cron
      */
-        private void addTimeToDB ( long chatId, String timeToQuestions){
+    private void addTimeToDB(long chatId, String timeToQuestions) {
 
         String[] parts = timeToQuestions.split(":");
         timeToQuestions = "* " + parts[1] + " " + parts[0] + " * " + "*" + " *";
@@ -407,27 +411,85 @@ public class TelegramBot extends TelegramLongPollingBot {
         user.setTimeToQuestions(timeToQuestions);
         userRepository.save(user);
         log.info("Добавили время в базу данных" + user);
-
     }
-        public String getTextTimetoQuestions () {
+
+    public String getTextTimetoQuestions() {
         return textTimetoQuestions;
     }
-        public void setTextTimetoQuestions (String textTimetoQuestions){
+
+    public void setTextTimetoQuestions(String textTimetoQuestions) {
         this.textTimetoQuestions = textTimetoQuestions;
     }
-        private void addDataBaseQuest (Long chatId){
+
+    private void addDataBaseQuest(Long chatId) {
+        Map<String, String> questions = new HashMap<>();
+        questions.put("Здоровье", "Как ты оцениваешь свое здоровье?");
+        questions.put("Работа", "Как ты оцениваешь свою работу?");
+        questions.put("Саморазвитие", "Как ты оцениваешь свое саморазвитие?");
+        questions.put("Деньги, капитал", "Как ты оценивешь свое имущество? (деньги,капитал)");
+        questions.put("Материальный мир", "Как ты оцениваешь свой материальный мир?");
+        questions.put("Отношения", "Как ты оцениваешь свои отношения?");
+        questions.put("Развлечения", "Как ты оцениваешь свои развлечения?");
+        questions.put("Семья", "Как ты оцениваешь отношения в семье?");
+        questions.put("Внешность", "Как ты оцениваешь свою привлекательность?");
+        questions.put("Друзья", "Как ты оцениваешь свое общение с друзьями?");
+
+        try {
+            for (Map.Entry<String, String> entry : questions.entrySet()) {
+                DataBaseQuest userDB = new DataBaseQuest();
+                DataBaseQuestId id = new DataBaseQuestId();
+                id.setChatId(chatId);
+                id.setQuest(entry.getKey());
+                id.setQuestString(entry.getValue());
+                userDB.setId(id);
+                dataBaseQuestRepository.save(userDB);
+            }
+            log.info("User updated time of receiving questions: " + chatId);
+            System.out.println("User updated time of receiving questions");
+        } catch (Exception e) {
+            log.error("Error saving user to DB: " + chatId, e);
+        }
+    }
+
+
+
+      /*  private void addDataBaseQuest (Long chatId){
         DataBaseQuest userDB = new DataBaseQuest();
         DataBaseQuestId id = new DataBaseQuestId();
 
-        List<String> questions = Arrays.asList("Как здоровье?", "Как работа?", "Саморазвитие?"
-                , "Как деньги?", "Как вещи?", "Как отношения?", "Развлечения?"
-                , "Семья?", "Как красота?", "Как друзья?");
+        List<String> questions = Arrays.asList("Здоровье", "Работа"
+                , "Саморазвитие"
+                , "Деньги, капитал"
+                , "Материальный мир"
+                , "Отношения"
+                , "Развлечения"
+                , "Семья"
+                , "Внешность"
+                , "Друзья");
+
+            List<String> questionsList = Arrays.asList("Как ты оцениваешь свое здоровье?", "Как ты оцениваешь свою работу?"
+                    , "Как ты оцениваешь свое саморазвитие?"
+                    , "Как ты оценивешь свое имущество? (деньги,капитал)"
+                    , "Как ты оцениваешь свой материальный мир?"
+                    , "Как ты оцениваешь свои отношения?"
+                    , "Как ты оцениваешь свои развлечения?"
+                    , "Как ты оцениваешь отношения в семье?"
+                    , "Как ты оцениваешь свою привлекательность?"
+                    , "Как ты оцениваешь свое общение с друзьями?");
+
         try {
 
             id.setChatId(chatId);
             userDB.setId(id);
             for (String question : questions) {
                 id.setQuest(question);
+                dataBaseQuestRepository.save(userDB);
+            }
+            id.setChatId(chatId);
+            userDB.setId(id);
+
+            for (String currentQuestion : questionsList) {
+                id.setQuestString(currentQuestion);
                 dataBaseQuestRepository.save(userDB);
             }
             log.info("Пользователь обновил время получения вопросов " + userDB);
@@ -437,7 +499,8 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error("Error saving user to DB: " + userDB, e);
 
         }
-    }
+    }*/
+
     /**
      * Проверка, есть ли в данную минуту пользователи, которым мы должны отпрвить вопросы
      */
@@ -465,48 +528,70 @@ public class TelegramBot extends TelegramLongPollingBot {
      * База данных выдает 1 рандомный вопрос из вариантов, подподающих под условие
      */
 
-        public void checkDateAndChatId (Long chat_id){
-        log.info("Выполнение запроса для получения квеста");
-        LocalDate today = LocalDate.now();
-        LocalDate yesterday = today.minusDays(1);
-        LocalDate dayBeforeYesterday = today.minusDays(2);
-        String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-        String formattedYesterdayDate = yesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-        String formattedDayBeforeYesterdayDate = dayBeforeYesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-        String sql = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
-                + " IS NULL AND date_" + formattedYesterdayDate
-                + " IS NULL AND date_" + formattedDayBeforeYesterdayDate
-                + " IS NULL) ORDER BY random() LIMIT 1";
-        String sqlToday = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
-                + " IS NULL ) ";
-        List<String> quests = null;
-        List<String> questsToday = null;
-        try {
-            quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) -> rs.getString("quest"));
-            questsToday = jdbcTemplate.query(sqlToday, new Object[]{chat_id}, (rs, rowNum) -> rs.getString("quest"));
+        public void checkDateAndChatId (Long chat_id) {
+            log.info("Выполнение запроса для получения квеста");
+            LocalDate today = LocalDate.now();
+            LocalDate yesterday = today.minusDays(1);
+            LocalDate dayBeforeYesterday = today.minusDays(2);
+            String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+            String formattedYesterdayDate = yesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+            String formattedDayBeforeYesterdayDate = dayBeforeYesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+            String sql = "SELECT quest,quest_string FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
+                    + " IS NULL AND date_" + formattedYesterdayDate
+                    + " IS NULL AND date_" + formattedDayBeforeYesterdayDate
+                    + " IS NULL) ORDER BY random() LIMIT 1";
 
-        } catch (Exception e) {
-            log.error("Error while executing query", e);
+            String sqlToday = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
+                    + " IS NULL ) ";
+
+            List<String> questsToday = null;
+
+
+            /*try {
+                quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum)
+                        -> rs.getString("quest"));
+                quest_string = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum)
+                        -> rs.getString("quest_string"));
+                questsToday = jdbcTemplate.query(sqlToday, new Object[]{chat_id}, (rs, rowNum)
+                        -> rs.getString("quest"));
+            } */
+
+            List<Map<String, String>> quests = null;
+            try {
+                quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) ->
+                        new HashMap<String, String>() {{
+                            put("quest", rs.getString("quest"));
+                            put("quest_string", rs.getString("quest_string"));
+                        }});
+                questsToday = jdbcTemplate.query(sqlToday, new Object[]{chat_id}, (rs, rowNum)
+                        -> rs.getString("quest"));
+            }
+
+            catch (Exception e) {
+                log.error("Error while executing query", e);
+            }
+            log.info("questToday = " + questsToday.size());
+            if (questsToday != null && questsToday.size() <= 10 && questsToday.size() > 7) {
+                Map<String, String> quest = quests.get(0);
+                log.info("ЭТАП 1: quests + quest_string = " + quests );
+                sendQuest(chat_id, quest);
+            } else {
+                sendEndMessage(chat_id);
+            }
         }
-        log.info("quest = " + quests);
-        if (questsToday != null && questsToday.size() <= 10 && questsToday.size() > 7) {
-            sendQuest(chat_id, quests);
-        } else {
-            sendEndMessage(chat_id);
-        }
-    }
 
 
-        public void sendQuest (Long chatId, List < String > quests){
-        System.out.println("User " + chatId + " Received questions " + quests);
+    public void sendQuest(Long chatId, Map<String, String> questMap){
+        System.out.println("User " + chatId + " Received questions " );
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
-        for (String quest : quests) {
-            message.setText(quest);
-            executedMessage(message);
-            getKeyboard(chatId, quest);
-        }
+        String questValue = questMap.get("quest");
+        String questStringValue = questMap.get("quest_string");
+        message.setText(questStringValue);
+        executedMessage(message);
+        getKeyboard(chatId, questValue);
     }
+
 
     /**
      * Создаем клавиатуру для ответов
@@ -522,7 +607,14 @@ public class TelegramBot extends TelegramLongPollingBot {
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
         for (int i = 1; i < 11; i++) {
             String answerNumber = String.valueOf(i);
-            rowInline.add(createInlineKeyboardButton(answerNumber, "BUTTON_" + answerNumber + "_" + quest));
+            try {
+                rowInline.add(createInlineKeyboardButton(answerNumber, "BUTTON_" + answerNumber + "_"
+                        + quest ));
+            }
+            catch (Exception e){
+                log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
+            }
+
             if (rowInline.size() == 5) {
                 rowsInLine.add(rowInline);
                 rowInline = new ArrayList<>();
