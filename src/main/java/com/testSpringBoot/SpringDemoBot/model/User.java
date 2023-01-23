@@ -19,8 +19,7 @@ public class User {
     private Timestamp registeredAt;
     @Column(name = "time_to_questions")
     private String timeToQuestions;
-    @Column(name = "number_wheel_id")
-    private Timestamp numberWheelId;
+
 
 
 
@@ -72,13 +71,9 @@ public class User {
         this.timeToQuestions = timeToQuestions;
     }
 
-    public Timestamp getNumberWheelId() {
-        return numberWheelId;
-    }
 
-    public void setNumberWheelId(Timestamp numberWheelId) {
-        this.numberWheelId = numberWheelId;
-    }
+
+
 
     @Override
     public String toString() {
@@ -89,7 +84,6 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", registeredAt=" + registeredAt +
                 ", timeToQuestions=" + timeToQuestions +
-                ", numberWheelId=" + numberWheelId +
                 '}';
     }
 }

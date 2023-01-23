@@ -22,8 +22,11 @@ public class JdbcConfig {
         dataSource.setUrl("jdbc:postgresql://localhost:5432/BalanceWheel");
         dataSource.setUsername("NikToRozeo");
         dataSource.setPassword("13241324");
+        logger.info("Creating DataSource bean Success!");
+        System.out.println("Creating DataSource bean Success!");
         return dataSource;
     }
+
 
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
@@ -31,6 +34,7 @@ public class JdbcConfig {
         System.out.println("Creating JdbcTemplate bean");
         return new JdbcTemplate(dataSource);
     }
+
 }
 
 

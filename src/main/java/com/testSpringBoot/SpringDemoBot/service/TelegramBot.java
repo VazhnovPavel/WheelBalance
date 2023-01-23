@@ -19,9 +19,11 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
@@ -53,6 +55,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private DataBase dataBase;
+    @Autowired
+    private GetSticker getSticker;
+
     BotConfig config;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
@@ -81,9 +86,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     public TelegramBot(BotConfig config) {
-        String avatarUrl = "https://img2.rudalle.ru/images/86/6b/10/866b103119744e01a149fd9b20fec9aa_00000.jpg";
-        SetWebhook setWebhook = new SetWebhook();
-        setWebhook.setUrl(avatarUrl);
         this.config = config;
 
         /**
@@ -103,13 +105,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/freeSession", "получить бесплатную консультацию от психолога/коуча"));
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
-        listofCommands.add(new BotCommand("/month", "Просто попробуем добавить строку"));
 
-        try {
-            this.execute(setWebhook);
-        } catch (TelegramApiException e) {
-            log.error("Error download avatar " + e.getMessage());
-        }
+
+
 
         try {
             this.execute(new SetMyCommands(listofCommands, new BotCommandScopeDefault(), null));
@@ -135,7 +133,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-
 
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
@@ -176,7 +173,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "да":
                         prepareAndSendMessage(chatID, "В какое время тебе было бы удобно " +
                                 "получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
-                    case "/stat7days":
+                    case "/week":
                         getStatFrom7days(chatID);
                         break;
                     default:
@@ -224,18 +221,24 @@ public class TelegramBot extends TelegramLongPollingBot {
                 String emojiNumber = createEmoji(answer);
                 executeEditMessageText("Вы оценили на  " + emojiNumber, chatId, messageId);
                 String quests = data[2];
-                saveAnswerToDb(chatId, quests, answer);
+                saveAnswerToDb(chatId, quests,answer );
                 checkDateAndChatId(chatId);
 
             }
         }
     }
+    public String getTextTimetoQuestions() {
+        return textTimetoQuestions;
+    }
 
+    public void setTextTimetoQuestions(String textTimetoQuestions) {
+        this.textTimetoQuestions = textTimetoQuestions;
+    }
     private void timeToQuestions(long chatID) {
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
-        message.setText("В какое время тебе было бы удобно получать вопросы?\n\n" +
-                "Напиши в формате ЧЧ:ММ , например 20:30\n\n" +
+        message.setText("\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
+                "Напиши в формате ЧЧ:ММ , например 20:30\n" +
                 "(по Московскому времени)");
         executedMessage(message);
     }
@@ -413,13 +416,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         log.info("Добавили время в базу данных" + user);
     }
 
-    public String getTextTimetoQuestions() {
-        return textTimetoQuestions;
-    }
 
-    public void setTextTimetoQuestions(String textTimetoQuestions) {
-        this.textTimetoQuestions = textTimetoQuestions;
-    }
 
     private void addDataBaseQuest(Long chatId) {
         Map<String, String> questions = new HashMap<>();
@@ -451,55 +448,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-
-
-      /*  private void addDataBaseQuest (Long chatId){
-        DataBaseQuest userDB = new DataBaseQuest();
-        DataBaseQuestId id = new DataBaseQuestId();
-
-        List<String> questions = Arrays.asList("Здоровье", "Работа"
-                , "Саморазвитие"
-                , "Деньги, капитал"
-                , "Материальный мир"
-                , "Отношения"
-                , "Развлечения"
-                , "Семья"
-                , "Внешность"
-                , "Друзья");
-
-            List<String> questionsList = Arrays.asList("Как ты оцениваешь свое здоровье?", "Как ты оцениваешь свою работу?"
-                    , "Как ты оцениваешь свое саморазвитие?"
-                    , "Как ты оценивешь свое имущество? (деньги,капитал)"
-                    , "Как ты оцениваешь свой материальный мир?"
-                    , "Как ты оцениваешь свои отношения?"
-                    , "Как ты оцениваешь свои развлечения?"
-                    , "Как ты оцениваешь отношения в семье?"
-                    , "Как ты оцениваешь свою привлекательность?"
-                    , "Как ты оцениваешь свое общение с друзьями?");
-
-        try {
-
-            id.setChatId(chatId);
-            userDB.setId(id);
-            for (String question : questions) {
-                id.setQuest(question);
-                dataBaseQuestRepository.save(userDB);
-            }
-            id.setChatId(chatId);
-            userDB.setId(id);
-
-            for (String currentQuestion : questionsList) {
-                id.setQuestString(currentQuestion);
-                dataBaseQuestRepository.save(userDB);
-            }
-            log.info("Пользователь обновил время получения вопросов " + userDB);
-            System.out.println("Пользователь обновил время получения вопросов");
-
-        } catch (Exception e) {
-            log.error("Error saving user to DB: " + userDB, e);
-
-        }
-    }*/
 
     /**
      * Проверка, есть ли в данную минуту пользователи, которым мы должны отпрвить вопросы
@@ -546,16 +494,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             List<String> questsToday = null;
 
-
-            /*try {
-                quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum)
-                        -> rs.getString("quest"));
-                quest_string = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum)
-                        -> rs.getString("quest_string"));
-                questsToday = jdbcTemplate.query(sqlToday, new Object[]{chat_id}, (rs, rowNum)
-                        -> rs.getString("quest"));
-            } */
-
             List<Map<String, String>> quests = null;
             try {
                 quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) ->
@@ -581,15 +519,26 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
 
 
-    public void sendQuest(Long chatId, Map<String, String> questMap){
+    public void sendQuest(Long chatId, Map<String, String> questMap)  {
         System.out.println("User " + chatId + " Received questions " );
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         String questValue = questMap.get("quest");
         String questStringValue = questMap.get("quest_string");
         message.setText(questStringValue);
+
+
+        try {
+            execute(getSticker.addStiker(questValue,chatId));
+        }
+        catch (Exception e){
+            log.info("Error" + e);
+        }
+
         executedMessage(message);
         getKeyboard(chatId, questValue);
+
+
     }
 
 
@@ -625,6 +574,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setReplyMarkup(markupInline);
         executedMessage(message);
     }
+
     /**
      * Сохраняем значение в БД
      */
@@ -637,6 +587,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         jdbcTemplate.update(sql, answer, chatId, question);
     }
 
+
     /**
      * Если все вопросы на сегодня заданы, завершающее сообщение
      */
@@ -644,7 +595,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setText("Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
-                "Узнать статистику за последние 7 дней /stat7days");
+                "Узнать статистику за последние 7 дней /week");
         executedMessage(message);
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             getStatFrom7days(chatId);
@@ -702,6 +653,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         return rating;
     }
+
+
+
 
     /**
      * Выводим статистику за последние 7 дней

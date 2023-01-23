@@ -96,7 +96,6 @@
 					<executable>
 						true
 					</executable>
-						<finalName>WheelBalance</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
