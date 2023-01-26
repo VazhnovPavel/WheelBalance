@@ -72,9 +72,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
-                    "/addSection - добавить свой раздел в “Колесо” \n\n" +
-                    "/deleteSection - удалить раздел из “Колеса” \n\n" +
-                    "/renameSection - переименовать раздел из “Колеса” \n\n" +
                     "/help - вывести все команды \n\n" +
                     "/deleteAll - удалить все данные о пользователе \n\n" +
                     "/download - скачать все данные в формате таблицы \n\n" +
@@ -527,7 +524,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         String questStringValue = questMap.get("quest_string");
         message.setText(questStringValue);
 
-
         try {
             execute(getSticker.addStiker(questValue,chatId));
         }
@@ -599,6 +595,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             getStatFrom7days(chatId);
+            log.info("Проверка на воскресенье");
         }
 
     }
