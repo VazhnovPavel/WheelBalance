@@ -16,9 +16,9 @@ import javax.sql.DataSource;
 @Data
 @ComponentScan("com.testSpringBoot.SpringDemoBot.config")
 public class BotConfig {
-    @Value("Wheel_Balance_bot")
+    @Value("vazhnov_test_1_bot")
     String botName;
-    @Value("5929802437:AAFO4WkYk46YdbAV8hnq51dH1nI-khNESc4")
+    @Value("5454098510:AAHbjC1Z2O3HEab9O27xdngKdNn-fMvn4_E")
     String token;
     @Value("350511326")
     Long ownerId;

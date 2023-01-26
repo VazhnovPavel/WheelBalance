@@ -57,6 +57,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     private DataBase dataBase;
     @Autowired
     private GetSticker getSticker;
+    @Autowired
+    private DeleteUserInformation deleteUserInformation;
 
     BotConfig config;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
@@ -73,13 +75,10 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
                     "/help - вывести все команды \n\n" +
-                    "/deleteAll - удалить все данные о пользователе \n\n" +
-                    "/download - скачать все данные в формате таблицы \n\n" +
+                    "/deleteAll - удалить все ваши персональные данные из бота \n\n" +
                     "/when - настроить время для вопросов \n\n" +
-                    "/addSkip - ввести запись в дневник за прошедшую дату \n\n" +
-                    "/freeSession - получить бесплатную консультацию от психолога/коуча \n\n" +
                     "/week - показать статистику за неделю \n\n" +
-                    "/month - показать статистику за месяц ";
+                    "/month - показать статистику за месяц (beta) ";
 
 
     public TelegramBot(BotConfig config) {
@@ -91,15 +90,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         List<BotCommand> listofCommands = new ArrayList<>();
         listofCommands.add(new BotCommand("/start", "Start"));
-        listofCommands.add(new BotCommand("/addSection", "добавить свой раздел в “Колесо” "));
-        listofCommands.add(new BotCommand("/deleteSection", "удалить раздел из “Колеса”"));
-        listofCommands.add(new BotCommand("/renameSection", "переименовать раздел из “Колеса”"));
         listofCommands.add(new BotCommand("/help", "вывести все команды "));
         listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
-        listofCommands.add(new BotCommand("/download", "скачать все данные в формате таблицы"));
         listofCommands.add(new BotCommand("/when", "настроить время для вопросов"));
-        listofCommands.add(new BotCommand("/addSkip", "ввести запись в дневник за прошедшую дату"));
-        listofCommands.add(new BotCommand("/freeSession", "получить бесплатную консультацию от психолога/коуча"));
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
 
@@ -167,14 +160,22 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/help":
                         prepareAndSendMessage(chatID, HELP_TEXT);
                         break;
-                    case "да":
+                    case "/when":
                         prepareAndSendMessage(chatID, "В какое время тебе было бы удобно " +
                                 "получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
                     case "/week":
                         getStatFrom7days(chatID);
                         break;
+                    case "/month":
+                        prepareAndSendMessage(chatID, "Функция в разработке");
+                        break;
+                    case "/deleteAll":
+                        prepareAndSendMessage(chatID, "Ваши данные полностью удалены");
+                        deleteUserInformation.deleteDataUser(chatID);
+                        break;
                     default:
-                        prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой");
+                        prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой \n\n" +
+                                "Но я думаю, вам поможет это /help");
                 }
 
             }
@@ -490,7 +491,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + " IS NULL ) ";
 
             List<String> questsToday = null;
-
             List<Map<String, String>> quests = null;
             try {
                 quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) ->
