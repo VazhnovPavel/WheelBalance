@@ -1,4 +1,4 @@
-# WheelBalance (https://t.me/Wheel_Balance_bot)
+# (BETA) WheelBalance (https://t.me/Wheel_Balance_bot)
 Телеграм бот, помогающий отслеживать прогресс ваших сфер жизни.
 
 
