@@ -1,41 +1,29 @@
 package com.testSpringBoot.SpringDemoBot.service;
 
+import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
+import com.testSpringBoot.SpringDemoBot.statistic.WeekValues;
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.patterns.TypePatternQuestions;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
-import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
-import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
 import java.sql.*;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -54,11 +42,13 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Autowired
-    private DataBase dataBase;
+    private WeekValues weekValues;
     @Autowired
     private GetSticker getSticker;
     @Autowired
     private DeleteUserInformation deleteUserInformation;
+    @Autowired
+    private LastWeekValues lastWeekValues;
 
     BotConfig config;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
@@ -663,9 +653,15 @@ public class TelegramBot extends TelegramLongPollingBot {
         try {
             SendMessage message = new SendMessage();
             message.setChatId(chatId);
-            List<String> meanQuest = dataBase.getMeanQuest(chatId);
+            List<String> weakResult = weekValues.getMeanQuest(chatId);
+            List<String> lastWeakResult = lastWeekValues.getMeanQuest(chatId);
+            List<String> resultString = new ArrayList<>();
+            for (int i = 0; i < weakResult.size() ; i++) {
+                    resultString.add(weakResult.get(i) + lastWeakResult.get(i));
+            }
+
             StringBuilder mean = new StringBuilder();
-            for(String s : meanQuest) {
+            for(String s : resultString) {
                 mean.append(s).append("\n");
             }
             message.setText("Среднее значение за последние 7 дней: \n\n" + mean+ "\n\nЧуууть позже мы добавим " +
