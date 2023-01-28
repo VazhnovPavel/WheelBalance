@@ -2,7 +2,7 @@
 Телеграм бот, помогающий отслеживать прогресс ваших сфер жизни.
 
 
-  <img src="https://user-images.githubusercontent.com/112971826/213796674-7dbaa8a8-1634-4f70-aa52-503de95da7c7.jpg" width="500" title="WheelBalance">
+  <img src="https://sun9-49.userapi.com/impg/5ScLAibZx09dpiHJb0SxyT7DUGzYO-DMAyTouw/NJ4Gc2We84E.jpg?size=1206x690&quality=96&sign=689da5d03439c76749eaa958ff4a06a6&type=album" width="1000" title="WheelBalance">
 
 
 
