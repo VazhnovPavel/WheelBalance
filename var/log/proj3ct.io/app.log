@@ -25,3 +25,7 @@
 2023-01-28 00:05:40,162 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
 2023-01-28 00:05:40,270 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
 2023-01-28 00:05:40,413 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.717 seconds (JVM running for 2.195)
+2023-01-28 00:06:00,116 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-28 00:07:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-28 00:08:00,041 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-01-28 00:08:06,609 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
