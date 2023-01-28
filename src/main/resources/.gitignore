@@ -1,4 +1,4 @@
  application.proprerties
  hibernate.cfg.xml
- BotConfig
- JdbcConfig
+ BotConfig.java
+ JdbcConfig.java

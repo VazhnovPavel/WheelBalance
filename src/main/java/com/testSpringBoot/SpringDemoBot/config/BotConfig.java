@@ -22,6 +22,7 @@ public class BotConfig {
     String token;
     @Value("350511326")
     Long ownerId;
+
 }
 
 

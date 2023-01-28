@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 @Configuration
 public class JdbcConfig {
     private final Logger logger = LoggerFactory.getLogger(JdbcConfig.class);
-
     @Bean
     public DataSource dataSource() {
         logger.info("Creating DataSource bean");

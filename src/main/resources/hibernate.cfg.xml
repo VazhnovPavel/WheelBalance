@@ -12,6 +12,5 @@
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <property name="show_sql">true</property>
         <property name="packagesToScan">com.testSpringBoot.SpringDemoBot.model</property>
-
     </session-factory>
 </hibernate-configuration>
