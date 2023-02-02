@@ -56,8 +56,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Autowired
-    private DataBase dataBase;
-    @Autowired
     private GetSticker getSticker;
     @Autowired
     private DeleteUserInformation deleteUserInformation;
