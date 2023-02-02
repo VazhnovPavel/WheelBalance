@@ -1,5 +1,6 @@
 package com.testSpringBoot.SpringDemoBot.service;
 
+import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
 import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
 import com.testSpringBoot.SpringDemoBot.statistic.WeekValues;
@@ -48,8 +49,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private LastWeekValues lastWeekValues;
     @Autowired
     private WeekValues weekValues;
-
-
+    @Autowired
     BotConfig config;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
