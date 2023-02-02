@@ -1,13 +1,13 @@
 <configuration>
 
-    <property name="HOME_LOG" value="/Users/fortex/Documents/GitHub/WheelBalanceGitHub/var/log/proj3ct.io/app.log"/>
-    <!--   <property name="HOME_LOG" value="/var/www/fastuser/data/tg-bot/var/log/app.log"/> -->
-     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-         <file>${HOME_LOG}</file>
+    <!--   <property name="HOME_LOG" value="/Users/fortex/Documents/GitHub/WheelBalanceGitHub/var/log/proj3ct.io/app.log"/>-->
+      <property name="HOME_LOG" value="/var/www/fastuser/data/tg-bot/var/log/app.log"/>
+   <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+       <file>${HOME_LOG}</file>
 
-         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-             <fileNamePattern>/Users/fortex/Documents/GitHub/WheelBalanceGitHub/var/log/proj3ct.io/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-             <!-- each archived file, size max 10MB -->
+       <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+           <fileNamePattern>/Users/fortex/Documents/GitHub/WheelBalanceGitHub/var/log/proj3ct.io/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+           <!-- each archived file, size max 10MB -->
             <maxFileSize>10MB</maxFileSize>
             <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
             <totalSizeCap>1GB</totalSizeCap>

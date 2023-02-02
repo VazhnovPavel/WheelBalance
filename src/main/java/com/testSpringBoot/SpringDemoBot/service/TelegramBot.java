@@ -2,6 +2,8 @@ package com.testSpringBoot.SpringDemoBot.service;
 
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
+import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
+import com.testSpringBoot.SpringDemoBot.statistic.WeekValues;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.weaver.patterns.TypePatternQuestions;
@@ -59,6 +61,10 @@ public class TelegramBot extends TelegramLongPollingBot {
     private GetSticker getSticker;
     @Autowired
     private DeleteUserInformation deleteUserInformation;
+    @Autowired
+    private LastWeekValues lastWeekValues;
+    @Autowired
+    private WeekValues weekValues;
 
     BotConfig config;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
@@ -78,6 +84,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/deleteAll - удалить все ваши персональные данные из бота \n\n" +
                     "/when - настроить время для вопросов \n\n" +
                     "/week - показать статистику за неделю \n\n" +
+                    "/compareWeek - сравнить статистику с предыдущей неделей \n\n" +
                     "/month - показать статистику за месяц (beta) ";
 
 
@@ -94,7 +101,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
         listofCommands.add(new BotCommand("/when", "настроить время для вопросов"));
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
+        listofCommands.add(new BotCommand("/compareWeek", "сравнить с предыдущей неделей"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
+
 
 
 
@@ -166,6 +175,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/week":
                         getStatFrom7days(chatID);
                         break;
+                    case "/compareWeek":
+                        compareWeekAndLastWeek(chatID);
+                        break;
+
                     case "/month":
                         prepareAndSendMessage(chatID, "Функция в разработке");
                         break;
@@ -658,23 +671,63 @@ public class TelegramBot extends TelegramLongPollingBot {
      * Выводим статистику за последние 7 дней
      * Среднее арифметическое всех значений в столбцах дат
      */
-    private void getStatFrom7days(Long chatId){
-
+    private void getStatFrom7days(Long chatId) {
         try {
             SendMessage message = new SendMessage();
             message.setChatId(chatId);
-            List<String> meanQuest = dataBase.getMeanQuest(chatId);
+            Map<String, Double> weekMap = weekValues.getMeanQuest(chatId);
             StringBuilder mean = new StringBuilder();
-            for(String s : meanQuest) {
-                mean.append(s).append("\n");
+            for ( Map.Entry<String, Double> entry : weekMap.entrySet()) {
+                if (entry.getValue() != 0.0) {
+                    mean.append(entry.getKey()).append(" ").append(entry.getValue());
+                    String emoji = getEmoji(entry.getValue(), true);
+                    mean.append("\n").append(emoji).append("\n");
+                }
             }
-            message.setText("Среднее значение за последние 7 дней: \n\n" + mean+ "\n\nЧуууть позже мы добавим " +
-                    "статистику за месяц и другую интересную аналитику \uD83D\uDE09\n");
-            executedMessage(message);
+            message.setText("Среднее значение за последние 7 дней: \n\n "+ mean +
+                    "\n Сравнить с предыдущей неделей - /compareWeek");
+            this.executedMessage(message);
         }
-        catch (Exception e){
-            log.info("ОШИБКААААААА" + e);
+        catch (Exception e) {
+            log.info( "Ошибка"+e);
         }
+    }
+
+    private void compareWeekAndLastWeek(final Long chatId) {
+        boolean colorGreen = false;
+        try {
+            SendMessage message = new SendMessage();
+            message.setChatId(chatId);
+            Map<String, Double> weekMap = weekValues.getMeanQuest(chatId);
+            Map<String, Double> lastResultMap = lastWeekValues.getMeanQuest(chatId);
+            StringBuilder mean = new StringBuilder("Сравниваем эту и предыдущую неделю:\n");
+            for (final String key : weekMap.keySet()) {
+                mean.append("\n\n_______________________________________________________\n");
+                mean.append("\n").append(key).append(" ").append(weekMap.get(key));
+                colorGreen = true;
+                mean.append("\n").append(getEmoji(weekMap.get(key), colorGreen));
+                if (lastResultMap.containsKey(key) && lastResultMap.get(key) != 0.0) {
+                    mean.append("\nНа прошлой неделе  ").append(lastResultMap.get(key));
+                    colorGreen = false;
+                    mean.append("\n").append(getEmoji(lastResultMap.get(key), colorGreen));
+
+                }
+            }
+            mean.append("\n\n Все команды - /help");
+            message.setText(mean.toString());
+            this.executedMessage(message);
+        }
+        catch (Exception e) {
+            log.info( "Ошибка" +e);
+        }
+    }
+    private String getEmoji( double value,  boolean colorGreen) {
+        final int emojiCount = (int)Math.round(value);
+        final StringBuilder emoji = new StringBuilder();
+        for (int i = 0; i < emojiCount; ++i) {
+            emoji.append(colorGreen ? "🟢" : "⚪️");
+        }
+        return emoji.toString();
 
     }
 }
