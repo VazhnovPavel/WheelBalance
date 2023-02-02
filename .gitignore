@@ -2,3 +2,4 @@
 / hibernate.cfg.xml
 / BotConfig
 / JdbcConfig
+/src/main/resources/application.properties
