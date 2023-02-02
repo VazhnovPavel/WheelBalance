@@ -64,7 +64,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private WeekValues weekValues;
 
-
     BotConfig config;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
