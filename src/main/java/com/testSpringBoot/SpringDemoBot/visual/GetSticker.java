@@ -1,4 +1,4 @@
-package com.testSpringBoot.SpringDemoBot.model;
+package com.testSpringBoot.SpringDemoBot.visual;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;

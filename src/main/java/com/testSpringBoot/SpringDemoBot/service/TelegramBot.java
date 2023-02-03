@@ -2,8 +2,13 @@ package com.testSpringBoot.SpringDemoBot.service;
 
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
+import com.testSpringBoot.SpringDemoBot.statistic.CompareWeekLastWeek;
+import com.testSpringBoot.SpringDemoBot.statistic.GetStat7Days;
 import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
 import com.testSpringBoot.SpringDemoBot.statistic.WeekValues;
+import com.testSpringBoot.SpringDemoBot.visual.CreateEmoji;
+import com.testSpringBoot.SpringDemoBot.visual.GetResultEmoji;
+import com.testSpringBoot.SpringDemoBot.visual.GetSticker;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +56,16 @@ public class TelegramBot extends TelegramLongPollingBot {
     private WeekValues weekValues;
     @Autowired
     BotConfig config;
+    @Autowired
+    private GetResultEmoji getResultEmoji;
+    @Autowired
+    private CompareWeekLastWeek compareWeekLastWeek;
+    @Autowired
+    private GetStat7Days getStat7Days;
+    @Autowired
+    private CreateEmoji createEmoji;
+    @Autowired
+    private CreateQueryToCheck3Days createQueryToCheck3Days;
     static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
             "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
@@ -61,6 +76,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
     static final String ERROR_OCCURED = "Error occurred: ";
     private String textTimetoQuestions;
+    final private String sendQuestAboutTimeToQuestion = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
+            "Напиши в формате ЧЧ:ММ , например 20:30\n" +
+            "(по Московскому времени)";
+    final private String thxForAsking = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
+            "Узнать статистику за последние 7 дней /week";
+
 
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
@@ -87,9 +108,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
         listofCommands.add(new BotCommand("/compareWeek", "сравнить с предыдущей неделей"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
-
-
-
 
 
         try {
@@ -137,9 +155,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                 log.info("Пользователь ввел время для вопросов");
                 setTextTimetoQuestions(messageText);
                 verificationTimeQuestion(chatID, messageText);
-            } else if (messageText.matches("^\\d{2}ж\\d{2}$")) {
-                prepareAndSendMessage(chatID, "Для установки времени для вопросов \n\n " +
-                        "Замените букву ж на : \n\nНапример: 20:30");
             } else if (messageText.matches("^\\d{2};\\d{2}$")) {
                 prepareAndSendMessage(chatID, "Для установки времени для вопросов \n\n" +
                         "Замените ; на : \n\nНапример: 20:30");
@@ -154,15 +169,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, HELP_TEXT);
                         break;
                     case "/when":
-                        prepareAndSendMessage(chatID, "В какое время тебе было бы удобно " +
-                                "получать вопросы? Напишите в формате ЧЧ:ММ по Москве");
+                        prepareAndSendMessage(chatID, sendQuestAboutTimeToQuestion);
+                        break;
                     case "/week":
-                        getStatFrom7days(chatID);
+                        sendMessage(chatID,getStat7Days.getStatFrom7days(chatID));
                         break;
                     case "/compareWeek":
-                        compareWeekAndLastWeek(chatID);
+                        sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID));
                         break;
-
                     case "/month":
                         prepareAndSendMessage(chatID, "Функция в разработке");
                         break;
@@ -213,15 +227,16 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 String[] data = callBackData.split("_");
                 int answer = Integer.parseInt(data[1]);
-                String emojiNumber = createEmoji(answer);
+                String emojiNumber = createEmoji.createFunnyEmoji(answer);
                 executeEditMessageText("Вы оценили на  " + emojiNumber, chatId, messageId);
                 String quests = data[2];
-                saveAnswerToDb(chatId, quests,answer );
+                saveAnswerToDb(chatId, quests, answer);
                 checkDateAndChatId(chatId);
 
             }
         }
     }
+
     public String getTextTimetoQuestions() {
         return textTimetoQuestions;
     }
@@ -229,13 +244,10 @@ public class TelegramBot extends TelegramLongPollingBot {
     public void setTextTimetoQuestions(String textTimetoQuestions) {
         this.textTimetoQuestions = textTimetoQuestions;
     }
+
     private void timeToQuestions(long chatID) {
-        SendMessage message = new SendMessage();
-        message.setChatId(chatID);
-        message.setText("\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
-                "Напиши в формате ЧЧ:ММ , например 20:30\n" +
-                "(по Московскому времени)");
-        executedMessage(message);
+
+        sendMessage(chatID, sendQuestAboutTimeToQuestion);
     }
 
     private void registerUser(Message msg, Update update) {
@@ -358,7 +370,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         rowsInLine.add(rowInline);
         markupInline.setKeyboard(rowsInLine);
         message.setReplyMarkup(markupInline);
-
         executedMessage(message);
     }
 
@@ -386,7 +397,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         rowsInLine.add(rowInline);
         markupInline.setKeyboard(rowsInLine);
         message.setReplyMarkup(markupInline);
-
         executedMessage(message);
     }
 
@@ -410,8 +420,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         userRepository.save(user);
         log.info("Добавили время в базу данных" + user);
     }
-
-
 
     private void addDataBaseQuest(Long chatId) {
         Map<String, String> questions = new HashMap<>();
@@ -443,12 +451,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-
     /**
      * Проверка, есть ли в данную минуту пользователи, которым мы должны отпрвить вопросы
      */
-        @Scheduled(cron = "0 * * * * *")
-        public void schedulerService () {
+    @Scheduled(cron = "0 * * * * *")
+    public void schedulerService() {
         List<User> userList = userRepository.findAll();
         for (User user : userList) {
             String cronExpression = user.getTimeToQuestions();
@@ -467,70 +474,50 @@ public class TelegramBot extends TelegramLongPollingBot {
             }
         }
     }
+
     /**
      * База данных выдает 1 рандомный вопрос из вариантов, подподающих под условие
      */
 
-        public void checkDateAndChatId (Long chat_id) {
-            log.info("Выполнение запроса для получения квеста");
-            LocalDate today = LocalDate.now();
-            LocalDate yesterday = today.minusDays(1);
-            LocalDate dayBeforeYesterday = today.minusDays(2);
-            String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-            String formattedYesterdayDate = yesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-            String formattedDayBeforeYesterdayDate = dayBeforeYesterday.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-            String sql = "SELECT quest,quest_string FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
-                    + " IS NULL AND date_" + formattedYesterdayDate
-                    + " IS NULL AND date_" + formattedDayBeforeYesterdayDate
-                    + " IS NULL) ORDER BY random() LIMIT 1";
-
-            String sqlToday = "SELECT quest FROM data_base_quest WHERE chat_id = ? AND (date_" + formattedTodayDate
-                    + " IS NULL ) ";
-
-            List<String> questsToday = null;
-            List<Map<String, String>> quests = null;
-            try {
-                quests = jdbcTemplate.query(sql, new Object[]{chat_id}, (rs, rowNum) ->
-                        new HashMap<String, String>() {{
-                            put("quest", rs.getString("quest"));
-                            put("quest_string", rs.getString("quest_string"));
-                        }});
-                questsToday = jdbcTemplate.query(sqlToday, new Object[]{chat_id}, (rs, rowNum)
-                        -> rs.getString("quest"));
-            }
-
-            catch (Exception e) {
-                log.error("Error while executing query", e);
-            }
-            log.info("questToday = " + questsToday.size());
-            if (questsToday != null && questsToday.size() <= 10 && questsToday.size() > 7) {
-                Map<String, String> quest = quests.get(0);
-                log.info("ЭТАП 1: quests + quest_string = " + quests );
-                sendQuest(chat_id, quest);
-            } else {
-                sendEndMessage(chat_id);
-            }
+    public void checkDateAndChatId(Long chat_id) {
+        List<String> questsToday = null;
+        List<Map<String, String>> quests = null;
+        try {
+            quests = jdbcTemplate.query(createQueryToCheck3Days.sql(chat_id)
+                    , new Object[]{chat_id}, (rs, rowNum) ->
+                    new HashMap<String, String>() {{
+                        put("quest", rs.getString("quest"));
+                        put("quest_string", rs.getString("quest_string"));
+                    }});
+            questsToday = jdbcTemplate.query(createQueryToCheck3Days.sqlToday(chat_id)
+                    , new Object[]{chat_id}, (rs, rowNum)
+                    -> rs.getString("quest"));
+        } catch (Exception e) {
+            log.error("Error while executing query", e);
         }
+        log.info("questToday = " + questsToday.size());
 
+        if (questsToday != null && questsToday.size() <= 10 && questsToday.size() > 7) {
+            Map<String, String> quest = quests.get(0);
+            log.info("ЭТАП 1: quests + quest_string = " + quests);
+            sendQuest(chat_id, quest);
+        } else {
+            sendEndMessage(chat_id);
+        }
+    }
 
-    public void sendQuest(Long chatId, Map<String, String> questMap)  {
-        System.out.println("User " + chatId + " Received questions " );
-        SendMessage message = new SendMessage();
-        message.setChatId(chatId);
+    public void sendQuest(Long chatId, Map<String, String> questMap) {
+        System.out.println("User " + chatId + " Received questions ");
         String questValue = questMap.get("quest");
         String questStringValue = questMap.get("quest_string");
-        message.setText(questStringValue);
 
         try {
-            execute(getSticker.addStiker(questValue,chatId));
-        }
-        catch (Exception e){
+            execute(getSticker.addStiker(questValue, chatId));
+        } catch (Exception e) {
             log.info("Error" + e);
         }
-
-        executedMessage(message);
+        sendMessage(chatId, questStringValue);
         getKeyboard(chatId, questValue);
-
 
     }
 
@@ -540,7 +527,7 @@ public class TelegramBot extends TelegramLongPollingBot {
      * Все кнопки создаются по формату "BUTTON_" + "Номер вопроса" + "Сам вопрос"
      * Эта информация необходима потом для занесения данных в БД
      */
-        private void getKeyboard (Long chatID, String quest){
+    private void getKeyboard(Long chatID, String quest) {
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText("Оцени от 1 до 10");
@@ -551,9 +538,8 @@ public class TelegramBot extends TelegramLongPollingBot {
             String answerNumber = String.valueOf(i);
             try {
                 rowInline.add(createInlineKeyboardButton(answerNumber, "BUTTON_" + answerNumber + "_"
-                        + quest ));
-            }
-            catch (Exception e){
+                        + quest));
+            } catch (Exception e) {
                 log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
             }
 
@@ -571,7 +557,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     /**
      * Сохраняем значение в БД
      */
-        private void saveAnswerToDb ( long chatId, String question,int answer){
+    private void saveAnswerToDb(long chatId, String question, int answer) {
         log.info("Солнце  я тут c " + chatId + question + answer);
         LocalDate today = LocalDate.now();
         String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
@@ -584,136 +570,14 @@ public class TelegramBot extends TelegramLongPollingBot {
     /**
      * Если все вопросы на сегодня заданы, завершающее сообщение
      */
-    private void sendEndMessage (long chatId){
-        SendMessage message = new SendMessage();
-        message.setChatId(chatId);
-        message.setText("Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
-                "Узнать статистику за последние 7 дней /week");
-        executedMessage(message);
+    private void sendEndMessage(long chatId) {
+        sendMessage(chatId, thxForAsking);
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            getStatFrom7days(chatId);
+            sendMessage(chatId,getStat7Days.getStatFrom7days(chatId));
             log.info("Проверка на воскресенье");
         }
-
-    }
-
-
-    private String createEmoji(int answer){
-        String rating;
-        String num1 = EmojiParser.parseToUnicode("\u0031\u20E3");
-        String num2 = EmojiParser.parseToUnicode("\u0032\u20E3");
-        String num3 = EmojiParser.parseToUnicode("\u0033\u20E3");
-        String num4 = EmojiParser.parseToUnicode("\u0034\u20E3");
-        String num5 = EmojiParser.parseToUnicode("\u0035\u20E3");
-        String num6 = EmojiParser.parseToUnicode("\u0036\u20E3");
-        String num7 = EmojiParser.parseToUnicode("\u0037\u20E3");
-        String num8 = EmojiParser.parseToUnicode("\u0038\u20E3");
-        String num9 = EmojiParser.parseToUnicode("\u0039\u20E3");
-        String num10 = EmojiParser.parseToUnicode("\u0031\u0030\u20E3");
-
-        switch (answer) {
-            case 1:
-                rating = num1;
-                break;
-            case 2:
-                rating = num2;
-                break;
-            case 3:
-                rating = num3;
-                break;
-            case 4:
-                rating = num4;
-                break;
-            case 5:
-                rating = num5;
-                break;
-            case 6:
-                rating = num6;
-                break;
-            case 7:
-                rating = num7;
-                break;
-            case 8:
-                rating = num8;
-                break;
-            case 9:
-                rating = num9;
-                break;
-            case 10:
-                rating = num10;
-                break;
-            default:
-                rating = "Invalid answer";
-        }
-        return rating;
-    }
-
-
-
-
-    /**
-     * Выводим статистику за последние 7 дней
-     * Среднее арифметическое всех значений в столбцах дат
-     */
-    private void getStatFrom7days(Long chatId) {
-        try {
-            SendMessage message = new SendMessage();
-            message.setChatId(chatId);
-            Map<String, Double> weekMap = weekValues.getMeanQuest(chatId);
-            StringBuilder mean = new StringBuilder();
-            for ( Map.Entry<String, Double> entry : weekMap.entrySet()) {
-                if (entry.getValue() != 0.0) {
-                    mean.append(entry.getKey()).append(" ").append(entry.getValue());
-                    String emoji = getEmoji(entry.getValue(), true);
-                    mean.append("\n").append(emoji).append("\n");
-                }
-            }
-            message.setText("Среднее значение за последние 7 дней: \n\n "+ mean +
-                    "\n Сравнить с предыдущей неделей - /compareWeek");
-            this.executedMessage(message);
-        }
-        catch (Exception e) {
-            log.info( "Ошибка"+e);
-        }
-    }
-
-    private void compareWeekAndLastWeek(final Long chatId) {
-        boolean colorGreen = false;
-        try {
-            SendMessage message = new SendMessage();
-            message.setChatId(chatId);
-            Map<String, Double> weekMap = weekValues.getMeanQuest(chatId);
-            Map<String, Double> lastResultMap = lastWeekValues.getMeanQuest(chatId);
-            StringBuilder mean = new StringBuilder("Сравниваем эту и предыдущую неделю:\n");
-            for (final String key : weekMap.keySet()) {
-                mean.append("\n\n_______________________________________________________\n");
-                mean.append("\n").append(key).append(" ").append(weekMap.get(key));
-                colorGreen = true;
-                mean.append("\n").append(getEmoji(weekMap.get(key), colorGreen));
-                if (lastResultMap.containsKey(key) && lastResultMap.get(key) != 0.0) {
-                    mean.append("\nНа прошлой неделе  ").append(lastResultMap.get(key));
-                    colorGreen = false;
-                    mean.append("\n").append(getEmoji(lastResultMap.get(key), colorGreen));
-
-                }
-            }
-            mean.append("\n\n Все команды - /help");
-            message.setText(mean.toString());
-            this.executedMessage(message);
-        }
-        catch (Exception e) {
-            log.info( "Ошибка" +e);
-        }
-    }
-    private String getEmoji( double value,  boolean colorGreen) {
-        final int emojiCount = (int)Math.round(value);
-        final StringBuilder emoji = new StringBuilder();
-        for (int i = 0; i < emojiCount; ++i) {
-            emoji.append(colorGreen ? "🟢" : "⚪️");
-        }
-        return emoji.toString();
-
     }
 }
+
 
 
