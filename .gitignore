@@ -32,6 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/resources/application.properties
+/src/main/resources/hibernate.cfg.xml
 /src/main/java/com/testSpringBoot/SpringDemoBot/config/BotConfig.java
 /target/classes/application.properties
 /target/classes/logback.xml

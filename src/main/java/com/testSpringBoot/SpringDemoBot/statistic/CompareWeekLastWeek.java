@@ -20,7 +20,8 @@ public class CompareWeekLastWeek {
         Map<String, Double> lastResultMap = lastWeekValues.getMeanQuest(chatId);
         StringBuilder mean = new StringBuilder("Сравниваем эту и предыдущую неделю:\n");
         for (final String key : weekMap.keySet()) {
-            mean.append("\n\n_______________________________________________________\n");
+            mean.append("\n\n|\n");
+            mean.append("\n\n|\n");
             mean.append("\n").append(key).append(" ").append(weekMap.get(key));
             colorGreen = true;
             mean.append("\n").append(getResultEmoji.getEmoji(weekMap.get(key), colorGreen));
