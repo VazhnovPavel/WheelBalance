@@ -557,7 +557,7 @@ public class TelegramBot extends TelegramLongPollingBot {
      * Сохраняем значение в БД
      */
     private void saveAnswerToDb(long chatId, String question, int answer) {
-        log.info("Солнце  я тут c " + chatId + question + answer);
+        log.info("Сохраняем значение " + chatId + question + answer);
         LocalDate today = LocalDate.now();
         String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
         String dateColumn = "date_" + formattedTodayDate;
