@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 @Component
-public class CompareWeekLastWeek {
+public class CompareWeekLastWeek  {
     @Autowired
     private LastWeekValues lastWeekValues;
     @Autowired

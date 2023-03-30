@@ -1,6 +1,7 @@
 package com.testSpringBoot.SpringDemoBot.statistic;
 
 import com.testSpringBoot.SpringDemoBot.model.CreateDateColumn;
+import io.quickchart.QuickChart;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -8,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.math.RoundingMode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +17,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 @Slf4j
@@ -83,12 +86,15 @@ public class WeekValues {
 
 @Slf4j
 @Component
-public class WeekValues {
+public class WeekValues  {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
     private CreateDateColumn createDateColumn;
+
+
+
 
     /**
      * Делаем подсчет среднего арифметического по категориям за последние 7 дней
@@ -127,6 +133,10 @@ public class WeekValues {
             }
         });
         System.out.println(resultMap);
+
+
+
+
         return resultMap;
     }
 

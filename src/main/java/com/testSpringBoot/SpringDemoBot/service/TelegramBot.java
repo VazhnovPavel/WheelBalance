@@ -10,6 +10,7 @@ import com.testSpringBoot.SpringDemoBot.visual.CreateEmoji;
 import com.testSpringBoot.SpringDemoBot.visual.GetResultEmoji;
 import com.testSpringBoot.SpringDemoBot.visual.GetSticker;
 import com.vdurmont.emoji.EmojiParser;
+import io.quickchart.QuickChart;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,7 +20,9 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
@@ -33,6 +36,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -171,7 +175,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, sendQuestAboutTimeToQuestion);
                         break;
                     case "/week":
+                        sendChart(chatID,weekValues.getMeanQuest(chatID));
                         sendMessage(chatID,getStat7Days.getStatFrom7days(chatID));
+
                         break;
                     case "/compareWeek":
                         sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID));
@@ -283,6 +289,72 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setText(texToSend);
         executedMessage(message);
     }
+
+    public void sendChart(long chatID,Map<String, Double> chartToSend){
+        String labels = chartToSend.entrySet().stream()
+                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
+                .map(Map.Entry::getKey)
+                .map(label -> "'" + label + "'")
+                .collect(Collectors.joining(", "));
+
+        String data = chartToSend.entrySet().stream()
+                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
+                .map(Map.Entry::getValue)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+
+        QuickChart chart = new QuickChart();
+        chart.setWidth(800);
+        chart.setHeight(500);
+        chart.setBackgroundColor("#141449");
+
+        chart.setConfig("{"
+                + "type: 'polarArea',"
+                + "data: {"
+                + "labels: [" + labels + "],"
+                + "datasets: [{"
+                + "data: [" + data + "]"
+                + "}]"
+                + "},"
+                + "options: {"
+                + "title: {"
+                + "display: true,"
+                + "text: 'Отчет за последние 7 дней'," // добавление надписи
+                + "fontColor: 'white',"
+                + "fontSize: 30" // увеличение размера шрифта
+                + "},"
+                + "legend: {"
+                + "position: 'right',"
+                + "labels: {"
+                + "fontColor: 'white',"
+                + "fontSize: 25" // увеличение размера шрифта
+                + "}"
+                + "},"
+                + "scale: {"
+                + "gridLines: {"
+                + "color: '#9E9E9E'"
+                + "},"
+                + "ticks: {"
+                + "min: 0,"
+                + "max: 10,"
+                + "}"
+                + "}"
+                + "}"
+                + "}");
+        // Get the image
+        byte[] imageBytes = chart.toByteArray();
+
+        // Send the image to the user via Telegram bot
+        try {
+            SendPhoto sendPhotoRequest = new SendPhoto();
+            sendPhotoRequest.setChatId(chatID);
+            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
+            execute(sendPhotoRequest);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
