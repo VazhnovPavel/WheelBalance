@@ -6,9 +6,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import java.math.RoundingMode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -47,11 +49,16 @@ public class LastWeekValues {
                     }
                 }
                 double mean = 0;
+
                 if (count != 0) {
                     mean = total / count;
-                    DecimalFormat df = new DecimalFormat("#.#");
+
+                    DecimalFormat df = new DecimalFormat("#.#", new DecimalFormatSymbols(Locale.US));
+                    df.setRoundingMode(RoundingMode.HALF_UP);
+
                     result.put(quest, Double.parseDouble(df.format(mean)));
                 }
+
                 return quest;
             }
         });
