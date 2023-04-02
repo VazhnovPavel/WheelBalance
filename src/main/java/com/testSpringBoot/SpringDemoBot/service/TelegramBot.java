@@ -177,7 +177,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/week":
                         sendChart(chatID,weekValues.getMeanQuest(chatID));
                         sendMessage(chatID,getStat7Days.getStatFrom7days(chatID));
-
                         break;
                     case "/compareWeek":
                         sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID));
@@ -291,6 +290,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     public void sendChart(long chatID,Map<String, Double> chartToSend){
+        log.info("Начался метод sendChart ");
         String labels = chartToSend.entrySet().stream()
                 .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
                 .map(Map.Entry::getKey)
@@ -302,57 +302,60 @@ public class TelegramBot extends TelegramLongPollingBot {
                 .map(Map.Entry::getValue)
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
-
-        QuickChart chart = new QuickChart();
-        chart.setWidth(800);
-        chart.setHeight(500);
-        chart.setBackgroundColor("#141449");
-
-        chart.setConfig("{"
-                + "type: 'polarArea',"
-                + "data: {"
-                + "labels: [" + labels + "],"
-                + "datasets: [{"
-                + "data: [" + data + "]"
-                + "}]"
-                + "},"
-                + "options: {"
-                + "title: {"
-                + "display: true,"
-                + "text: 'Отчет за последние 7 дней'," // добавление надписи
-                + "fontColor: 'white',"
-                + "fontSize: 30" // увеличение размера шрифта
-                + "},"
-                + "legend: {"
-                + "position: 'right',"
-                + "labels: {"
-                + "fontColor: 'white',"
-                + "fontSize: 25" // увеличение размера шрифта
-                + "}"
-                + "},"
-                + "scale: {"
-                + "gridLines: {"
-                + "color: '#9E9E9E'"
-                + "},"
-                + "ticks: {"
-                + "min: 0,"
-                + "max: 10,"
-                + "}"
-                + "}"
-                + "}"
-                + "}");
-        // Get the image
-        byte[] imageBytes = chart.toByteArray();
-
-        // Send the image to the user via Telegram bot
+        log.info("START");
         try {
+            QuickChart chart = new QuickChart();
+            chart.setWidth(500);
+            chart.setHeight(800);
+            chart.setBackgroundColor("#141449");
+            chart.setConfig("{"
+                    + "type: 'polarArea',"
+                    + "data: {"
+                    + "labels: [" + labels + "],"
+                    + "datasets: [{"
+                    + "data: [" + data + "]"
+                    + "}]"
+                    + "},"
+                    + "options: {"
+                    + "title: {"
+                    + "display: true,"
+                    + "text: 'Отчет за последние 7 дней'," // добавление надписи
+                    + "fontColor: 'white',"
+                    + "fontSize: 30" // увеличение размера шрифта
+                    + "},"
+                    + "legend: {"
+                    + "position: 'right',"
+                    + "labels: {"
+                    + "fontColor: 'white',"
+                    + "fontSize: 25" // увеличение размера шрифта
+                    + "}"
+                    + "},"
+                    + "scale: {"
+                    + "gridLines: {"
+                    + "color: '#9E9E9E'"
+                    + "},"
+                    + "ticks: {"
+                    + "min: 0,"
+                    + "max: 10,"
+                    + "}"
+                    + "}"
+                    + "}"
+                    + "}");
+            // Get the image
+            byte[] imageBytes = chart.toByteArray();
+            log.info("FINAL");
+
+            // Send the image to the user via Telegram bot
             SendPhoto sendPhotoRequest = new SendPhoto();
             sendPhotoRequest.setChatId(chatID);
             sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
             execute(sendPhotoRequest);
-        } catch (TelegramApiException e) {
+        }
+        catch (Exception e){
+            log.info("ERROR create chart "+e);
             e.printStackTrace();
         }
+
     }
 
 
