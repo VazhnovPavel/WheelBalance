@@ -32,11 +32,14 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Date;
 import java.util.stream.Collectors;
+
 
 
 @Slf4j
@@ -58,6 +61,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private LastWeekValues lastWeekValues;
     @Autowired
     private WeekValues weekValues;
+
     @Autowired
     BotConfig config;
     @Autowired
@@ -79,6 +83,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
     static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
     static final String ERROR_OCCURED = "Error occurred: ";
+    static final String WEEK = "Текущая неделя";
+    static final String LAST_WEEK = "Предыдущая неделя";
     private String textTimetoQuestions;
     final private String sendQuestAboutTimeToQuestion = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
             "Напиши в формате ЧЧ:ММ , например 20:30\n" +
@@ -175,10 +181,12 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, sendQuestAboutTimeToQuestion);
                         break;
                     case "/week":
-                        sendChart(chatID,weekValues.getMeanQuest(chatID));
+                        sendPieChart(chatID,weekValues.getMeanQuest(chatID));
                         sendMessage(chatID,getStat7Days.getStatFrom7days(chatID));
                         break;
                     case "/compareWeek":
+                        sendRadarChart(chatID,weekValues.getMeanQuest(chatID),
+                                lastWeekValues.getMeanQuest(chatID), WEEK,LAST_WEEK);
                         sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID));
                         break;
                     case "/month":
@@ -289,77 +297,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
-//    public void sendChart(long chatID,Map<String, Double> chartToSend){
-//        log.info("Начался метод sendChart ");
-//        String labels = chartToSend.entrySet().stream()
-//                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
-//                .map(Map.Entry::getKey)
-//                .map(label -> "'" + label + "'")
-//                .collect(Collectors.joining(", "));
-//
-//        String data = chartToSend.entrySet().stream()
-//                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
-//                .map(Map.Entry::getValue)
-//                .map(String::valueOf)
-//                .collect(Collectors.joining(", "));
-//        log.info("START");
-//        try {
-//            QuickChart chart = new QuickChart();
-//            chart.setWidth(800);
-//            chart.setHeight(600);
-//            chart.setBackgroundColor("#141449");
-//            chart.setConfig("{"
-//                    + "type: 'polarArea',"
-//                    + "data: {"
-//                    + "labels: [" + labels + "],"
-//                    + "datasets: [{"
-//                    + "data: [" + data + "]"
-//                    + "}]"
-//                    + "},"
-//                    + "options: {"
-//                    + "title: {"
-//                    + "display: true,"
-//                    + "text: 'Отчет за последние 7 дней:'," // добавление надписи
-//                    + "fontColor: 'white',"
-//                    + "fontSize: 30" // увеличение размера шрифта
-//                    + "},"
-//                    + "legend: {"
-//                    + "position: 'right',"
-//                    + "labels: {"
-//                    + "fontColor: 'white',"
-//                    + "fontSize: 25" // увеличение размера шрифта
-//                    + "}"
-//                    + "},"
-//                    + "scale: {"
-//                    + "gridLines: {"
-//                    + "color: '#9E9E9E'"
-//                    + "},"
-//                    + "ticks: {"
-//                    + "min: 0,"
-//                    + "max: 10,"
-//                    + "}"
-//                    + "}"
-//                    + "}"
-//                    + "}");
-//            // Get the image
-//            byte[] imageBytes = chart.toByteArray();
-//            log.info("FINAL");
-//
-//            // Send the image to the user via Telegram bot
-//            SendPhoto sendPhotoRequest = new SendPhoto();
-//            sendPhotoRequest.setChatId(chatID);
-//            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
-//            execute(sendPhotoRequest);
-//        }
-//        catch (Exception e){
-//            log.info("ERROR create chart "+e);
-//            e.printStackTrace();
-//        }
-//
-//    }
+    public void sendPieChart(long chatID, Map<String, Double> chartToSend) {
 
-    public void sendChart(long chatID, Map<String, Double> chartToSend) {
-        log.info("Начался метод sendChart ");
+
         String labels = chartToSend.entrySet().stream()
                 .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
                 .map(entry -> entry.getKey() + ": " + entry.getValue()) // добавляем значение key и value
@@ -371,7 +311,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                 .map(Map.Entry::getValue)
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
-        log.info("START");
+
+
+
+
         try {
             QuickChart chart = new QuickChart();
             chart.setWidth(800);
@@ -388,7 +331,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "options: {"
                     + "title: {"
                     + "display: true,"
-                    + "text: 'Отчет за последние 7 дней:'," // добавление надписи
+                    + "text: 'Отчет за последние 7 дней:  ',"
                     + "fontColor: 'white',"
                     + "fontSize: 30" // увеличение размера шрифта
                     + "},"
@@ -429,7 +372,176 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-        ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
+//    public void sendRadarChart(long chatID, Map<String, Double> mapFirst,Map<String, Double> mapSecond ) {
+//
+//        String labels = mapFirst.entrySet().stream()
+//                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
+//                .map(entry -> entry.getKey() + ": " + entry.getValue()) // добавляем значение key и value
+//                .map(label -> "'" + label + "'")
+//                .collect(Collectors.joining(", "));
+//
+//        String data = mapFirst.entrySet().stream()
+//                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
+//                .map(Map.Entry::getValue)
+//                .map(String::valueOf)
+//                .collect(Collectors.joining(", "));
+//        log.info("START");
+//        try {
+//            QuickChart chart = new QuickChart();
+//            chart.setWidth(800);
+//            chart.setHeight(600);
+//            chart.setBackgroundColor("#141449");
+//            chart.setConfig("{"
+//                    + "type: 'polarArea',"
+//                    + "data: {"
+//                    + "labels: [" + labels + "],"
+//                    + "datasets: [{"
+//                    + "data: [" + data + "]"
+//                    + "}]"
+//                    + "},"
+//                    + "options: {"
+//                    + "title: {"
+//                    + "display: true,"
+//                    + "text: 'Отчет за последние 7 дней:'," // добавление надписи
+//                    + "fontColor: 'white',"
+//                    + "fontSize: 30" // увеличение размера шрифта
+//                    + "},"
+//                    + "legend: {"
+//                    + "position: 'right',"
+//                    + "labels: {"
+//                    + "fontColor: 'white',"
+//                    + "fontSize: 25" // увеличение размера шрифта
+//                    + "}"
+//                    + "},"
+//                    + "scale: {"
+//                    + "gridLines: {"
+//                    + "color: '#9E9E9E'"
+//                    + "},"
+//                    + "ticks: {"
+//                    + "display: false,"  // удаление цифр
+//                    + "min: 0,"
+//                    + "max: 10,"
+//                    + "}"
+//                    + "}"
+//                    + "}"
+//                    + "}");
+//
+//
+//            // Get the image
+//            byte[] imageBytes = chart.toByteArray();
+//            log.info("FINAL");
+//
+//            // Send the image to the user via Telegram bot
+//            SendPhoto sendPhotoRequest = new SendPhoto();
+//            sendPhotoRequest.setChatId(chatID);
+//            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
+//            execute(sendPhotoRequest);
+//        } catch (Exception e) {
+//            log.info("ERROR create chart " + e);
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void sendRadarChart(long chatID, Map<String, Double> mapFirst, Map<String, Double> mapSecond,
+                               String firstCompareName, String secondCompareName) {
+
+        String labels = mapFirst.keySet().stream()
+                .filter(key -> mapFirst.get(key) != null && mapFirst.get(key) != 0 && mapFirst.get(key) != 0.0)
+                .map(key -> "'" + key + "'")
+                .collect(Collectors.joining(", "));
+
+        String data1 = mapFirst.values().stream()
+                .filter(value -> value != null && value != 0 && value != 0.0)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+
+        String data2 = mapSecond.values().stream()
+                .filter(value -> value != null && value != 0 && value != 0.0)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+
+        log.info("START");
+        try {
+            QuickChart chart = new QuickChart();
+            chart.setWidth(1000);
+            chart.setHeight(600);
+            chart.setBackgroundColor("#141449");
+            chart.setConfig("{"
+                    + "type: 'radar',"
+                    + "data: {"
+                    + "labels: [" + labels + "],"
+                    + "datasets: [{"
+                    + "label: '"+firstCompareName+"',"
+                    + "data: [" + data1 + "],"
+                    + "backgroundColor: 'rgba(255, 99, 132, 0.2)',"
+                    + "borderColor: 'rgba(255, 99, 132, 1)',"
+                    + "borderWidth: 2,"
+                    + "pointBackgroundColor: 'rgba(255, 99, 132, 1)'"
+                    + "}, {"
+                    + "label: '"+secondCompareName+"',"
+                    + "data: [" + data2 + "],"
+                    + "backgroundColor: 'rgba(54, 162, 235, 0.2)',"
+                    + "borderColor: 'rgba(54, 162, 235, 1)',"
+                    + "borderWidth: 2,"
+                    + "pointBackgroundColor: 'rgba(54, 162, 235, 1)'"
+                    + "}]"
+                    + "},"
+                    + "options: {"
+                    + "title: {"
+                    + "display: true,"
+                    + "text: 'Сравнение последних двух недель:',"
+                    + "fontColor: 'white',"
+                    + "fontSize: 30"
+                    + "},"
+                    + "legend: {"
+                    + "position: 'right',"
+                    + "labels: {"
+                    + "fontColor: 'white',"
+                    + "fontSize: 25"
+                    + "}"
+                    + "},"
+                    + "scale: {"
+                    + "gridLines: {"
+                    + "color: '#9E9E9E'"
+                    + "},"
+                    + "pointLabels: {"
+                    + "fontSize: 18,"
+                    + "fontColor: 'white'"
+                    + "},"
+                    + "ticks: {"
+                    + "display: false,"
+                    + "min: 0,"
+                    + "max: 10,"
+                    + "color: 'white'"
+                    + "}"
+                    + "},"
+                    + "elements: {"
+                    + "line: {"
+                    + "tension: 0.4"
+                    + "}"
+                    + "}"
+                    + "}"
+                    + "}");
+
+            // Get the image
+            byte[] imageBytes = chart.toByteArray();
+
+            // Send the image to the user via Telegram bot
+            SendPhoto sendPhotoRequest = new SendPhoto();
+            sendPhotoRequest.setChatId(chatID);
+            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
+            execute(sendPhotoRequest);
+        } catch (Exception e) {
+            log.info("ERROR create chart " + e);
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+            ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
        /* ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
 

@@ -21,7 +21,7 @@ public class CompareWeekLastWeek  {
             "⚪️ – предыдущая неделя\n");
 
     for (final String key : weekMap.keySet()) {
-        mean.append("\n\n").append(key).append(" ").append(weekMap.get(key));
+        mean.append("\n").append(key).append(" ").append(weekMap.get(key));
         mean.append(" (было ").append(lastResultMap.get(key)).append(")\n");
         int weekCircles = (int) Math.round(weekMap.get(key));
         for (int i = 0; i < weekCircles; i++) {
