@@ -35,9 +35,9 @@ public class WeekValues  {
      * Делаем подсчет среднего арифметического по категориям за последние 7 дней
      */
 
-    public Map<String, Double> getMeanQuest(Long chatId) {
+    public Map<String, Double> getMeanQuest(Long chatId,int currentDays) {
         Map<String, Double> resultMap = new HashMap<>();
-        List<String> columnNames = getColumnNames();
+        List<String> columnNames = getColumnNames(currentDays);
         String sql = buildSqlQuery(columnNames);
         jdbcTemplate.query(sql, new Object[]{chatId}, new RowMapper<String>() {
             public String mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -76,19 +76,17 @@ public class WeekValues  {
     }
 
 
-
-
     /**
-     * Собираем в лист все столбцы за последние 7 дней
+     * Собираем в лист все столбцы за последние N дней
      * Если столбца не существует, отправляем в класс CreateDateColumn и создаем столбец
      */
 
-    private List<String> getColumnNames() {
+    private List<String> getColumnNames(int currentDays) {
         List<String> columnNames = new ArrayList<>();
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -7); // to get the date of last 7 days
+        cal.add(Calendar.DATE, -currentDays); // to get the date of last N days
         SimpleDateFormat format1 = new SimpleDateFormat("dd_MM_yyyy");
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < currentDays; i++) {
             cal.add(Calendar.DATE, 1);
             String columnName = "date_" + format1.format(cal.getTime());
             try {

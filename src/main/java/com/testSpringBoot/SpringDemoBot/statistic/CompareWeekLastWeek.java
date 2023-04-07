@@ -13,10 +13,10 @@ public class CompareWeekLastWeek  {
     private WeekValues weekValues;
 
 
-    public String compareWeekAndLastWeek(Long chatId) {
-    Map<String, Double> weekMap = weekValues.getMeanQuest(chatId);
+    public String compareWeekAndLastWeek(Long chatId,int currentDays, String currentText) {
+    Map<String, Double> weekMap = weekValues.getMeanQuest(chatId,currentDays);
     Map<String, Double> lastResultMap = lastWeekValues.getMeanQuest(chatId);
-    StringBuilder mean = new StringBuilder("Сравниваем эту и предыдущую неделю:\n\n" +
+    StringBuilder mean = new StringBuilder(currentText +
             "🟢 – текущая неделя\n" +
             "⚪️ – предыдущая неделя\n");
 
@@ -36,9 +36,7 @@ public class CompareWeekLastWeek  {
         }
         mean.append("\n");
     }
-    mean.append("\n Все команды - /help");
+    mean.append("\nСписок всех статистик - /statistic");
     return mean.toString();
 }
-
-
 }

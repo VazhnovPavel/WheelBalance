@@ -3,7 +3,7 @@ package com.testSpringBoot.SpringDemoBot.service;
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
 import com.testSpringBoot.SpringDemoBot.statistic.CompareWeekLastWeek;
-import com.testSpringBoot.SpringDemoBot.statistic.GetStat7Days;
+import com.testSpringBoot.SpringDemoBot.statistic.GetStatCurrentDays;
 import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
 import com.testSpringBoot.SpringDemoBot.statistic.WeekValues;
 import com.testSpringBoot.SpringDemoBot.visual.CreateEmoji;
@@ -32,8 +32,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -69,7 +67,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private CompareWeekLastWeek compareWeekLastWeek;
     @Autowired
-    private GetStat7Days getStat7Days;
+    private GetStatCurrentDays getStatCurrentDays;
     @Autowired
     private CreateEmoji createEmoji;
     @Autowired
@@ -83,24 +81,40 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
     static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
     static final String ERROR_OCCURED = "Error occurred: ";
-    static final String WEEK = "Текущая неделя";
-    static final String LAST_WEEK = "Предыдущая неделя";
+    static final String WEEK_STRING = "Текущая неделя";
+    static final String WEEK_LAST_STRING = "Предыдущая неделя";
+    static final String WEEK_COMPARE_STRING = "Сравнение текущей и предыдущей недели";
+    static final String WEEK_COMPARE_TEXT = "Сравниваем эту и предыдущую неделю:\n\n";
+    static final String MONTH_STRING = "Текущий месяц";
+    static final String MONTH_LAST_STRING = "Предыдущий месяц";
+    static final String MONTH_COMPARE_STRING = "Сравнение текущего и предыдущего месяца";
+    static final String MONTH_COMPARE_TEXT = "Сравниваем этот и предыдущий месяц:\n\n";
     private String textTimetoQuestions;
     final private String sendQuestAboutTimeToQuestion = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
             "Напиши в формате ЧЧ:ММ , например 20:30\n" +
             "(по Московскому времени)";
     final private String thxForAsking = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
-            "Узнать статистику за последние 7 дней /week";
+            "Узнать статистику за последние 7 дней /week\n\n"+
+            "Узнать статистику за последние 30 дней /month\n\n"+
+            "Список всех статистик /statistic\n\n";
 
 
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
-                    "/help - вывести все команды \n\n" +
+                    "/statistic - вся интересная статистика тут) \n\n" +
                     "/deleteAll - удалить все ваши персональные данные из бота \n\n" +
                     "/when - настроить время для вопросов \n\n" +
                     "/week - показать статистику за неделю \n\n" +
                     "/compareWeek - сравнить статистику с предыдущей неделей \n\n" +
-                    "/month - показать статистику за месяц (beta) ";
+                    "/month - показать статистику за месяц (beta) \n\n" +
+                    "/compareMonth - сравнить статистику с предыдущим месяцем \n\n";
+
+    static final String HELP_STATISTIC =
+                    "/week - показать статистику за 7 дней \n\n" +
+                    "/compareWeek - сравнить текущие 7 дней с 7-ю предыдущими днями \n\n" +
+                    "/month - показать статистику за 30 дней \n\n" +
+                    "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n"+
+                    "/help - вывести все команды \n\n";
 
 
     public TelegramBot(BotConfig config) {
@@ -113,11 +127,13 @@ public class TelegramBot extends TelegramLongPollingBot {
         List<BotCommand> listofCommands = new ArrayList<>();
         listofCommands.add(new BotCommand("/start", "Start"));
         listofCommands.add(new BotCommand("/help", "вывести все команды "));
+        listofCommands.add(new BotCommand("/statistic", "вывести все статистики "));
         listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
         listofCommands.add(new BotCommand("/when", "настроить время для вопросов"));
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
         listofCommands.add(new BotCommand("/compareWeek", "сравнить с предыдущей неделей"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
+        listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
 
 
         try {
@@ -177,20 +193,33 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/help":
                         prepareAndSendMessage(chatID, HELP_TEXT);
                         break;
+                    case "/statistic":
+                        prepareAndSendMessage(chatID, HELP_STATISTIC);
+                        break;
                     case "/when":
                         prepareAndSendMessage(chatID, sendQuestAboutTimeToQuestion);
                         break;
                     case "/week":
-                        sendPieChart(chatID,weekValues.getMeanQuest(chatID));
-                        sendMessage(chatID,getStat7Days.getStatFrom7days(chatID));
+                        sendPieChart(chatID,weekValues.getMeanQuest(chatID,7),7);
+                        sendMessage(chatID, getStatCurrentDays.getStatFromCurrentDays(chatID,7));
                         break;
                     case "/compareWeek":
-                        sendRadarChart(chatID,weekValues.getMeanQuest(chatID),
-                                lastWeekValues.getMeanQuest(chatID), WEEK,LAST_WEEK);
-                        sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID));
+                        sendRadarChart(chatID,weekValues.getMeanQuest(chatID,7),
+                                lastWeekValues.getMeanQuest(chatID), WEEK_STRING, WEEK_LAST_STRING,
+                                WEEK_COMPARE_STRING);
+                        sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID,7,
+                                WEEK_COMPARE_TEXT));
                         break;
                     case "/month":
-                        prepareAndSendMessage(chatID, "Функция в разработке");
+                        sendPieChart(chatID,weekValues.getMeanQuest(chatID,30),30);
+                        sendMessage(chatID, getStatCurrentDays.getStatFromCurrentDays(chatID,30));
+                        break;
+                    case "/compareMonth":
+                        sendRadarChart(chatID,weekValues.getMeanQuest(chatID,30),
+                                lastWeekValues.getMeanQuest(chatID), MONTH_STRING, MONTH_LAST_STRING,
+                                MONTH_COMPARE_STRING);
+                        sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID,30,
+                                MONTH_COMPARE_TEXT));
                         break;
                     case "/deleteAll":
                         prepareAndSendMessage(chatID, "Ваши данные полностью удалены");
@@ -297,7 +326,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
-    public void sendPieChart(long chatID, Map<String, Double> chartToSend) {
+    public void sendPieChart(long chatID, Map<String, Double> chartToSend, int currentDays) {
 
 
         String labels = chartToSend.entrySet().stream()
@@ -331,7 +360,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "options: {"
                     + "title: {"
                     + "display: true,"
-                    + "text: 'Отчет за последние 7 дней:  ',"
+                    + "text: 'Отчет за последние "+ currentDays + " дней:  ',"
                     + "fontColor: 'white',"
                     + "fontSize: 30" // увеличение размера шрифта
                     + "},"
@@ -372,78 +401,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-//    public void sendRadarChart(long chatID, Map<String, Double> mapFirst,Map<String, Double> mapSecond ) {
-//
-//        String labels = mapFirst.entrySet().stream()
-//                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
-//                .map(entry -> entry.getKey() + ": " + entry.getValue()) // добавляем значение key и value
-//                .map(label -> "'" + label + "'")
-//                .collect(Collectors.joining(", "));
-//
-//        String data = mapFirst.entrySet().stream()
-//                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
-//                .map(Map.Entry::getValue)
-//                .map(String::valueOf)
-//                .collect(Collectors.joining(", "));
-//        log.info("START");
-//        try {
-//            QuickChart chart = new QuickChart();
-//            chart.setWidth(800);
-//            chart.setHeight(600);
-//            chart.setBackgroundColor("#141449");
-//            chart.setConfig("{"
-//                    + "type: 'polarArea',"
-//                    + "data: {"
-//                    + "labels: [" + labels + "],"
-//                    + "datasets: [{"
-//                    + "data: [" + data + "]"
-//                    + "}]"
-//                    + "},"
-//                    + "options: {"
-//                    + "title: {"
-//                    + "display: true,"
-//                    + "text: 'Отчет за последние 7 дней:'," // добавление надписи
-//                    + "fontColor: 'white',"
-//                    + "fontSize: 30" // увеличение размера шрифта
-//                    + "},"
-//                    + "legend: {"
-//                    + "position: 'right',"
-//                    + "labels: {"
-//                    + "fontColor: 'white',"
-//                    + "fontSize: 25" // увеличение размера шрифта
-//                    + "}"
-//                    + "},"
-//                    + "scale: {"
-//                    + "gridLines: {"
-//                    + "color: '#9E9E9E'"
-//                    + "},"
-//                    + "ticks: {"
-//                    + "display: false,"  // удаление цифр
-//                    + "min: 0,"
-//                    + "max: 10,"
-//                    + "}"
-//                    + "}"
-//                    + "}"
-//                    + "}");
-//
-//
-//            // Get the image
-//            byte[] imageBytes = chart.toByteArray();
-//            log.info("FINAL");
-//
-//            // Send the image to the user via Telegram bot
-//            SendPhoto sendPhotoRequest = new SendPhoto();
-//            sendPhotoRequest.setChatId(chatID);
-//            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
-//            execute(sendPhotoRequest);
-//        } catch (Exception e) {
-//            log.info("ERROR create chart " + e);
-//            e.printStackTrace();
-//        }
-//    }
 
     public void sendRadarChart(long chatID, Map<String, Double> mapFirst, Map<String, Double> mapSecond,
-                               String firstCompareName, String secondCompareName) {
+                               String firstCompareName, String secondCompareName, String titleChart) {
 
         String labels = mapFirst.keySet().stream()
                 .filter(key -> mapFirst.get(key) != null && mapFirst.get(key) != 0 && mapFirst.get(key) != 0.0)
@@ -489,7 +449,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "options: {"
                     + "title: {"
                     + "display: true,"
-                    + "text: 'Сравнение последних двух недель:',"
+                    + "text: '" + titleChart + "',"
                     + "fontColor: 'white',"
                     + "fontSize: 30"
                     + "},"
@@ -828,7 +788,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private void sendEndMessage(long chatId) {
         sendMessage(chatId, thxForAsking);
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            sendMessage(chatId,getStat7Days.getStatFrom7days(chatId));
+            sendMessage(chatId, getStatCurrentDays.getStatFromCurrentDays(chatId,7));
             log.info("Проверка на воскресенье");
         }
     }
