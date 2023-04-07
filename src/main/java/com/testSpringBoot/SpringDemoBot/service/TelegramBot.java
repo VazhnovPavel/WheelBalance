@@ -368,7 +368,44 @@ public class TelegramBot extends TelegramLongPollingBot {
             chart.setHeight(600);
             chart.setBackgroundColor("#141449");
             chart.setConfig("{"
-                    + "type: 'polarArea',"
+//                    + "type: 'polarArea',"
+//                    + "data: {"
+//                    + "labels: [" + labels + "],"
+//                    + "datasets: [{"
+//                    + "data: [" + data + "]"
+//                    + "}]"
+//                    + "},"
+//                    + "options: {"
+//                    + "title: {"
+//                    + "display: true,"
+//                    + "text: '" + titleString + "',"
+//                    + "fontColor: 'grey',"
+//                    + "fontSize: 25,"
+//                    + "fontFamily: 'Roboto'"
+//                    + "},"
+//                    + "legend: {"
+//                    + "position: 'left',"
+//                    + "labels: {"
+//                    + "fontColor: 'white',"
+//                    + "fontSize: 22,"
+//                    + "fontFamily: 'Roboto'"
+//                    + "}"
+//                    + "},"
+//                    + "scale: {"
+//                    + "gridLines: {"
+//                    + "color: '#9E9E9E'"
+//                    + "},"
+//                    + "ticks: {"
+//                    + "display: false,"
+//                    + "min: 0,"
+//                    + "max: 10,"
+//                    + "}"
+//                    + "}"
+//                    + "}"
+//                    + "}");
+
+
+            + "type: 'polarArea',"
                     + "data: {"
                     + "labels: [" + labels + "],"
                     + "datasets: [{"
@@ -400,10 +437,19 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "min: 0,"
                     + "max: 10,"
                     + "}"
+                    + "},"
+                    + "plugins: {"
+                    + "datalabels: {"
+                    + "color: 'white',"
+                    + "font: {"
+                    + "size: 18,"
+                    + "family: 'Roboto'"
+                    + "},"
+                    + "display: true"
+                    + "}"
                     + "}"
                     + "}"
                     + "}");
-
 
             // Get the image
             byte[] imageBytes = chart.toByteArray();
@@ -522,6 +568,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "}"
                     + "}"
                     + "}");
+
+
 
             // Get the image
             byte[] imageBytes = chart.toByteArray();
