@@ -32,6 +32,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -206,7 +208,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/compareWeek":
                         sendRadarChart(chatID,weekValues.getMeanQuest(chatID,7),
                                 lastWeekValues.getMeanQuest(chatID), WEEK_STRING, WEEK_LAST_STRING,
-                                WEEK_COMPARE_STRING);
+                                WEEK_COMPARE_STRING,7);
                         sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID,7,
                                 WEEK_COMPARE_TEXT));
                         break;
@@ -217,7 +219,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/compareMonth":
                         sendRadarChart(chatID,weekValues.getMeanQuest(chatID,30),
                                 lastWeekValues.getMeanQuest(chatID), MONTH_STRING, MONTH_LAST_STRING,
-                                MONTH_COMPARE_STRING);
+                                MONTH_COMPARE_STRING,30);
                         sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID,30,
                                 MONTH_COMPARE_TEXT));
                         break;
@@ -341,12 +343,28 @@ public class TelegramBot extends TelegramLongPollingBot {
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
 
-
+        // Calculate the date range
+        Calendar endDate = Calendar.getInstance();
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.DAY_OF_MONTH, -currentDays);
+        DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
+        DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
+        //Если год один, то пишем один раз. Если года разные - выводим оба
+        String titleString;
+        if (startDate.get(Calendar.YEAR) == endDate.get(Calendar.YEAR)) {
+            titleString = String.format("@Wheel_Balance_bot                 Отчет c %s по %s года",
+                    dateFormatFirst.format(startDate.getTime()),
+                    dateFormatSecond.format(endDate.getTime()));
+        } else {
+            titleString = String.format("@Wheel_Balance_bot                 Отчет c %s года по %s года",
+                    dateFormatSecond.format(startDate.getTime()),
+                    dateFormatSecond.format(endDate.getTime()));
+        }
 
 
         try {
             QuickChart chart = new QuickChart();
-            chart.setWidth(800);
+            chart.setWidth(900);
             chart.setHeight(600);
             chart.setBackgroundColor("#141449");
             chart.setConfig("{"
@@ -360,15 +378,17 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "options: {"
                     + "title: {"
                     + "display: true,"
-                    + "text: 'Отчет за последние "+ currentDays + " дней:  ',"
-                    + "fontColor: 'white',"
-                    + "fontSize: 30" // увеличение размера шрифта
+                    + "text: '" + titleString + "',"
+                    + "fontColor: 'grey',"
+                    + "fontSize: 25,"
+                    + "fontFamily: 'Roboto'"
                     + "},"
                     + "legend: {"
-                    + "position: 'right',"
+                    + "position: 'left',"
                     + "labels: {"
                     + "fontColor: 'white',"
-                    + "fontSize: 25" // увеличение размера шрифта
+                    + "fontSize: 22,"
+                    + "fontFamily: 'Roboto'"
                     + "}"
                     + "},"
                     + "scale: {"
@@ -376,7 +396,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "color: '#9E9E9E'"
                     + "},"
                     + "ticks: {"
-                    + "display: false,"  // удаление цифр
+                    + "display: false,"
                     + "min: 0,"
                     + "max: 10,"
                     + "}"
@@ -403,7 +423,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     public void sendRadarChart(long chatID, Map<String, Double> mapFirst, Map<String, Double> mapSecond,
-                               String firstCompareName, String secondCompareName, String titleChart) {
+                               String firstCompareName, String secondCompareName, String titleChart, int currentDays) {
 
         String labels = mapFirst.keySet().stream()
                 .filter(key -> mapFirst.get(key) != null && mapFirst.get(key) != 0 && mapFirst.get(key) != 0.0)
@@ -420,10 +440,28 @@ public class TelegramBot extends TelegramLongPollingBot {
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
 
-        log.info("START");
+        // Calculate the date range
+        Calendar endDate = Calendar.getInstance();
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.DAY_OF_MONTH, -currentDays);
+        DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
+        DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
+        //Если год один, то пишем один раз. Если года разные - выводим оба
+        String titleString;
+        if (startDate.get(Calendar.YEAR) == endDate.get(Calendar.YEAR)) {
+            titleString = String.format("@Wheel_Balance_bot                         Отчет c %s по %s года",
+                    dateFormatFirst.format(startDate.getTime()),
+                    dateFormatSecond.format(endDate.getTime()));
+        } else {
+            titleString = String.format("@Wheel_Balance_bot                         Отчет c %s года по %s года",
+                    dateFormatSecond.format(startDate.getTime()),
+                    dateFormatSecond.format(endDate.getTime()));
+        }
+
+
         try {
             QuickChart chart = new QuickChart();
-            chart.setWidth(1000);
+            chart.setWidth(900);
             chart.setHeight(600);
             chart.setBackgroundColor("#141449");
             chart.setConfig("{"
@@ -449,15 +487,17 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "options: {"
                     + "title: {"
                     + "display: true,"
-                    + "text: '" + titleChart + "',"
-                    + "fontColor: 'white',"
-                    + "fontSize: 30"
+                    + "text: '" + titleString + "',"
+                    + "fontColor: 'grey',"
+                    + "fontSize: 25,"
+                    + "fontFamily: 'Roboto'"
                     + "},"
                     + "legend: {"
-                    + "position: 'right',"
+                    + "position: 'left',"
                     + "labels: {"
                     + "fontColor: 'white',"
-                    + "fontSize: 25"
+                    + "fontSize: 22,"
+                    + "fontFamily: 'Roboto'"
                     + "}"
                     + "},"
                     + "scale: {"
