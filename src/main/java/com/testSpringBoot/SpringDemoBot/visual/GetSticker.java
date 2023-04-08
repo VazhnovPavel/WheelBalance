@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import java.util.Random;
+
 @Component
 public class GetSticker {
 
@@ -11,37 +14,137 @@ public class GetSticker {
         SendSticker sticker = new SendSticker();
         sticker.setChatId(chatId);
         InputFile inputFile = null;
+        Random random = new Random();
+        int stickerNum = random.nextInt(3) + 1; // генерируем случайное число от 1 до 3
         switch (quest){
             case "Деньги, капитал":
-                 inputFile = new InputFile("CAACAgUAAxkBAAEHXrNjyw-ZJOTr0YnWHUKGltGxpxRFaQACSwIAAiHE3BFsPf7OlvgO2C0E");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgUAAxkBAAEHXrNjyw-ZJOTr0YnWHUKGltGxpxRFaQACSwIAAiHE3BFsPf7OlvgO2C0E");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgttkMcE5eumc3of5sXlIFjLQ9Sk0hwACaAADSMbXDdRsUi1yMNGbLwQ");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgt9kMcGJ6D7bMlQcoj7uBUg2nQFp9gACwwADAvupH1YYLl5ZH93oLwQ");
+                        break;
+                }
                  break;
             case "Работа":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXrljyxFRaqNjzMQ1Hgd2PLtzLE-jBQACmAUAAiMFDQABoc8KAXKxsyItBA");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEHgkdj1sMoldigxV0tU5oYxjycaNAKiQACw1gBAAFji0YM2xFsYmsNXkktBA");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIguFkMcIxdEHYMCjAqnsAAcbQ9WtsHmcAAkYBAALapCMwQ-L9zaSjhSsvBA");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIguNkMcKp2JBkCkcHea3tdMSGoSr3ngACOAsAAk7kmUsysUfS2U-M0C8E");
+                        break;
+                }
                 break;
             case "Материальный мир":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXrdjyxEsYnOeZhzv4x3IgCzBA-OjNwACNAADvbJxDgrMJeM54-p8LQQ");
-                break;
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEHXrdjyxEsYnOeZhzv4x3IgCzBA-OjNwACNAADvbJxDgrMJeM54-p8LQQ");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgulkMcO4u5OSEa_a6t-SA0sy2TXAUQACpgAD2qQjMBltVXkF4ZaiLwQ");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgutkMcRfas4-qivZaHzQYXFzxkYbIgACgxcAApDu8EmjEXVCZqJfny8E");
+                        break;
+                }                break;
             case "Отношения":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXrFjyw8MpLYUk0SpNnx-StxZlqivbQACaR4AAh3tYUkpdZKPeRAC_i0E");
-                break;
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgu1kMcTgZni8eJqvZzktAAFRleH449IAAooTAAK4XClIfyaAPP25loQvBA");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgu9kMcUgI3STxlFY0NkGo3eQ5-LvTwAC1xIAAvbvCUgZf_V7xQvNwC8E");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgvFkMcVhmD1UlcnTNMPH4VzEqoK4ggACxFgBAAFji0YMXDqzn_YP7fcvBA");
+                        break;
+                }                break;
             case "Здоровье":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXr1jyxL1p01ql55mgXbVqgepZ0ZryAACzBQAAgrXyUsa7GgoHs1N_y0E");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgvNkMcWJRYyCCS09SeJzSIfnBcH2cwACzBQAAgrXyUsa7GgoHs1N_y8E");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgvdkMcXRxaGDnpr9BkuqTUWLpgRwjQACaQADSMbXDUhDpjGE5f4GLwQ");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgvtkMcYy3f1V86kemUPW5nkwT31HQwACigADfI5YFYYrEzj9KKvHLwQ");
+                        break;
+                }
                 break;
             case "Семья":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXqtjyw6TMZoLQKYbMQSh67AqI_lRQgACM8oAAmOLRgxBEQpv2eeE0i0E");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgv1kMcZnhh1ezEcyMSRyQ14UhVT0YwACM8oAAmOLRgxBEQpv2eeE0i8E");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgv9kMcap4qHxRB8VSkLefJ5xlrzuNwACMBQAAuvuKEjQJW_nQuqF-S8E");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgUAAxkBAAEIgwNkMcgsuVbgY0_dOVSOET9pa6Dk6QACXwIAAiHE3BG2mD9EfEdPni8E");
+                        break;
+                }
                 break;
             case "Развлечения":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXqljyw5ruytX1tyOnpAdoN14LXYDnQACNAAD8J60JPC9Kn5AbuITLQQ");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgwVkMchBU4qIW-i85w61i9hjUjM72wACNAAD8J60JPC9Kn5AbuITLwQ");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgwdkMcjZRC5avqqdY6ZlClFip2zmEAACoxIAAvDTKEgWBWUL8yPbiy8E");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgwlkMckFDkaL9Jj7tp4N65zfrFXj4AACKcoAAmOLRgwBEvlzxJ8e2i8E");
+                        break;
+                }
                 break;
             case "Друзья":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXqdjyw49-raG63P8gY6TNoGpTRlgfgACEAADvbJxDi3qQYYlbuFeLQQ");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgwtkMclJc__vBbxa1TMTfmsEdIQtyQACERQAAg59yEugoW5wtcva3i8E");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgw1kMcn8_bH44OwlfP7goSRo0TdUMwACGBoAAmu2IUhEVEbUFq0OOy8E");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgw9kMcpXwU9BCFsExWj6c8X0hUcu8wACwgsAAi7vsUmJbcMsLm4KlS8E");
+                        break;
+                }
                 break;
             case "Саморазвитие":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXoxjywNcMyfPF7WHS7NuHLkkC20nMwACcQUAAiMFDQABqr8z5dgL2qotBA");
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgxFkMcqCB7DgxC7_fLzZsZipxJpjrwACcQUAAiMFDQABqr8z5dgL2qovBA");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgxdkMcsquz1942L3e6scQ4zWdf_FsQACpgADaIrFI5jyRf_xAcJuLwQ");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgylkMc6IoCJjX11vQIzvm4Ol6R-kfwACIQADy0m0CVxHNOBMQ6aMLwQ");
+                        break;
+                }
                 break;
             case "Внешность":
-                inputFile = new InputFile("CAACAgIAAxkBAAEHXqVjyw36EJO4tZ0DxDEaus2cUBT-yQACTgUAAiMFDQABpYn5wcj-AAEMLQQ");
-
+                switch (stickerNum) {
+                    case 1:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgx1kMcy06xcsoX4fzDu4N8z3VmA--wACDQADvbJxDj1_1nNQ2kXfLwQ");
+                        break;
+                    case 2:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgx9kMc0wVksqlyUh_gb5Jm_JW5h_SAACLQUAAiMFDQABtwnyEwyU6_wvBA");
+                        break;
+                    case 3:
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIgyVkMc13uGHtoG66WrJrNq2n-E6mAgACQhIAAv2U0EtckDqh5XLhFy8E");
+                        break;
+                }
+                break;
         }
         sticker.setSticker(inputFile);
 

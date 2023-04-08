@@ -31,6 +31,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
+import java.io.File;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -74,7 +75,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private CreateEmoji createEmoji;
     @Autowired
     private CreateQueryToCheck3Days createQueryToCheck3Days;
-    static final String START_MESSAGE = " Привет! \uD83E\uDEF6 Я помогу тебе отслеживать твое состояние во всех основных сферах " +
+    static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
             "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
             "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n";
@@ -313,12 +314,40 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
+//    private void startCommandReceived(long chatID, String name) {
+//        sendMessage(chatID, name + START_MESSAGE);
+//        log.info("Replied to user" + name);
+//        //здесь можно вставить картинку
+//
+//        smartKeyboard(chatID, "ДА", "Нет");
+//
+//    }
+
     private void startCommandReceived(long chatID, String name) {
         sendMessage(chatID, name + START_MESSAGE);
         log.info("Replied to user" + name);
-        smartKeyboard(chatID, "ДА", "Нет");
 
+        // создаем объект класса File с путем к файлу start.png
+        File image = new File("start.png");
+
+        // создаем объект класса InputFile из файла
+        InputFile inputFile = new InputFile(image);
+
+        // создаем объект класса SendPhoto и устанавливаем ему параметры
+        SendPhoto sendPhotoRequest = new SendPhoto();
+        sendPhotoRequest.setChatId(chatID);
+        sendPhotoRequest.setPhoto(inputFile);
+
+        try {
+            // вызываем метод execute для отправки запроса на сервер Telegram
+            execute(sendPhotoRequest);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
+        smartKeyboard(chatID, "ДА", "Нет");
     }
+
 
 
     public void sendMessage(long chatID, String texToSend) {
@@ -489,6 +518,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         // Calculate the date range
         Calendar endDate = Calendar.getInstance();
         Calendar startDate = Calendar.getInstance();
+        //Увеличиваем currentDays в 2 раза и 1 день для корректности периода
         startDate.add(Calendar.DAY_OF_MONTH, (-currentDays * 2) +1);
         DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
         DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));

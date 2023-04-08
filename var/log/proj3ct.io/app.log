@@ -229,3 +229,931 @@ java.net.SocketTimeoutException: Read timed out
 2023-04-08 19:26:40,871 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] FINAL
 2023-04-08 19:27:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
 2023-04-08 19:28:00,038 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:29:00,050 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:30:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:30:00,192 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 19:30:00,192 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 19:30:00,192 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 19:30:00,192 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 19:30:00,194 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 19:30:00,235 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 19:30:00,335 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 19:30:00,335 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 19:30:00,339 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 19:31:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:32:00,049 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:33:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:34:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:35:00,036 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:36:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:37:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:38:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:39:50,301 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:39:55,166 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 19:40:05,395 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 75139 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 19:40:05,397 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 19:40:05,642 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 19:40:05,664 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2023-04-08 19:40:05,738 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 19:40:05,740 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 19:40:05,781 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 19:40:05,798 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 19:40:05,851 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 19:40:06,053 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 19:40:06,139 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 19:40:06,139 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 19:40:06,267 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 19:40:06,270 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 19:40:06,760 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 19:40:06,873 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 19:40:07,002 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.817 seconds (JVM running for 2.249)
+2023-04-08 19:40:09,449 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 19:40:35,311 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 19:40:42,379 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 75181 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 19:40:42,379 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 19:40:42,581 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 19:40:42,604 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+2023-04-08 19:40:42,677 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 19:40:42,679 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 19:40:42,720 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 19:40:42,734 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 19:40:42,783 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 19:40:42,955 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 19:40:43,058 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 19:40:43,058 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 19:40:43,235 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 19:40:43,241 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 19:40:43,800 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 19:40:43,940 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 19:40:44,072 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.881 seconds (JVM running for 2.194)
+2023-04-08 19:40:46,115 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 19:41:00,110 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:42:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:43:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:44:24,152 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:45:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:46:00,056 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:47:00,071 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:48:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:49:00,038 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:50:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:50:23,564 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 19:50:23,565 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 19:50:23,566 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 19:50:23,566 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 19:50:23,569 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 19:50:23,698 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 19:50:23,772 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 19:50:23,773 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 19:50:23,777 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 19:51:00,044 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:52:00,177 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:53:00,101 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:54:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:55:00,060 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:56:00,133 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:57:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:58:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 19:59:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:00:00,093 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 20:00:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 20:00:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 20:00:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 20:00:00,095 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 20:00:00,159 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:00:00,207 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 20:00:00,207 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 20:00:00,207 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 20:00:00,213 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 20:00:00,214 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 20:00:00,314 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 20:00:00,314 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 0
+2023-04-08 20:00:00,926 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:01:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:01:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 20:01:00,029 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 20:01:00,049 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 20:01:00,051 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 0
+2023-04-08 20:01:00,154 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error occurred: Error executing org.telegram.telegrambots.meta.api.methods.send.SendMessage query: [400] Bad Request: chat not found
+2023-04-08 20:02:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:03:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:04:00,076 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:05:00,080 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:06:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:07:00,127 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:08:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:09:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:10:00,090 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 20:10:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 20:10:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 20:10:00,094 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 20:10:00,095 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 20:10:00,156 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:10:00,197 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 20:10:00,197 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 20:10:00,198 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 20:10:00,206 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:11:00,053 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:11:32,360 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:11:40,846 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 75748 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:11:40,849 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:11:41,149 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:11:41,170 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:11:41,246 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:11:41,249 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:11:41,289 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:11:41,303 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:11:41,351 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:11:41,498 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:11:41,593 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:11:41,593 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:11:41,718 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:11:41,722 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:11:42,226 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:11:42,335 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:11:42,466 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.9 seconds (JVM running for 2.653)
+2023-04-08 20:11:44,161 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:12:00,105 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:13:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:14:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:15:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:16:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:16:25,424 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:16:28,937 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 75818 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:16:28,938 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:16:29,609 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:16:29,651 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 35 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:16:29,887 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:16:29,895 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:16:30,018 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:16:30,059 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:16:30,217 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:16:30,591 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:16:30,726 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:16:30,726 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:16:30,880 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:16:30,883 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:16:31,367 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:16:31,484 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:16:31,615 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.117 seconds (JVM running for 4.106)
+2023-04-08 20:16:35,999 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:17:00,154 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:18:00,039 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:19:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:20:00,155 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 20:20:00,156 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 20:20:00,156 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 20:20:00,156 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 20:20:00,158 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 20:20:00,182 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:20:00,214 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 20:20:00,214 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 20:20:00,217 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 20:20:00,220 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:21:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:22:00,104 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:22:04,063 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:22:07,330 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 75925 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:22:07,331 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:22:07,837 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:22:07,902 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:22:08,182 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:22:08,189 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:22:08,365 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:22:08,399 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:22:08,539 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:22:08,833 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:22:08,970 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:22:08,970 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:22:09,118 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:22:09,123 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:22:09,611 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:22:09,726 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:22:09,867 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.831 seconds (JVM running for 3.553)
+2023-04-08 20:22:16,184 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:23:00,111 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:24:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:25:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:26:00,089 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:26:16,153 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:26:19,508 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76092 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:26:19,513 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:26:20,151 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:26:20,223 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 60 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:26:20,467 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:26:20,475 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:26:20,618 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:26:20,668 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:26:20,843 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:26:21,191 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:26:21,499 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:26:21,500 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:26:21,762 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:26:21,775 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:26:22,330 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:26:22,461 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:26:22,606 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.472 seconds (JVM running for 4.22)
+2023-04-08 20:26:26,152 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:27:00,115 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:28:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:29:00,100 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:30:00,152 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 20:30:00,153 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 20:30:00,153 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 20:30:00,153 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 20:30:00,154 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 20:30:00,185 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:30:00,238 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 20:30:00,238 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 20:30:00,242 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 20:30:00,247 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:31:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:32:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:33:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:33:23,867 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:33:27,169 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76244 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:33:27,170 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:33:27,774 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:33:27,880 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 97 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:33:28,154 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:33:28,158 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:33:28,269 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:33:28,307 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:33:28,408 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:33:28,705 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:33:28,909 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:33:28,910 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:33:29,150 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:33:29,154 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:33:29,665 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:33:29,776 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:33:29,917 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.152 seconds (JVM running for 3.986)
+2023-04-08 20:33:34,433 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:34:00,102 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:35:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:36:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:37:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:38:00,127 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:38:10,016 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:38:13,196 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76312 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:38:13,197 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:38:13,723 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:38:13,761 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:38:13,969 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:38:13,972 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:38:14,038 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:38:14,078 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:38:14,157 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:38:14,314 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:38:14,418 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:38:14,419 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:38:14,567 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:38:14,570 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:38:15,165 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:38:15,292 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:38:15,426 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.549 seconds (JVM running for 3.396)
+2023-04-08 20:38:18,714 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:39:00,105 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:40:00,133 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 20:40:00,134 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 20:40:00,134 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 20:40:00,134 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 20:40:00,135 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 20:40:00,165 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:40:00,209 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 20:40:00,209 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 20:40:00,212 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 20:40:00,221 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:41:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:41:04,635 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:41:07,131 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76388 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:41:07,133 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:41:07,645 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:41:07,683 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 33 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:41:07,868 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:41:07,872 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:41:07,984 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:41:08,012 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:41:08,103 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:41:08,253 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:41:08,363 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:41:08,363 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:41:08,497 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:41:08,500 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:41:09,077 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:41:09,201 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:41:09,336 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.519 seconds (JVM running for 3.23)
+2023-04-08 20:41:24,267 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:42:00,115 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:43:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:44:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:45:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:46:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:47:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:47:02,427 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:47:04,952 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76449 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:47:04,953 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:47:05,466 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:47:05,506 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:47:05,603 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:47:05,607 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:47:05,661 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:47:05,679 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:47:05,735 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:47:05,874 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:47:05,979 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:47:05,979 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:47:06,112 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:47:06,115 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:47:06,681 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:47:06,789 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:47:06,921 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.203 seconds (JVM running for 2.664)
+2023-04-08 20:47:13,896 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userPavel
+2023-04-08 20:48:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:48:27,254 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 20:48:30,722 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 20:48:30,723 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 49 21 * * *
+2023-04-08 20:48:30,803 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 49 21 * * *}
+2023-04-08 20:48:30,980 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 20:49:00,037 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:50:25,418 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 20:50:25,420 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 20:50:25,420 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 20:50:25,420 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 20:50:25,422 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 20:50:25,699 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:50:25,786 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 20:50:25,786 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 20:50:25,790 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 20:50:25,820 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:51:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:51:57,275 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 20:51:59,096 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 20:51:59,097 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 52 20 * * *
+2023-04-08 20:51:59,130 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 52 20 * * *}
+2023-04-08 20:51:59,308 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 20:52:00,011 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 20:52:00,012 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 20:52:00,182 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 20:52:00,183 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 10
+2023-04-08 20:52:00,184 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свой материальный мир?, quest=Материальный мир}]
+2023-04-08 20:52:00,643 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:52:18,982 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Материальный мир4
+2023-04-08 20:52:19,000 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 20:52:19,016 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 20:52:19,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2023-04-08 20:52:19,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое здоровье?, quest=Здоровье}]
+2023-04-08 20:52:24,410 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Здоровье10
+2023-04-08 20:52:24,418 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 20:52:24,438 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 20:52:24,439 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2023-04-08 20:52:24,440 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое общение с друзьями?, quest=Друзья}]
+2023-04-08 20:52:39,746 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Друзья1
+2023-04-08 20:52:39,762 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 20:52:39,787 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 20:52:39,788 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2023-04-08 20:53:00,187 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:53:12,051 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] FINAL
+2023-04-08 20:54:29,916 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:55:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:56:00,042 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:57:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:57:36,496 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:57:43,309 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76794 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:57:43,310 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:57:43,473 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:57:43,496 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:57:43,597 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:57:43,601 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:57:43,641 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:57:43,655 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:57:43,704 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:57:43,844 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:57:43,963 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:57:43,963 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:57:44,101 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:57:44,105 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:57:44,577 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:57:44,684 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:57:44,818 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.853 seconds (JVM running for 2.492)
+2023-04-08 20:58:00,113 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 20:58:24,515 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] Cannot invoke "java.lang.Double.equals(Object)" because the return value of "java.util.Map.get(Object)" is null
+java.lang.NullPointerException: Cannot invoke "java.lang.Double.equals(Object)" because the return value of "java.util.Map.get(Object)" is null
+	at com.testSpringBoot.SpringDemoBot.statistic.CompareWeekLastWeek.compareWeekAndLastWeek(CompareWeekLastWeek.java:25)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:213)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2023-04-08 20:58:54,969 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:59:00,436 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76818 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:59:00,438 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:59:00,610 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:59:00,635 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:59:00,724 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:59:00,726 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:59:00,764 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:59:00,780 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:59:00,825 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:59:00,942 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:59:01,039 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:59:01,040 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:59:01,159 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:59:01,162 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:59:01,624 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:59:01,732 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:59:01,861 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.641 seconds (JVM running for 1.976)
+2023-04-08 20:59:23,033 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:59:28,633 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76826 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 20:59:28,635 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 20:59:28,867 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 20:59:28,904 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
+2023-04-08 20:59:29,002 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 20:59:29,003 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 20:59:29,043 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 20:59:29,057 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 20:59:29,108 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 20:59:29,234 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 20:59:29,329 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:59:29,330 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 20:59:29,449 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 20:59:29,452 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 20:59:29,896 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 20:59:30,011 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 20:59:30,144 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.79 seconds (JVM running for 2.17)
+2023-04-08 21:00:00,128 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 21:00:00,129 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 21:00:00,129 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 21:00:00,129 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 21:00:00,130 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 21:00:00,151 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:00:00,198 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 21:00:00,198 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 21:00:00,200 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 21:00:00,246 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:01:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:02:09,863 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:02:23,852 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 21:02:30,909 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 76935 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 21:02:30,912 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 21:02:31,097 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 21:02:31,122 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2023-04-08 21:02:31,208 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 21:02:31,210 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 21:02:31,250 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 21:02:31,262 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 21:02:31,311 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 21:02:31,495 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:02:31,603 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 21:02:31,603 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 21:02:31,736 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 21:02:31,739 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 21:02:32,316 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 21:02:32,419 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 21:02:32,548 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.824 seconds (JVM running for 2.339)
+2023-04-08 21:03:00,141 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:04:00,061 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:06:35,134 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:06:54,414 INFO org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Connection] Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1064)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:250)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:189)
+2023-04-08 21:07:00,034 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:08:00,087 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:09:00,091 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:10:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:11:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:11:21,717 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 21:11:28,148 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 77187 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 21:11:28,149 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 21:11:28,296 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 21:11:28,314 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
+2023-04-08 21:11:28,407 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 21:11:28,409 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 21:11:28,447 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 21:11:28,459 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 21:11:28,508 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 21:11:28,666 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:11:28,760 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 21:11:28,760 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 21:11:28,880 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 21:11:28,883 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 21:11:29,427 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 21:11:29,530 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 21:11:29,667 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.637 seconds (JVM running for 2.156)
+2023-04-08 21:12:00,116 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:13:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:14:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:15:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:16:00,046 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:17:00,056 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:18:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:19:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:20:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:20:00,208 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 21:20:00,209 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 21:20:00,209 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 21:20:00,209 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 21:20:00,210 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 21:20:00,277 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:20:00,347 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 21:20:00,347 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 21:20:00,352 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 21:21:00,048 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:22:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:23:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:24:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:24:07,209 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 21:24:14,138 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 77312 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 21:24:14,144 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 21:24:14,425 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 21:24:14,450 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 21 ms. Found 3 JPA repository interfaces.
+2023-04-08 21:24:14,550 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 21:24:14,552 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 21:24:14,630 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 21:24:14,649 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 21:24:14,714 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 21:24:14,891 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:24:14,986 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 21:24:14,986 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 21:24:15,171 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 21:24:15,174 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 21:24:15,737 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 21:24:15,859 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 21:24:16,002 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.205 seconds (JVM running for 2.936)
+2023-04-08 21:25:00,167 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:25:28,378 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 21:25:29,801 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 21:25:29,802 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 26 21 * * *
+2023-04-08 21:25:29,901 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 26 21 * * *}
+2023-04-08 21:25:30,159 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 21:25:30,159 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 21:25:30,159 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 26 21 * * *
+2023-04-08 21:25:30,163 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 26 21 * * *}
+2023-04-08 21:25:30,418 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 21:26:00,039 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 21:26:00,040 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 21:26:00,152 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 21:26:00,153 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 10
+2023-04-08 21:26:00,154 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свой материальный мир?, quest=Материальный мир}]
+2023-04-08 21:26:00,507 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:26:12,959 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Материальный мир4
+2023-04-08 21:26:12,967 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 21:26:12,986 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 21:26:12,987 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2023-04-08 21:26:12,987 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оценивешь свое имущество? (деньги,капитал), quest=Деньги, капитал}]
+2023-04-08 21:26:17,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Деньги, капитал7
+2023-04-08 21:26:17,018 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 21:26:17,030 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 21:26:17,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2023-04-08 21:26:17,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое общение с друзьями?, quest=Друзья}]
+2023-04-08 21:26:25,083 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Друзья4
+2023-04-08 21:26:25,090 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 21:26:25,100 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 21:26:25,101 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2023-04-08 21:26:51,717 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 21:26:52,869 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 21:26:52,870 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 27 21 * * *
+2023-04-08 21:26:52,904 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 27 21 * * *}
+2023-04-08 21:26:53,065 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 21:27:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 21:27:00,023 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 21:27:00,048 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 21:27:00,049 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 10
+2023-04-08 21:27:00,049 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оценивешь свое имущество? (деньги,капитал), quest=Деньги, капитал}]
+2023-04-08 21:27:00,410 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:27:07,664 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Деньги, капитал4
+2023-04-08 21:27:07,672 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 21:27:07,683 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 21:27:07,684 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2023-04-08 21:27:07,684 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свой материальный мир?, quest=Материальный мир}]
+2023-04-08 21:27:09,241 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Материальный мир8
+2023-04-08 21:27:09,243 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 21:27:09,253 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 21:27:09,254 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2023-04-08 21:27:09,254 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое общение с друзьями?, quest=Друзья}]
+2023-04-08 21:27:11,805 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Друзья6
+2023-04-08 21:27:11,807 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 21:27:11,825 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 21:27:11,826 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2023-04-08 21:28:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:29:00,045 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:30:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:30:00,218 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 21:30:00,218 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 21:30:00,219 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 21:30:00,219 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 21:30:00,220 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 21:30:00,262 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:30:00,314 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 21:30:00,314 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 21:30:00,319 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 21:31:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:32:00,042 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:33:00,034 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:34:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:35:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:36:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:37:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:38:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:39:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:40:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:40:00,132 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 21:40:00,137 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 21:40:00,137 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 21:40:00,137 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 21:40:00,138 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 21:40:00,193 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:40:00,229 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 21:40:00,229 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 21:40:00,230 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 21:41:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:42:00,046 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:43:00,050 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:44:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:45:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:46:00,070 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:47:00,036 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:48:00,044 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:49:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:50:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:50:00,133 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 21:50:00,134 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 21:50:00,134 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 21:50:00,134 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 21:50:00,134 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 21:50:00,223 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 21:50:00,270 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 21:50:00,270 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 21:50:00,270 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 21:51:00,038 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:52:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:53:00,035 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:54:00,098 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:55:00,125 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:56:00,072 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:57:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:58:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 21:59:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:00:00,042 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:00:00,225 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 22:00:00,225 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 22:00:00,226 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 22:00:00,226 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 22:00:00,226 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 22:00:00,341 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:00:00,389 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 22:00:00,389 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 22:00:00,389 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 22:01:00,053 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:02:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:03:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:04:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:05:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:06:00,046 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:07:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:08:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:09:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:10:00,105 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 22:10:00,106 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 22:10:00,106 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 22:10:00,106 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 22:10:00,106 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 22:10:00,184 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:10:00,231 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 22:10:00,231 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 22:10:00,231 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 22:10:00,240 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:11:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:12:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:13:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:14:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:15:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:16:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:17:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:18:00,034 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:19:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:20:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:20:00,084 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 22:20:00,088 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 22:20:00,089 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 22:20:00,089 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 22:20:00,089 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 22:20:00,151 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:20:00,209 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 22:20:00,210 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 22:20:00,210 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 22:21:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:22:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:23:00,040 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:24:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:25:00,042 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:26:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:27:00,044 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:28:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:29:00,076 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:29:18,332 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 22:29:26,704 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 78323 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 22:29:26,706 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 22:29:27,042 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 22:29:27,062 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+2023-04-08 22:29:27,150 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 22:29:27,155 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 22:29:27,198 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 22:29:27,216 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 22:29:27,333 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 22:29:27,778 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:29:27,870 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 22:29:27,870 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 22:29:28,032 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 22:29:28,035 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 22:29:28,542 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 22:29:28,652 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 22:29:28,787 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.521 seconds (JVM running for 3.597)
+2023-04-08 22:30:00,196 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2023-04-08 22:30:00,197 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2023-04-08 22:30:00,197 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2023-04-08 22:30:00,197 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
+2023-04-08 22:30:00,198 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
+2023-04-08 22:30:00,227 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:30:00,294 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
+2023-04-08 22:30:00,294 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_08_04_2023" of relation "data_base_quest" already exists
+2023-04-08 22:30:00,297 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
+2023-04-08 22:30:00,360 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:30:03,004 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 22:30:04,454 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:30:04,455 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 31 22 * * *
+2023-04-08 22:30:04,529 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 31 22 * * *}
+2023-04-08 22:30:04,699 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:31:00,034 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 22:31:00,035 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 22:31:00,119 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 22:31:00,120 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 7
+2023-04-08 22:31:00,413 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:31:53,699 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 22:31:55,981 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 78357 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 22:31:55,981 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 22:31:56,184 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 22:31:56,212 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
+2023-04-08 22:31:56,291 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 22:31:56,293 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 22:31:56,345 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 22:31:56,371 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 22:31:56,433 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 22:31:56,588 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:31:56,701 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 22:31:56,701 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 22:31:56,828 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 22:31:56,831 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 22:31:57,336 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 22:31:57,454 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 22:31:57,589 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.86 seconds (JVM running for 2.515)
+2023-04-08 22:32:00,105 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:32:08,638 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 22:32:09,794 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:32:09,795 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 33 22 * * *
+2023-04-08 22:32:09,860 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 33 22 * * *}
+2023-04-08 22:32:10,009 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:33:00,043 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 22:33:00,044 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 22:33:00,089 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 22:33:00,090 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 7
+2023-04-08 22:33:00,264 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:33:35,565 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 22:33:41,237 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 78382 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2023-04-08 22:33:41,238 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-08 22:33:41,417 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-08 22:33:41,440 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2023-04-08 22:33:41,518 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2023-04-08 22:33:41,521 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2023-04-08 22:33:41,561 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-08 22:33:41,573 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-08 22:33:41,625 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-08 22:33:41,748 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-08 22:33:41,835 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 22:33:41,835 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2023-04-08 22:33:41,955 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-08 22:33:41,958 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-08 22:33:42,530 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
+2023-04-08 22:33:42,654 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2023-04-08 22:33:42,781 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.67 seconds (JVM running for 1.975)
+2023-04-08 22:33:45,821 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 22:33:46,979 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:33:46,980 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 34 22 * * *
+2023-04-08 22:33:47,077 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 34 22 * * *}
+2023-04-08 22:33:47,229 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:34:00,103 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 22:34:00,104 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 22:34:00,133 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 22:34:00,134 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 7
+2023-04-08 22:34:00,249 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:34:29,370 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 22:34:30,698 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:34:30,698 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 35 22 * * *
+2023-04-08 22:34:30,725 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 35 22 * * *}
+2023-04-08 22:34:30,866 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:34:33,155 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:34:33,155 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 35 22 * * *
+2023-04-08 22:34:33,163 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 35 22 * * *}
+2023-04-08 22:34:33,288 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:34:37,867 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:34:37,870 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 35 22 * * *
+2023-04-08 22:34:37,876 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 35 22 * * *}
+2023-04-08 22:34:38,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:35:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 22:35:00,025 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 22:35:00,056 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 22:35:00,056 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 10
+2023-04-08 22:35:00,057 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оценивешь свое имущество? (деньги,капитал), quest=Деньги, капитал}]
+2023-04-08 22:35:00,609 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:35:06,429 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Деньги, капитал4
+2023-04-08 22:35:06,436 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:35:06,458 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:35:06,460 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2023-04-08 22:35:06,460 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свои отношения?, quest=Отношения}]
+2023-04-08 22:35:11,483 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Отношения5
+2023-04-08 22:35:11,485 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:35:11,499 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:35:11,500 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2023-04-08 22:35:11,500 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свою привлекательность?, quest=Внешность}]
+2023-04-08 22:35:14,979 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Внешность9
+2023-04-08 22:35:14,987 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:35:15,015 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:35:15,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2023-04-08 22:35:41,774 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 22:35:43,812 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:35:43,817 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 36 22 * * *
+2023-04-08 22:35:43,839 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 36 22 * * *}
+2023-04-08 22:35:43,995 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:36:00,046 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 22:36:00,047 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 22:36:00,067 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 22:36:00,068 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 10
+2023-04-08 22:36:00,068 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свой материальный мир?, quest=Материальный мир}]
+2023-04-08 22:36:00,433 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:36:11,261 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Материальный мир5
+2023-04-08 22:36:11,285 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:36:11,313 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:36:11,313 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2023-04-08 22:36:11,313 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое саморазвитие?, quest=Саморазвитие}]
+2023-04-08 22:36:15,764 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Саморазвитие7
+2023-04-08 22:36:15,775 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:36:15,799 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:36:15,801 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2023-04-08 22:36:15,801 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое общение с друзьями?, quest=Друзья}]
+2023-04-08 22:36:26,631 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Друзья10
+2023-04-08 22:36:26,656 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:36:26,674 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:36:26,678 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2023-04-08 22:37:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:37:38,599 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2023-04-08 22:37:41,444 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел корректные данные
+2023-04-08 22:37:41,445 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 38 22 * * *
+2023-04-08 22:37:41,474 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chatId=350511326, firstName='Pavel', lastName='Vazhnov', userName='@pavel_fortex', registeredAt=2023-04-07 19:40:29.882, timeToQuestions=* 38 22 * * *}
+2023-04-08 22:37:41,692 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] User updated time of receiving questions: 350511326
+2023-04-08 22:38:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Время cron соответствует текущему времени
+2023-04-08 22:38:00,029 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get quest
+2023-04-08 22:38:00,054 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [scheduling-1] Executing query to get empty cells count
+2023-04-08 22:38:00,055 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] questToday = 10
+2023-04-08 22:38:00,055 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свои развлечения?, quest=Развлечения}]
+2023-04-08 22:38:00,666 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2023-04-08 22:38:02,751 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Развлечения4
+2023-04-08 22:38:02,776 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:38:02,796 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:38:02,797 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2023-04-08 22:38:02,797 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свою работу?, quest=Работа}]
+2023-04-08 22:38:04,699 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Работа8
+2023-04-08 22:38:04,703 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:38:04,721 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:38:04,722 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2023-04-08 22:38:04,722 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] ЭТАП 1: quests + quest_string = [{quest_string=Как ты оцениваешь свое здоровье?, quest=Здоровье}]
+2023-04-08 22:38:09,221 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Здоровье9
+2023-04-08 22:38:09,228 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2023-04-08 22:38:09,239 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2023-04-08 22:38:09,240 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2023-04-08 22:38:41,344 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
