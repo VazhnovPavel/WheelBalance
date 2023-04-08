@@ -346,7 +346,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         // Calculate the date range
         Calendar endDate = Calendar.getInstance();
         Calendar startDate = Calendar.getInstance();
-        startDate.add(Calendar.DAY_OF_MONTH, -currentDays);
+        startDate.add(Calendar.DAY_OF_MONTH, -currentDays +1);
         DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
         DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
         //Если год один, то пишем один раз. Если года разные - выводим оба
@@ -489,7 +489,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         // Calculate the date range
         Calendar endDate = Calendar.getInstance();
         Calendar startDate = Calendar.getInstance();
-        startDate.add(Calendar.DAY_OF_MONTH, -currentDays);
+        startDate.add(Calendar.DAY_OF_MONTH, (-currentDays * 2) +1);
         DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
         DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
         //Если год один, то пишем один раз. Если года разные - выводим оба
