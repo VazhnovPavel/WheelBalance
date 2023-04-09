@@ -64,7 +64,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgu9kMcUgI3STxlFY0NkGo3eQ5-LvTwAC1xIAAvbvCUgZf_V7xQvNwC8E");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIgvFkMcVhmD1UlcnTNMPH4VzEqoK4ggACxFgBAAFji0YMXDqzn_YP7fcvBA");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIhiNkMx1ZaDxROcl_Ek0ijQn96OiqxAACBhgAAgIluUrhGRsjwVAxLi8E");
                         break;
                 }                break;
             case "Здоровье":
@@ -89,7 +89,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgv9kMcap4qHxRB8VSkLefJ5xlrzuNwACMBQAAuvuKEjQJW_nQuqF-S8E");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgUAAxkBAAEIgwNkMcgsuVbgY0_dOVSOET9pa6Dk6QACXwIAAiHE3BG2mD9EfEdPni8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIhhVkMxqGSS3gC0kKUsQUybbDgHwt3AAC96gBAAFji0YMy7uns-C2NFMvBA");
                         break;
                 }
                 break;
@@ -138,7 +138,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgx1kMcy06xcsoX4fzDu4N8z3VmA--wACDQADvbJxDj1_1nNQ2kXfLwQ");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIgx9kMc0wVksqlyUh_gb5Jm_JW5h_SAACLQUAAiMFDQABtwnyEwyU6_wvBA");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEIhjVkMx6D9U8TC65imkqm6BR6xW2amgACMgUAAiMFDQABe6yTTsfJ4MYvBA");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgyVkMc13uGHtoG66WrJrNq2n-E6mAgACQhIAAv2U0EtckDqh5XLhFy8E");
