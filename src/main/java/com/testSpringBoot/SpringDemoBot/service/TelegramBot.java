@@ -113,12 +113,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
                     "/statistic - вся интересная статистика тут) \n\n" +
-                    "/deleteAll - удалить все ваши персональные данные из бота \n\n" +
                     "/when - настроить время для вопросов \n\n" +
                     "/week - показать статистику за неделю \n\n" +
                     "/compareWeek - сравнить статистику с предыдущей неделей \n\n" +
                     "/month - показать статистику за месяц (beta) \n\n" +
-                    "/compareMonth - сравнить статистику с предыдущим месяцем \n\n";
+                    "/compareMonth - сравнить статистику с предыдущим месяцем \n\n" +
+                    "/deleteAll - удалить все ваши персональные данные из бота \n\n";
 
     static final String HELP_STATISTIC =
                     "/week - показать статистику за 7 дней \n\n" +
@@ -139,12 +139,12 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/start", "Start"));
         listofCommands.add(new BotCommand("/help", "вывести все команды "));
         listofCommands.add(new BotCommand("/statistic", "вывести все статистики "));
-        listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
         listofCommands.add(new BotCommand("/when", "настроить время для вопросов"));
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
         listofCommands.add(new BotCommand("/compareWeek", "сравнить с предыдущей неделей"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
+        listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
 
 
         try {
@@ -187,7 +187,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                  * Если юзер передает дату в формате ЧЧ:ММ
                  */
 
-            } else if (messageText.matches("^\\d{2}:\\d{2}$")) {
+            } else if (messageText.matches("^\\d{1,2}:\\d{2}$")) {
                 log.info("Пользователь ввел время для вопросов");
                 setTextTimetoQuestions(messageText);
                 verificationTimeQuestion(chatID, messageText);
