@@ -80,7 +80,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
             "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
-            "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи. \n\n";
+            "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи \uD83D\uDE42 \n\n";
     static final String YES_BUTTON = "YES_BUTTON";
     static final String NO_BUTTON = "NO_BUTTON";
     static final String NO_BUTTON_DELETE = "NO_BUTTON_DELETE";
