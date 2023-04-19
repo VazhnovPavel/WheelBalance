@@ -42,14 +42,22 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Date;
 import java.util.stream.Collectors;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 
 
-@Slf4j
+    @Slf4j
     @Component
 public class TelegramBot extends TelegramLongPollingBot {
+
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    public TelegramBot(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
     @Autowired
     private DataBaseQuestRepository dataBaseQuestRepository;
     @Autowired
@@ -412,43 +420,6 @@ public class TelegramBot extends TelegramLongPollingBot {
             chart.setHeight(600);
             chart.setBackgroundColor("#141449");
             chart.setConfig("{"
-//                    + "type: 'polarArea',"
-//                    + "data: {"
-//                    + "labels: [" + labels + "],"
-//                    + "datasets: [{"
-//                    + "data: [" + data + "]"
-//                    + "}]"
-//                    + "},"
-//                    + "options: {"
-//                    + "title: {"
-//                    + "display: true,"
-//                    + "text: '" + titleString + "',"
-//                    + "fontColor: 'grey',"
-//                    + "fontSize: 25,"
-//                    + "fontFamily: 'Roboto'"
-//                    + "},"
-//                    + "legend: {"
-//                    + "position: 'left',"
-//                    + "labels: {"
-//                    + "fontColor: 'white',"
-//                    + "fontSize: 22,"
-//                    + "fontFamily: 'Roboto'"
-//                    + "}"
-//                    + "},"
-//                    + "scale: {"
-//                    + "gridLines: {"
-//                    + "color: '#9E9E9E'"
-//                    + "},"
-//                    + "ticks: {"
-//                    + "display: false,"
-//                    + "min: 0,"
-//                    + "max: 10,"
-//                    + "}"
-//                    + "}"
-//                    + "}"
-//                    + "}");
-
-
             + "type: 'polarArea',"
                     + "data: {"
                     + "labels: [" + labels + "],"
@@ -803,6 +774,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     /**
      * Проверка, есть ли в данную минуту пользователи, которым мы должны отпрвить вопросы
      */
+    @Async
     @Scheduled(cron = "0 * * * * *")
     public void schedulerService() {
         List<User> userList = userRepository.findAll();
