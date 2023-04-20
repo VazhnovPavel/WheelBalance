@@ -111,7 +111,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String MESSAGE_ = "Сравниваем этот и предыдущий месяц:\n\n";
     final private String sendQuestAboutTimeToQuestion = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
             "Напиши в формате ЧЧ:ММ , например 20:30\n" +
-            "(по Московскому времени)";
+            "(по московскому времени)";
     final private String thxForAsking = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
@@ -126,7 +126,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/compareWeek - сравнить статистику с предыдущей неделей \n\n" +
                     "/month - показать статистику за месяц (beta) \n\n" +
                     "/compareMonth - сравнить статистику с предыдущим месяцем \n\n" +
-                    "/deleteAll - удалить все ваши персональные данные из бота \n\n";
+                    "/deleteAll - удалить все твои персональные данные из бота \n\n";
 
     static final String HELP_STATISTIC =
                     "/week - показать статистику за 7 дней \n\n" +
@@ -192,7 +192,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 }
 
                 /**
-                 * Если юзер передает дату в формате ЧЧ:ММ
+                 * Если юзер передает дату в формате ЧЧ:ММ или Ч:ММ
                  */
 
             } else if (messageText.matches("^\\d{1,2}:\\d{2}$")) {
@@ -201,7 +201,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 verificationTimeQuestion(chatID, messageText);
             } else if (messageText.matches("^\\d{2};\\d{2}$")) {
                 prepareAndSendMessage(chatID, "Для установки времени для вопросов \n\n" +
-                        "Замените ; на : \n\nНапример: 20:30");
+                        "Замени ; на : \n\nНапример: 20:30");
             } else {
 
                 switch (messageText /*.toLowerCase()*/) {
@@ -241,14 +241,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                                 MONTH_COMPARE_TEXT));
                         break;
                     case "/deleteAll":
-                        prepareAndSendMessage(chatID, "Вы хотите удалить все данные без " +
+                        prepareAndSendMessage(chatID, "Ты хочешь удалить все данные без " +
                                 "возможности восстановления?");
                         smartKeyboard(chatID, "Да", "Нет","YES_BUTTON_DELETE",
                                 "NO_BUTTON_DELETE",TEXT_ABOVE_KEYBOARD_DELETE);
                         break;
                     default:
                         prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой \n\n" +
-                                "Но я думаю, вам поможет это /help");
+                                "Но я думаю, тебе поможет это /help");
                 }
 
             }
@@ -268,37 +268,39 @@ public class TelegramBot extends TelegramLongPollingBot {
                 timeToQuestions(chatId);
 
             } else if (callBackData.equals(NO_BUTTON)) {
-                executeEditMessageText("Вы нажали Нет \n\nНо если передумаете, введите еще раз" +
+                executeEditMessageText("Ты нажал(а) Нет \n\nНо если передумаешь, введи еще раз" +
                         " команду /start \uD83D\uDE09", chatId, messageId);
 
             } else if (callBackData.equals(NO_BUTTON_DELETE)) {
-                executeEditMessageText( "Вы нажали Нет \nВернуться к списку команд /help", chatId,messageId);
+                executeEditMessageText( "Ты нажал(а) Нет \nВернуться к списку команд /help", chatId,messageId);
 
             } else if (callBackData.equals(YES_BUTTON_DELETE)) {
-                executeEditMessageText( "Вы нажали Да \n Ваши данные полностью удалены \n\n" +
+                executeEditMessageText( "Ты нажал(а) Да \n Твои персональные данные полностью удалены \n\n" +
                         "Для запуска бота еще раз /start ",chatId,messageId);
                 deleteUserInformation.deleteDataUser(chatId);
 
             } else if (callBackData.equals(NO_BUTTON_verificationTimeQuestion)) {
                 log.info("Пользователь ввел некоректные данные");
-                sendMessage(chatId, "Попробуйте еще раз");
+                executeEditMessageText("Попробуй еще раз",chatId, messageId);
                 timeToQuestions(chatId);
 
-            } else if (callBackData.equals(YES_BUTTON_verificationTimeQuestion)) {
+            } else if (callBackData.startsWith("YES_BUTTON_verificationTimeQuestion_")) {
                 log.info("Пользователь ввел корректные данные");
-                addTimeToDB(chatId, getTextTimetoQuestions());
-                sendMessage(chatId, "Супер!️ Я сохранил время, в которое тебе будут приходить вопросы." +
+                String[] data = callBackData.split("_");
+                addTimeToDB(chatId, data[3]);
+              //  addTimeToDB(chatId, getTextTimetoQuestions());
+                executeEditMessageText( "Супер!️ Я сохранил время, в которое тебе будут приходить вопросы." +
                         " \n\n" +
                         "Если захочешь его изменить, можешь просто написать боту новое время, например:" +
                         " 20:30 \n\n" +
-                        "Он поймет ☺");
+                        "Он поймет \uD83D\uDE42",chatId,messageId);
                 addDataBaseQuest(chatId);
             } else if (callBackData.startsWith("BUTTON_")) {
 
                 String[] data = callBackData.split("_");
                 int answer = Integer.parseInt(data[1]);
                 String emojiNumber = createEmoji.createFunnyEmoji(answer);
-                executeEditMessageText("Вы оценили на  " + emojiNumber, chatId, messageId);
+                executeEditMessageText("Ты оценил(а) на  " + emojiNumber, chatId, messageId);
                 String quests = data[2];
                 saveAnswerToDb(chatId, quests, answer);
                 checkDateAndChatId(chatId);
@@ -702,17 +704,19 @@ public class TelegramBot extends TelegramLongPollingBot {
         int hour = Integer.parseInt(parts[0]);
         int minute = Integer.parseInt(parts[1]);
         if (hour < 0 || hour >= 24 || minute < 0 || minute >= 60) {
-            prepareAndSendMessage(chatID, "Неправильный формат даты, попробуйте еще раз");
+            prepareAndSendMessage(chatID, "Неправильный формат даты, попробуй еще раз");
             return;
         }
 
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
-        message.setText("Вы хотите получать вопросы в " + hour + " часов " + minute + " минут?");
+        message.setText("Ты хочешь получать вопросы в " + hour + " часов " + minute + " минут? " +
+                "(по московскому времени) ");
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(createInlineKeyboardButton("Да, верно", YES_BUTTON_verificationTimeQuestion));
+        rowInline.add(createInlineKeyboardButton("Да, верно",
+                "YES_BUTTON_verificationTimeQuestion_" + messageText));
         rowInline.add(createInlineKeyboardButton("Нет, исправить", NO_BUTTON_verificationTimeQuestion));
         rowsInLine.add(rowInline);
         markupInline.setKeyboard(rowsInLine);
