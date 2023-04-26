@@ -13,8 +13,6 @@ import com.vdurmont.emoji.EmojiParser;
 import io.quickchart.QuickChart;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronSequenceGenerator;
@@ -34,8 +32,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.text.DateFormat;
@@ -46,16 +42,12 @@ import java.util.*;
 import java.util.Date;
 import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 
-
-    @Slf4j
+@Slf4j
     @Component
 public class TelegramBot extends TelegramLongPollingBot {
 
-
-        private ArrayList<Long> listReportingUser = new ArrayList<>();
     @Autowired
     private UserRepository userRepository;
 
@@ -77,7 +69,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     private LastWeekValues lastWeekValues;
     @Autowired
     private WeekValues weekValues;
-
     @Autowired
     BotConfig config;
     @Autowired
@@ -90,9 +81,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private CreateEmoji createEmoji;
     @Autowired
     private CreateQueryToCheck3Days createQueryToCheck3Days;
-
-    @Value("${bot.Owner}")
-    private Long botOwner;
+        private ArrayList<Long> listReportingUser = new ArrayList<>();
 
     static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
@@ -116,22 +105,41 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String MONTH_COMPARE_STRING = "Сравнение текущего и предыдущего месяца";
     static final String MONTH_COMPARE_TEXT = "Сравниваем этот и предыдущий месяц:\n\n";
     static final String SUNDAY_TEXT = "Давай подведем итоги нашей недели: \n\n";
+    static final String CHECK_DELETE_TEXT = "Ты хочешь удалить все данные без " +
+            "возможности восстановления?";
+    static final String UNKNOWN_COMMAND = "Я не знаю, как работать с этой командой \n\n" +
+                "Но я думаю, тебе поможет это /help";
+    static final String USER_NOT_WANT_STARTED = "Ты нажал(а) Нет \n\nНо если передумаешь, введи еще раз" +
+                " команду /start \uD83D\uDE09";
+    static final String USER_WANT_STARTED = "Ты нажал(а) ДА";
+    static final String USER_WANT_DELETE_CONFIDENT_INFORMATION ="Ты нажал(а) Да " +
+            "\n Твои персональные данные полностью удалены \n\n" +
+            "Для запуска бота еще раз /start ";
+    static final String USER_NOT_WANT_DELETE_CONFIDENT_INFORMATION = "Ты нажал(а) Нет " +
+            "\nВернуться к списку команд /help";
+    static final String SUCCESS_SAVE_TIME_TO_DB ="Супер!️ Я сохранил время, в которое тебе будут приходить вопросы." +
+            " \n\n" +
+            "Если захочешь его изменить, можешь просто написать боту новое время, например:" +
+            " 20:30 \n\n" +
+            "Он поймет \uD83D\uDE42";
+    static final String YOU_CHOOSE ="Ты оценил(а) на  ";
+
     private String textTimetoQuestions;
     static final String MESSAGE_ = "Сравниваем этот и предыдущий месяц:\n\n";
-    final private String sendQuestAboutTimeToQuestion = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
+    final private String SEND_QUEST_ABOUT_TIME_TO_QUESTION = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
             "Напиши в формате ЧЧ:ММ , например 20:30\n" +
             "(по московскому времени)";
-    final private String sendTextToReport = "Опиши свою идею или ошибку. Можно добавить скриншоты. \n\n" +
+    final private String SEND_TEXT_TO_REPORT = "Опиши свою идею или ошибку. Можно добавить скриншоты. \n\n" +
             "Важно отправить текст и изображения ОДНИМ сообщением. Если нужно будет в дальнейшем, я с тобой свяжусь)";
-    final private String thxForAsking = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
+    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
             "Список всех статистик /statistic\n\n";
-
-
+    final private String THX_FOR_FEEDBACK = "Спасибо! Я зафиксировал информацию, и скоро она дойдет до админа. \n" +
+            " Вернуться в главное меню\n /help";
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
-                    "/statistic - вся интересная статистика тут) \n\n" +
+                    "/statistic - вся интересная статистика тут \uD83D\uDCCA \n\n" +
                     "/when - настроить время для вопросов \n\n" +
                     "/report - сообщить об ошибке / предложить идею \n\n" +
                     "/deleteAll - удалить все твои персональные данные из бота \n\n";
@@ -141,14 +149,13 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/compareWeek - сравнить текущие 7 дней с 7-ю предыдущими днями \n\n" +
                     "/month - показать статистику за 30 дней \n\n" +
                     "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n"+
-                    "/help - вывести все команды \n\n";
-
+                    "/help - главное меню \n\n";
 
     public TelegramBot(BotConfig config) {
         this.config = config;
 
         /**
-         * Create list menu, add command
+         * Добавляем наши команды в бота
          */
 
         List<BotCommand> listofCommands = new ArrayList<>();
@@ -162,7 +169,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
         listofCommands.add(new BotCommand("/report", "отправить сообщение об ошибке"));
         listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
-
 
         try {
             this.execute(new SetMyCommands(listofCommands, new BotCommandScopeDefault(), null));
@@ -182,7 +188,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     /**
-     * Если нам прислали текст или значение
+     * Если в бот прислали текст, фото или значение
      */
 
     @Override
@@ -191,6 +197,10 @@ public class TelegramBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             long chatID = update.getMessage().getChatId();
 
+            /**
+             * Отправить сообщение всем пользователям (для админа или рекламы)
+             */
+
             if (messageText.contains("/send") && (config.getOwnerId() == chatID)) {
                 var textToSend
                         = EmojiParser.parseToUnicode(messageText.substring(messageText.indexOf(" ")));
@@ -198,13 +208,11 @@ public class TelegramBot extends TelegramLongPollingBot {
                 for (User user : users) {
                     prepareAndSendMessage(user.getChatId(), textToSend);
                 }
-
-                /**
-                 * Если юзер передает дату в формате ЧЧ:ММ или Ч:ММ
-                 */
-
             }
 
+            /**
+             * Если пользователь передает дату в формате ЧЧ:ММ или Ч:ММ
+            */
             else if (messageText.matches("^\\d{1,2}:\\d{2}$")) {
                 log.info("Пользователь ввел время для вопросов");
                 setTextTimetoQuestions(messageText);
@@ -214,11 +222,13 @@ public class TelegramBot extends TelegramLongPollingBot {
                         "Замени ; на : \n\nНапример: 20:30");
             }
 
-
+            /**
+             * Команды от пользователей
+            */
 
             else {
 
-                switch (messageText /*.toLowerCase()*/) {
+                switch (messageText) {
                     case "/start":
                         registerUser(update.getMessage(), update);
                         startCommandReceived(chatID, update.getMessage().getChat().getFirstName());
@@ -230,7 +240,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, HELP_STATISTIC);
                         break;
                     case "/when":
-                        prepareAndSendMessage(chatID, sendQuestAboutTimeToQuestion);
+                        prepareAndSendMessage(chatID, SEND_QUEST_ABOUT_TIME_TO_QUESTION);
                         break;
                     case "/week":
                         sendPieChart(chatID,weekValues.getMeanQuest(chatID,7),7);
@@ -255,39 +265,32 @@ public class TelegramBot extends TelegramLongPollingBot {
                                 MONTH_COMPARE_TEXT));
                         break;
                     case "/report":
-                        sendMessage(chatID, sendTextToReport);
+                        sendMessage(chatID, SEND_TEXT_TO_REPORT);
                         listReportingUser.add(chatID);
                         break;
                     case "/deleteAll":
-                        prepareAndSendMessage(chatID, "Ты хочешь удалить все данные без " +
-                                "возможности восстановления?");
-                        smartKeyboard(chatID, "Да", "Нет","YES_BUTTON_DELETE",
-                                "NO_BUTTON_DELETE",TEXT_ABOVE_KEYBOARD_DELETE);
+                        prepareAndSendMessage(chatID, CHECK_DELETE_TEXT);
+                        smartKeyboard(chatID, "Да", "Нет",YES_BUTTON_DELETE,
+                                NO_BUTTON_DELETE,TEXT_ABOVE_KEYBOARD_DELETE);
                         break;
                     default:
                         if (checkOnReportMessage(chatID,update))
                             break;
-
-                        else prepareAndSendMessage(chatID, "Я не знаю, как работать с этой командой \n\n" +
-                                "Но я думаю, тебе поможет это /help");
+                        else prepareAndSendMessage(chatID,UNKNOWN_COMMAND );
 
                 }
-
-
             }
 
         }
+        /**
+         * Если сообщение содержит фото, отправляем его вместе
+         * с сообщением обратной связи администратору
+         */
         else if (update.hasMessage() && update.getMessage().hasPhoto()) {
-            // Если сообщение содержит фото, отправляем его вместе с сообщением обратной связи администратору
             long chatID = update.getMessage().getChatId();
             checkOnReportMessage(chatID,update);
             listReportingUser.remove(chatID);
         }
-
-
-
-
-
 
         /**
          * провереям, вдруг помимо текста нам передали значение
@@ -298,43 +301,34 @@ public class TelegramBot extends TelegramLongPollingBot {
             long messageId = update.getCallbackQuery().getMessage().getMessageId();
             long chatId = update.getCallbackQuery().getMessage().getChatId();
             if (callBackData.equals(YES_BUTTON)) {
-                executeEditMessageText("Ты нажал(а) ДА", chatId, messageId);
+                executeEditMessageText(USER_WANT_STARTED, chatId, messageId);
                 timeToQuestions(chatId);
 
             } else if (callBackData.equals(NO_BUTTON)) {
-                executeEditMessageText("Ты нажал(а) Нет \n\nНо если передумаешь, введи еще раз" +
-                        " команду /start \uD83D\uDE09", chatId, messageId);
+                executeEditMessageText(USER_NOT_WANT_STARTED, chatId, messageId);
 
             } else if (callBackData.equals(NO_BUTTON_DELETE)) {
-                executeEditMessageText( "Ты нажал(а) Нет \nВернуться к списку команд /help", chatId,messageId);
+                executeEditMessageText(USER_NOT_WANT_DELETE_CONFIDENT_INFORMATION , chatId,messageId);
 
             } else if (callBackData.equals(YES_BUTTON_DELETE)) {
-                executeEditMessageText( "Ты нажал(а) Да \n Твои персональные данные полностью удалены \n\n" +
-                        "Для запуска бота еще раз /start ",chatId,messageId);
+                executeEditMessageText(USER_WANT_DELETE_CONFIDENT_INFORMATION  ,chatId,messageId);
                 deleteUserInformation.deleteDataUser(chatId);
 
             } else if (callBackData.equals(NO_BUTTON_verificationTimeQuestion)) {
-                log.info("Пользователь ввел некоректные данные");
                 executeEditMessageText("Попробуй еще раз",chatId, messageId);
                 timeToQuestions(chatId);
 
             } else if (callBackData.startsWith("YES_BUTTON_verificationTimeQuestion_")) {
-                log.info("Пользователь ввел корректные данные");
                 String[] data = callBackData.split("_");
                 addTimeToDB(chatId, data[3]);
-              //  addTimeToDB(chatId, getTextTimetoQuestions());
-                executeEditMessageText( "Супер!️ Я сохранил время, в которое тебе будут приходить вопросы." +
-                        " \n\n" +
-                        "Если захочешь его изменить, можешь просто написать боту новое время, например:" +
-                        " 20:30 \n\n" +
-                        "Он поймет \uD83D\uDE42",chatId,messageId);
+                executeEditMessageText( SUCCESS_SAVE_TIME_TO_DB,chatId,messageId);
                 addDataBaseQuest(chatId);
             } else if (callBackData.startsWith("BUTTON_")) {
 
                 String[] data = callBackData.split("_");
                 int answer = Integer.parseInt(data[1]);
                 String emojiNumber = createEmoji.createFunnyEmoji(answer);
-                executeEditMessageText("Ты оценил(а) на  " + emojiNumber, chatId, messageId);
+                executeEditMessageText(YOU_CHOOSE + emojiNumber, chatId, messageId);
                 String quests = data[2];
                 saveAnswerToDb(chatId, quests, answer);
                 checkDateAndChatId(chatId);
@@ -345,9 +339,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     }
 
-    public String getTextTimetoQuestions() {
-        return textTimetoQuestions;
-    }
 
     public void setTextTimetoQuestions(String textTimetoQuestions) {
         this.textTimetoQuestions = textTimetoQuestions;
@@ -355,13 +346,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private void timeToQuestions(long chatID) {
 
-        sendMessage(chatID, sendQuestAboutTimeToQuestion);
+        sendMessage(chatID, SEND_QUEST_ABOUT_TIME_TO_QUESTION);
     }
 
     private void registerUser(Message msg, Update update) {
 
         /**
-         * провереям, существует ли данный пользователь
+         * провереям, если пользователь новый, то регистрируем его
          */
 
         if (userRepository.findById(msg.getChatId()).isEmpty()) {
@@ -371,46 +362,44 @@ public class TelegramBot extends TelegramLongPollingBot {
             user.setLastName(update.getMessage().getChat().getLastName());
             user.setUserName("@" + update.getMessage().getChat().getUserName());
             user.setRegisteredAt(new Timestamp(System.currentTimeMillis()));
-
             userRepository.save(user);
             log.info("Saved user: " + user);
         }
     }
 
-
+    /**
+     * Отправляем всем пользователям, кто ввел команду /start
+     */
 
     private void startCommandReceived(long chatID, String name) {
         sendMessage(chatID, name + START_MESSAGE);
         log.info("Replied to user" + name);
 
-        // get the input stream for the image file
+        // указываем, откуда загружать приветственную картинку
         InputStream inputStream = getClass().getResourceAsStream("/Start.png");
 
         try {
-            // create an InputFile object from the input stream
+            // создаем объект из потока с картинкой
             InputFile inputFile = new InputFile(inputStream, "Start.png");
 
-            // create a SendPhoto object and set its parameters
+            // создаем объект SendPhoto и добавляем параметры
             SendPhoto sendPhotoRequest = new SendPhoto();
             sendPhotoRequest.setChatId(chatID);
             sendPhotoRequest.setPhoto(inputFile);
 
-            // send the photo to the chat
+            // отправляем фото по chatID пользователю
             execute(sendPhotoRequest);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
 
-        smartKeyboard(chatID, "Да", "Нет","YES_BUTTON","NO_BUTTON",
+        smartKeyboard(chatID, "Да", "Нет",YES_BUTTON,NO_BUTTON,
                 TEXT_ABOVE_KEYBOARD_START);
     }
 
-
-
-
-
-
-
+    /**
+     * Через этот метод отправляем все сообщения пользователю
+     */
 
     public void sendMessage(long chatID, String texToSend) {
         SendMessage message = new SendMessage();
@@ -419,7 +408,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
-
+    /**
+     * Создаем и отправляем график по данным пользователя
+     */
 
 
     public void sendPieChart(long chatID, Map<String, Double> chartToSend, int currentDays) {
@@ -437,13 +428,18 @@ public class TelegramBot extends TelegramLongPollingBot {
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
 
-        // Calculate the date range
+        // Высчитываем диапазон дат, за которые необходимо вывести статистику. Опираемся на данные, переданные
+        // в currentDays
+
         Calendar endDate = Calendar.getInstance();
         Calendar startDate = Calendar.getInstance();
         startDate.add(Calendar.DAY_OF_MONTH, -currentDays +1);
         DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
         DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
-        //Если год один, то пишем один раз. Если года разные - выводим оба
+
+        // Если в промежуток аналитики попадает два года (например старт в декабре 2022, а конец в январе 2023)
+        // то выводим оба года. Если один год, то выводим год только в конце предложения
+
         String titleString;
         if (startDate.get(Calendar.YEAR) == endDate.get(Calendar.YEAR)) {
             titleString = String.format("@Wheel_Balance_bot                 Отчет c %s по %s года",
@@ -455,6 +451,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                     dateFormatSecond.format(endDate.getTime()));
         }
 
+        // создаем график с помощью библиотеки QuickChart, вставляя в нее уже посчитанные значения data
+        // и готовые значения labels
 
         try {
             QuickChart chart = new QuickChart();
@@ -508,25 +506,28 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "}"
                     + "}");
 
-            // Get the image
+            // собираем график в картинку
             byte[] imageBytes = chart.toByteArray();
-            log.info("FINAL");
 
-            // Send the image to the user via Telegram bot
+            // отправляем картинку пользователю
             SendPhoto sendPhotoRequest = new SendPhoto();
             sendPhotoRequest.setChatId(chatID);
             sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
             execute(sendPhotoRequest);
+
         } catch (Exception e) {
             log.info("ERROR create chart " + e);
             e.printStackTrace();
         }
     }
 
-
+    /**
+     * Создаем график типа "Радар", с помощью которого сравнимаем разные временные периоды
+     */
 
     public void sendRadarChart(long chatID, Map<String, Double> mapFirst, Map<String, Double> mapSecond,
-                               String firstCompareName, String secondCompareName, String titleChart, int currentDays) {
+                               String firstCompareName, String secondCompareName, String titleChart,
+                               int currentDays) {
 
         String labels = mapFirst.keySet().stream()
                 .filter(key -> mapFirst.get(key) != null && mapFirst.get(key) != 0 && mapFirst.get(key) != 0.0)
@@ -543,14 +544,16 @@ public class TelegramBot extends TelegramLongPollingBot {
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
 
-        // Calculate the date range
+        // Подсчитываем временной диапазон
         Calendar endDate = Calendar.getInstance();
         Calendar startDate = Calendar.getInstance();
+
         //Увеличиваем currentDays в 2 раза и 1 день для корректности периода
         startDate.add(Calendar.DAY_OF_MONTH, (-currentDays * 2) +1);
         DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
         DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
-        //Если год один, то пишем один раз. Если года разные - выводим оба
+
+        //Если год один в промежутке сравнения, то пишем один раз. Если года разные - выводим оба
         String titleString;
         if (startDate.get(Calendar.YEAR) == endDate.get(Calendar.YEAR)) {
             titleString = String.format("@Wheel_Balance_bot                         Отчет c %s по %s года",
@@ -629,10 +632,10 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
 
-            // Get the image
+            // Собираем график в картинку
             byte[] imageBytes = chart.toByteArray();
 
-            // Send the image to the user via Telegram bot
+            // Отправляем картинку пользователю
             SendPhoto sendPhotoRequest = new SendPhoto();
             sendPhotoRequest.setChatId(chatID);
             sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
@@ -645,9 +648,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
 
-
-
             ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
+            /////////////// НЕ ТРОГАТЬ///////////////
+
        /* ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();   //  создем клавиатуру
         List<KeyboardRow> keyboardRows = new ArrayList<>(); // создаем лист для вариантов ответа
 
@@ -665,10 +668,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         keyboardMarkup.setKeyboard(keyboardRows); //добавляем в клавиатуру наши ряды
         message.setReplyMarkup(keyboardMarkup); //привязываем к сообщению клавиатуру*/
+
 ////////////////ПОСТОЯННАЯ КЛАВИАТУРА КОНЕЦ/////
 
     /**
      * Если будет необходимо отправлять сообщение всем пользователям одновременно
+     * в заданное @Scheduled время.
      * Админ может вызвать эту команду из без @Scheduled с помощью команды /send
      */
 
@@ -686,7 +691,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     /**
      * Меняет уже выведенный текст
      */
-
 
     private void executeEditMessageText(String text, long chatId, long messageId) {
         EditMessageText message = new EditMessageText();
@@ -808,15 +812,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                 userDB.setId(id);
                 dataBaseQuestRepository.save(userDB);
             }
-            log.info("User updated time of receiving questions: " + chatId);
-            System.out.println("User updated time of receiving questions");
+            log.info("Пользователь обновил время вопросов " + chatId);
         } catch (Exception e) {
             log.error("Error saving user to DB: " + chatId, e);
         }
     }
 
     /**
-     * Проверка, есть ли в данную минуту пользователи, которым мы должны отпрвить вопросы
+     * Проверка, есть ли в данную минуту пользователи, которым мы должны отправить вопросы
      */
     @Async
     @Scheduled(cron = "0 * * * * *")
@@ -864,7 +867,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         if (questsToday != null && questsToday.size() <= 10 && questsToday.size() > 7) {
             Map<String, String> quest = quests.get(0);
-            log.info("ЭТАП 1: quests + quest_string = " + quests);
             sendQuest(chat_id, quest);
         } else {
             sendEndMessage(chat_id);
@@ -919,12 +921,10 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
+         /**
+         * Сохраняем значение в БД
+         **/
 
-
-
-        /**
-     * Сохраняем значение в БД
-     */
     private void saveAnswerToDb(long chatId, String question, int answer) {
         log.info("Сохраняем значение " + chatId + question + answer);
         LocalDate today = LocalDate.now();
@@ -934,36 +934,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         jdbcTemplate.update(sql, answer, chatId, question);
     }
 
-
-
-
-//        private void sendFeedbackToAdmin(Long chatId, Message message) {
-//            String feedback = message.getText();
-//            if (message.hasPhoto()) {
-//                // Если сообщение содержит фото, получаем информацию о фото и отправляем ее вместе с сообщением
-//                // в качестве описания к фото
-//                feedback += "\n(Фото)";
-//            }
-//
-//            sendMessage(350511326, "Отзыв от пользователя:\n" + feedback);
-//
-//            if (message.hasPhoto()) {
-//                // Если сообщение содержит фото, отправляем фото администратору
-//                List<PhotoSize> photoSizes = message.getPhoto();
-//                String fileId = photoSizes.get(0).getFileId();
-//                SendPhoto sendPhoto = new SendPhoto();
-//                        sendPhoto.setChatId(350511326L);
-//                        sendPhoto.setPhoto(new InputFile(fileId));
-//
-//                try {
-//                    // Отправляем фото
-//                    execute(sendPhoto);
-//                } catch (TelegramApiException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            listReportingUser.remove(chatId);
-//        }
+    /**
+     * Если пользователь прислал фидбек, то отправляем его админу
+     **/
 
         private void sendFeedbackToAdmin(Long chatId, Message message) {
             String username = "";
@@ -981,14 +954,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                 feedback += "\n(Без фото)";
             }
 
-            sendMessage(botOwner, "Отзыв от пользователя: " + username + " \n" + feedback);
+            sendMessage(350511326, "Отзыв от пользователя: " + username + " \n" + feedback);
 
             if (message.hasPhoto()) {
                 // Если сообщение содержит фото, отправляем фото администратору
                 List<PhotoSize> photoSizes = message.getPhoto();
                 String fileId = photoSizes.get(0).getFileId();
                 SendPhoto sendPhoto = new SendPhoto();
-                sendPhoto.setChatId(botOwner);
+                sendPhoto.setChatId(350511326L);
                 sendPhoto.setPhoto(new InputFile(fileId));
 
                 try {
@@ -998,18 +971,16 @@ public class TelegramBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
             }
-            sendMessage(chatId,"Спасибо! Я зафиксировал информацию, и скоро она дойдет до админа. \n" +
-                    " Вернуться в главное меню\n /help");
+            sendMessage(chatId,THX_FOR_FEEDBACK);
 
         }
 
-
-
-            /**
+        /**
          * Если все вопросы на сегодня заданы, завершающее сообщение
          */
+
     private void sendEndMessage(long chatId) {
-        sendMessage(chatId, thxForAsking);
+        sendMessage(chatId, THX_FOR_ASKING);
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             sendMessage(chatId,SUNDAY_TEXT);
             sendPieChart(chatId, weekValues.getMeanQuest(chatId, 7), 7);

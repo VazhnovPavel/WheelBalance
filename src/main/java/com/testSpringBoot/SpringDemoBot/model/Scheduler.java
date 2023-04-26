@@ -15,9 +15,12 @@ import java.util.List;
 public class Scheduler {
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private TelegramBot telegramBot;
+
+    /**
+     * Проверка, есть ли в данную минуту пользователи, которым мы должны отправить вопросы
+     */
 
     @Async
     @Scheduled(cron = "0 * * * * *")

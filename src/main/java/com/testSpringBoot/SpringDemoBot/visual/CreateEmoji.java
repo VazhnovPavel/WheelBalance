@@ -9,6 +9,7 @@ public class CreateEmoji {
 
     public String createFunnyEmoji(int answer) {
         String rating;
+        String num0 = EmojiParser.parseToUnicode("\u0030\u20E3");
         String num1 = EmojiParser.parseToUnicode("\u0031\u20E3");
         String num2 = EmojiParser.parseToUnicode("\u0032\u20E3");
         String num3 = EmojiParser.parseToUnicode("\u0033\u20E3");
@@ -18,7 +19,7 @@ public class CreateEmoji {
         String num7 = EmojiParser.parseToUnicode("\u0037\u20E3");
         String num8 = EmojiParser.parseToUnicode("\u0038\u20E3");
         String num9 = EmojiParser.parseToUnicode("\u0039\u20E3");
-        String num10 = EmojiParser.parseToUnicode("\u0031\u0030\u20E3");
+        String num10 = EmojiParser.parseToUnicode("\uD83D\uDD1F");
 
         switch (answer) {
             case 1:
@@ -50,6 +51,9 @@ public class CreateEmoji {
                 break;
             case 10:
                 rating = num10;
+                break;
+            case 0:
+                rating = num0;
                 break;
             default:
                 rating = "Invalid answer";
