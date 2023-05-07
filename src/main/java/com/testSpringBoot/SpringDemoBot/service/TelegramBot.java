@@ -1,7 +1,9 @@
 package com.testSpringBoot.SpringDemoBot.service;
 
+
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
+import com.testSpringBoot.SpringDemoBot.model.User;
 import com.testSpringBoot.SpringDemoBot.statistic.CompareWeekLastWeek;
 import com.testSpringBoot.SpringDemoBot.statistic.GetStatCurrentDays;
 import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
@@ -18,20 +20,24 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.ForwardMessage;
+import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
+import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
-import org.telegram.telegrambots.meta.api.objects.InputFile;
-import org.telegram.telegrambots.meta.api.objects.Message;
-import org.telegram.telegrambots.meta.api.objects.PhotoSize;
-import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.*;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
+import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
+import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
+import org.telegram.telegrambots.meta.api.objects.media.InputMediaVideo;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
+import java.io.File;
 import java.io.InputStream;
 import java.sql.*;
 import java.text.DateFormat;
@@ -42,6 +48,9 @@ import java.util.*;
 import java.util.Date;
 import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Async;
+
+
+
 
 
 @Slf4j
@@ -129,8 +138,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     final private String SEND_QUEST_ABOUT_TIME_TO_QUESTION = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
             "Напиши в формате ЧЧ:ММ , например 20:30\n" +
             "(по московскому времени)";
-    final private String SEND_TEXT_TO_REPORT = "Опиши свою идею или ошибку. Можно добавить скриншоты. \n\n" +
-            "Важно отправить текст и изображения ОДНИМ сообщением. Если нужно будет в дальнейшем, я с тобой свяжусь)";
+    final private String SEND_TEXT_TO_REPORT = "Опиши свою идею или найденную ошибку. Можно добавить скриншот. \n\n" +
+            "Важно отправить текст и изображение ОДНИМ сообщением. Если нужно будет в дальнейшем, я с тобой свяжусь)";
     final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
@@ -151,8 +160,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n"+
                     "/help - главное меню \n\n";
 
+    BotConfig botConfig = new BotConfig();
+    Long ownerId = botConfig.getOwnerId();
+
+
     public TelegramBot(BotConfig config) {
         this.config = config;
+        Long ownerId = config.getOwnerId();
+
 
         /**
          * Добавляем наши команды в бота
@@ -938,46 +953,47 @@ public class TelegramBot extends TelegramLongPollingBot {
      * Если пользователь прислал фидбек, то отправляем его админу
      **/
 
-        private void sendFeedbackToAdmin(Long chatId, Message message) {
-            String username = "";
-            if (message.getChat().getUserName() != null   )
-                username = "@" + message.getChat().getUserName();
-            else
-                username = chatId.toString();
-
-            String feedback = "";
-            if (message.hasPhoto()) {
-                feedback = message.getCaption() != null ? message.getCaption() : ""; // Используем подпись к фото, если она есть
-                feedback += "\n(Фото)";
-            } else {
-                feedback = message.getText() != null ? message.getText() : ""; // Используем текст сообщения, если фото нет
-                feedback += "\n(Без фото)";
-            }
-
-            sendMessage(350511326, "Отзыв от пользователя: " + username + " \n" + feedback);
-
-            if (message.hasPhoto()) {
-                // Если сообщение содержит фото, отправляем фото администратору
-                List<PhotoSize> photoSizes = message.getPhoto();
-                String fileId = photoSizes.get(0).getFileId();
-                SendPhoto sendPhoto = new SendPhoto();
-                sendPhoto.setChatId(350511326L);
-                sendPhoto.setPhoto(new InputFile(fileId));
-
-                try {
-                    // Отправляем фото
-                    execute(sendPhoto);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
-            }
-            sendMessage(chatId,THX_FOR_FEEDBACK);
-
+    private void sendFeedbackToAdmin(Long chatId, Message message) {
+        String username = "";
+        if (message.getChat().getUserName() != null) {
+            username = "@" + message.getChat().getUserName();
+        } else {
+            username = chatId.toString();
         }
 
-        /**
-         * Если все вопросы на сегодня заданы, завершающее сообщение
-         */
+        String feedback = "";
+        if (message.hasPhoto()) {
+            feedback = message.getCaption() != null ? message.getCaption() : ""; // Используем подпись к фото, если она есть
+            feedback += "\n(Фото)";
+
+            List<PhotoSize> photoSizes = message.getPhoto();
+            // Sort the list of PhotoSize objects by descending file size
+            photoSizes.sort(Comparator.comparing(PhotoSize::getFileSize).reversed());
+
+            // Send only the largest photo to the admin chat
+            String largestFileId = photoSizes.get(0).getFileId();
+            SendPhoto sendPhoto = new SendPhoto();
+            sendPhoto.setChatId(ownerId);
+            sendPhoto.setPhoto(new InputFile(largestFileId));
+
+            try {
+                execute(sendPhoto);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        } else {
+            feedback = message.getText() != null ? message.getText() : ""; // Используем текст сообщения, если фото нет
+            feedback += "\n(Без фото)";
+        }
+
+        sendMessage(ownerId, "Отзыв от пользователя: " + username + " \n" + feedback);
+        sendMessage(chatId, THX_FOR_FEEDBACK);
+    }
+
+
+    /**
+             * Если все вопросы на сегодня заданы, завершающее сообщение
+             */
 
     private void sendEndMessage(long chatId) {
         sendMessage(chatId, THX_FOR_ASKING);
