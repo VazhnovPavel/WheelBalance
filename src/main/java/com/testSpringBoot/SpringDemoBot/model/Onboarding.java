@@ -50,6 +50,27 @@ public class Onboarding {
         return isOnboardingToday;
     }
 
+    public boolean checkTimeToQuestion(Long chat_id) {
+        boolean hasTimeToQuestion = false;
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(User.class)
+                .buildSessionFactory();
+        try (Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
+            User user = session.get(User.class, chat_id);
+            if (user != null && user.getTimeToQuestions() != null) {
+                hasTimeToQuestion = true;
+            }
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            factory.close();
+        }
+        return hasTimeToQuestion;
+    }
+
 }
 
 

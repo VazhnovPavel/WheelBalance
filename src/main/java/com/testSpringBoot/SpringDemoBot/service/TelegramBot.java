@@ -20,13 +20,17 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
+import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
+import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.*;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
+import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -41,6 +45,10 @@ import java.util.*;
 import java.util.Date;
 import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Async;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 
@@ -49,6 +57,7 @@ import org.springframework.scheduling.annotation.Async;
 @Slf4j
     @Component
 public class TelegramBot extends TelegramLongPollingBot {
+
     @Autowired
     private Onboarding onboarding;
     @Autowired
@@ -84,7 +93,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     private CreateEmoji createEmoji;
     @Autowired
     private CreateQueryToCheck3Days createQueryToCheck3Days;
-        private ArrayList<Long> listReportingUser = new ArrayList<>();
+    private ArrayList<Long> whoAnsweredTodayList = new ArrayList<Long>();
+    private Map<Long,String> stickerUser = new HashMap<>();
+    private ArrayList<String> categoryList = new ArrayList<String>();
 
     static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
@@ -116,7 +127,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                 "Но я думаю, тебе поможет это /help";
     static final String USER_NOT_WANT_STARTED = "Ты нажал(а) Нет \n\nНо если передумаешь, введи еще раз" +
                 " команду /start \uD83D\uDE09";
-    static final String USER_WANT_STARTED = "Ты нажал(а) ДА";
+    static final String USER_WANT_STARTED = "Ты нажал(а) ДА \n\nПрежде, чем ответить на вопросы, давай " +
+            "зададим удобное время на будущее";
     static final String USER_WANT_DELETE_CONFIDENT_INFORMATION ="Ты нажал(а) Да " +
             "\n Твои персональные данные полностью удалены \n\n" +
             "Для запуска бота еще раз /start ";
@@ -128,27 +140,37 @@ public class TelegramBot extends TelegramLongPollingBot {
             " 20:30 \n\n" +
             "Он поймет \uD83D\uDE42";
     static final String YOU_CHOOSE ="Ты оценил(а) на  ";
+    static final String YOU_CHOOSE_CATEGORY = "Пришли в чат стикер на категорию ";
 
     private String textTimetoQuestions;
     static final String MESSAGE_ = "Сравниваем этот и предыдущий месяц:\n\n";
     final private String SEND_QUEST_ABOUT_TIME_TO_QUESTION = "\n\nВ какое время тебе было бы удобно получать вопросы?\n" +
             "Напиши в формате ЧЧ:ММ , например 20:30\n" +
             "(по московскому времени)";
-    final private String SEND_TEXT_TO_REPORT = "Опиши свою идею или найденную ошибку. Можно добавить скриншот. \n\n" +
-            "Важно отправить текст и изображение ОДНИМ сообщением. Если нужно будет в дальнейшем, я с тобой свяжусь)";
-    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в то же время \uD83D\uDE09\n \n\n" +
+    final private String SEND_TEXT_TO_REPORT = "Все замечания, предложения и найденные ошибки можно присылать" +
+            " мне, @pavel_fortex " +
+            "\n\nВыслушаю всех обязательно \uD83D\uDE0C";
+    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в заданное время \uD83D\uDE09\n \n\n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
             "Список всех статистик /statistic\n\n";
     final private String THX_FOR_FEEDBACK = "Спасибо! Я зафиксировал информацию, и скоро она дойдет до админа. \n" +
             " Вернуться в главное меню\n /help";
-    static final String WANT_ASK_NOW = "Хочешь ответить на первые 3 вопроса сейчас, или в заданное время?";
+    static final String WANT_ASK_NOW_NEW_USER = "Хочешь ответить на первые 3 вопроса сейчас, или в заданное время?";
+    static final String WANT_ASK_NOW_OLD_USER = "Хочешь ответить на 3 вопроса сейчас, или в заданное время? \n\n" +
+            "Если сейчас, то вопросы в заданные время на сегодня уже не придут";
+
+    static final String STICKER_MESSAGE = "Ты можешь предложить свой стикер, выбрав одну из категорий ниже " +
+            "Если стикер будет актуальным и забавным, я добавлю его в список, и он появится у всех " +
+            "пользователей \uD83D\uDE0A \n\n";
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
                     "/statistic - вся интересная статистика тут \uD83D\uDCCA \n\n" +
+                    "/sticker - предложить свой стикер (в разработке)  \n\n" +
+                    "/now - ответить на вопросы сейчас  \n\n" +
                     "/when - настроить время для вопросов \n\n" +
                     "/report - сообщить об ошибке / предложить идею \n\n" +
-                    "/deleteAll - удалить все твои персональные данные из бота \n\n";
+                    "/delete - удалить все твои персональные данные из бота \n\n";
 
     static final String HELP_STATISTIC =
                     "/week - показать статистику за 7 дней \n\n" +
@@ -161,9 +183,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     Long ownerId = botConfig.getOwnerId();
 
 
+
     public TelegramBot(BotConfig config) {
         this.config = config;
         Long ownerId = config.getOwnerId();
+
+
 
 
         /**
@@ -174,20 +199,32 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/start", "Start"));
         listofCommands.add(new BotCommand("/help", "вывести все команды "));
         listofCommands.add(new BotCommand("/statistic", "вывести все статистики "));
+        listofCommands.add(new BotCommand("/sticker", "предложить свой стикер "));
+        listofCommands.add(new BotCommand("/now", "ответить на вопросы сейчас "));
         listofCommands.add(new BotCommand("/when", "настроить время для вопросов"));
         listofCommands.add(new BotCommand("/week", "показать статистику за неделю"));
         listofCommands.add(new BotCommand("/compareWeek", "сравнить с предыдущей неделей"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
         listofCommands.add(new BotCommand("/report", "отправить сообщение об ошибке"));
-        listofCommands.add(new BotCommand("/deleteAll", "удалить все данные о пользователе"));
+        listofCommands.add(new BotCommand("/delete", "удалить все данные о пользователе"));
 
         try {
             this.execute(new SetMyCommands(listofCommands, new BotCommandScopeDefault(), null));
         } catch (TelegramApiException e) {
             log.error("Error setting bots command list" + e.getMessage());
         }
+
+
+
+
     }
+
+
+
+
+
+
 
     @Override
     public String getBotUsername() {
@@ -251,6 +288,22 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/statistic":
                         prepareAndSendMessage(chatID, HELP_STATISTIC);
                         break;
+                    case "/sticker":
+                        sendMessage(chatID,"фишка в разрабоке, скоро будет \uD83D\uDE09");
+                        //prepareAndSendMessage(chatID, STICKER_MESSAGE);
+                       // getKeyboard(chatID,null,"Клавиатура категорий");
+                        break;
+                    case "/now":
+                        if (onboarding.checkTimeToQuestion(chatID)){
+                            //запускаем метод в обход крона
+                            smartKeyboard(chatID, "Сейчас", "Я передумал",NOW_ASK_QUESTION,AFTER_ASK_QUESTION,
+                                    WANT_ASK_NOW_OLD_USER);
+                       }
+                        else {
+                            sendMessage(chatID,"Для начала надо установить время по умолчанию");
+                            prepareAndSendMessage(chatID, SEND_QUEST_ABOUT_TIME_TO_QUESTION);
+                        }
+                        break;
                     case "/when":
                         prepareAndSendMessage(chatID, SEND_QUEST_ABOUT_TIME_TO_QUESTION);
                         break;
@@ -278,30 +331,50 @@ public class TelegramBot extends TelegramLongPollingBot {
                         break;
                     case "/report":
                         sendMessage(chatID, SEND_TEXT_TO_REPORT);
-                        listReportingUser.add(chatID);
                         break;
-                    case "/deleteAll":
+                    case "/delete":
                         prepareAndSendMessage(chatID, CHECK_DELETE_TEXT);
                         smartKeyboard(chatID, "Да", "Нет",YES_BUTTON_DELETE,
                                 NO_BUTTON_DELETE,TEXT_ABOVE_KEYBOARD_DELETE);
                         break;
                     default:
-                        if (checkOnReportMessage(chatID,update))
-                            break;
-                        else prepareAndSendMessage(chatID,UNKNOWN_COMMAND );
+                         prepareAndSendMessage(chatID,UNKNOWN_COMMAND );
 
                 }
             }
 
         }
         /**
-         * Если сообщение содержит фото, отправляем его вместе
-         * с сообщением обратной связи администратору
+         * Если сообщение содержит стикер, отправляем его вместе
+         * с сообщением о категории и chat_id  администратору
          */
-        else if (update.hasMessage() && update.getMessage().hasPhoto()) {
-            long chatID = update.getMessage().getChatId();
-            checkOnReportMessage(chatID,update);
-            listReportingUser.remove(chatID);
+
+        if (update.hasMessage() && update.getMessage().hasSticker()) {
+            Long chatId = update.getMessage().getChatId();
+            String stickerFileId = update.getMessage().getSticker().getFileId();
+            String quest = stickerUser.get(chatId);
+            if (quest != null) {
+                try {
+                    // Создание объекта InputFile для отправки стикера
+                    GetFile getFile = new GetFile(stickerFileId);
+                    File file = execute(getFile);
+                    InputFile inputFile = new InputFile(String.valueOf(file));
+
+                    // Формирование текста сообщения с chatId и quest
+                    StringBuilder messageBuilder = new StringBuilder();
+                    messageBuilder.append("Chat ID: ").append(chatId).append("\n");
+                    messageBuilder.append("Quest: ").append(quest);
+
+                    // Отправка стикера и сообщения админу
+                    SendDocument sendDocument = new SendDocument();
+                    sendDocument.setChatId(ownerId);
+                    sendDocument.setDocument(inputFile);
+                    sendDocument.setCaption(messageBuilder.toString());
+                    execute(sendDocument);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         /**
@@ -338,18 +411,28 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 log.info("НАЧАЛАСЬ ПРОВЕРКА НА СЕГОДНЯШНИЙ ДЕНЬ");
                 if (onboarding.checkOnboarding(chatId)){
-                    smartKeyboard(chatId, "Сейчас", "В заданное время",NOW_ASK_QUESTION,AFTER_ASK_QUESTION,
-                            WANT_ASK_NOW);
                     //запускаем метод в обход крона
+                    smartKeyboard(chatId, "Сейчас", "В заданное время",NOW_ASK_QUESTION,AFTER_ASK_QUESTION,
+                            WANT_ASK_NOW_NEW_USER);
+
                 }
             }
             else if (callBackData.equals(NOW_ASK_QUESTION)) {
-                executeEditMessageText("Значит отвечаем сейчас \uD83D\uDE43 ",chatId, messageId);
-                checkDateAndChatId(chatId);
+                if (!whoAnsweredTodayList.contains(chatId)) {
+                    executeEditMessageText("Значит отвечаем сейчас \uD83D\uDE43 ",chatId, messageId);
+                    checkDateAndChatId(chatId);
+                }
+                else{
+                    executeEditMessageText("Только 3 вопроса в день, не больше \uD83D\uDE43 ",chatId, messageId);
+                }
+
+
 
             }
             else if (callBackData.equals(AFTER_ASK_QUESTION)) {
-                executeEditMessageText("Спишемся в назначенное время \uD83D\uDE09 ",chatId, messageId);
+                executeEditMessageText("Спишемся в назначенное время (если сегодня еще не отвечал(а) " +
+                        "на вопросы)" +
+                        " \uD83D\uDE09 ",chatId, messageId);
 
             }else if (callBackData.startsWith("BUTTON_")) {
 
@@ -360,6 +443,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 String quests = data[2];
                 saveAnswerToDb(chatId, quests, answer);
                 checkDateAndChatId(chatId);
+            }
+            else if (callBackData.startsWith("CATEGORY_")) {
+
+                String[] data = callBackData.split("_");
+                String quest = data[2];
+                executeEditMessageText(YOU_CHOOSE_CATEGORY + quest + "за раз можно прислать только" +
+                        "один стикер. \n\n", chatId, messageId);
+                stickerUser.put(chatId,quest);
+
             }
 
         }
@@ -863,9 +955,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                 if (nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()
                         && nextExecutionTime.getHours() == currentDate.getHours()) {
                     log.info("Время cron соответствует текущему времени");
-                    if (!(onboarding.checkOnboarding(chatId))) {
+                    //if (!(onboarding.checkOnboarding(chatId))) {
                         checkDateAndChatId(chatId);
-                    }
+                   // }
                 }
             } catch (IllegalArgumentException e) {
                 log.info("Error: " + e);
@@ -899,7 +991,10 @@ public class TelegramBot extends TelegramLongPollingBot {
             Map<String, String> quest = quests.get(0);
             sendQuest(chat_id, quest);
         } else {
-            sendEndMessage(chat_id);
+            if (!whoAnsweredTodayList.contains(chat_id)) {
+                sendEndMessage(chat_id);
+                whoAnsweredTodayList.add(chat_id);
+            }
         }
     }
 
@@ -914,7 +1009,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.info("Error" + e);
         }
         sendMessage(chatId, questStringValue);
-        getKeyboard(chatId, questValue);
+        getKeyboard(chatId, questValue,"Клавиатура оценок");
 
     }
 
@@ -926,32 +1021,70 @@ public class TelegramBot extends TelegramLongPollingBot {
      */
 
 
-    private void getKeyboard(Long chatID, String quest) {
+    private void getKeyboard(Long chatID, String quest, String condition) {
+        String startMessage = null;
+        String category = null;
+        int countButtons = 0;
+
+        if (Objects.equals(condition, "Клавиатура оценок")){
+            countButtons = 11;
+            startMessage = "Оцени от 0 до 10";
+            category = "BUTTON_";
+        }
+        else if (Objects.equals(condition, "Клавиатура категорий")){
+            countButtons = 10;
+            startMessage = "Выбери категорию";
+            category = "CATEGORY_";
+            categoryList.add("Здоровье");
+            categoryList.add("Работа");
+            categoryList.add("Саморазвитие");
+            categoryList.add("Деньги, капитал");
+            categoryList.add("Материальный мир");
+            categoryList.add("Отношения");
+            categoryList.add("Развлечения");
+            categoryList.add("Семья");
+            categoryList.add("Внешность");
+            categoryList.add("Друзья");
+        }
+
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
-        message.setText("Оцени от 0 до 10");
+        message.setText(startMessage);
+
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
-            String answerNumber = String.valueOf(i);
+
+        for (int i = 0; i < countButtons; i++) {
+            String answerNumber = null;
+
+            if (Objects.equals(condition, "Клавиатура оценок")){
+                answerNumber = String.valueOf(i);
+            }
+            else if (Objects.equals(condition, "Клавиатура категорий")){
+                answerNumber = categoryList.get(i);
+            }
+
             try {
-                rowInline.add(createInlineKeyboardButton(answerNumber, "BUTTON_" + answerNumber + "_" + quest));
+                rowInline.add(createInlineKeyboardButton(answerNumber, category + answerNumber + "_" + quest));
             } catch (Exception e) {
                 log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
             }
+
             if (rowInline.size() == 3) {
                 rowsInLine.add(rowInline);
                 rowInline = new ArrayList<>();
             }
         }
+
         rowsInLine.add(rowInline);
         markupInline.setKeyboard(rowsInLine);
         message.setReplyMarkup(markupInline);
         executedMessage(message);
     }
 
-         /**
+
+    /**
          * Сохраняем значение в БД
          **/
 
@@ -964,46 +1097,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         jdbcTemplate.update(sql, answer, chatId, question);
     }
 
-    /**
-     * Если пользователь прислал фидбек, то отправляем его админу
-     **/
-
-    private void sendFeedbackToAdmin(Long chatId, Message message) {
-        String username = "";
-        if (message.getChat().getUserName() != null) {
-            username = "@" + message.getChat().getUserName();
-        } else {
-            username = chatId.toString();
-        }
-
-        String feedback = "";
-        if (message.hasPhoto()) {
-            feedback = message.getCaption() != null ? message.getCaption() : ""; // Используем подпись к фото, если она есть
-            feedback += "\n(Фото)";
-
-            List<PhotoSize> photoSizes = message.getPhoto();
-            // Sort the list of PhotoSize objects by descending file size
-            photoSizes.sort(Comparator.comparing(PhotoSize::getFileSize).reversed());
-
-            // Send only the largest photo to the admin chat
-            String largestFileId = photoSizes.get(0).getFileId();
-            SendPhoto sendPhoto = new SendPhoto();
-            sendPhoto.setChatId(ownerId);
-            sendPhoto.setPhoto(new InputFile(largestFileId));
-
-            try {
-                execute(sendPhoto);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        } else {
-            feedback = message.getText() != null ? message.getText() : ""; // Используем текст сообщения, если фото нет
-            feedback += "\n(Без фото)";
-        }
-
-        sendMessage(ownerId, "Отзыв от пользователя: " + username + " \n" + feedback);
-        sendMessage(chatId, THX_FOR_FEEDBACK);
-    }
 
 
     /**
@@ -1025,14 +1118,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-        public boolean checkOnReportMessage(long chatID,Update update ) {
-            if (update.hasMessage() && listReportingUser.contains(chatID) ) {
-                        listReportingUser.remove(chatID);
-                        sendFeedbackToAdmin(chatID, update.getMessage());
-                        return true;
-            }
-            return false;
-        }
+
 }
 
 
