@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Entity( name = "all_user_data")
 public class User {
     @Id
-    private long chatId; //это наш primary key
+    private long chat_id; //это наш primary key
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -23,12 +23,12 @@ public class User {
 
 
 
-    public long getChatId() {
-        return chatId;
+    public long getChat_id() {
+        return chat_id;
     }
 
-    public void setChatId(long chatId) {
-        this.chatId = chatId;
+    public void setChat_id(long chatId) {
+        this.chat_id = chatId;
     }
 
     public String getFirstName() {
@@ -78,7 +78,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "chatId=" + chatId +
+                "chatId=" + chat_id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +

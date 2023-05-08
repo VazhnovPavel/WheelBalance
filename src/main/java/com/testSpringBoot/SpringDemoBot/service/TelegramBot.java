@@ -20,24 +20,17 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.ForwardMessage;
-import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
-import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.*;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
-import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
-import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
-import org.telegram.telegrambots.meta.api.objects.media.InputMediaVideo;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import javax.persistence.EntityNotFoundException;
-import java.io.File;
 import java.io.InputStream;
 import java.sql.*;
 import java.text.DateFormat;
@@ -56,7 +49,8 @@ import org.springframework.scheduling.annotation.Async;
 @Slf4j
     @Component
 public class TelegramBot extends TelegramLongPollingBot {
-
+    @Autowired
+    private Onboarding onboarding;
     @Autowired
     private UserRepository userRepository;
 
@@ -104,6 +98,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     static final String TEXT_ABOVE_KEYBOARD_DELETE = "Точно?";
     static final String YES_BUTTON_verificationTimeQuestion = "YES_BUTTON_verificationTimeQuestion";
     static final String NO_BUTTON_verificationTimeQuestion = "NO_BUTTON_verificationTimeQuestion";
+    static final String NOW_ASK_QUESTION = "NOW_ASK_QUESTION";
+    static final String AFTER_ASK_QUESTION = "AFTER_ASK_QUESTION";
     static final String ERROR_OCCURED = "Error occurred: ";
     static final String WEEK_STRING = "Текущая неделя";
     static final String WEEK_LAST_STRING = "Предыдущая неделя";
@@ -146,6 +142,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             "Список всех статистик /statistic\n\n";
     final private String THX_FOR_FEEDBACK = "Спасибо! Я зафиксировал информацию, и скоро она дойдет до админа. \n" +
             " Вернуться в главное меню\n /help";
+    static final String WANT_ASK_NOW = "Хочешь ответить на первые 3 вопроса сейчас, или в заданное время?";
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
                     "/statistic - вся интересная статистика тут \uD83D\uDCCA \n\n" +
@@ -221,7 +218,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         = EmojiParser.parseToUnicode(messageText.substring(messageText.indexOf(" ")));
                 var users = userRepository.findAll();
                 for (User user : users) {
-                    prepareAndSendMessage(user.getChatId(), textToSend);
+                    prepareAndSendMessage(user.getChat_id(), textToSend);
                 }
             }
 
@@ -338,7 +335,23 @@ public class TelegramBot extends TelegramLongPollingBot {
                 addTimeToDB(chatId, data[3]);
                 executeEditMessageText( SUCCESS_SAVE_TIME_TO_DB,chatId,messageId);
                 addDataBaseQuest(chatId);
-            } else if (callBackData.startsWith("BUTTON_")) {
+
+                log.info("НАЧАЛАСЬ ПРОВЕРКА НА СЕГОДНЯШНИЙ ДЕНЬ");
+                if (onboarding.checkOnboarding(chatId)){
+                    smartKeyboard(chatId, "Сейчас", "В заданное время",NOW_ASK_QUESTION,AFTER_ASK_QUESTION,
+                            WANT_ASK_NOW);
+                    //запускаем метод в обход крона
+                }
+            }
+            else if (callBackData.equals(NOW_ASK_QUESTION)) {
+                executeEditMessageText("Значит отвечаем сейчас \uD83D\uDE43 ",chatId, messageId);
+                checkDateAndChatId(chatId);
+
+            }
+            else if (callBackData.equals(AFTER_ASK_QUESTION)) {
+                executeEditMessageText("Спишемся в назначенное время \uD83D\uDE09 ",chatId, messageId);
+
+            }else if (callBackData.startsWith("BUTTON_")) {
 
                 String[] data = callBackData.split("_");
                 int answer = Integer.parseInt(data[1]);
@@ -372,7 +385,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         if (userRepository.findById(msg.getChatId()).isEmpty()) {
             User user = new User();
-            user.setChatId(msg.getChatId());
+            user.setChat_id(msg.getChatId());
             user.setFirstName(update.getMessage().getChat().getFirstName());
             user.setLastName(update.getMessage().getChat().getLastName());
             user.setUserName("@" + update.getMessage().getChat().getUserName());
@@ -698,7 +711,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         var users = userRepository.findAll();
         for (SendAllUser ask : askUser) {
             for (User user : users) {
-                prepareAndSendMessage(user.getChatId(), ask.getTextAskUser());
+                prepareAndSendMessage(user.getChat_id(), ask.getTextAskUser());
             }
         }
     }
@@ -842,7 +855,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         List<User> userList = userRepository.findAll();
         for (User user : userList) {
             String cronExpression = user.getTimeToQuestions();
-            Long chat_id = user.getChatId();
+            Long chatId = user.getChat_id();
             try {
                 CronSequenceGenerator generator = new CronSequenceGenerator(cronExpression);
                 Date nextExecutionTime = generator.next(new Date());
@@ -850,7 +863,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                 if (nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()
                         && nextExecutionTime.getHours() == currentDate.getHours()) {
                     log.info("Время cron соответствует текущему времени");
-                    checkDateAndChatId(chat_id);
+                    if (!(onboarding.checkOnboarding(chatId))) {
+                        checkDateAndChatId(chatId);
+                    }
                 }
             } catch (IllegalArgumentException e) {
                 log.info("Error: " + e);
