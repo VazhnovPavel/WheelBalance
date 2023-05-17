@@ -36,7 +36,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEHgkdj1sMoldigxV0tU5oYxjycaNAKiQACw1gBAAFji0YM2xFsYmsNXkktBA");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIguFkMcIxdEHYMCjAqnsAAcbQ9WtsHmcAAkYBAALapCMwQ-L9zaSjhSsvBA");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEJBHFkZTo6gVlaCKfci4yqWKL09OD_7AACQQADg6PsFXn2EDtr1w0rLwQ");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEIguNkMcKp2JBkCkcHea3tdMSGoSr3ngACOAsAAk7kmUsysUfS2U-M0C8E");
@@ -58,7 +58,7 @@ public class GetSticker {
             case "Отношения":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIgu1kMcTgZni8eJqvZzktAAFRleH449IAAooTAAK4XClIfyaAPP25loQvBA");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEJBHNkZTrNsV2jeF32jWxZyswimxMl3QACgQADg6PsFTCGvXMAAb-x1y8E");
                         break;
                     case 2:
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgu9kMcUgI3STxlFY0NkGo3eQ5-LvTwAC1xIAAvbvCUgZf_V7xQvNwC8E");
@@ -73,7 +73,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgvNkMcWJRYyCCS09SeJzSIfnBcH2cwACzBQAAgrXyUsa7GgoHs1N_y8E");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIgvdkMcXRxaGDnpr9BkuqTUWLpgRwjQACaQADSMbXDUhDpjGE5f4GLwQ");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEJBHpkZTyyKy9pJdB9SaXYrJlv-UQ0fQACbysAArPGsEioRp6ogvcJSy8E");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgvtkMcYy3f1V86kemUPW5nkwT31HQwACigADfI5YFYYrEzj9KKvHLwQ");

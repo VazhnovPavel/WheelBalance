@@ -93,6 +93,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private CreateEmoji createEmoji;
     @Autowired
     private CreateQueryToCheck3Days createQueryToCheck3Days;
+
     private ArrayList<Long> whoAnsweredTodayList = new ArrayList<Long>();
     private Map<Long,String> stickerUser = new HashMap<>();
     private ArrayList<String> categoryList = new ArrayList<String>();
@@ -140,7 +141,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             " 20:30 \n\n" +
             "Он поймет \uD83D\uDE42";
     static final String YOU_CHOOSE ="Ты оценил(а) на  ";
-    static final String YOU_CHOOSE_CATEGORY = "Пришли в чат стикер на категорию ";
+    static final String YOU_CHOOSE_CATEGORY = "Пришли в чат стикер для  категории: ";
 
     private String textTimetoQuestions;
     static final String MESSAGE_ = "Сравниваем этот и предыдущий месяц:\n\n";
@@ -158,15 +159,15 @@ public class TelegramBot extends TelegramLongPollingBot {
             " Вернуться в главное меню\n /help";
     static final String WANT_ASK_NOW_NEW_USER = "Хочешь ответить на первые 3 вопроса сейчас, или в заданное время?";
     static final String WANT_ASK_NOW_OLD_USER = "Хочешь ответить на 3 вопроса сейчас, или в заданное время? \n\n" +
-            "Если сейчас, то вопросы в заданные время на сегодня уже не придут";
+            "Если сейчас, то вопросы в заданное время на сегодня уже не придут";
 
-    static final String STICKER_MESSAGE = "Ты можешь предложить свой стикер, выбрав одну из категорий ниже " +
+    static final String STICKER_MESSAGE = "Ты можешь предложить свой стикер, выбрав одну из категорий. " +
             "Если стикер будет актуальным и забавным, я добавлю его в список, и он появится у всех " +
             "пользователей \uD83D\uDE0A \n\n";
     static final String HELP_TEXT =
             "/start - запустить бота \n\n" +
                     "/statistic - вся интересная статистика тут \uD83D\uDCCA \n\n" +
-                    "/sticker - предложить свой стикер (в разработке)  \n\n" +
+                    "/sticker - предложить свой стикер (beta)  \n\n" +
                     "/now - ответить на вопросы сейчас  \n\n" +
                     "/when - настроить время для вопросов \n\n" +
                     "/report - сообщить об ошибке / предложить идею \n\n" +
@@ -179,18 +180,11 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n"+
                     "/help - главное меню \n\n";
 
-    BotConfig botConfig = new BotConfig();
-    Long ownerId = botConfig.getOwnerId();
-
+    private Long ownerId;
 
 
     public TelegramBot(BotConfig config) {
         this.config = config;
-        Long ownerId = config.getOwnerId();
-
-
-
-
         /**
          * Добавляем наши команды в бота
          */
@@ -242,6 +236,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        this.ownerId = config.getOwnerId();
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
             long chatID = update.getMessage().getChatId();
@@ -289,9 +284,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, HELP_STATISTIC);
                         break;
                     case "/sticker":
-                        sendMessage(chatID,"фишка в разрабоке, скоро будет \uD83D\uDE09");
-                        //prepareAndSendMessage(chatID, STICKER_MESSAGE);
-                       // getKeyboard(chatID,null,"Клавиатура категорий");
+                       // sendMessage(chatID,"фишка в разрабоке, скоро будет \uD83D\uDE09");
+                        prepareAndSendMessage(chatID, STICKER_MESSAGE);
+                        getKeyboard(chatID,null,"Клавиатура категорий");
                         break;
                     case "/now":
                         if (onboarding.checkTimeToQuestion(chatID)){
@@ -349,33 +344,41 @@ public class TelegramBot extends TelegramLongPollingBot {
          * с сообщением о категории и chat_id  администратору
          */
 
+
         if (update.hasMessage() && update.getMessage().hasSticker()) {
+
+
             Long chatId = update.getMessage().getChatId();
-            String stickerFileId = update.getMessage().getSticker().getFileId();
-            String quest = stickerUser.get(chatId);
-            if (quest != null) {
-                try {
-                    // Создание объекта InputFile для отправки стикера
-                    GetFile getFile = new GetFile(stickerFileId);
-                    File file = execute(getFile);
-                    InputFile inputFile = new InputFile(String.valueOf(file));
+            if (stickerUser.containsKey(chatId)) {
+                sendMessage(ownerId, "Пришел стикер! От пользователя " + chatId);
+                sendMessage(ownerId, "Категория: " + stickerUser.get(chatId));
 
-                    // Формирование текста сообщения с chatId и quest
-                    StringBuilder messageBuilder = new StringBuilder();
-                    messageBuilder.append("Chat ID: ").append(chatId).append("\n");
-                    messageBuilder.append("Quest: ").append(quest);
+                // sendMessage(350511326,stickerUser.);
 
-                    // Отправка стикера и сообщения админу
-                    SendDocument sendDocument = new SendDocument();
-                    sendDocument.setChatId(ownerId);
-                    sendDocument.setDocument(inputFile);
-                    sendDocument.setCaption(messageBuilder.toString());
-                    execute(sendDocument);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
+                if (chatId != null && stickerUser.containsKey(chatId)) {
+                    InputFile sticker = new InputFile(update.getMessage().getSticker().getFileId());
+                    SendSticker sendSticker = new SendSticker();
+                    sendSticker.setSticker(sticker);
+                    sendSticker.setChatId(ownerId);
+                    try {
+                        execute(sendSticker);
+                        sendMessage(chatId, "Стикер пришел админу! \n" +
+                                "Надеюсь, ему понравится \uD83D\uDE47\u200D♂");
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    finally {
+                        stickerUser.remove(chatId);
+                    }
                 }
             }
+            else {
+                sendMessage(chatId,"Если хочешь рекомендовать свой стикер, то тебе сюда /sticker");
+            }
         }
+
+
+
 
         /**
          * провереям, вдруг помимо текста нам передали значение
@@ -447,9 +450,9 @@ public class TelegramBot extends TelegramLongPollingBot {
             else if (callBackData.startsWith("CATEGORY_")) {
 
                 String[] data = callBackData.split("_");
-                String quest = data[2];
-                executeEditMessageText(YOU_CHOOSE_CATEGORY + quest + "за раз можно прислать только" +
-                        "один стикер. \n\n", chatId, messageId);
+                String quest = data[1];
+                executeEditMessageText(YOU_CHOOSE_CATEGORY + quest + " \nЗа раз можно прислать только" +
+                        " один стикер. \n\n", chatId, messageId);
                 stickerUser.put(chatId,quest);
 
             }
@@ -1033,18 +1036,18 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         else if (Objects.equals(condition, "Клавиатура категорий")){
             countButtons = 10;
-            startMessage = "Выбери категорию";
+            startMessage = "Выбери категорию стикера: ";
             category = "CATEGORY_";
             categoryList.add("Здоровье");
             categoryList.add("Работа");
             categoryList.add("Саморазвитие");
             categoryList.add("Деньги, капитал");
-            categoryList.add("Материальный мир");
+            categoryList.add("Друзья");
             categoryList.add("Отношения");
             categoryList.add("Развлечения");
             categoryList.add("Семья");
             categoryList.add("Внешность");
-            categoryList.add("Друзья");
+            categoryList.add("Материальный мир");
         }
 
         SendMessage message = new SendMessage();
