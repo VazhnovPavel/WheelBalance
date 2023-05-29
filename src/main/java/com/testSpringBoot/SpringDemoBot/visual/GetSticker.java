@@ -125,7 +125,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgxFkMcqCB7DgxC7_fLzZsZipxJpjrwACcQUAAiMFDQABqr8z5dgL2qovBA");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIgxdkMcsquz1942L3e6scQ4zWdf_FsQACpgADaIrFI5jyRf_xAcJuLwQ");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEJBspkZmHrYrvuFv7LwjNSGAMe7oVG7wACSQsAAs5z4EpErIJnMh-jLS8E");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEIgylkMc6IoCJjX11vQIzvm4Ol6R-kfwACIQADy0m0CVxHNOBMQ6aMLwQ");
