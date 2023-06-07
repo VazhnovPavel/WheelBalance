@@ -1,5 +1,5 @@
 FROM openjdk
-COPY . /test
-WORKDIR /test
+COPY  . /java
+WORKDIR /java
 RUN javac SpringDemoBotApplication.java
-CMD ["java","SpringDemoBotApplication"]
+CMD [ "java", "SpringDemoBotApplication" ]

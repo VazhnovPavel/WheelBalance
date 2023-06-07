@@ -1,6 +1,5 @@
 package com.testSpringBoot.SpringDemoBot.statistic;
 
-import com.testSpringBoot.SpringDemoBot.visual.GetResultEmoji;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

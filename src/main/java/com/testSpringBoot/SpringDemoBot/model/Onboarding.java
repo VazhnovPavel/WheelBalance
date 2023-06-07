@@ -1,27 +1,14 @@
 package com.testSpringBoot.SpringDemoBot.model;
 
-import com.testSpringBoot.SpringDemoBot.service.TelegramBot;
+
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.HibernateException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
-
-import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 
-
-import java.time.LocalDate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import java.sql.*;
-import java.time.LocalDate;
 @Slf4j
 @Component
 public class Onboarding {
