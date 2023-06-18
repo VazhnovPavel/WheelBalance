@@ -4,10 +4,7 @@ package com.testSpringBoot.SpringDemoBot.service;
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
 import com.testSpringBoot.SpringDemoBot.model.User;
-import com.testSpringBoot.SpringDemoBot.statistic.CompareWeekLastWeek;
-import com.testSpringBoot.SpringDemoBot.statistic.GetStatCurrentDays;
-import com.testSpringBoot.SpringDemoBot.statistic.LastWeekValues;
-import com.testSpringBoot.SpringDemoBot.statistic.WeekValues;
+import com.testSpringBoot.SpringDemoBot.statistic.*;
 import com.testSpringBoot.SpringDemoBot.visual.CreateEmoji;
 import com.testSpringBoot.SpringDemoBot.visual.GetResultEmoji;
 import com.testSpringBoot.SpringDemoBot.visual.GetSticker;
@@ -73,21 +70,23 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private DeleteUserInformation deleteUserInformation;
     @Autowired
-    private LastWeekValues lastWeekValues;
+    private PreviousStatValues previousStatValues;
     @Autowired
-    private WeekValues weekValues;
+    private CurrentStatValues currentStatValues;
     @Autowired
     BotConfig config;
     @Autowired
     private GetResultEmoji getResultEmoji;
     @Autowired
-    private CompareWeekLastWeek compareWeekLastWeek;
+    private CompareCurrentAndPreviousPeriod compareCurrentAndPreviousPeriod;
     @Autowired
-    private GetStatCurrentDays getStatCurrentDays;
+    private GetStatCurrentPeriod getStatCurrentPeriod;
     @Autowired
     private CreateEmoji createEmoji;
     @Autowired
     private CreateQueryToCheck3Days createQueryToCheck3Days;
+    @Autowired
+    private EndStatisticFromCurrentPeriod endStatisticFromCurrentPeriod;
 
     private ArrayList<Long> whoAnsweredTodayList = new ArrayList<Long>();
     private Map<Long,String> stickerUser = new HashMap<>();
@@ -204,14 +203,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error("Error setting bots command list" + e.getMessage());
         }
 
-
-
-
     }
-
-
-
-
 
 
 
@@ -298,25 +290,25 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, SEND_QUEST_ABOUT_TIME_TO_QUESTION);
                         break;
                     case "/week":
-                        sendPieChart(chatID,weekValues.getMeanQuest(chatID,7),7);
-                        sendMessage(chatID, getStatCurrentDays.getStatFromCurrentDays(chatID,7));
+                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,7),7);
+                        sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,7));
                         break;
                     case "/compareWeek":
-                        sendRadarChart(chatID,weekValues.getMeanQuest(chatID,7),
-                                lastWeekValues.getMeanQuest(chatID), WEEK_STRING, WEEK_LAST_STRING,
+                        sendRadarChart(chatID, currentStatValues.getMeanQuest(chatID,7),
+                                previousStatValues.getMeanQuest(chatID,7), WEEK_STRING, WEEK_LAST_STRING,
                                 WEEK_COMPARE_STRING,7);
-                        sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID,7,
+                        sendMessage(chatID, compareCurrentAndPreviousPeriod.compareWeekAndLastWeek(chatID,7,
                                 WEEK_COMPARE_TEXT));
                         break;
                     case "/month":
-                        sendPieChart(chatID,weekValues.getMeanQuest(chatID,30),30);
-                        sendMessage(chatID, getStatCurrentDays.getStatFromCurrentDays(chatID,30));
+                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,30),30);
+                        sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,30));
                         break;
                     case "/compareMonth":
-                        sendRadarChart(chatID,weekValues.getMeanQuest(chatID,30),
-                                lastWeekValues.getMeanQuest(chatID), MONTH_STRING, MONTH_LAST_STRING,
+                        sendRadarChart(chatID, currentStatValues.getMeanQuest(chatID,30),
+                                previousStatValues.getMeanQuest(chatID,30), MONTH_STRING, MONTH_LAST_STRING,
                                 MONTH_COMPARE_STRING,30);
-                        sendMessage(chatID,compareWeekLastWeek.compareWeekAndLastWeek(chatID,30,
+                        sendMessage(chatID, compareCurrentAndPreviousPeriod.compareWeekAndLastWeek(chatID,30,
                                 MONTH_COMPARE_TEXT));
                         break;
                     case "/report":
@@ -1098,21 +1090,34 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     /**
-             * Если все вопросы на сегодня заданы, завершающее сообщение
-             */
+     * Если все вопросы на сегодня заданы, завершающее сообщение
+     */
 
     private void sendEndMessage(long chatId) {
         sendMessage(chatId, THX_FOR_ASKING);
+        /**
+         * Если конец недели, то выводим статистику
+         */
+        checkEndPeriod(chatId);
+    }
+    private void checkEndPeriod (long chatId){
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             sendMessage(chatId,SUNDAY_TEXT);
-            sendPieChart(chatId, weekValues.getMeanQuest(chatId, 7), 7);
-            sendMessage(chatId, getStatCurrentDays.getStatFromCurrentDays(chatId, 7));
-
+            if (previousStatValues.getMeanQuest(chatId,7).isEmpty()) {
+                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 7), 7);
+                sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId, 7));
+            }
+            else
+            {
+                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 7), 7);
+                sendMessage(chatId,endStatisticFromCurrentPeriod.messageEndStatisticFromCurrentPeriod(chatId,7));
+            }
             log.info("Проверка на воскресенье");
         }
         if (Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH)) {
-            sendPieChart(chatId, weekValues.getMeanQuest(chatId, 30), 30);
-            sendMessage(chatId, getStatCurrentDays.getStatFromCurrentDays(chatId, 30));
+            sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 30), 30);
+            sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId, 30));
+            log.info("Проверка на конец месяца");
         }
     }
 

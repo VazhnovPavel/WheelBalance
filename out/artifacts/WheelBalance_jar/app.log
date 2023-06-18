@@ -15,7 +15,7 @@
 2023-04-01 00:00:14,336 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [main] Error setting bots command listError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [400] Bad Request: BOT_COMMAND_INVALID
 2023-04-01 00:00:15,204 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
 2023-04-01 00:00:15,697 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 11.104 seconds (JVM running for 13.054)
-2023-04-01 00:00:21,342 WARN com.testSpringBoot.SpringDemoBot.statistic.WeekValues [Wheel_Balance_bot Telegram Executor] Column date_01_04_2023 does not exist in table data_base_quest.
+2023-04-01 00:00:21,342 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [Wheel_Balance_bot Telegram Executor] Column date_01_04_2023 does not exist in table data_base_quest.
 2023-04-01 00:00:21,814 WARN org.hibernate.orm.connections.pooling [Wheel_Balance_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2023-04-01 00:00:21,814 INFO org.hibernate.orm.connections.pooling [Wheel_Balance_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
 2023-04-01 00:00:21,815 INFO org.hibernate.orm.connections.pooling [Wheel_Balance_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
