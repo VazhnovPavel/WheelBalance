@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,11 @@ public class EndStatisticFromCurrentPeriod {
         double maxCategoryValue = (double) maxAndMinValues.get("Max Category Value");
         String minCategoryName = (String) maxAndMinValues.get("Min Category Name");
         double minCategoryValue = (double) maxAndMinValues.get("Min Category Value");
+
+        //добавляем формат, чтобы отображался 1 символ после запятой
+        DecimalFormat df = new DecimalFormat("#.0");
+        String formattedMaxCategoryValue = df.format(maxCategoryValue);
+        String formattedMinCategoryValue = df.format(minCategoryValue);
 
         //формируем сообщения пользователю на основе его значений
         StringBuilder mean = new StringBuilder();
@@ -65,12 +71,12 @@ public class EndStatisticFromCurrentPeriod {
             }
         }
         mean.append("\n\nСамый большой прогресс у тебя в категории \""+maxCategoryName+ "\", твоя оценка увеличилась " +
-                "на "+ maxCategoryValue + " по отношению к предыдущему периоду \uD83D\uDC4D \n");
+                "на "+ formattedMaxCategoryValue + " по отношению к предыдущему периоду \uD83D\uDC4D \n");
         for (int i = 0; i < (int) Math.abs(maxCategoryValue); i++) {
             mean.append("🟢");
         }
         mean.append("\n\nСложнее всего было с категорией \"" + minCategoryName + "\", показатель упал " +
-                "на "+ minCategoryValue + " \uD83E\uDD37 \n\n");
+                "на "+ formattedMinCategoryValue + " \uD83E\uDD37 \n\n");
         for (int i = 0; i < Math.abs(minCategoryValue); i++) {
             mean.append("🔴");
         }
