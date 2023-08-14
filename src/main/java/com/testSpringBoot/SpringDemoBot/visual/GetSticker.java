@@ -60,7 +60,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEJBHNkZTrNsV2jeF32jWxZyswimxMl3QACgQADg6PsFTCGvXMAAb-x1y8E");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyfFkvYx70cEmRsIevBTCSlEy6-ltpwAC1hgAAupTaUjFJg8VDhzRkS8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEKBYZk2lU2DPNrYwUkeKkwsw9dtXnxFQAC8BMAAlbFKEi4DBhmqzzfkDAE");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEJyfNkvYzCgzIfU9YOQchrfGVGUUBGMgACIxcAAvY9yEvoJYVTb5k-ay8E");
@@ -134,7 +134,7 @@ public class GetSticker {
             case "Внешность":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgH1kmyWMZoYC_H9KGv0mqdaOO8nLYgAC3BsAArg32UjaSz1SMjazzi8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEKBYRk2lR4I0kKhzY2Rg7fzrQyTPDZMwACMxQAAtWzKEhzcG8yt63ebjAE");
                         break;
                     case 2:
                         inputFile = new InputFile("CAACAgIAAxkBAAEIhjVkMx6D9U8TC65imkqm6BR6xW2amgACMgUAAiMFDQABe6yTTsfJ4MYvBA");
