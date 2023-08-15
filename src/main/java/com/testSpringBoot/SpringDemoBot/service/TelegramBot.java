@@ -87,6 +87,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     private CreateQueryToCheck3Days createQueryToCheck3Days;
     @Autowired
     private EndStatisticFromCurrentPeriod endStatisticFromCurrentPeriod;
+    @Autowired
+    private DaysRegistered daysRegistered;
 
     private ArrayList<Long> whoAnsweredTodayList = new ArrayList<Long>();
     private Map<Long,String> stickerUser = new HashMap<>();
@@ -171,8 +173,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/week - показать статистику за 7 дней \n\n" +
                     "/compareWeek - сравнить текущие 7 дней с 7-ю предыдущими днями \n\n" +
                     "/month - показать статистику за 30 дней \n\n" +
-                    "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n"+
-                    "/help - главное меню \n\n";
+                    "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n" +
+                            "/all - данные за всё время \n\n"+
+                            "/help - главное меню \n\n";
 
     private Long ownerId;
 
@@ -194,6 +197,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/compareWeek", "сравнить с предыдущей неделей"));
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
+        listofCommands.add(new BotCommand("/all", "данные за все время"));
         listofCommands.add(new BotCommand("/report", "отправить сообщение об ошибке"));
         listofCommands.add(new BotCommand("/delete", "удалить все данные о пользователе"));
 
@@ -311,6 +315,11 @@ public class TelegramBot extends TelegramLongPollingBot {
                         sendMessage(chatID, compareCurrentAndPreviousPeriod.compareWeekAndLastWeek(chatID,30,
                                 MONTH_COMPARE_TEXT));
                         break;
+                    case "/all":
+                        int dayRegistered = (int) daysRegistered.daysUserRegistered(chatID);
+                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,dayRegistered),dayRegistered);
+                        sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,dayRegistered));
+                        break;
                     case "/report":
                         sendMessage(chatID, SEND_TEXT_TO_REPORT);
                         break;
@@ -339,8 +348,6 @@ public class TelegramBot extends TelegramLongPollingBot {
             if (stickerUser.containsKey(chatId)) {
                 sendMessage(ownerId, "Пришел стикер! От пользователя " + chatId);
                 sendMessage(ownerId, "Категория: " + stickerUser.get(chatId));
-
-                // sendMessage(350511326,stickerUser.);
 
                 if (chatId != null && stickerUser.containsKey(chatId)) {
                     InputFile sticker = new InputFile(update.getMessage().getSticker().getFileId());
