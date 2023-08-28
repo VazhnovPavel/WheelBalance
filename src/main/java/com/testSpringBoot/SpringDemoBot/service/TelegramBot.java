@@ -559,11 +559,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         String titleString;
         if (startDate.get(Calendar.YEAR) == endDate.get(Calendar.YEAR)) {
-            titleString = String.format("@Wheel_Balance_bot                 Отчет c %s по %s года",
+            titleString = String.format("@Wheel_Balance_bot                      Отчет c %s по %s года",
                     dateFormatFirst.format(startDate.getTime()),
                     dateFormatSecond.format(endDate.getTime()));
         } else {
-            titleString = String.format("@Wheel_Balance_bot                 Отчет c %s года по %s года",
+            titleString = String.format("@Wheel_Balance_bot                      Отчет c %s года по %s года",
                     dateFormatSecond.format(startDate.getTime()),
                     dateFormatSecond.format(endDate.getTime()));
         }
@@ -572,7 +572,77 @@ public class TelegramBot extends TelegramLongPollingBot {
         // и готовые значения labels
 
         try {
+
             QuickChart chart = new QuickChart();
+            chart.setWidth(1000);
+            chart.setHeight(700);
+            chart.setBackgroundColor("#FFFFFF");
+            chart.setConfig("{"
+                    + "type: 'polarArea',"
+                    + "data: {"
+                    + "labels: [" + labels + "],"
+                    + "datasets: [{"
+                    + "data: [" + data + "],"
+                    + "backgroundColor: ["
+                    + "'rgb(255, 99, 132)',"
+                    + "'rgb(75, 192, 192)',"
+                    + "'rgb(255, 205, 86)',"
+                    + "'rgb(201, 203, 207)',"
+                    + "'rgb(54, 162, 235)',"
+                    + "'rgb(167, 238, 133)',"
+                    + "'rgb(153, 102, 255)',"
+                    + "'rgb(255, 99, 64)',"
+                    + "'rgb(75, 192, 64)',"
+                    + "'rgb(255, 159, 64)'"
+                    + "]"
+                    + "}]"
+                    + "},"
+                    + "options: {"
+                    + "padding: 200," // Добавляем отступы
+                    + "title: {"
+                    + "display: true,"
+                    + "text: '" + titleString + "',"
+                    + "fontColor: '#141449',"
+                    + "fontSize: 25,"
+                    + "fontFamily: 'Georgia',"
+                    + "fontStyle: 'normal',"
+                    + "padding: 20"
+                    + "},"
+                    + "legend: {"
+                    + "position: 'left',"
+                    + "labels: {"
+                    + "fontColor: '#141449',"
+                    + "fontSize: 22,"
+                    + "fontFamily: 'Georgia',"
+                    + "fontStyle: 'normal',"
+                    + "padding: 20"
+                    + "},"
+                    + "},"
+                    + "scale: {"
+                    + "gridLines: {"
+                    + "color: '#9E9E9E'"
+                    + "},"
+                    + "ticks: {"
+                    + "display: false,"
+                    + "min: 0,"
+                    + "max: 10,"
+                    + "}"
+                    + "},"
+                    + "plugins: {"
+                    + "datalabels: {"
+                    + "color: 'white',"
+                    + "font: {"
+                    + "size: 18,"
+                    + "family: 'Georgia'"
+                    + "},"
+                    + "display: true"
+                    + "}"
+                    + "}"
+                    + "}"
+                    + "}");
+
+
+            /*QuickChart chart = new QuickChart();
             chart.setWidth(900);
             chart.setHeight(600);
             chart.setBackgroundColor("#141449");
@@ -621,7 +691,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "}"
                     + "}"
                     + "}"
-                    + "}");
+                    + "}");*/
 
             // собираем график в картинку
             byte[] imageBytes = chart.toByteArray();
@@ -685,9 +755,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         try {
             QuickChart chart = new QuickChart();
-            chart.setWidth(900);
-            chart.setHeight(600);
-            chart.setBackgroundColor("#141449");
+            chart.setWidth(1000);
+            chart.setHeight(700);
+            chart.setBackgroundColor("white");
             chart.setConfig("{"
                     + "type: 'radar',"
                     + "data: {"
@@ -712,16 +782,20 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "title: {"
                     + "display: true,"
                     + "text: '" + titleString + "',"
-                    + "fontColor: 'grey',"
+                    + "fontColor: '#141449',"
                     + "fontSize: 25,"
-                    + "fontFamily: 'Roboto'"
+                    + "fontFamily: 'Georgia',"
+                    + "fontStyle: 'normal',"
+                    + "padding: 20"
                     + "},"
                     + "legend: {"
-                    + "position: 'left',"
+                    + "position: 'bottom',"
                     + "labels: {"
-                    + "fontColor: 'white',"
-                    + "fontSize: 22,"
-                    + "fontFamily: 'Roboto'"
+                    + "fontColor: '#141449',"
+                    + "fontSize: 25,"
+                    + "fontFamily: 'Georgia',"
+                    + "fontStyle: 'normal',"
+                    + "padding: 20"
                     + "}"
                     + "},"
                     + "scale: {"
@@ -730,13 +804,13 @@ public class TelegramBot extends TelegramLongPollingBot {
                     + "},"
                     + "pointLabels: {"
                     + "fontSize: 18,"
-                    + "fontColor: 'white'"
+                    + "fontColor: '#9E9E9E'"
                     + "},"
                     + "ticks: {"
                     + "display: false,"
                     + "min: 0,"
                     + "max: 10,"
-                    + "color: 'white'"
+                    + "color: '#9E9E9E'"
                     + "}"
                     + "},"
                     + "elements: {"
