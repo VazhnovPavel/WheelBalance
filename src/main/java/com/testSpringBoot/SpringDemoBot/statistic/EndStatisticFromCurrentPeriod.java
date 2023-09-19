@@ -34,8 +34,14 @@ public class EndStatisticFromCurrentPeriod {
         String minCategoryName = (String) maxAndMinValues.get("Min Category Name");
         double minCategoryValue = (double) maxAndMinValues.get("Min Category Value");
 
-        //добавляем формат, чтобы отображался 1 символ после запятой
+//        //добавляем формат, чтобы отображался 1 символ после запятой
+//        DecimalFormat df = new DecimalFormat("#.0");
+//        String formattedMaxCategoryValue = df.format(maxCategoryValue);
+//        String formattedMinCategoryValue = df.format(minCategoryValue);
+//        String formattedTotalSum = df.format(totalSum);
+
         DecimalFormat df = new DecimalFormat("#.0");
+        df.setDecimalSeparatorAlwaysShown(true); // Показывать десятичный разделитель даже для целых чисел
         String formattedMaxCategoryValue = df.format(maxCategoryValue);
         String formattedMinCategoryValue = df.format(minCategoryValue);
         String formattedTotalSum = df.format(totalSum);
