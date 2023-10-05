@@ -1,6 +1,8 @@
 package com.testSpringBoot.SpringDemoBot.service;
 
 
+import com.testSpringBoot.SpringDemoBot.Keyboard.Keyboard;
+import com.testSpringBoot.SpringDemoBot.Keyboard.KeyboardNew;
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
 import com.testSpringBoot.SpringDemoBot.model.User;
@@ -90,10 +92,36 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private DaysRegistered daysRegistered;
 
+    @Autowired
+    private CountUser countUser;
+    @Autowired
+    private PeriodHasData monthCategory;
+    @Autowired
+    private Keyboard keyboard;
+    @Autowired
+    private KeyboardNew keyboardNew;
+    @Autowired
+    private Chart newChart;
+
     private ArrayList<Long> whoAnsweredTodayList = new ArrayList<Long>();
     private Map<Long,String> stickerUser = new HashMap<>();
-    private ArrayList<String> categoryList = new ArrayList<String>();
+    public static final List<String> CATEGORY_LIST;
 
+    static {
+        ArrayList<String> tempList = new ArrayList<>();
+        tempList.add("Здоровье");
+        tempList.add("Работа");
+        tempList.add("Саморазвитие");
+        tempList.add("Деньги, капитал");
+        tempList.add("Друзья");
+        tempList.add("Отношения");
+        tempList.add("Развлечения");
+        tempList.add("Семья");
+        tempList.add("Внешность");
+        tempList.add("Материальный мир");
+
+        CATEGORY_LIST = Collections.unmodifiableList(tempList);
+    }
     static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
             "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
             "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
@@ -174,6 +202,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/compareWeek - сравнить текущие 7 дней с 7-ю предыдущими днями \n\n" +
                     "/month - показать статистику за 30 дней \n\n" +
                     "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n" +
+                            "/monthCategory - данные за определённый месяц\n\n" +
                             "/all - данные за всё время \n\n"+
                             "/help - главное меню \n\n";
 
@@ -198,6 +227,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
         listofCommands.add(new BotCommand("/all", "данные за все время"));
+        listofCommands.add(new BotCommand("/monthCategory", "категории по месяцам"));
         listofCommands.add(new BotCommand("/report", "отправить сообщение об ошибке"));
         listofCommands.add(new BotCommand("/delete", "удалить все данные о пользователе"));
 
@@ -246,6 +276,18 @@ public class TelegramBot extends TelegramLongPollingBot {
             }
 
             /**
+             * Узнать, сколько за сегодня присоединилось пользователей
+             */
+
+            if (messageText.contains("/count") && (config.getOwnerId() == chatID)) {
+
+                String message = "Сегодня было зарегистрированно " + countUser.countDeadUserToday()+ " пользователей\n" +
+                        "Из них " + countUser.countUserToday() + " живых пользователей";
+                sendMessage(chatID,message);
+
+            }
+
+            /**
              * Если пользователь передает дату в формате ЧЧ:ММ или Ч:ММ
             */
             else if (messageText.matches("^\\d{1,2}:\\d{2}$")) {
@@ -275,9 +317,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, HELP_STATISTIC);
                         break;
                     case "/sticker":
-                       // sendMessage(chatID,"фишка в разрабоке, скоро будет \uD83D\uDE09");
                         prepareAndSendMessage(chatID, STICKER_MESSAGE);
-                        getKeyboard(chatID,null,"Клавиатура категорий");
+                        executedMessage(keyboardNew.getKeyboard(chatID,CATEGORY_LIST));
+
                         break;
                     case "/now":
                         if (onboarding.checkTimeToQuestion(chatID)){
@@ -294,7 +336,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                         prepareAndSendMessage(chatID, SEND_QUEST_ABOUT_TIME_TO_QUESTION);
                         break;
                     case "/week":
-                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,7),7);
+                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,7),
+                                newChart.generateTitleString(7));
                         sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,7));
                         break;
                     case "/compareWeek":
@@ -305,7 +348,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                                 WEEK_COMPARE_TEXT));
                         break;
                     case "/month":
-                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,30),30);
+                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,30),
+                                newChart.generateTitleString(30));
                         sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,30));
                         break;
                     case "/compareMonth":
@@ -317,8 +361,12 @@ public class TelegramBot extends TelegramLongPollingBot {
                         break;
                     case "/all":
                         int dayRegistered = (int) daysRegistered.daysUserRegistered(chatID);
-                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,dayRegistered),dayRegistered);
+                        sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,dayRegistered),
+                                newChart.generateTitleString(dayRegistered));
                         sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,dayRegistered));
+                        break;
+                    case "/monthCategory":
+                        executedMessage(keyboardNew.getKeyboard(chatID));
                         break;
                     case "/report":
                         sendMessage(chatID, SEND_TEXT_TO_REPORT);
@@ -438,19 +486,40 @@ public class TelegramBot extends TelegramLongPollingBot {
                 String emojiNumber = createEmoji.createFunnyEmoji(answer);
                 executeEditMessageText(YOU_CHOOSE + emojiNumber, chatId, messageId);
                 String quests = data[2];
-                saveAnswerToDb(chatId, quests, answer);
-                checkDateAndChatId(chatId);
+                // Получаем строку с датой
+                String dateString = data[3];
+                // Преобразуем строку в объект LocalDate
+                LocalDate date = LocalDate.parse(dateString);
+
+                saveAnswerToDb(chatId, quests, answer,date);
+                if (date.equals(LocalDate.now())) {
+                    checkDateAndChatId(chatId);
+                }
             }
             else if (callBackData.startsWith("CATEGORY_")) {
 
                 String[] data = callBackData.split("_");
-                String quest = data[1];
-                executeEditMessageText(YOU_CHOOSE_CATEGORY + quest + " \nЗа раз можно прислать только" +
+                String chooseCategory = data[1];
+                executeEditMessageText(YOU_CHOOSE_CATEGORY + chooseCategory + " \nЗа раз можно прислать только" +
                         " один стикер. \n\n", chatId, messageId);
-                stickerUser.put(chatId,quest);
+                stickerUser.put(chatId,chooseCategory);
 
             }
+            else if (callBackData.startsWith("YEAR_")) {
+                String[] data = callBackData.split("_");
+                int year = Integer.parseInt(data[1]);
+                executedMessage(keyboardNew.getKeyboard(chatId,year));
+            }
+            else if (callBackData.startsWith("MONTH_")) {
+                String[] data = callBackData.split("_");
+                String month = data[1];
+                int year = Integer.parseInt(data[3]);
+                sendMessage(chatId, "Выводим значения за "  + month + " " +year + " года");
+                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId,year,month),
+                        newChart.generateTitleString(month,year));
+               // sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId,30));
 
+            }
         }
 
 
@@ -530,168 +599,21 @@ public class TelegramBot extends TelegramLongPollingBot {
      */
 
 
-    public void sendPieChart(long chatID, Map<String, Double> chartToSend, int currentDays) {
+    public void sendPieChart(long chatID, Map<String, Double> chartToSend, String titleString) {
 
-
-        String labels = chartToSend.entrySet().stream()
-                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
-                .map(entry -> entry.getKey() + ": " + entry.getValue()) // добавляем значение key и value
-                .map(label -> "'" + label + "'")
-                .collect(Collectors.joining(", "));
-
-        String data = chartToSend.entrySet().stream()
-                .filter(entry -> entry.getValue() != null && entry.getValue() != 0 && entry.getValue() != 0.0)
-                .map(Map.Entry::getValue)
-                .map(String::valueOf)
-                .collect(Collectors.joining(", "));
-
-        // Высчитываем диапазон дат, за которые необходимо вывести статистику. Опираемся на данные, переданные
-        // в currentDays
-
-        Calendar endDate = Calendar.getInstance();
-        Calendar startDate = Calendar.getInstance();
-        startDate.add(Calendar.DAY_OF_MONTH, -currentDays +1);
-        DateFormat dateFormatFirst = new SimpleDateFormat("d MMMM", new Locale("ru"));
-        DateFormat dateFormatSecond = new SimpleDateFormat("d MMMM yyyy", new Locale("ru"));
-
-        // Если в промежуток аналитики попадает два года (например старт в декабре 2022, а конец в январе 2023)
-        // то выводим оба года. Если один год, то выводим год только в конце предложения
-
-        String titleString;
-        if (startDate.get(Calendar.YEAR) == endDate.get(Calendar.YEAR)) {
-            titleString = String.format("@Wheel_Balance_bot                      Отчет c %s по %s года",
-                    dateFormatFirst.format(startDate.getTime()),
-                    dateFormatSecond.format(endDate.getTime()));
-        } else {
-            titleString = String.format("@Wheel_Balance_bot                      Отчет c %s года по %s года",
-                    dateFormatSecond.format(startDate.getTime()),
-                    dateFormatSecond.format(endDate.getTime()));
-        }
+        String labels = newChart.createLabel(chartToSend);
+        String data = newChart.createData(chartToSend);
 
         // создаем график с помощью библиотеки QuickChart, вставляя в нее уже посчитанные значения data
         // и готовые значения labels
-
         try {
 
             QuickChart chart = new QuickChart();
             chart.setWidth(1000);
             chart.setHeight(700);
             chart.setBackgroundColor("#FFFFFF");
-            chart.setConfig("{"
-                    + "type: 'polarArea',"
-                    + "data: {"
-                    + "labels: [" + labels + "],"
-                    + "datasets: [{"
-                    + "data: [" + data + "],"
-                    + "backgroundColor: ["
-                    + "'rgb(255, 99, 132)',"
-                    + "'rgb(75, 192, 192)',"
-                    + "'rgb(255, 205, 86)',"
-                    + "'rgb(201, 203, 207)',"
-                    + "'rgb(54, 162, 235)',"
-                    + "'rgb(167, 238, 133)',"
-                    + "'rgb(153, 102, 255)',"
-                    + "'rgb(255, 99, 64)',"
-                    + "'rgb(75, 192, 64)',"
-                    + "'rgb(255, 159, 64)'"
-                    + "]"
-                    + "}]"
-                    + "},"
-                    + "options: {"
-                    + "padding: 200," // Добавляем отступы
-                    + "title: {"
-                    + "display: true,"
-                    + "text: '" + titleString + "',"
-                    + "fontColor: '#141449',"
-                    + "fontSize: 25,"
-                    + "fontFamily: 'Georgia',"
-                    + "fontStyle: 'normal',"
-                    + "padding: 20"
-                    + "},"
-                    + "legend: {"
-                    + "position: 'left',"
-                    + "labels: {"
-                    + "fontColor: '#141449',"
-                    + "fontSize: 22,"
-                    + "fontFamily: 'Georgia',"
-                    + "fontStyle: 'normal',"
-                    + "padding: 20"
-                    + "},"
-                    + "},"
-                    + "scale: {"
-                    + "gridLines: {"
-                    + "color: '#9E9E9E'"
-                    + "},"
-                    + "ticks: {"
-                    + "display: false,"
-                    + "min: 0,"
-                    + "max: 10,"
-                    + "}"
-                    + "},"
-                    + "plugins: {"
-                    + "datalabels: {"
-                    + "color: 'white',"
-                    + "font: {"
-                    + "size: 18,"
-                    + "family: 'Georgia'"
-                    + "},"
-                    + "display: true"
-                    + "}"
-                    + "}"
-                    + "}"
-                    + "}");
-
-
-            /*QuickChart chart = new QuickChart();
-            chart.setWidth(900);
-            chart.setHeight(600);
-            chart.setBackgroundColor("#141449");
-            chart.setConfig("{"
-            + "type: 'polarArea',"
-                    + "data: {"
-                    + "labels: [" + labels + "],"
-                    + "datasets: [{"
-                    + "data: [" + data + "]"
-                    + "}]"
-                    + "},"
-                    + "options: {"
-                    + "title: {"
-                    + "display: true,"
-                    + "text: '" + titleString + "',"
-                    + "fontColor: 'grey',"
-                    + "fontSize: 25,"
-                    + "fontFamily: 'Roboto'"
-                    + "},"
-                    + "legend: {"
-                    + "position: 'left',"
-                    + "labels: {"
-                    + "fontColor: 'white',"
-                    + "fontSize: 22,"
-                    + "fontFamily: 'Roboto'"
-                    + "}"
-                    + "},"
-                    + "scale: {"
-                    + "gridLines: {"
-                    + "color: '#9E9E9E'"
-                    + "},"
-                    + "ticks: {"
-                    + "display: false,"
-                    + "min: 0,"
-                    + "max: 10,"
-                    + "}"
-                    + "},"
-                    + "plugins: {"
-                    + "datalabels: {"
-                    + "color: 'white',"
-                    + "font: {"
-                    + "size: 18,"
-                    + "family: 'Roboto'"
-                    + "},"
-                    + "display: true"
-                    + "}"
-                    + "}"
-                    + "}"
-                    + "}");*/
+            String config = newChart.generatePieChart(labels,data,titleString);
+            chart.setConfig(config);
 
             // собираем график в картинку
             byte[] imageBytes = chart.toByteArray();
@@ -1070,7 +992,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     public void sendQuest(Long chatId, Map<String, String> questMap) {
-        System.out.println("User " + chatId + " Received questions ");
         String questValue = questMap.get("quest");
         String questStringValue = questMap.get("quest_string");
 
@@ -1080,78 +1001,9 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.info("Error" + e);
         }
         sendMessage(chatId, questStringValue);
-        getKeyboard(chatId, questValue,"Клавиатура оценок");
+        LocalDate currentDate = LocalDate.now();
+        executedMessage(keyboardNew.getKeyboard(chatId,currentDate,questValue));
 
-    }
-
-
-    /**
-     * Создаем клавиатуру для ответов
-     * Все кнопки создаются по формату "BUTTON_" + "Номер вопроса" + "Сам вопрос"
-     * Эта информация необходима потом для занесения данных в БД
-     */
-
-
-    private void getKeyboard(Long chatID, String quest, String condition) {
-        String startMessage = null;
-        String category = null;
-        int countButtons = 0;
-
-        if (Objects.equals(condition, "Клавиатура оценок")){
-            countButtons = 11;
-            startMessage = "Оцени от 0 до 10";
-            category = "BUTTON_";
-        }
-        else if (Objects.equals(condition, "Клавиатура категорий")){
-            countButtons = 10;
-            startMessage = "Выбери категорию стикера: ";
-            category = "CATEGORY_";
-            categoryList.add("Здоровье");
-            categoryList.add("Работа");
-            categoryList.add("Саморазвитие");
-            categoryList.add("Деньги, капитал");
-            categoryList.add("Друзья");
-            categoryList.add("Отношения");
-            categoryList.add("Развлечения");
-            categoryList.add("Семья");
-            categoryList.add("Внешность");
-            categoryList.add("Материальный мир");
-        }
-
-        SendMessage message = new SendMessage();
-        message.setChatId(chatID);
-        message.setText(startMessage);
-
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
-        List<InlineKeyboardButton> rowInline = new ArrayList<>();
-
-        for (int i = 0; i < countButtons; i++) {
-            String answerNumber = null;
-
-            if (Objects.equals(condition, "Клавиатура оценок")){
-                answerNumber = String.valueOf(i);
-            }
-            else if (Objects.equals(condition, "Клавиатура категорий")){
-                answerNumber = categoryList.get(i);
-            }
-
-            try {
-                rowInline.add(createInlineKeyboardButton(answerNumber, category + answerNumber + "_" + quest));
-            } catch (Exception e) {
-                log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
-            }
-
-            if (rowInline.size() == 3) {
-                rowsInLine.add(rowInline);
-                rowInline = new ArrayList<>();
-            }
-        }
-
-        rowsInLine.add(rowInline);
-        markupInline.setKeyboard(rowsInLine);
-        message.setReplyMarkup(markupInline);
-        executedMessage(message);
     }
 
 
@@ -1159,10 +1011,9 @@ public class TelegramBot extends TelegramLongPollingBot {
          * Сохраняем значение в БД
          **/
 
-    private void saveAnswerToDb(long chatId, String question, int answer) {
+    private void saveAnswerToDb(long chatId, String question, int answer, LocalDate currentDate) {
         log.info("Сохраняем значение " + chatId + question + answer);
-        LocalDate today = LocalDate.now();
-        String formattedTodayDate = today.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+        String formattedTodayDate = currentDate.format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
         String dateColumn = "date_" + formattedTodayDate;
         String sql = "UPDATE data_base_quest SET " + dateColumn + " = ? WHERE chat_id = ? AND quest = ?";
         jdbcTemplate.update(sql, answer, chatId, question);
@@ -1185,18 +1036,21 @@ public class TelegramBot extends TelegramLongPollingBot {
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             sendMessage(chatId,SUNDAY_TEXT);
             if (previousStatValues.getMeanQuest(chatId,7).isEmpty()) {
-                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 7), 7);
+                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 7),
+                        newChart.generateTitleString(7));
                 sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId, 7));
             }
             else
             {
-                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 7), 7);
+                sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 7),
+                        newChart.generateTitleString(7));
                 sendMessage(chatId,endStatisticFromCurrentPeriod.messageEndStatisticFromCurrentPeriod(chatId,7));
             }
             log.info("Проверка на воскресенье");
         }
         if (Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH)) {
-            sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 30), 30);
+            sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 30),
+                    newChart.generateTitleString(30));
             sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId, 30));
             log.info("Проверка на конец месяца");
         }
