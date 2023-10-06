@@ -31,6 +31,7 @@ public class CreateDateColumn {
         }
         finally {
             session.getTransaction().commit();
+            factory.close();
         }
     }
 
@@ -50,6 +51,7 @@ public class CreateDateColumn {
         }
         finally {
             session.getTransaction().commit();
+            factory.close();
         }
     }
 }

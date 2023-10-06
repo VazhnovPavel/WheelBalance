@@ -948,9 +948,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 if (nextExecutionTime != null && nextExecutionTime.getMinutes() == currentDate.getMinutes()
                         && nextExecutionTime.getHours() == currentDate.getHours()) {
                     log.info("Время cron соответствует текущему времени");
-                    //if (!(onboarding.checkOnboarding(chatId))) {
                         checkDateAndChatId(chatId);
-                   // }
                 }
             } catch (IllegalArgumentException e) {
                 log.info("Error: " + e);
