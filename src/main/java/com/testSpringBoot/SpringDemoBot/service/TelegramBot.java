@@ -1,12 +1,12 @@
 package com.testSpringBoot.SpringDemoBot.service;
 
 
-import com.testSpringBoot.SpringDemoBot.Keyboard.Keyboard;
-import com.testSpringBoot.SpringDemoBot.Keyboard.KeyboardNew;
+import com.testSpringBoot.SpringDemoBot.keyboard.Keyboard;
 import com.testSpringBoot.SpringDemoBot.config.BotConfig;
 import com.testSpringBoot.SpringDemoBot.model.*;
 import com.testSpringBoot.SpringDemoBot.model.User;
 import com.testSpringBoot.SpringDemoBot.statistic.*;
+import com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser;
 import com.testSpringBoot.SpringDemoBot.visual.CreateEmoji;
 import com.testSpringBoot.SpringDemoBot.visual.GetResultEmoji;
 import com.testSpringBoot.SpringDemoBot.visual.GetSticker;
@@ -43,10 +43,6 @@ import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Async;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-
-
-
 
 @Slf4j
     @Component
@@ -91,15 +87,13 @@ public class TelegramBot extends TelegramLongPollingBot {
     private EndStatisticFromCurrentPeriod endStatisticFromCurrentPeriod;
     @Autowired
     private DaysRegistered daysRegistered;
-
     @Autowired
     private CountUser countUser;
     @Autowired
     private PeriodHasData monthCategory;
+
     @Autowired
     private Keyboard keyboard;
-    @Autowired
-    private KeyboardNew keyboardNew;
     @Autowired
     private Chart newChart;
 
@@ -280,12 +274,16 @@ public class TelegramBot extends TelegramLongPollingBot {
              */
 
             if (messageText.contains("/count") && (config.getOwnerId() == chatID)) {
+                StringBuilder messageBuilder = new StringBuilder();
+                messageBuilder.append("Сегодня было зарегистрированно ").append(countUser.countDeadUserToday()).append(" пользователей\n")
+                        .append("Из них ").append(countUser.countUserToday()).append(" живых пользователей\n\n")
+                        .append("Всего пользователей: ").append(countUser.countAllUser()).append("\n")
+                        .append("Активных пользователей: ").append(countUser.countAllActiveUser()).append("\n")
+                        .append("Ответов за сегодня: ").append(countUser.countActiveUserToday());
 
-                String message = "Сегодня было зарегистрированно " + countUser.countDeadUserToday()+ " пользователей\n" +
-                        "Из них " + countUser.countUserToday() + " живых пользователей";
-                sendMessage(chatID,message);
-
+                sendMessage(chatID, messageBuilder.toString());
             }
+
 
             /**
              * Если пользователь передает дату в формате ЧЧ:ММ или Ч:ММ
@@ -318,7 +316,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         break;
                     case "/sticker":
                         prepareAndSendMessage(chatID, STICKER_MESSAGE);
-                        executedMessage(keyboardNew.getKeyboard(chatID,CATEGORY_LIST));
+                        executedMessage(keyboard.getKeyboard(chatID,CATEGORY_LIST));
 
                         break;
                     case "/now":
@@ -366,7 +364,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,dayRegistered));
                         break;
                     case "/monthCategory":
-                        executedMessage(keyboardNew.getKeyboard(chatID));
+                        executedMessage(keyboard.getKeyboard(chatID));
                         break;
                     case "/report":
                         sendMessage(chatID, SEND_TEXT_TO_REPORT);
@@ -508,7 +506,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             else if (callBackData.startsWith("YEAR_")) {
                 String[] data = callBackData.split("_");
                 int year = Integer.parseInt(data[1]);
-                executedMessage(keyboardNew.getKeyboard(chatId,year));
+                executedMessage(keyboard.getKeyboard(chatId,year));
             }
             else if (callBackData.startsWith("MONTH_")) {
                 String[] data = callBackData.split("_");
@@ -1000,7 +998,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         sendMessage(chatId, questStringValue);
         LocalDate currentDate = LocalDate.now();
-        executedMessage(keyboardNew.getKeyboard(chatId,currentDate,questValue));
+        executedMessage(keyboard.getKeyboard(chatId,currentDate,questValue));
 
     }
 
