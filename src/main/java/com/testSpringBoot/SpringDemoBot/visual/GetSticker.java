@@ -35,10 +35,10 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEJyUtkvYpwywlynFvy2lsBex1w-XDCpwACzzkAAu_-iUl34iHPVXoxfi8E");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJBHFkZTo6gVlaCKfci4yqWKL09OD_7AACQQADg6PsFXn2EDtr1w0rLwQ");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEK5bRlbg1-YqAGN2OHJnPWLQqMGgr8zAAC_jwAAr9xaEvRMmWcC1b8ajME");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyU1kvYrbr0Lc-f2SHfBHUBofZfYtlAACSQEAAhZ8aAMDK2sfKC04cC8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEK5allbgzJksTubjWcofYbjW7h-EXdJAAC0BUAAgh7KEjZ-OZ0AAFT4q0zBA");
                         break;
                 }
                 break;
@@ -72,7 +72,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEJyfVkvY0k0SuLCb542Zq3DcLUFuDQYQACoywAAlB5qUjdbeX6NMeXrC8E");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyfdkvY1aMyKeK_mtIFy6503jltxrYQACcygAAklqqEgtzdQ8Wm5CZS8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEK5bxlbg9ARkXKEs3kRjii0oUGLjYyCAACXSoAAvgYuEqJS4Cu0uvglDME");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEJyflkvY2wD_E7IFKpZXQnRMy1hojkngACLAEAAhZ8aAPtUedaQ6gYTS8E");
@@ -98,7 +98,7 @@ public class GetSticker {
                         inputFile = new InputFile("CAACAgIAAxkBAAEJgGpkmyM7LvF3DVeh68A_gnAcHMlZ7QAC5h0AApQCMEj0W8nLG5FF3i8E");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJygFkvY-FzM6snuegHweTMWTmyx9XlwACzioAAlOaoUh_4k-KDdGq-y8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEK5bhlbg3xj87byd0YnX3f6Zw2We--TgACaSgAAj0hQUs8hOtUPGT_hDME");
                         break;
                     case 3:
                         inputFile = new InputFile("CAACAgIAAxkBAAEJgGxkmyN0BylAtlOtk7QUFKC3zfwvsgACoxwAAoAuOEvqHWrKJag9Ai8E");
