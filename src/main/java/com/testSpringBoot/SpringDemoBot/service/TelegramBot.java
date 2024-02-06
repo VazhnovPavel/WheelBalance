@@ -546,6 +546,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             user.setLastName(update.getMessage().getChat().getLastName());
             user.setUserName("@" + update.getMessage().getChat().getUserName());
             user.setRegisteredAt(new Timestamp(System.currentTimeMillis()));
+            user.setWheelBalance(true);
             userRepository.save(user);
             log.info("Saved user: " + user);
         }
