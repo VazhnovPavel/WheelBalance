@@ -20,6 +20,7 @@ import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
+import org.telegram.telegrambots.meta.api.methods.polls.SendPoll;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
@@ -203,6 +204,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private Long ownerId;
 
 
+
     public TelegramBot(BotConfig config) {
         this.config = config;
         /**
@@ -266,6 +268,20 @@ public class TelegramBot extends TelegramLongPollingBot {
                 var users = userRepository.findAll();
                 for (User user : users) {
                     prepareAndSendMessage(user.getChat_id(), textToSend);
+                }
+            }
+            // Модифицированный обработчик команды /send для отправки опроса
+            if (messageText.startsWith("/sendpoll") && (config.getOwnerId() == chatID)) {
+                // Предположим, что формат команды: /sendpoll Вопрос;Опция1;Опция2;Опция3
+                String[] parts = messageText.substring(messageText.indexOf(" ") + 1).split(";");
+                if (parts.length >= 3) { // Нужен минимум вопрос и две опции
+                    String question = parts[0];
+                    List<String> options = Arrays.asList(Arrays.copyOfRange(parts, 1, parts.length));
+
+                    var users = userRepository.findAll();
+                    for (User user : users) {
+                        prepareAndSendPoll(user.getChat_id(), question, options);
+                    }
                 }
             }
 
@@ -515,7 +531,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                 sendMessage(chatId, "Выводим значения за "  + month + " " +year + " года");
                 sendPieChart(chatId, currentStatValues.getMeanQuest(chatId,year,month),
                         newChart.generateTitleString(month,year));
-               // sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId,30));
 
             }
         }
@@ -603,7 +618,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         String labels = newChart.createLabel(chartToSend);
         String data = newChart.createData(chartToSend);
 
-        // создаем график с помощью библиотеки QuickChart, вставляя в нее уже посчитанные значения data
+        // Создаем график с помощью библиотеки QuickChart, вставляя в нее уже посчитанные значения data
         // и готовые значения labels
         try {
 
@@ -615,7 +630,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             chart.setConfig(config);
 
             // собираем график в картинку
-            byte[] imageBytes = chart.toByteArray();
+            chart.toByteArray();
 
             // отправляем картинку пользователю
             SendPhoto sendPhotoRequest = new SendPhoto();
@@ -831,6 +846,20 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setText(texToSend);
         executedMessage(message);
     }
+
+    // Метод для отправки опроса
+    private void prepareAndSendPoll(long chatID, String question, List<String> options) {
+        SendPoll poll = new SendPoll();
+        poll.setChatId(Long.toString(chatID));
+        poll.setQuestion(question);
+        poll.setOptions(options);
+        try {
+            execute(poll); // Отправляем опрос
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * Создает смарт клавиатуру с двумя кнопками

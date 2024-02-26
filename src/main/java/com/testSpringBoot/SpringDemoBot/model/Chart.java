@@ -9,6 +9,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Класс для создания визуальных графиков для пользователей
+ */
 @Component
 public class Chart {
 

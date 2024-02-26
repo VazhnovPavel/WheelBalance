@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Этот класс отвечает за формирование статистики на основе недельных или месячных данных
+ */
 @Slf4j
 @Component
 public class EndStatisticFromCurrentPeriod {
@@ -34,13 +37,7 @@ public class EndStatisticFromCurrentPeriod {
         String minCategoryName = (String) maxAndMinValues.get("Min Category Name");
         double minCategoryValue = (double) maxAndMinValues.get("Min Category Value");
 
-//        //добавляем формат, чтобы отображался 1 символ после запятой
-//        DecimalFormat df = new DecimalFormat("#.0");
-//        String formattedMaxCategoryValue = df.format(maxCategoryValue);
-//        String formattedMinCategoryValue = df.format(minCategoryValue);
-//        String formattedTotalSum = df.format(totalSum);
-
-        DecimalFormat df = new DecimalFormat("#.0");
+        DecimalFormat df = new DecimalFormat("0.0");
         df.setDecimalSeparatorAlwaysShown(true); // Показывать десятичный разделитель даже для целых чисел
         String formattedMaxCategoryValue = df.format(maxCategoryValue);
         String formattedMinCategoryValue = df.format(minCategoryValue);
@@ -50,15 +47,15 @@ public class EndStatisticFromCurrentPeriod {
         StringBuilder mean = new StringBuilder();
 
         if (totalSum > 2 ) {
-            mean.append("Так держать! На этой неделе сумма всех твоих баллов повысилась на " + formattedTotalSum +
-                    " , что означает, что дела твои идут в гору \uD83D\uDE0A \n\n");
+            mean.append("Продолжай в том же духе! Твой общий счет увеличился на " + formattedTotalSum +
+                    " баллов за эту неделю, что свидетельствует о твоем прогрессе. \uD83D\uDE0A \n\n");
             for (int i = 0; i < (int) totalSum; i++) {
                 mean.append("🟢");
             }
         }
         else if ((totalSum < 2) && (totalSum > 0) ) {
-            mean.append("Неплохо! На этой неделе сумма всех твоих баллов повысилась на " + formattedTotalSum +
-                    " ,хороший результат \uD83D\uDC4C \n\n");
+            mean.append("Хорошая работа! Твой общий счет увеличился на " + formattedTotalSum +
+                    " баллов за неделю \uD83D\uDC4C \n\n");
             for (int i = 0; i < (int) totalSum; i++) {
                 mean.append("🟢");
             }
@@ -70,20 +67,21 @@ public class EndStatisticFromCurrentPeriod {
 
         }
         else if (totalSum < 0) {
-            mean.append("На этой неделе сумма всех твоих значений снизилась на " + formattedTotalSum +
-                    ". Это не значит, что все плохо. Возможно, у тебя сейчас трудный период или " +
-                    "идет процесс переосмысления \uD83D\uDC99 \n\n");
+            mean.append("На этой неделе твой общий счет упал на " + formattedTotalSum +
+                    " ,но это не повод для беспокойства. " +
+                    "\nВероятно, ты переживаешь сложные времена или находишься в стадии переоценки" +
+                    " своих ценностей. \uD83D\uDC99 \n\n");
             for (int i = 0; i < (int) Math.abs(totalSum); i++) {
                 mean.append("🔴");
             }
         }
-        mean.append("\n\nСамый большой прогресс у тебя в категории \""+maxCategoryName+ "\", твоя оценка увеличилась " +
-                "на "+ formattedMaxCategoryValue + " по отношению к предыдущему периоду \uD83D\uDC4D \n");
+        mean.append("\n\nТы достиг наибольшего прогресса в категории \""+maxCategoryName+ "\",где твой рейтинг вырос на "
+                + formattedMaxCategoryValue + " по сравнению с прошлым периодом \uD83D\uDC4D \n");
         for (int i = 0; i < (int) Math.abs(maxCategoryValue); i++) {
             mean.append("🟢");
         }
-        mean.append("\n\nСложнее всего было с категорией \"" + minCategoryName + "\", показатель упал " +
-                "на "+ formattedMinCategoryValue + " \uD83E\uDD37 \n\n");
+        mean.append("\n\nНаибольшие трудности возникли в категории \"" + minCategoryName + "\",где результат " +
+                "снизился на " + formattedMinCategoryValue + " \uD83E\uDD37 \n\n");
         for (int i = 0; i < Math.abs(minCategoryValue); i++) {
             mean.append("🔴");
         }
@@ -91,10 +89,7 @@ public class EndStatisticFromCurrentPeriod {
         return mean.toString();
     }
 
-
-
-
-
+    //Суммируем значения по категориям за текущий и предыдущий период.
     private double calculateTotalSum(Map<String, Double> previousResultMap, Map<String, Double> currentResultMap) {
         double totalSum = 0.0;
 
@@ -112,40 +107,7 @@ public class EndStatisticFromCurrentPeriod {
         return totalSum;
     }
 
-   /* private Map<String, Object> findMaxAndMinCategory(Map<String, Double> previousResultMap, Map<String, Double> currentResultMap) {
-        String maxNameCategory = null;
-        String minNameCategory = null;
-        double maxValueCategory = Double.NEGATIVE_INFINITY;
-        double minValueCategory = Double.POSITIVE_INFINITY;
-
-        for (Map.Entry<String, Double> entry : currentResultMap.entrySet()) {
-            String key = entry.getKey();
-            double currentValue = entry.getValue();
-
-            if (previousResultMap.containsKey(key)) {
-                double previousValue = previousResultMap.get(key);
-                double sum = -(previousValue) + currentValue;
-
-                if (sum > maxValueCategory) {
-                    maxNameCategory = key;
-                    maxValueCategory = sum;
-                }
-
-                if (sum < minValueCategory) {
-                    minNameCategory = key;
-                    minValueCategory = sum;
-                }
-            }
-        }
-
-        Map<String, Object> maxAndMinValues = new HashMap<>();
-        maxAndMinValues.put("Max Category Name", maxNameCategory);
-        maxAndMinValues.put("Max Category Value", maxValueCategory);
-        maxAndMinValues.put("Min Category Name", minNameCategory);
-        maxAndMinValues.put("Min Category Value", minValueCategory);
-
-        return maxAndMinValues;
-    }*/
+    //Ищем категорию, в которой показатели сильнее всего изменились в плюс и в минус
    private Map<String, Object> findMaxAndMinCategory(Map<String, Double> previousResultMap, Map<String, Double> currentResultMap) {
        List<String> maxCategories = new ArrayList<>();
        List<String> minCategories = new ArrayList<>();
