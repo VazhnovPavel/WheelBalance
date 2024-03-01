@@ -42,7 +42,7 @@ public class GetSticker {
                         break;
                 }
                 break;
-            case "Материальный мир":
+            case "Бытовой комфорт":
                 switch (stickerNum) {
                     case 1:
                         inputFile = new InputFile("CAACAgIAAxkBAAEJgFxkmx_IbS-wfooRg0O6pJjmr2xPrwACWgADfI5YFVERlXx2Itx6LwQ");

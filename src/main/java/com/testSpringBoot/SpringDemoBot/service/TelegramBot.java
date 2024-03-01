@@ -113,7 +113,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         tempList.add("Развлечения");
         tempList.add("Семья");
         tempList.add("Внешность");
-        tempList.add("Материальный мир");
+        tempList.add("Бытовой комфорт");
 
         CATEGORY_LIST = Collections.unmodifiableList(tempList);
     }
@@ -936,7 +936,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         questions.put("Работа", "Как ты оцениваешь свою работу?");
         questions.put("Саморазвитие", "Как ты оцениваешь свое саморазвитие?");
         questions.put("Деньги, капитал", "Как ты оценивешь свое имущество? (деньги,капитал)");
-        questions.put("Материальный мир", "Как ты оцениваешь свой материальный мир?");
+        questions.put("Бытовой комфорт", "Как ты оцениваешь свой бытовой комфорт?");
         questions.put("Отношения", "Как ты оцениваешь свои отношения?");
         questions.put("Развлечения", "Как ты оцениваешь свои развлечения?");
         questions.put("Семья", "Как ты оцениваешь отношения в семье?");
