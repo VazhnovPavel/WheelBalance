@@ -38,3 +38,5 @@ build/
 /target/classes/logback.xml
 /target/classes/com/testSpringBoot/SpringDemoBot/config/BotConfig.class
 
+/var/
+/out/
