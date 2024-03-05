@@ -1,7 +1,9 @@
 package com.testSpringBoot.SpringDemoBot.keyboard;
 
 
+import com.testSpringBoot.SpringDemoBot.service.TelegramBot;
 import com.testSpringBoot.SpringDemoBot.statistic.PeriodHasData;
+import com.testSpringBoot.SpringDemoBot.statistic.StatCondition;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +14,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
@@ -26,6 +27,8 @@ import java.util.Objects;
 public class Keyboard {
     @Autowired
     private PeriodHasData periodHasData;
+
+
 
     private InlineKeyboardButton createInlineKeyboardButton(String text, String callbackData) {
         InlineKeyboardButton button = new InlineKeyboardButton();
@@ -112,14 +115,9 @@ public class Keyboard {
     }
 
     //Клавиатура для считывания года
-    public SendMessage getKeyboard(Long chatID ) {
-
+    public SendMessage getYearKeyboard(Long chatID, StatCondition.CategoryState condition) {
         String startMessage = "Выбери нужный год: ";
-        List<Integer> registrationYears = new ArrayList<>();
-        registrationYears = periodHasData.getRegistrationYears(chatID);
-        int countButtons = registrationYears.size();
-        String category = "YEAR_";
-
+        List<Integer> registrationYears = periodHasData.getRegistrationYears(chatID);
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText(startMessage);
@@ -128,15 +126,28 @@ public class Keyboard {
         List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
 
-        for (int i = 0; i <registrationYears.size() ; i++) {
+        // Определение префикса маски в зависимости от условия
+        String categoryPrefix;
+        switch (condition) {
+            case MONTH_CATEGORY:
+                categoryPrefix = "YEAR_";
+                break;
+            case SPECIFIC_CATEGORY:
+                categoryPrefix = "SPECIFIC_";
+                break;
+            default:
+                categoryPrefix = "YEAR_"; // Значение по умолчанию
+                break;
+        }
 
-            //преобразовываем год в строку
-            String str = String.valueOf(registrationYears.get(i));
+        for (Integer year : registrationYears) {
+            // Преобразовываем год в строку
+            String str = String.valueOf(year);
 
             try {
-                // Маска кнопки(пример): YEAR_2023
-                rowInline.add(createInlineKeyboardButton(str, category + str));
-                log.info("Создана маска кнопки: " + str + " пробел " + category + str);
+                // Использование categoryPrefix для маски кнопки
+                rowInline.add(createInlineKeyboardButton(str, categoryPrefix + str));
+                log.info("Создана маска кнопки: " + str + " пробел " + categoryPrefix + str);
             } catch (Exception e) {
                 log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
             }
@@ -146,14 +157,58 @@ public class Keyboard {
                 rowInline = new ArrayList<>();
             }
         }
-        rowsInLine.add(rowInline);
+
+        if (!rowInline.isEmpty()) {
+            rowsInLine.add(rowInline);
+        }
+
         markupInline.setKeyboard(rowsInLine);
         message.setReplyMarkup(markupInline);
         return message;
     }
 
+//    public SendMessage getYearKeyboard(Long chatID,  StatCondition.CategoryState condition) {
+//
+//        String startMessage = "Выбери нужный год: ";
+//        List<Integer> registrationYears = new ArrayList<>();
+//        registrationYears = periodHasData.getRegistrationYears(chatID);
+//        int countButtons = registrationYears.size();
+//        String category = "YEAR_";
+//
+//        SendMessage message = new SendMessage();
+//        message.setChatId(chatID);
+//        message.setText(startMessage);
+//
+//        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+//        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+//        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+//
+//        for (int i = 0; i <registrationYears.size() ; i++) {
+//
+//            //преобразовываем год в строку
+//            String str = String.valueOf(registrationYears.get(i));
+//
+//            try {
+//                // Маска кнопки(пример): YEAR_2023
+//                rowInline.add(createInlineKeyboardButton(str, category + str));
+//                log.info("Создана маска кнопки: " + str + " пробел " + category + str);
+//            } catch (Exception e) {
+//                log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
+//            }
+//
+//            if (rowInline.size() == 3) {
+//                rowsInLine.add(rowInline);
+//                rowInline = new ArrayList<>();
+//            }
+//        }
+//        rowsInLine.add(rowInline);
+//        markupInline.setKeyboard(rowsInLine);
+//        message.setReplyMarkup(markupInline);
+//        return message;
+//    }
+
     //Клавиатура для считывания месяца
-    public SendMessage getKeyboard(Long chatID,int year ) {
+    public SendMessage getMonthKeyboard(Long chatID, int year ) {
 
         String startMessage = "Выбери нужный месяц: ";
         List<String> monthHasData = new ArrayList<>();

@@ -198,10 +198,12 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/month - показать статистику за 30 дней \n\n" +
                     "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n" +
                             "/monthCategory - данные за определённый месяц\n\n" +
+                            "/specificCategory - данные по определенной категории за всё время\n\n" +
                             "/all - данные за всё время \n\n"+
                             "/help - главное меню \n\n";
 
     private Long ownerId;
+
 
 
 
@@ -223,6 +225,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
         listofCommands.add(new BotCommand("/all", "данные за все время"));
+        listofCommands.add(new BotCommand("/specificCategory", "данные по определенной категории за всё время"));
         listofCommands.add(new BotCommand("/monthCategory", "категории по месяцам"));
         listofCommands.add(new BotCommand("/report", "отправить сообщение об ошибке"));
         listofCommands.add(new BotCommand("/delete", "удалить все данные о пользователе"));
@@ -232,8 +235,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             log.error("Error setting bots command list" + e.getMessage());
         }
-
     }
+
 
 
 
@@ -253,6 +256,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+
         this.ownerId = config.getOwnerId();
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
@@ -373,15 +377,19 @@ public class TelegramBot extends TelegramLongPollingBot {
                         sendMessage(chatID, compareCurrentAndPreviousPeriod.compareWeekAndLastWeek(chatID,30,
                                 MONTH_COMPARE_TEXT));
                         break;
+                    case "/monthCategory":
+                        executedMessage(keyboard.getYearKeyboard(chatID, StatCondition.CategoryState.MONTH_CATEGORY));
+                        break;
+                    case "/specificCategory":
+                        executedMessage(keyboard.getYearKeyboard(chatID,StatCondition.CategoryState.SPECIFIC_CATEGORY));
+                        break;
                     case "/all":
                         int dayRegistered = (int) daysRegistered.daysUserRegistered(chatID);
                         sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,dayRegistered),
                                 newChart.generateTitleString(dayRegistered));
                         sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,dayRegistered));
                         break;
-                    case "/monthCategory":
-                        executedMessage(keyboard.getKeyboard(chatID));
-                        break;
+
                     case "/report":
                         sendMessage(chatID, SEND_TEXT_TO_REPORT);
                         break;
@@ -522,7 +530,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             else if (callBackData.startsWith("YEAR_")) {
                 String[] data = callBackData.split("_");
                 int year = Integer.parseInt(data[1]);
-                executedMessage(keyboard.getKeyboard(chatId,year));
+                executedMessage(keyboard.getMonthKeyboard(chatId,year));
             }
             else if (callBackData.startsWith("MONTH_")) {
                 String[] data = callBackData.split("_");
@@ -694,70 +702,9 @@ public class TelegramBot extends TelegramLongPollingBot {
             chart.setWidth(1000);
             chart.setHeight(700);
             chart.setBackgroundColor("white");
-            chart.setConfig("{"
-                    + "type: 'radar',"
-                    + "data: {"
-                    + "labels: [" + labels + "],"
-                    + "datasets: [{"
-                    + "label: '"+firstCompareName+"',"
-                    + "data: [" + data1 + "],"
-                    + "backgroundColor: 'rgba(255, 99, 132, 0.2)',"
-                    + "borderColor: 'rgba(255, 99, 132, 1)',"
-                    + "borderWidth: 2,"
-                    + "pointBackgroundColor: 'rgba(255, 99, 132, 1)'"
-                    + "}, {"
-                    + "label: '"+secondCompareName+"',"
-                    + "data: [" + data2 + "],"
-                    + "backgroundColor: 'rgba(54, 162, 235, 0.2)',"
-                    + "borderColor: 'rgba(54, 162, 235, 1)',"
-                    + "borderWidth: 2,"
-                    + "pointBackgroundColor: 'rgba(54, 162, 235, 1)'"
-                    + "}]"
-                    + "},"
-                    + "options: {"
-                    + "title: {"
-                    + "display: true,"
-                    + "text: '" + titleString + "',"
-                    + "fontColor: '#141449',"
-                    + "fontSize: 25,"
-                    + "fontFamily: 'Georgia',"
-                    + "fontStyle: 'normal',"
-                    + "padding: 20"
-                    + "},"
-                    + "legend: {"
-                    + "position: 'bottom',"
-                    + "labels: {"
-                    + "fontColor: '#141449',"
-                    + "fontSize: 25,"
-                    + "fontFamily: 'Georgia',"
-                    + "fontStyle: 'normal',"
-                    + "padding: 20"
-                    + "}"
-                    + "},"
-                    + "scale: {"
-                    + "gridLines: {"
-                    + "color: '#9E9E9E'"
-                    + "},"
-                    + "pointLabels: {"
-                    + "fontSize: 18,"
-                    + "fontColor: '#9E9E9E'"
-                    + "},"
-                    + "ticks: {"
-                    + "display: false,"
-                    + "min: 0,"
-                    + "max: 10,"
-                    + "color: '#9E9E9E'"
-                    + "}"
-                    + "},"
-                    + "elements: {"
-                    + "line: {"
-                    + "tension: 0.4"
-                    + "}"
-                    + "}"
-                    + "}"
-                    + "}");
-
-
+            String config = newChart.generateRadarChart(labels,data1,data2, firstCompareName,
+                     secondCompareName,titleChart);
+            chart.setConfig(config);
 
             // Собираем график в картинку
             byte[] imageBytes = chart.toByteArray();

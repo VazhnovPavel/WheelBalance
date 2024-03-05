@@ -6,6 +6,7 @@ import com.testSpringBoot.SpringDemoBot.model.MonthConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -76,20 +77,20 @@ public class CurrentStatValues {
      * Если столбца не существует, отправляем в класс CreateDateColumn и создаем столбец
      */
 
-    private List<String> getColumnNames(int currentDays) {
+    public List<String> getColumnNames(int currentDays) {
         List<String> columnNames = new ArrayList<>();
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -currentDays); // to get the date of last N days
+        cal.add(Calendar.DATE, -currentDays); // собирает календарь за последние currentDays дней
         SimpleDateFormat format1 = new SimpleDateFormat("dd_MM_yyyy");
         for (int i = 0; i < currentDays; i++) {
             cal.add(Calendar.DATE, 1);
             String columnName = "date_" + format1.format(cal.getTime());
             try {
                 jdbcTemplate.queryForObject("SELECT " + columnName + " FROM data_base_quest LIMIT 1", Object.class);
-                // If the column exists, add it to the columnNames list
+                // Если столбец существует, добавляем его в список
                 columnNames.add(columnName);
             } catch (DataAccessException e) {
-                // If the column does not exist, create it and then add it to the columnNames list
+                // Если столбца нет, создаём его и добавляем в лист
                 log.warn("Column {} does not exist in table data_base_quest.", columnName);
                 createDateColumn.addNewColumn(columnName);
                 columnNames.add(columnName);

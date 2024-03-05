@@ -102,6 +102,75 @@ public class Chart {
         return setConfig;
     }
 
+    public String generateRadarChart (String labels, String data1, String data2, String firstCompareName,
+                                      String secondCompareName, String titleString) {
+
+        String setConfig= "{"
+                + "type: 'radar',"
+                + "data: {"
+                + "labels: [" + labels + "],"
+                + "datasets: [{"
+                + "label: '"+firstCompareName+"',"
+                + "data: [" + data1 + "],"
+                + "backgroundColor: 'rgba(255, 99, 132, 0.2)',"
+                + "borderColor: 'rgba(255, 99, 132, 1)',"
+                + "borderWidth: 2,"
+                + "pointBackgroundColor: 'rgba(255, 99, 132, 1)'"
+                + "}, {"
+                + "label: '"+secondCompareName+"',"
+                + "data: [" + data2 + "],"
+                + "backgroundColor: 'rgba(54, 162, 235, 0.2)',"
+                + "borderColor: 'rgba(54, 162, 235, 1)',"
+                + "borderWidth: 2,"
+                + "pointBackgroundColor: 'rgba(54, 162, 235, 1)'"
+                + "}]"
+                + "},"
+                + "options: {"
+                + "title: {"
+                + "display: true,"
+                + "text: '" + titleString + "',"
+                + "fontColor: '#141449',"
+                + "fontSize: 25,"
+                + "fontFamily: 'Georgia',"
+                + "fontStyle: 'normal',"
+                + "padding: 20"
+                + "},"
+                + "legend: {"
+                + "position: 'bottom',"
+                + "labels: {"
+                + "fontColor: '#141449',"
+                + "fontSize: 25,"
+                + "fontFamily: 'Georgia',"
+                + "fontStyle: 'normal',"
+                + "padding: 20"
+                + "}"
+                + "},"
+                + "scale: {"
+                + "gridLines: {"
+                + "color: '#9E9E9E'"
+                + "},"
+                + "pointLabels: {"
+                + "fontSize: 18,"
+                + "fontColor: '#9E9E9E'"
+                + "},"
+                + "ticks: {"
+                + "display: false,"
+                + "min: 0,"
+                + "max: 10,"
+                + "color: '#9E9E9E'"
+                + "}"
+                + "},"
+                + "elements: {"
+                + "line: {"
+                + "tension: 0.4"
+                + "}"
+                + "}"
+                + "}"
+                + "}";
+        return setConfig;
+
+    }
+
     public String generateTitleString (int currentDays){
         // Высчитываем диапазон дат, за которые необходимо вывести статистику. Опираемся на данные, переданные
         // в currentDays
