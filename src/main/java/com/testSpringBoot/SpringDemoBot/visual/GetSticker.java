@@ -19,128 +19,128 @@ public class GetSticker {
             case "Деньги, капитал":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgFRkmxzMXLejmtSS39YT3ta8UJEZVgACXAEAAhZ8aAMx8cbqRyVdmy8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELoLVl6SaN3gIfeU7htbe0H8MyynrtLwACPwEAAj9vzQtTP7k3bK9lcjQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyUNkvYllFGMWkltMkgmqJWCcGwHQNgACwxcAAvLosEkjOlvTGX-T-C8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELoLdl6SbjIiN_TmxHa6ShJ5vuc9hLiAAC6RUAApiqmEgcx3kHpFw_QTQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyUlkvYohfe262prewZFtOU6NBAEmZgACbwEAAhZ8aAOK9nH8d3JcRi8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELrcdl8UQLPR7VjvqV7cA_X7npNN7-VAACtAkAAvFCvwVdgSdK67S70DQE");
                         break;
                 }
                  break;
             case "Работа":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyUtkvYpwywlynFvy2lsBex1w-XDCpwACzzkAAu_-iUl34iHPVXoxfi8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn4Vl6E3a0RFAbEDfuC7i1jl0ttGfxgACzRsAAu2-oUolEkrNyYe6ejQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEK5bRlbg1-YqAGN2OHJnPWLQqMGgr8zAAC_jwAAr9xaEvRMmWcC1b8ajME");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn6ll6FtQtldVNXLw_gABMm6grJs8uEoAAngJAALxQr8FzJbgGdE27Ao0BA");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAELImhlnuS5VXTSIEV_Z3FyWQlweBTkkgACgy0AAnfcOEh-XrkjXgkX-TQE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn7Nl6F0Q-NRjewa_H4hCZm1q4FrFtgAC3TAAAmbVsEtM8jwMxHlh3jQE");
                         break;
                 }
                 break;
             case "Бытовой комфорт":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgFxkmx_IbS-wfooRg0O6pJjmr2xPrwACWgADfI5YFVERlXx2Itx6LwQ");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn4dl6E6jwNtH0IPLCXZzp6wlhUyCjwACW7EBAAFji0YM7yIrhkzlMOg0BA");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyU9kvYuNxNL1xqAMvdL7gmPoM1WdFQACay4AAmTkoEhx4IDi1WOIoS8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn5hl6FpXeQM8Zdg3x1AHceaqwzYh9gACZzkAAnmKwUv7fhaXVQPk9zQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEIgutkMcRfas4-qivZaHzQYXFzxkYbIgACgxcAApDu8EmjEXVCZqJfny8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAEJyU9kvYuNxNL1xqAMvdL7gmPoM1WdFQACay4AAmTkoEhx4IDi1WOIoS8E");
                         break;
                 }                break;
             case "Отношения":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJBHNkZTrNsV2jeF32jWxZyswimxMl3QACgQADg6PsFTCGvXMAAb-x1y8E");
+                        inputFile = new InputFile("CAACAgUAAxkBAAELn5Rl6FlSooxoyQ7uTVIn1GuJu0L2UwACgQsAAl42qVT-eyoBAAGaHYo0BA");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEKBYZk2lU2DPNrYwUkeKkwsw9dtXnxFQAC8BMAAlbFKEi4DBhmqzzfkDAE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn5Zl6FoMxcOBhDXM823jFp8yoEa8uQACtzYAAjBFwUsj026wX_NhHzQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyfNkvYzCgzIfU9YOQchrfGVGUUBGMgACIxcAAvY9yEvoJYVTb5k-ay8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELoMFl6SiH_oByaW_7Y3pblrdGwR9bfgAC9gwAAicccVAbAWD7RlrDTTQE");
                         break;
                 }                break;
             case "Здоровье":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAELInBlnuZH18XfgrGFgoRxwoy7WHq3fQACpzYAAjVLEUg5Yxtsgi98fzQE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn5pl6FqRCe0TlGY3toKpnYTdFkG3wgACxRIAAl7-0EkojaLQ7rSlAzQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEK5bxlbg9ARkXKEs3kRjii0oUGLjYyCAACXSoAAvgYuEqJS4Cu0uvglDME");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELoMdl6SmZkA26XKoMAi7RQ3RBOU5YoQACjTsAArlskUjF8qK1hI5WwDQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyflkvY2wD_E7IFKpZXQnRMy1hojkngACLAEAAhZ8aAPtUedaQ6gYTS8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELrcFl8UJbtY3Var2GwmEHvnRYirix9gACPA4AAldwAVKz82h80sRPcjQE");
                         break;
                 }
                 break;
             case "Семья":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyftkvY3gBBCOLn7eyxMCHCg4nUhMjAACOygAAgbxiUjA10xUvHLVgC8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELn7Fl6FyqT3nQBqv2GNMTgOQZcSsF3AACsg4AAoCleFBCMz8BsIpH8DQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyf1kvY6ZuLwQCdQPEC6s39E7P4BcagACZB4AAkm0SUtMLQ2LStVLNi8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELoMll6SnCBbZvm7nrqeTf6dfxyeG0fwACXLEBAAFji0YM0UcZPo3MOfc0BA");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyf9kvY8sdz1xJBMs_XCk44xna9o1OgACMhgAAp5OcUjnKqkcXV3wgC8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELrcll8URED_71ssjn8E32d5vhX5EqqQACIxAAAtuS-FHW6Ccse3q3ZzQE");
                         break;
                 }
                 break;
             case "Развлечения":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgGpkmyM7LvF3DVeh68A_gnAcHMlZ7QAC5h0AApQCMEj0W8nLG5FF3i8E");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn45l6FBQsf9PT3Ng-wj51jTN8fIRDgACbicAAhKDuEsCL3ZftJR79DQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEK5bhlbg3xj87byd0YnX3f6Zw2We--TgACaSgAAj0hQUs8hOtUPGT_hDME");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn5Jl6FjhERS_IzCehqqEfgwwAAGjivEAAp0lAALnRUFLeebqp_hvYjI0BA");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgGxkmyN0BylAtlOtk7QUFKC3zfwvsgACoxwAAoAuOEvqHWrKJag9Ai8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELn6dl6FsPgFklTQqBBx7V_fVcugbKQwACIwsAAnmgEVKkenBwp8tQ6jQE");
                         break;
                 }
                 break;
             case "Друзья":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgHRkmyR1D9Jwk2lMY-Pngr6Fe1uhdwACiQADAvupHzxc66-sxzcdLwQ");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn4ll6E_L8AcFh3VyacyWCgiv46oo7wACQQADg6PsFXn2EDtr1w0rNAQ");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAELImRlnuMpENpxZC-cJlEWids6oGnACQACMwsAAth_WErqq5OTXJKW9zQE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn5Bl6FjMvpM3ngyiy6Ix04ZHTfcGMQACOyUAApstQUt0K34-BrT25zQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJygVkvZA-uDhwsCEp514xwd3R7wPXcgACwhQAArP70Eg4qTcl7eNzqi8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELrb9l8UJZ4ED1Hs3NQxXA-N5ca3TkoAACFwwAAsESaVHl3tZHz0RcEDQE");
                         break;
                 }
                 break;
             case "Саморазвитие":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAELImZlnuNMuevFIdMbaC-gC_mcIdlY-gACnAkAAnSHcErFvEYpb1ESlzQE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn69l6FwB2FwN-c16sREvr882nkdhXwAC7BwAAmePoEo04gyPb4FY0zQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAELImplnuTGyO9HEAZs8g0xWnrAUjI1MAAC4hkAAkEqEUuL4QkkylO6PzQE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELoMNl6Sj6LBLqd_QH1qckglDIO7RPPgACBwUAAvFCvwVGiPEpEStPeDQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJyo5kvZIJQChKdLkndq0-hkDDZdOiVwACQiEAAj-aQUtC_0mvvpK8Mi8E");
+                        inputFile = new InputFile("CAACAgQAAxkBAAELoMVl6SkpOwMqeUdAzx6_IQUM4TKfagACKQsAAiNi6VAVFuou85HJijQE");
                         break;
                 }
                 break;
             case "Внешность":
                 switch (stickerNum) {
                     case 1:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEKBYRk2lR4I0kKhzY2Rg7fzrQyTPDZMwACMxQAAtWzKEhzcG8yt63ebjAE");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELn61l6FvIrm-F5ESMD92OSWlT80TcwQACOxoAAhLYoUp0O14wgS66NTQE");
                         break;
                     case 2:
-                        inputFile = new InputFile("CAACAgIAAxkBAAELImxlnuVDtQoNKwRU_OHTDXFTVUGiLQACIywAAnFrOEgJLZLc_qObXzQE");
+                        inputFile = new InputFile("CAACAgUAAxkBAAELoL1l6SgLQgZOxuw7u06lgXTBNfjUVQACrg8AAqQuqVTk4h6dYUxWIDQE");
                         break;
                     case 3:
-                        inputFile = new InputFile("CAACAgIAAxkBAAEJgH9kmyXeFpQoZF2wta-T5he8gzjz2QACbQADfI5YFX0VqFGUXd1cLwQ");
+                        inputFile = new InputFile("CAACAgIAAxkBAAELrcNl8UMAAd0y-9EAARA6vw8Drof-4ZwBAAJKJAACcBlBSyydWdwAARn_EzQE");
                         break;
                 }
                 break;

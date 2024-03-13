@@ -9,6 +9,7 @@ public class StatCondition {
     public enum CategoryState {
         MONTH_CATEGORY,
         SPECIFIC_CATEGORY,
-        ALL
+        ALL,
+        RECOMMENDED_STICKER
     }
 }

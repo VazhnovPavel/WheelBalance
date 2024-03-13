@@ -274,20 +274,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     prepareAndSendMessage(user.getChat_id(), textToSend);
                 }
             }
-            // Модифицированный обработчик команды /send для отправки опроса
-            if (messageText.startsWith("/sendpoll") && (config.getOwnerId() == chatID)) {
-                // Предположим, что формат команды: /sendpoll Вопрос;Опция1;Опция2;Опция3
-                String[] parts = messageText.substring(messageText.indexOf(" ") + 1).split(";");
-                if (parts.length >= 3) { // Нужен минимум вопрос и две опции
-                    String question = parts[0];
-                    List<String> options = Arrays.asList(Arrays.copyOfRange(parts, 1, parts.length));
 
-                    var users = userRepository.findAll();
-                    for (User user : users) {
-                        prepareAndSendPoll(user.getChat_id(), question, options);
-                    }
-                }
-            }
 
             /**
              * Узнать, сколько за сегодня присоединилось пользователей
@@ -336,7 +323,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         break;
                     case "/sticker":
                         prepareAndSendMessage(chatID, STICKER_MESSAGE);
-                        executedMessage(keyboard.getKeyboard(chatID,CATEGORY_LIST));
+                        executedMessage(keyboard.getCategoryKeyboard(chatID,CATEGORY_LIST,StatCondition.CategoryState.RECOMMENDED_STICKER));
 
                         break;
                     case "/now":
@@ -381,7 +368,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                         executedMessage(keyboard.getYearKeyboard(chatID, StatCondition.CategoryState.MONTH_CATEGORY));
                         break;
                     case "/specificCategory":
-                        executedMessage(keyboard.getYearKeyboard(chatID,StatCondition.CategoryState.SPECIFIC_CATEGORY));
+                        executedMessage(keyboard.getCategoryKeyboard(chatID,CATEGORY_LIST,
+                                StatCondition.CategoryState.SPECIFIC_CATEGORY));
                         break;
                     case "/all":
                         int dayRegistered = (int) daysRegistered.daysUserRegistered(chatID);
@@ -539,8 +527,17 @@ public class TelegramBot extends TelegramLongPollingBot {
                 sendMessage(chatId, "Выводим значения за "  + month + " " +year + " года");
                 sendPieChart(chatId, currentStatValues.getMeanQuest(chatId,year,month),
                         newChart.generateTitleString(month,year));
-
             }
+            else if (callBackData.startsWith("SPECIFIC_")) {
+                String[] data = callBackData.split("_");
+                String category = data[1];
+                sendMessage(chatId, "Статистика за всё время по категории: "  + category);
+                int dayRegistered = (int) daysRegistered.daysUserRegistered(chatId);
+                //sendLineChart(chatId,  ,category);
+                log.info("Начался процесс сбора данных. Дней с момента регистрации: " +dayRegistered);
+                sendMessage(chatId,getStatCurrentPeriod.getMonthStatFromCurrentCategory(chatId,dayRegistered,category) );
+            }
+
         }
 
 
@@ -720,6 +717,10 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
+    public void sendLineChart(long chatID, List<Double> chartToSend, String category) {
+
+
+    }
 
 
             ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
@@ -794,18 +795,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         executedMessage(message);
     }
 
-    // Метод для отправки опроса
-    private void prepareAndSendPoll(long chatID, String question, List<String> options) {
-        SendPoll poll = new SendPoll();
-        poll.setChatId(Long.toString(chatID));
-        poll.setQuestion(question);
-        poll.setOptions(options);
-        try {
-            execute(poll); // Отправляем опрос
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     /**
