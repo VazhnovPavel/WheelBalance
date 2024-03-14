@@ -1,7 +1,6 @@
 package com.testSpringBoot.SpringDemoBot.keyboard;
 
 
-import com.testSpringBoot.SpringDemoBot.service.TelegramBot;
 import com.testSpringBoot.SpringDemoBot.statistic.PeriodHasData;
 import com.testSpringBoot.SpringDemoBot.statistic.StatCondition;
 import lombok.extern.slf4j.Slf4j;
