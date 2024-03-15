@@ -170,7 +170,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     final private String SEND_TEXT_TO_REPORT = "Все замечания, предложения и найденные ошибки можно присылать" +
             " мне, @pavel_fortex " +
             "\n\nВыслушаю всех обязательно \uD83D\uDE0C";
-    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в заданное время \uD83D\uDE09\n \n\n" +
+    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в заданное время \uD83D\uDE09\n \n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
             "Список всех статистик /statistic\n\n";
@@ -370,6 +370,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     case "/specificCategory":
                         executedMessage(keyboard.getCategoryKeyboard(chatID,CATEGORY_LIST,
                                 StatCondition.CategoryState.SPECIFIC_CATEGORY));
+
                         break;
                     case "/all":
                         int dayRegistered = (int) daysRegistered.daysUserRegistered(chatID);
@@ -535,7 +536,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                 int dayRegistered = (int) daysRegistered.daysUserRegistered(chatId);
                 //sendLineChart(chatId,  ,category);
                 log.info("Начался процесс сбора данных. Дней с момента регистрации: " +dayRegistered);
-                sendMessage(chatId,getStatCurrentPeriod.getMonthStatFromCurrentCategory(chatId,dayRegistered,category) );
+                String summaryStatValue = getStatCurrentPeriod.getMonthStatFromCurrentCategory(chatId,dayRegistered,category);
+                //sendMessage(chatId,summaryStatValue); //выводит текстом значения
+                sendLineChart(chatId,summaryStatValue, category );
+
             }
 
         }
@@ -650,7 +654,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     /**
-     * Создаем график типа "Радар", с помощью которого сравнимаем разные временные периоды
+     * Создаем график типа "Радар", с помощью которого сравниваем разные временные периоды
      */
 
     public void sendRadarChart(long chatID, Map<String, Double> mapFirst, Map<String, Double> mapSecond,
@@ -717,9 +721,42 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    public void sendLineChart(long chatID, List<Double> chartToSend, String category) {
+    public void sendLineChart(long chatID, String summaryStatValue, String category) {
+        // Парсим данные summaryStatValue в массивы labels и data
+        String[] pairs = summaryStatValue.split("; ");
+        String[] labels = Arrays.stream(pairs)
+                .map(pair -> pair.split(" - ")[0])
+                .toArray(String[]::new);
+        String[] data = Arrays.stream(pairs)
+                .map(pair -> pair.split(" - ")[1].replace(",", "."))
+                .toArray(String[]::new);
 
+        String labelsString = String.join("','", labels);
+        String dataString = String.join(",", data);
 
+        // Формируем конфигурацию для линейного графика
+        String config = newChart.generateLineChartConfig(labelsString, dataString, category);
+
+        // Создаем график и отправляем пользователю
+        QuickChart chart = new QuickChart();
+        chart.setWidth(1000);
+        chart.setHeight(700);
+        chart.setBackgroundColor("#FFFFFF");
+        chart.setConfig(config);
+
+        try {
+            // собираем график в картинку
+            chart.toByteArray();
+
+            // отправляем картинку пользователю
+            SendPhoto sendPhotoRequest = new SendPhoto();
+            sendPhotoRequest.setChatId(String.valueOf(chatID));
+            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
+             execute(sendPhotoRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Обработка ошибок
+        }
     }
 
 

@@ -171,6 +171,37 @@ public class Chart {
 
     }
 
+
+    public String generateLineChartConfig(String labels, String data, String category) {
+        return "{"
+                + "type: 'line',"
+                + "data: {"
+                + "labels: ['" + labels + "'],"
+                + "datasets: [{"
+                + "label: '" + category + "',"
+                + "data: [" + data + "],"
+                + "fill: false,"
+                + "borderColor: 'rgb(75, 192, 192)',"
+                + "lineTension: 0.1"
+                + "}]"
+                + "},"
+                + "options: {"
+                + "responsive: true,"
+                + "title: {"
+                + "display: true,"
+                + "text: 'Category Trend'"
+                + "},"
+                + "scales: {"
+                + "yAxes: [{"
+                + "ticks: {"
+                + "beginAtZero: true"
+                + "}"
+                + "}]"
+                + "}"
+                + "}"
+                + "}";
+    }
+
     public String generateTitleString (int currentDays){
         // Высчитываем диапазон дат, за которые необходимо вывести статистику. Опираемся на данные, переданные
         // в currentDays

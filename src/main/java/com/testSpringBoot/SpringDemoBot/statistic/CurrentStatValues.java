@@ -112,33 +112,70 @@ public class CurrentStatValues {
         YearMonth yearMonth = YearMonth.parse(monthYearColumn, DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
         LocalDate startOfMonth = yearMonth.atDay(1);
         LocalDate endOfMonth = yearMonth.atEndOfMonth();
+        LocalDate today = LocalDate.now();
+        // Если месяц еще не закончился, используйте текущую дату
+        LocalDate lastDate = yearMonth.equals(YearMonth.from(today)) ? today : endOfMonth;
 
-        // Build SQL Query
         StringBuilder sqlBuilder = new StringBuilder("SELECT ");
-        for (int day = 1; day <= endOfMonth.getDayOfMonth(); day++) {
+        int daysCount = 0;
+        for (int day = 1; day <= lastDate.getDayOfMonth(); day++) {
             String columnName = "date_" + startOfMonth.withDayOfMonth(day).format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
-            sqlBuilder.append(columnName).append(", ");
+            sqlBuilder.append(columnName);
+            daysCount++;
+            if (day < lastDate.getDayOfMonth()) {
+                sqlBuilder.append(", ");
+            }
         }
-        // Remove the last comma and space
-        sqlBuilder.setLength(sqlBuilder.length() - 2);
 
         sqlBuilder.append(" FROM data_base_quest WHERE quest = ? AND chat_id = ?");
-
         String sql = sqlBuilder.toString();
 
+        int finalDaysCount = daysCount;
         return jdbcTemplate.queryForObject(sql, new Object[]{category, chatId}, (ResultSet rs, int rowNum) -> {
             double total = 0;
             int count = 0;
-            for (int day = 1; day <= endOfMonth.getDayOfMonth(); day++) {
-                double value = rs.getDouble(day);
+            for (int i = 1; i <= finalDaysCount; i++) {
+                double value = rs.getDouble(i); // Here 'i' indexes the SQL query result columns, starting from 1
                 if (!rs.wasNull()) {
                     total += value;
                     count++;
                 }
             }
-            return count > 0 ? total / count : 0.0;
+            return (count > 0) ? (total / count) : 0.0; // Return the mean or 0.0 if no values
         });
     }
+
+//    public Double getAverageFromCurrentMonth(Long chatId, String monthYearColumn, String category) {
+//        YearMonth yearMonth = YearMonth.parse(monthYearColumn, DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
+//        LocalDate startOfMonth = yearMonth.atDay(1);
+//        LocalDate endOfMonth = yearMonth.atEndOfMonth();
+//
+//        // Build SQL Query
+//        StringBuilder sqlBuilder = new StringBuilder("SELECT ");
+//        for (int day = 1; day <= endOfMonth.getDayOfMonth(); day++) {
+//            String columnName = "date_" + startOfMonth.withDayOfMonth(day).format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+//            sqlBuilder.append(columnName).append(", ");
+//        }
+//        // Remove the last comma and space
+//        sqlBuilder.setLength(sqlBuilder.length() - 2);
+//
+//        sqlBuilder.append(" FROM data_base_quest WHERE quest = ? AND chat_id = ?");
+//
+//        String sql = sqlBuilder.toString();
+//
+//        return jdbcTemplate.queryForObject(sql, new Object[]{category, chatId}, (ResultSet rs, int rowNum) -> {
+//            double total = 0;
+//            int count = 0;
+//            for (int day = 1; day <= endOfMonth.getDayOfMonth(); day++) {
+//                double value = rs.getDouble(day);
+//                if (!rs.wasNull()) {
+//                    total += value;
+//                    count++;
+//                }
+//            }
+//            return count > 0 ? total / count : 0.0;
+//        });
+//    }
 
     private String buildSqlQuery(List<String> columnNames) {
         StringBuilder sb = new StringBuilder();
