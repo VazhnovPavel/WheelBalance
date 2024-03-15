@@ -286,7 +286,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                         .append("Из них ").append(countUser.countUserToday()).append(" живых пользователей\n\n")
                         .append("Всего пользователей: ").append(countUser.countAllUser()).append("\n")
                         .append("Активных пользователей: ").append(countUser.countAllActiveUser()).append("\n")
-                        .append("Ответов за сегодня: ").append(countUser.countActiveUserToday());
+                        .append("Ответов за сегодня: ").append(countUser.countActiveUserToday()).append("\n")
+                        .append("Ответов вчера: ").append(countUser.countActiveUserToday()).append("\n");
+
 
                 sendMessage(chatID, messageBuilder.toString());
             }

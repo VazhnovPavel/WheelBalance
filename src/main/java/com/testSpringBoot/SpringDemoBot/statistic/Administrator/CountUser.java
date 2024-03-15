@@ -92,6 +92,21 @@ public class CountUser {
         }
     }
 
+    public int countActiveUserToday(Date specificDate) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy");
+        String date = "date_" + dateFormat.format(specificDate);
+        String query = "SELECT COUNT(*) FROM data_base_quest WHERE " + date + " != 0";
+
+        try {
+            int count = jdbcTemplate.queryForObject(query, Integer.class);
+            log.info("count = " + count);
+            return Math.round(count / 3);
+        } catch (Exception e) {
+            log.error("Ошибка при выполнении SQL-запроса: {}", e.getMessage());
+            return -1;
+        }
+    }
+
 
 
 
