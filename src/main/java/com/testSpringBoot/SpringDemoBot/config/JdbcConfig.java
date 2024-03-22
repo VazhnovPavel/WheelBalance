@@ -20,10 +20,10 @@ public class JdbcConfig
 
     @Bean
     public DataSource dataSource(
-            @Value("${spring.datasource.driver-class-name}") String driverClassName,
-            @Value("${spring.datasource.url}") String url,
-            @Value("${spring.datasource.username}") String username,
-            @Value("${spring.datasource.password}") String password) {
+            @Value("org.postgresql.Driver") String driverClassName,
+            @Value("jdbc:postgresql://localhost:5432/BalanceWheel") String url,
+            @Value("NikToRozeo") String username,
+            @Value("13241324") String password) {
         logger.info("Creating DataSource bean");
         final BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(driverClassName);

@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 @Slf4j
@@ -92,15 +93,23 @@ public class CountUser {
         }
     }
 
-    public int countActiveUserToday(Date specificDate) {
+    public int countActiveUserYesterday() {
+        // Получаем текущую дату
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -1); // Уменьшаем дату на один день (вчерашний день)
+
+        // Форматируем дату в соответствии с шаблоном
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy");
-        String date = "date_" + dateFormat.format(specificDate);
+        String date = "date_" + dateFormat.format(calendar.getTime());
+
+        // Создаем SQL-запрос
         String query = "SELECT COUNT(*) FROM data_base_quest WHERE " + date + " != 0";
 
         try {
+            // Выполняем запрос и получаем количество активных пользователей
             int count = jdbcTemplate.queryForObject(query, Integer.class);
-            log.info("count = " + count);
-            return Math.round(count / 3);
+            log.info("Count = " + count);
+            return Math.round(count / 3); // Возвращаем результат, деленный на 3 (для примера)
         } catch (Exception e) {
             log.error("Ошибка при выполнении SQL-запроса: {}", e.getMessage());
             return -1;

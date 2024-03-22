@@ -118,8 +118,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         CATEGORY_LIST = Collections.unmodifiableList(tempList);
     }
     static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
-            "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
-            "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
+            "жизни.\n\nЯ буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
+            "а тебе нужно будет ответить по десятибалльной шкале, насколько ты удовлетворен на данный момент.\n\n " +
             "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи \uD83D\uDE42 \n\n";
     static final String YES_BUTTON = "YES_BUTTON";
     static final String NO_BUTTON = "NO_BUTTON";
@@ -173,6 +173,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в заданное время \uD83D\uDE09\n \n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
+            "(NEW) Узнать статистику по определённой категории за всё время /specificCategory\n\n"+
             "Список всех статистик /statistic\n\n";
     final private String THX_FOR_FEEDBACK = "Спасибо! Я зафиксировал информацию, и скоро она дойдет до админа. \n" +
             " Вернуться в главное меню\n /help";
@@ -287,7 +288,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                         .append("Всего пользователей: ").append(countUser.countAllUser()).append("\n")
                         .append("Активных пользователей: ").append(countUser.countAllActiveUser()).append("\n")
                         .append("Ответов за сегодня: ").append(countUser.countActiveUserToday()).append("\n")
-                        .append("Ответов вчера: ").append(countUser.countActiveUserToday()).append("\n");
+                        .append("Ответов вчера: ").append(countUser.countActiveUserYesterday()).append("\n");
+
 
 
                 sendMessage(chatID, messageBuilder.toString());
