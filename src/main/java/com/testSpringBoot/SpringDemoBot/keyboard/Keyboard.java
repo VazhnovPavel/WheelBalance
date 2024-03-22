@@ -2,6 +2,7 @@ package com.testSpringBoot.SpringDemoBot.keyboard;
 
 
 import com.testSpringBoot.SpringDemoBot.statistic.PeriodHasData;
+import com.testSpringBoot.SpringDemoBot.statistic.StatCondition;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,13 +13,20 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
+
+/**
+ * Класс отвечает за создание клавиатуры для ответов
+ * Все кнопки создаются по формату "BUTTON_" + "Номер вопроса" + "Сам вопрос"
+ * Эта информация необходима потом для занесения данных в БД
+ */
 
 @Slf4j
 @Component
 public class Keyboard {
     @Autowired
     private PeriodHasData periodHasData;
+
 
 
     private InlineKeyboardButton createInlineKeyboardButton(String text, String callbackData) {
@@ -28,99 +36,7 @@ public class Keyboard {
         return button;
     }
 
-    /**
-     * Создаем клавиатуру для ответов
-     * Все кнопки создаются по формату "BUTTON_" + "Номер вопроса" + "Сам вопрос"
-     * Эта информация необходима потом для занесения данных в БД
-     */
-
-
-    public SendMessage getKeyboard(Long chatID, String quest, String condition) {
-        ArrayList<String> categoryList = new ArrayList<String>();
-        String startMessage = null;
-        String category = null;
-        int countButtons = 0;
-
-        if (Objects.equals(condition, "Клавиатура оценок")){
-            countButtons = 11;
-            startMessage = "Оцени от 0 до 10";
-            category = "BUTTON_";
-        }
-        else if (Objects.equals(condition, "Клавиатура категорий")){
-            countButtons = 10;
-            startMessage = "Выбери категорию стикера: ";
-            category = "CATEGORY_";
-            categoryList.add("Здоровье");
-            categoryList.add("Работа");
-            categoryList.add("Саморазвитие");
-            categoryList.add("Деньги, капитал");
-            categoryList.add("Друзья");
-            categoryList.add("Отношения");
-            categoryList.add("Развлечения");
-            categoryList.add("Семья");
-            categoryList.add("Внешность");
-            categoryList.add("Материальный мир");
-        }
-
-        else if (Objects.equals(condition, "Клавиатура с выбором года")){
-
-            startMessage = "Выбери нужный год: ";
-            List<Integer> registrationYears = new ArrayList<>();
-            registrationYears = periodHasData.getRegistrationYears(chatID);
-            countButtons = registrationYears.size();
-
-            for (int i = 0; i <registrationYears.size() ; i++) {
-
-                //преобразовываем год в строку
-                String str = String.valueOf(registrationYears.get(i));
-                categoryList.add(str);
-            }
-
-            category = "YEAR_";
-        }
-        SendMessage message = new SendMessage();
-        message.setChatId(chatID);
-        message.setText(startMessage);
-
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
-        List<InlineKeyboardButton> rowInline = new ArrayList<>();
-
-        for (int i = 0; i < countButtons; i++) {
-            String answerNumber = null;
-
-            if (Objects.equals(condition, "Клавиатура оценок")){
-                answerNumber = String.valueOf(i);
-            }
-            else if (Objects.equals(condition, "Клавиатура категорий")){
-                answerNumber = categoryList.get(i);
-            }
-            else if (Objects.equals(condition, "Клавиатура с выбором года")){
-                answerNumber = categoryList.get(i);
-            }
-
-            try {
-                rowInline.add(createInlineKeyboardButton(answerNumber, category + answerNumber + "_" + quest));
-                log.info(answerNumber + " пробел " + category + answerNumber + "_" + quest);
-            } catch (Exception e) {
-                log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
-            }
-
-            if (rowInline.size() == 3) {
-                rowsInLine.add(rowInline);
-                rowInline = new ArrayList<>();
-            }
-        }
-
-        rowsInLine.add(rowInline);
-        markupInline.setKeyboard(rowsInLine);
-        message.setReplyMarkup(markupInline);
-        return message;
-
-    }
-    //////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////
+    //Клавиатура для оценок
     public SendMessage getKeyboard(Long chatID, LocalDate currentDate, String quest ) {
         int countButtons = 11;
         String startMessage = "Оцени от 0 до 10";
@@ -159,10 +75,25 @@ public class Keyboard {
         return message;
     }
 
-    public SendMessage getKeyboard(Long chatID, List<String> CATEGORY_LIST ) {
-        int countButtons = CATEGORY_LIST.size();
-        String startMessage = "Выбери категорию стикера: ";
-        String category = "CATEGORY_";
+    //Клавиатура с выбором категории
+    public SendMessage getCategoryKeyboard(Long chatID, List<String> CATEGORY_LIST, StatCondition.CategoryState condition) {
+        String startMessage = null;
+
+        // Определение префикса маски в зависимости от условия
+        String categoryPrefix;
+        switch (condition) {
+            case RECOMMENDED_STICKER:
+                categoryPrefix = "CATEGORY_";
+                startMessage = "Выбери категорию стикера: ";
+                break;
+            case SPECIFIC_CATEGORY:
+                categoryPrefix = "SPECIFIC_";
+                startMessage = "Выбери категорию: ";
+                break;
+            default:
+                categoryPrefix = "CATEGORY_"; // Значение по умолчанию
+                break;
+        }
 
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
@@ -172,13 +103,14 @@ public class Keyboard {
         List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
 
-        for (int i = 0; i < countButtons; i++) {
-
-            String currentCategory = CATEGORY_LIST.get(i);
+        for (String currentCategory : CATEGORY_LIST) {
             try {
-                // Маска кнопки(пример): CATEGORY_Здоровье
-                rowInline.add(createInlineKeyboardButton(currentCategory, category + currentCategory ));
-                log.info("Создана маска кнопки: " + currentCategory + " пробел " + category);
+                // Определение маски кнопки в зависимости от categoryPrefix
+                String buttonLabel = currentCategory;
+                String callbackData = categoryPrefix + currentCategory; // Убрано добавление нижнего подчёркивания
+
+                rowInline.add(createInlineKeyboardButton(buttonLabel, callbackData));
+                log.info("Создана маска кнопки: Текст кнопки: " + buttonLabel + " Значение: " + callbackData);
             } catch (Exception e) {
                 log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
             }
@@ -187,23 +119,74 @@ public class Keyboard {
                 rowsInLine.add(rowInline);
                 rowInline = new ArrayList<>();
             }
-
         }
 
-        rowsInLine.add(rowInline);
+        if (!rowInline.isEmpty()) {
+            rowsInLine.add(rowInline);
+        }
+
         markupInline.setKeyboard(rowsInLine);
         message.setReplyMarkup(markupInline);
         return message;
     }
 
-    public SendMessage getKeyboard(Long chatID ) {
 
+//    public SendMessage getCategoryKeyboard(Long chatID, List<String> CATEGORY_LIST,
+//                                           StatCondition.CategoryState condition,int year ) {
+//        int countButtons = CATEGORY_LIST.size();
+//        String startMessage = "Выбери категорию стикера: ";
+//
+//        // Определение префикса маски в зависимости от условия
+//        String categoryPrefix;
+//        switch (condition) {
+//            case RECOMMENDED_STICKER:
+//                categoryPrefix = "CATEGORY_";
+//                break;
+//            case SPECIFIC_CATEGORY:
+//                categoryPrefix = "SPECIFIC_";
+//                break;
+//            default:
+//                categoryPrefix = "CATEGORY_"; // Значение по умолчанию
+//                break;
+//        }
+//
+//
+//        SendMessage message = new SendMessage();
+//        message.setChatId(chatID);
+//        message.setText(startMessage);
+//
+//        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+//        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+//        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+//
+//        for (int i = 0; i < countButtons; i++) {
+//
+//            String currentCategory = CATEGORY_LIST.get(i);
+//            try {
+//                // Маска кнопки(пример): CATEGORY_Здоровье
+//                rowInline.add(createInlineKeyboardButton(currentCategory, category + currentCategory ));
+//                log.info("Создана маска кнопки: " + currentCategory + " пробел " + category);
+//            } catch (Exception e) {
+//                log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
+//            }
+//
+//            if (rowInline.size() == 3) {
+//                rowsInLine.add(rowInline);
+//                rowInline = new ArrayList<>();
+//            }
+//
+//        }
+//
+//        rowsInLine.add(rowInline);
+//        markupInline.setKeyboard(rowsInLine);
+//        message.setReplyMarkup(markupInline);
+//        return message;
+//    }
+
+    //Клавиатура для считывания года
+    public SendMessage getYearKeyboard(Long chatID, StatCondition.CategoryState condition) {
         String startMessage = "Выбери нужный год: ";
-        List<Integer> registrationYears = new ArrayList<>();
-        registrationYears = periodHasData.getRegistrationYears(chatID);
-        int countButtons = registrationYears.size();
-        String category = "YEAR_";
-
+        List<Integer> registrationYears = periodHasData.getRegistrationYears(chatID);
         SendMessage message = new SendMessage();
         message.setChatId(chatID);
         message.setText(startMessage);
@@ -212,15 +195,28 @@ public class Keyboard {
         List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
 
-        for (int i = 0; i <registrationYears.size() ; i++) {
+        // Определение префикса маски в зависимости от условия
+        String categoryPrefix;
+        switch (condition) {
+            case MONTH_CATEGORY:
+                categoryPrefix = "YEAR_";
+                break;
+            case SPECIFIC_CATEGORY:
+                categoryPrefix = "SPECIFIC_";
+                break;
+            default:
+                categoryPrefix = "YEAR_"; // Значение по умолчанию
+                break;
+        }
 
-            //преобразовываем год в строку
-            String str = String.valueOf(registrationYears.get(i));
+        for (Integer year : registrationYears) {
+            // Преобразовываем год в строку
+            String str = String.valueOf(year);
 
             try {
-                // Маска кнопки(пример): YEAR_2023
-                rowInline.add(createInlineKeyboardButton(str, category + str));
-                log.info("Создана маска кнопки: " + str + " пробел " + category + str);
+                // Использование categoryPrefix для маски кнопки
+                rowInline.add(createInlineKeyboardButton(str, categoryPrefix + str));
+                log.info("Создана маска кнопки: " + str + " пробел " + categoryPrefix + str);
             } catch (Exception e) {
                 log.info("ОШИИБКА СОЗДАНИЯ КЛАВИАТУРЫ " + e);
             }
@@ -230,13 +226,17 @@ public class Keyboard {
                 rowInline = new ArrayList<>();
             }
         }
-        rowsInLine.add(rowInline);
+
+        if (!rowInline.isEmpty()) {
+            rowsInLine.add(rowInline);
+        }
+
         markupInline.setKeyboard(rowsInLine);
         message.setReplyMarkup(markupInline);
         return message;
     }
-
-    public SendMessage getKeyboard(Long chatID,int year ) {
+    //Клавиатура для считывания месяца
+    public SendMessage getMonthKeyboard(Long chatID, int year ) {
 
         String startMessage = "Выбери нужный месяц: ";
         List<String> monthHasData = new ArrayList<>();
@@ -274,6 +274,4 @@ public class Keyboard {
         message.setReplyMarkup(markupInline);
         return message;
     }
-
-
 }

@@ -20,7 +20,11 @@ public class User {
     @Column(name = "time_to_questions")
     private String timeToQuestions;
 
+    @Column(name = "wheel_balance")
+    private boolean wheelBalance;
 
+    @Column(name = "psy_test_balance")
+    private boolean psyTestBalance;
 
 
     public long getChat_id() {
@@ -71,19 +75,33 @@ public class User {
         this.timeToQuestions = timeToQuestions;
     }
 
+    public boolean isWheelBalance() {
+        return wheelBalance;
+    }
 
+    public void setWheelBalance(boolean wheelBalance) {
+        this.wheelBalance = wheelBalance;
+    }
 
+    public boolean isPsyTestBalance() {
+        return psyTestBalance;
+    }
 
+    public void setPsyTestBalance(boolean psyTestBalance) {
+        this.psyTestBalance = psyTestBalance;
+    }
 
     @Override
     public String toString() {
         return "User{" +
-                "chatId=" + chat_id +
+                "chat_id=" + chat_id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", registeredAt=" + registeredAt +
-                ", timeToQuestions=" + timeToQuestions +
+                ", timeToQuestions='" + timeToQuestions + '\'' +
+                ", wheelBalance=" + wheelBalance +
+                ", psyTestBalance=" + psyTestBalance +
                 '}';
     }
 }

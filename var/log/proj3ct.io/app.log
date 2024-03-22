@@ -1,117 +1,70 @@
-2023-11-05 12:40:32,941 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 48996 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 12:40:32,943 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 12:40:33,121 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 12:40:33,144 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
-2023-11-05 12:40:33,243 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 12:40:33,245 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 12:40:33,309 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 12:40:33,324 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 12:40:33,380 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 12:40:33,651 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:40:33,759 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 12:40:33,759 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 12:40:33,912 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 12:40:33,915 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 12:40:34,117 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 12:40:35,090 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.333 seconds (JVM running for 2.733)
-2023-11-05 12:41:00,125 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:41:00,125 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:41:47,792 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 12:41:53,326 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 49045 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 12:41:53,327 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 12:41:53,508 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 12:41:53,531 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
-2023-11-05 12:41:53,614 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 12:41:53,616 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 12:41:53,654 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 12:41:53,673 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 12:41:53,727 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 12:41:53,861 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:41:53,940 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 12:41:53,940 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 12:41:54,081 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 12:41:54,084 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 12:41:54,265 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 12:41:59,667 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 6.484 seconds (JVM running for 6.784)
-2023-11-05 12:42:00,112 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:42:00,113 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:42:24,098 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Здоровье пробел CATEGORY_
-2023-11-05 12:42:24,099 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Работа пробел CATEGORY_
-2023-11-05 12:42:24,099 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Саморазвитие пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Деньги, капитал пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Друзья пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Отношения пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Развлечения пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Семья пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Внешность пробел CATEGORY_
-2023-11-05 12:42:24,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Материальный мир пробел CATEGORY_
-2023-11-05 12:42:58,478 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2023 пробел YEAR_2023
-2023-11-05 12:43:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:43:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:43:03,116 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: январь пробел MONTH_январь_YEAR_2023
-2023-11-05 12:43:03,117 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: февраль пробел MONTH_февраль_YEAR_2023
-2023-11-05 12:43:03,117 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: март пробел MONTH_март_YEAR_2023
-2023-11-05 12:43:03,117 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: апрель пробел MONTH_апрель_YEAR_2023
-2023-11-05 12:43:03,118 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: май пробел MONTH_май_YEAR_2023
-2023-11-05 12:43:03,118 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: июнь пробел MONTH_июнь_YEAR_2023
-2023-11-05 12:43:03,118 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: июль пробел MONTH_июль_YEAR_2023
-2023-11-05 12:43:03,118 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: август пробел MONTH_август_YEAR_2023
-2023-11-05 12:43:03,118 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: сентябрь пробел MONTH_сентябрь_YEAR_2023
-2023-11-05 12:43:03,118 INFO com.testSpringBoot.SpringDemoBot.keyboard.KeyboardNew [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: октябрь пробел MONTH_октябрь_YEAR_2023
-2023-11-05 12:43:13,202 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] PreparedStatementCallback; bad SQL grammar [SELECT quest, date_01_02_2023, date_02_02_2023, date_03_02_2023, date_04_02_2023, date_05_02_2023, date_06_02_2023, date_07_02_2023, date_08_02_2023, date_09_02_2023, date_10_02_2023, date_11_02_2023, date_12_02_2023, date_13_02_2023, date_14_02_2023, date_15_02_2023, date_16_02_2023, date_17_02_2023, date_18_02_2023, date_19_02_2023, date_20_02_2023, date_21_02_2023, date_22_02_2023, date_23_02_2023, date_24_02_2023, date_25_02_2023, date_26_02_2023, date_27_02_2023, date_28_02_2023 FROM data_base_quest WHERE chat_id = ?]; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_04_02_2023" does not exist
-  Позиция: 66
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT quest, date_01_02_2023, date_02_02_2023, date_03_02_2023, date_04_02_2023, date_05_02_2023, date_06_02_2023, date_07_02_2023, date_08_02_2023, date_09_02_2023, date_10_02_2023, date_11_02_2023, date_12_02_2023, date_13_02_2023, date_14_02_2023, date_15_02_2023, date_16_02_2023, date_17_02_2023, date_18_02_2023, date_19_02_2023, date_20_02_2023, date_21_02_2023, date_22_02_2023, date_23_02_2023, date_24_02_2023, date_25_02_2023, date_26_02_2023, date_27_02_2023, date_28_02_2023 FROM data_base_quest WHERE chat_id = ?]; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_04_02_2023" does not exist
-  Позиция: 66
-	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:99)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:79)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1538)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:667)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:713)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:744)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:757)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:810)
-	at com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues.getMeanQuest(CurrentStatValues.java:119)
-	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:513)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
-Caused by: org.postgresql.util.PSQLException: ERROR: column "date_04_02_2023" does not exist
-  Позиция: 66
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
-	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
-	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134)
-	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96)
-	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96)
-	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:722)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:651)
-	... 9 common frames omitted
-2023-11-05 12:44:00,016 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:44:00,017 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:44:55,106 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 12:45:01,861 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 49099 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 12:45:01,862 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 12:45:02,101 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 12:45:02,127 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
-2023-11-05 12:45:02,209 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 12:45:02,210 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 12:45:02,248 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 12:45:02,260 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 12:45:02,305 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 12:45:02,422 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:45:02,508 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 12:45:02,508 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 12:45:02,628 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 12:45:02,631 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 12:45:02,825 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 12:45:08,686 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 6.976 seconds (JVM running for 7.307)
-2023-11-05 12:45:28,268 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] PreparedStatementCallback; bad SQL grammar [SELECT quest, date_01_01_2023, date_02_01_2023, date_03_01_2023, date_04_01_2023, date_05_01_2023, date_06_01_2023, date_07_01_2023, date_08_01_2023, date_09_01_2023, date_10_01_2023, date_11_01_2023, date_12_01_2023, date_13_01_2023, date_14_01_2023, date_15_01_2023, date_16_01_2023, date_17_01_2023, date_18_01_2023, date_19_01_2023, date_20_01_2023, date_21_01_2023, date_22_01_2023, date_23_01_2023, date_24_01_2023, date_25_01_2023, date_26_01_2023, date_27_01_2023, date_28_01_2023, date_29_01_2023, date_30_01_2023, date_31_01_2023 FROM data_base_quest WHERE chat_id = ?]; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_01_01_2023" does not exist
+2024-02-26 10:02:45,028 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 64881 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2024-02-26 10:02:45,031 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-26 10:02:45,209 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-26 10:02:45,229 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+2024-02-26 10:02:45,300 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2024-02-26 10:02:45,302 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2024-02-26 10:02:45,339 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-26 10:02:45,351 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2024-02-26 10:02:45,398 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-02-26 10:02:45,546 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:02:45,640 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2024-02-26 10:02:45,641 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2024-02-26 10:02:45,787 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-02-26 10:02:45,792 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26 10:02:46,002 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2024-02-26 10:02:46,418 INFO com.testSpringBoot.SpringDemoBot.config.BotInitializer [main] Telegram Bot started successfully!
+2024-02-26 10:02:46,419 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.519 seconds (JVM running for 1.836)
+2024-02-26 10:02:58,912 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_23_02_2024 does not exist in table data_base_quest.
+2024-02-26 10:02:58,997 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-02-26 10:02:58,997 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:58,997 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2024-02-26 10:02:58,997 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
+2024-02-26 10:02:58,998 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-02-26 10:02:59,033 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:02:59,150 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:59,153 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_24_02_2024 does not exist in table data_base_quest.
+2024-02-26 10:02:59,163 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-02-26 10:02:59,163 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:59,163 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2024-02-26 10:02:59,163 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
+2024-02-26 10:02:59,163 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-02-26 10:02:59,179 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:02:59,196 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:59,208 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_25_02_2024 does not exist in table data_base_quest.
+2024-02-26 10:02:59,220 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-02-26 10:02:59,220 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:59,220 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2024-02-26 10:02:59,220 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
+2024-02-26 10:02:59,220 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-02-26 10:02:59,235 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:02:59,257 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:59,258 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_26_02_2024 does not exist in table data_base_quest.
+2024-02-26 10:02:59,298 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-02-26 10:02:59,298 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:02:59,298 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2024-02-26 10:02:59,298 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
+2024-02-26 10:02:59,298 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-02-26 10:02:59,313 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:02:59,318 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:03:00,099 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:03:00,100 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:03:00,100 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:03:17,552 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Здоровье пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Работа пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Саморазвитие пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Деньги, капитал пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Друзья пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Отношения пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Развлечения пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Семья пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Внешность пробел CATEGORY_
+2024-02-26 10:03:17,553 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Материальный мир пробел CATEGORY_
+2024-02-26 10:03:30,133 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2024 пробел YEAR_2024
+2024-02-26 10:03:34,570 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: январь пробел MONTH_январь_YEAR_2024
+2024-02-26 10:03:36,858 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [vazhnov_test_1_bot Telegram Executor] PreparedStatementCallback; bad SQL grammar [SELECT quest, date_01_01_2024, date_02_01_2024, date_03_01_2024, date_04_01_2024, date_05_01_2024, date_06_01_2024, date_07_01_2024, date_08_01_2024, date_09_01_2024, date_10_01_2024, date_11_01_2024, date_12_01_2024, date_13_01_2024, date_14_01_2024, date_15_01_2024, date_16_01_2024, date_17_01_2024, date_18_01_2024, date_19_01_2024, date_20_01_2024, date_21_01_2024, date_22_01_2024, date_23_01_2024, date_24_01_2024, date_25_01_2024, date_26_01_2024, date_27_01_2024, date_28_01_2024, date_29_01_2024, date_30_01_2024, date_31_01_2024 FROM data_base_quest WHERE chat_id = ?]; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_01_01_2024" does not exist
   Позиция: 15
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT quest, date_01_01_2023, date_02_01_2023, date_03_01_2023, date_04_01_2023, date_05_01_2023, date_06_01_2023, date_07_01_2023, date_08_01_2023, date_09_01_2023, date_10_01_2023, date_11_01_2023, date_12_01_2023, date_13_01_2023, date_14_01_2023, date_15_01_2023, date_16_01_2023, date_17_01_2023, date_18_01_2023, date_19_01_2023, date_20_01_2023, date_21_01_2023, date_22_01_2023, date_23_01_2023, date_24_01_2023, date_25_01_2023, date_26_01_2023, date_27_01_2023, date_28_01_2023, date_29_01_2023, date_30_01_2023, date_31_01_2023 FROM data_base_quest WHERE chat_id = ?]; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_01_01_2023" does not exist
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT quest, date_01_01_2024, date_02_01_2024, date_03_01_2024, date_04_01_2024, date_05_01_2024, date_06_01_2024, date_07_01_2024, date_08_01_2024, date_09_01_2024, date_10_01_2024, date_11_01_2024, date_12_01_2024, date_13_01_2024, date_14_01_2024, date_15_01_2024, date_16_01_2024, date_17_01_2024, date_18_01_2024, date_19_01_2024, date_20_01_2024, date_21_01_2024, date_22_01_2024, date_23_01_2024, date_24_01_2024, date_25_01_2024, date_26_01_2024, date_27_01_2024, date_28_01_2024, date_29_01_2024, date_30_01_2024, date_31_01_2024 FROM data_base_quest WHERE chat_id = ?]; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_01_01_2024" does not exist
   Позиция: 15
 	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:99)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70)
@@ -123,11 +76,11 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:757)
 	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:810)
 	at com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues.getMeanQuest(CurrentStatValues.java:119)
-	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:511)
+	at com.testSpringBoot.SpringDemoBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:532)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
-Caused by: org.postgresql.util.PSQLException: ERROR: column "date_01_01_2023" does not exist
+Caused by: org.postgresql.util.PSQLException: ERROR: column "date_01_01_2024" does not exist
   Позиция: 15
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
@@ -141,504 +94,102 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "date_01_01_2023" do
 	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:722)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:651)
 	... 9 common frames omitted
-2023-11-05 12:45:38,263 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Здоровье пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Работа пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Саморазвитие пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Деньги, капитал пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Друзья пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Отношения пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Развлечения пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Семья пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Внешность пробел CATEGORY_
-2023-11-05 12:45:38,264 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: Материальный мир пробел CATEGORY_
-2023-11-05 12:46:00,129 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:46:00,130 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:46:41,361 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_03_11_2023 does not exist in table data_base_quest.
-2023-11-05 12:46:41,472 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 12:46:41,473 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:46:41,473 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 12:46:41,473 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
-2023-11-05 12:46:41,474 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 12:46:41,497 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:46:41,525 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:46:41,527 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_04_11_2023 does not exist in table data_base_quest.
-2023-11-05 12:46:41,535 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 12:46:41,535 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:46:41,535 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 12:46:41,535 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
-2023-11-05 12:46:41,535 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 12:46:41,551 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:46:41,556 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:46:41,557 WARN com.testSpringBoot.SpringDemoBot.statistic.CurrentStatValues [vazhnov_test_1_bot Telegram Executor] Column date_05_11_2023 does not exist in table data_base_quest.
-2023-11-05 12:46:41,565 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 12:46:41,565 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:46:41,565 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 12:46:41,565 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
-2023-11-05 12:46:41,565 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 12:46:41,581 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:46:41,586 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:47:00,044 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:47:00,045 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:48:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:48:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:49:00,041 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:49:00,042 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:50:00,050 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:50:00,051 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:50:00,075 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 12:50:00,076 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:50:00,076 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 12:50:00,076 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-11-05 12:50:00,076 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 12:50:00,097 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 12:50:00,121 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-11-05 12:50:00,121 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_05_11_2023" of relation "data_base_quest" already exists
-2023-11-05 12:50:00,128 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-11-05 12:50:00,130 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 12:51:00,063 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:51:00,064 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:52:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:52:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:53:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:53:00,024 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:54:00,045 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:54:00,047 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:55:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:55:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:56:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:56:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:57:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:57:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:58:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:58:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:59:00,049 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 12:59:00,050 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:00:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:00:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:00:00,067 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 13:00:00,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:00:00,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 13:00:00,067 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-11-05 13:00:00,067 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 13:00:00,110 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:00:00,127 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-11-05 13:00:00,127 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_05_11_2023" of relation "data_base_quest" already exists
-2023-11-05 13:00:00,127 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-11-05 13:00:00,127 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:01:00,055 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:01:00,056 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:02:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:02:00,029 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:03:00,014 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:03:00,015 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:04:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:04:00,033 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:05:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:05:00,036 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:06:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:06:00,032 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:07:00,026 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:07:00,028 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:08:00,025 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:08:00,027 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:09:00,051 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:09:00,052 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:10:00,052 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:10:00,054 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:10:00,097 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 13:10:00,097 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:10:00,098 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 13:10:00,098 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-11-05 13:10:00,098 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 13:10:00,131 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:10:00,148 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-11-05 13:10:00,148 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_05_11_2023" of relation "data_base_quest" already exists
-2023-11-05 13:10:00,148 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-11-05 13:10:00,149 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:10:12,701 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:10:19,626 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 49939 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:10:19,627 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:10:19,821 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:10:19,848 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:10:19,924 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:10:19,925 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:10:19,963 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:10:19,976 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:10:20,020 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:10:20,139 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:10:20,222 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:10:20,222 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:10:20,371 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:10:20,374 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:10:20,579 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:10:21,473 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.992 seconds (JVM running for 2.298)
-2023-11-05 13:10:34,273 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:10:34,281 ERROR com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Ошибка при выполнении SQL-запроса: StatementCallback; bad SQL grammar [SELECT COUNT(*) FROM all_user_data WHERE time_to_question IS NOT NULL]; nested exception is org.postgresql.util.PSQLException: ERROR: column "time_to_question" does not exist
-  Подсказка: Perhaps you meant to reference the column "all_user_data.time_to_questions".
-  Позиция: 42
-2023-11-05 13:11:00,122 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:11:00,123 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:12:00,054 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:12:00,055 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:12:38,509 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:12:44,163 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50125 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:12:44,163 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:12:44,318 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:12:44,336 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:12:44,413 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:12:44,415 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:12:44,452 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:12:44,465 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:12:44,508 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:12:44,628 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:12:44,716 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:12:44,716 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:12:44,840 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:12:44,843 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:12:45,029 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:12:45,928 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.893 seconds (JVM running for 2.359)
-2023-11-05 13:12:53,083 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 13:12:53,084 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:12:53,084 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 13:12:53,084 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
-2023-11-05 13:12:53,085 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 13:12:53,102 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:12:53,158 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:12:54,854 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
-2023-11-05 13:12:54,909 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
-2023-11-05 13:12:54,911 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 10
-2023-11-05 13:12:55,413 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 0 пробел BUTTON_0_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 1 пробел BUTTON_1_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2 пробел BUTTON_2_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 3 пробел BUTTON_3_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 4 пробел BUTTON_4_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 5 пробел BUTTON_5_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 6 пробел BUTTON_6_Внешность_2023-11-05
-2023-11-05 13:12:55,414 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 7 пробел BUTTON_7_Внешность_2023-11-05
-2023-11-05 13:12:55,415 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 8 пробел BUTTON_8_Внешность_2023-11-05
-2023-11-05 13:12:55,415 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 9 пробел BUTTON_9_Внешность_2023-11-05
-2023-11-05 13:12:55,415 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 10 пробел BUTTON_10_Внешность_2023-11-05
-2023-11-05 13:12:56,857 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Внешность7
-2023-11-05 13:12:56,864 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
-2023-11-05 13:12:56,881 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
-2023-11-05 13:12:56,883 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 0 пробел BUTTON_0_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 1 пробел BUTTON_1_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2 пробел BUTTON_2_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 3 пробел BUTTON_3_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 4 пробел BUTTON_4_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 5 пробел BUTTON_5_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 6 пробел BUTTON_6_Развлечения_2023-11-05
-2023-11-05 13:12:57,532 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 7 пробел BUTTON_7_Развлечения_2023-11-05
-2023-11-05 13:12:57,533 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 8 пробел BUTTON_8_Развлечения_2023-11-05
-2023-11-05 13:12:57,533 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 9 пробел BUTTON_9_Развлечения_2023-11-05
-2023-11-05 13:12:57,533 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 10 пробел BUTTON_10_Развлечения_2023-11-05
-2023-11-05 13:12:58,963 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Развлечения9
-2023-11-05 13:12:58,965 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
-2023-11-05 13:12:58,974 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
-2023-11-05 13:12:58,975 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
-2023-11-05 13:12:59,558 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 0 пробел BUTTON_0_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,558 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 1 пробел BUTTON_1_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2 пробел BUTTON_2_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 3 пробел BUTTON_3_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 4 пробел BUTTON_4_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 5 пробел BUTTON_5_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 6 пробел BUTTON_6_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 7 пробел BUTTON_7_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 8 пробел BUTTON_8_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 9 пробел BUTTON_9_Саморазвитие_2023-11-05
-2023-11-05 13:12:59,559 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 10 пробел BUTTON_10_Саморазвитие_2023-11-05
-2023-11-05 13:13:00,070 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:13:00,071 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:13:01,372 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Саморазвитие8
-2023-11-05 13:13:01,374 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
-2023-11-05 13:13:01,383 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
-2023-11-05 13:13:01,384 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
-2023-11-05 13:13:05,693 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Проверка на воскресенье
-2023-11-05 13:13:07,576 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:14:00,050 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:14:00,051 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:15:00,030 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:15:00,031 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:15:48,593 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:15:54,217 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50206 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:15:54,218 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:15:54,385 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:15:54,403 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:15:54,480 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:15:54,482 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:15:54,525 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:15:54,538 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:15:54,583 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:15:54,710 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:15:54,792 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:15:54,792 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:15:54,922 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:15:54,925 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:15:55,108 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:15:55,837 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.753 seconds (JVM running for 2.304)
-2023-11-05 13:16:00,089 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:16:00,089 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:16:03,593 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:16:22,451 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:16:27,850 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50236 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:16:27,851 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:16:28,076 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:16:28,099 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:16:28,174 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:16:28,176 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:16:28,217 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:16:28,237 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:16:28,285 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:16:28,443 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:16:28,549 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:16:28,549 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:16:28,694 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:16:28,701 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:16:28,922 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:16:29,708 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.027 seconds (JVM running for 2.364)
-2023-11-05 13:16:33,289 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:16:57,530 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:17:03,136 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50247 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:17:03,137 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:17:03,309 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:17:03,328 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:17:03,407 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:17:03,409 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:17:03,446 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:17:03,459 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:17:03,508 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:17:03,618 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:17:03,695 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:17:03,695 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:17:03,817 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:17:03,820 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:17:03,998 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:17:04,742 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.797 seconds (JVM running for 2.245)
-2023-11-05 13:17:07,299 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:17:47,805 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:18:00,117 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:18:00,117 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:19:00,073 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:19:00,074 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:19:23,372 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:19:30,241 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50295 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:19:30,245 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:19:30,806 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:19:30,871 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 53 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:19:31,120 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:19:31,127 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:19:31,222 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:19:31,238 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:19:31,329 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:19:31,495 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:19:31,591 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:19:31,591 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:19:31,737 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:19:31,740 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:19:31,986 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:19:32,820 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.043 seconds (JVM running for 3.616)
-2023-11-05 13:19:36,336 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:19:36,355 ERROR com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Ошибка при выполнении SQL-запроса: StatementCallback; bad SQL grammar [SELECT COUNT(*) FROM data_base_quest WHERE 05_11_2023]; nested exception is org.postgresql.util.PSQLException: ERROR: trailing junk after numeric literal at or near "05_"
-  Позиция: 44
-2023-11-05 13:20:00,147 WARN org.hibernate.orm.connections.pooling [scheduling-1] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2023-11-05 13:20:00,147 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:20:00,147 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
-2023-11-05 13:20:00,147 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001003: Autocommit mode: false
-2023-11-05 13:20:00,148 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [scheduling-1] HHH000115: Hibernate connection pool size: 20 (min=1)
-2023-11-05 13:20:00,166 INFO org.hibernate.dialect.Dialect [scheduling-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:20:00,261 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] SQL Error: 0, SQLState: 42701
-2023-11-05 13:20:00,261 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [scheduling-1] ERROR: column "date_05_11_2023" of relation "data_base_quest" already exists
-2023-11-05 13:20:00,264 INFO com.testSpringBoot.SpringDemoBot.model.CreateDateColumn [scheduling-1] Проверка прошла успешно, столбец уже создан
-2023-11-05 13:20:00,266 INFO org.hibernate.orm.connections.pooling [scheduling-1] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
-2023-11-05 13:20:00,321 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:20:00,321 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:20:38,136 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:20:43,872 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50323 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:20:43,874 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:20:44,038 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:20:44,056 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:20:44,139 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:20:44,141 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:20:44,178 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:20:44,199 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:20:44,252 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:20:44,363 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:20:44,461 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:20:44,461 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:20:44,579 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:20:44,582 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:20:44,761 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:20:45,651 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.022 seconds (JVM running for 2.525)
-2023-11-05 13:20:46,351 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:20:46,370 ERROR com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Ошибка при выполнении SQL-запроса: StatementCallback; bad SQL grammar [SELECT COUNT(*) FROM data_base_quest WHERE date_column = '05_11_2023']; nested exception is org.postgresql.util.PSQLException: ERROR: column "date_column" does not exist
-  Позиция: 44
-2023-11-05 13:21:00,111 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:21:00,111 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:22:00,060 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:22:00,063 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:22:35,945 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:22:41,672 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50436 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:22:41,672 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:22:41,891 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:22:41,912 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:22:41,984 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:22:41,986 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:22:42,023 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:22:42,036 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:22:42,077 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:22:42,202 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:22:42,289 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:22:42,289 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:22:42,455 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:22:42,458 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:22:42,644 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:22:43,679 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.142 seconds (JVM running for 2.421)
-2023-11-05 13:22:45,303 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:22:45,313 ERROR com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Ошибка при выполнении SQL-запроса: StatementCallback; bad SQL grammar [SELECT COUNT(*) FROM data_base_quest WHERE 05_11_2023 = 0]; nested exception is org.postgresql.util.PSQLException: ERROR: trailing junk after numeric literal at or near "05_"
-  Позиция: 44
-2023-11-05 13:23:00,158 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:23:00,158 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:23:01,460 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:23:06,576 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50458 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:23:06,577 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:23:06,789 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:23:06,810 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:23:06,879 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:23:06,881 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:23:06,917 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:23:06,930 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:23:06,972 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:23:07,087 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:23:07,177 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:23:07,177 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:23:07,285 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:23:07,288 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:23:07,465 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:23:08,258 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.81 seconds (JVM running for 2.068)
-2023-11-05 13:23:12,420 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:23:12,426 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] count = 0
-2023-11-05 13:23:20,833 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:23:26,052 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 50490 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 13:23:26,053 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 13:23:26,409 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 13:23:26,429 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
-2023-11-05 13:23:26,530 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 13:23:26,532 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 13:23:26,569 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 13:23:26,581 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 13:23:26,626 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 13:23:26,733 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 13:23:26,813 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:23:26,813 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 13:23:27,007 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 13:23:27,010 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 13:23:27,337 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 13:23:28,079 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.15 seconds (JVM running for 2.417)
-2023-11-05 13:23:29,688 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 13:23:29,714 ERROR com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Ошибка при выполнении SQL-запроса: StatementCallback; bad SQL grammar [SELECT COUNT(*) FROM data_base_quest WHERE date_05_11_2023]; nested exception is org.postgresql.util.PSQLException: ERROR: argument of WHERE must be type boolean, not type integer
-  Позиция: 44
-2023-11-05 13:24:00,134 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:24:00,135 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 13:24:08,162 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:32:14,663 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 52522 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 18:32:14,664 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 18:32:14,879 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 18:32:14,903 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
-2023-11-05 18:32:15,002 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 18:32:15,004 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 18:32:15,043 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 18:32:15,056 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 18:32:15,105 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 18:32:15,251 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 18:32:15,345 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:32:15,345 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:32:15,497 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 18:32:15,501 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:32:15,740 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 18:32:18,503 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.994 seconds (JVM running for 4.351)
-2023-11-05 18:33:00,154 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:33:00,156 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:33:02,370 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:33:07,900 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 52548 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 18:33:07,900 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 18:33:08,041 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 18:33:08,059 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
-2023-11-05 18:33:08,141 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 18:33:08,143 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 18:33:08,182 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 18:33:08,195 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 18:33:08,238 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 18:33:08,350 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 18:33:08,440 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:33:08,441 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:33:08,547 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 18:33:08,550 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:33:08,725 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 18:33:10,913 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.129 seconds (JVM running for 3.626)
-2023-11-05 18:33:15,443 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 18:33:15,451 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] count = 3
-2023-11-05 18:34:00,099 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:34:00,099 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:34:54,791 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:35:02,173 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 52671 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 18:35:02,174 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 18:35:02,414 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 18:35:02,433 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
-2023-11-05 18:35:02,505 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 18:35:02,507 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 18:35:02,548 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 18:35:02,563 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 18:35:02,610 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 18:35:02,740 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 18:35:02,837 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:35:02,837 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:35:02,964 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 18:35:02,967 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:35:03,160 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 18:35:05,950 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 3.954 seconds (JVM running for 4.306)
-2023-11-05 18:35:08,108 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 18:35:08,113 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] count = 3
-2023-11-05 18:36:00,108 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:36:00,109 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:36:15,007 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:36:22,069 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 52714 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 18:36:22,075 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 18:36:22,332 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 18:36:22,355 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
-2023-11-05 18:36:22,428 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 18:36:22,430 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 18:36:22,467 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 18:36:22,482 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 18:36:22,526 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 18:36:22,655 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 18:36:22,739 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:36:22,739 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:36:22,867 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 18:36:22,870 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:36:23,053 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 18:36:25,955 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 4.082 seconds (JVM running for 4.449)
-2023-11-05 18:36:28,047 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 18:36:28,051 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] count = 3
-2023-11-05 18:36:42,565 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:36:49,185 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 52734 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
-2023-11-05 18:36:49,186 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-11-05 18:36:49,457 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 18:36:49,476 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
-2023-11-05 18:36:49,553 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
-2023-11-05 18:36:49,555 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
-2023-11-05 18:36:49,593 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 18:36:49,605 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-11-05 18:36:49,651 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 18:36:49,768 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-11-05 18:36:49,864 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:36:49,864 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
-2023-11-05 18:36:49,991 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 18:36:49,994 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 18:36:50,187 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
-2023-11-05 18:36:51,824 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 2.919 seconds (JVM running for 3.329)
-2023-11-05 18:36:55,460 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] Количество пользователей, зарегистрированных сегодня и с непустым time_to_questions: 0
-2023-11-05 18:36:55,464 INFO com.testSpringBoot.SpringDemoBot.statistic.Administrator.CountUser [vazhnov_test_1_bot Telegram Executor] count = 3
-2023-11-05 18:37:00,112 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:37:00,113 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
-2023-11-05 18:37:05,551 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26 10:04:00,018 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:04:00,020 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:04:00,021 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:04:31,419 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Replied to userПаша
+2024-02-26 10:04:41,549 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь ввел время для вопросов
+2024-02-26 10:04:43,433 ERROR com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] * 10 10 * * *
+2024-02-26 10:04:43,503 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Добавили время в базу данныхUser{chat_id=350511326, firstName='Паша', lastName='Важнов', userName='@pavel_fortex', registeredAt=2024-02-06 22:54:04.129, timeToQuestions='* 10 10 * * *', wheelBalance=true, psyTestBalance=false}
+2024-02-26 10:04:43,595 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Пользователь обновил время вопросов 350511326
+2024-02-26 10:04:43,595 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] НАЧАЛАСЬ ПРОВЕРКА НА СЕГОДНЯШНИЙ ДЕНЬ
+2024-02-26 10:04:43,622 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-02-26 10:04:43,622 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:04:43,623 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2024-02-26 10:04:43,623 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
+2024-02-26 10:04:43,623 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-02-26 10:04:43,679 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:04:43,718 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:05:00,019 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:05:00,022 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:05:00,023 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:06:00,057 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:06:00,059 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:06:00,059 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:06:00,929 WARN org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-02-26 10:06:00,930 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:06:00,930 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001001: Connection properties: {password=****, user=NikToRozeo}
+2024-02-26 10:06:00,930 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001003: Autocommit mode: false
+2024-02-26 10:06:00,930 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [vazhnov_test_1_bot Telegram Executor] HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-02-26 10:06:00,961 INFO org.hibernate.dialect.Dialect [vazhnov_test_1_bot Telegram Executor] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:06:00,981 INFO org.hibernate.orm.connections.pooling [vazhnov_test_1_bot Telegram Executor] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/BalanceWheel]
+2024-02-26 10:06:02,825 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2024-02-26 10:06:02,888 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2024-02-26 10:06:02,890 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 10
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 0 пробел BUTTON_0_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 1 пробел BUTTON_1_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2 пробел BUTTON_2_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 3 пробел BUTTON_3_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 4 пробел BUTTON_4_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 5 пробел BUTTON_5_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 6 пробел BUTTON_6_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,102 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 7 пробел BUTTON_7_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,103 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 8 пробел BUTTON_8_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,103 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 9 пробел BUTTON_9_Деньги, капитал_2024-02-26
+2024-02-26 10:06:03,103 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 10 пробел BUTTON_10_Деньги, капитал_2024-02-26
+2024-02-26 10:06:04,475 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Деньги, капитал2
+2024-02-26 10:06:04,479 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2024-02-26 10:06:04,511 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2024-02-26 10:06:04,512 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 9
+2024-02-26 10:06:04,724 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 0 пробел BUTTON_0_Развлечения_2024-02-26
+2024-02-26 10:06:04,724 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 1 пробел BUTTON_1_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2 пробел BUTTON_2_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 3 пробел BUTTON_3_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 4 пробел BUTTON_4_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 5 пробел BUTTON_5_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 6 пробел BUTTON_6_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 7 пробел BUTTON_7_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 8 пробел BUTTON_8_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 9 пробел BUTTON_9_Развлечения_2024-02-26
+2024-02-26 10:06:04,725 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 10 пробел BUTTON_10_Развлечения_2024-02-26
+2024-02-26 10:06:05,747 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Развлечения7
+2024-02-26 10:06:05,749 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2024-02-26 10:06:05,760 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2024-02-26 10:06:05,761 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 8
+2024-02-26 10:06:05,970 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 0 пробел BUTTON_0_Здоровье_2024-02-26
+2024-02-26 10:06:05,970 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 1 пробел BUTTON_1_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 2 пробел BUTTON_2_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 3 пробел BUTTON_3_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 4 пробел BUTTON_4_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 5 пробел BUTTON_5_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 6 пробел BUTTON_6_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 7 пробел BUTTON_7_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 8 пробел BUTTON_8_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 9 пробел BUTTON_9_Здоровье_2024-02-26
+2024-02-26 10:06:05,971 INFO com.testSpringBoot.SpringDemoBot.keyboard.Keyboard [vazhnov_test_1_bot Telegram Executor] Создана маска кнопки: 10 пробел BUTTON_10_Здоровье_2024-02-26
+2024-02-26 10:06:09,391 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] Сохраняем значение 350511326Здоровье9
+2024-02-26 10:06:09,393 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get quest
+2024-02-26 10:06:09,404 INFO com.testSpringBoot.SpringDemoBot.model.CreateQueryToCheck3Days [vazhnov_test_1_bot Telegram Executor] Executing query to get empty cells count
+2024-02-26 10:06:09,405 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [vazhnov_test_1_bot Telegram Executor] questToday = 7
+2024-02-26 10:06:42,260 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26 10:12:19,991 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Starting SpringDemoBotApplication using Java 17.0.5 on MacBook-Pro-Pavel.local with PID 65354 (/Users/fortex/Documents/GitHub/WheelBalanceGitHub/target/classes started by fortex in /Users/fortex/Documents/GitHub/WheelBalanceGitHub)
+2024-02-26 10:12:19,993 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-26 10:12:20,222 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-26 10:12:20,243 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2024-02-26 10:12:20,322 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean
+2024-02-26 10:12:20,324 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating DataSource bean Success!
+2024-02-26 10:12:20,361 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-26 10:12:20,374 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.14.Final
+2024-02-26 10:12:20,425 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-02-26 10:12:20,569 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-26 10:12:20,662 WARN org.hibernate.mapping.RootClass [main] HHH000038: Composite-id class does not override equals(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2024-02-26 10:12:20,662 WARN org.hibernate.mapping.RootClass [main] HHH000039: Composite-id class does not override hashCode(): com.testSpringBoot.SpringDemoBot.model.DataBaseQuestId
+2024-02-26 10:12:20,788 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-02-26 10:12:20,791 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26 10:12:20,980 INFO com.testSpringBoot.SpringDemoBot.config.JdbcConfig [main] Creating JdbcTemplate bean
+2024-02-26 10:12:21,351 INFO com.testSpringBoot.SpringDemoBot.config.BotInitializer [main] Telegram Bot started successfully!
+2024-02-26 10:12:21,353 INFO com.testSpringBoot.SpringDemoBot.SpringDemoBotApplication [main] Started SpringDemoBotApplication in 1.731 seconds (JVM running for 2.191)
+2024-02-26 10:13:00,108 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:13:00,109 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:13:00,109 INFO com.testSpringBoot.SpringDemoBot.service.TelegramBot [scheduling-1] Error: java.lang.IllegalArgumentException: Cron expression must consist of 6 fields (found 0 in "null")
+2024-02-26 10:13:21,000 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'

@@ -20,6 +20,7 @@ import org.springframework.scheduling.support.CronSequenceGenerator;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
+import org.telegram.telegrambots.meta.api.methods.polls.SendPoll;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
@@ -112,13 +113,13 @@ public class TelegramBot extends TelegramLongPollingBot {
         tempList.add("Развлечения");
         tempList.add("Семья");
         tempList.add("Внешность");
-        tempList.add("Материальный мир");
+        tempList.add("Бытовой комфорт");
 
         CATEGORY_LIST = Collections.unmodifiableList(tempList);
     }
     static final String START_MESSAGE = ", привет! \uD83E\uDEF6 \nЯ помогу тебе отслеживать твое состояние во всех основных сферах " +
-            "жизни.\n\n Я буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
-            "а тебе нужно будет ответить по десятибалльной шкале \u0031\u20E3 - \uD83D\uDD1F, насколько ты удовлетворен на данный момент.\n\n " +
+            "жизни.\n\nЯ буду ежедневно задавать тебе простые вопросы о сферах твоей жизни, " +
+            "а тебе нужно будет ответить по десятибалльной шкале, насколько ты удовлетворен на данный момент.\n\n " +
             "А в конце недели/месяца/года мы с тобой будем подводить итоги, как идут у нас успехи \uD83D\uDE42 \n\n";
     static final String YES_BUTTON = "YES_BUTTON";
     static final String NO_BUTTON = "NO_BUTTON";
@@ -169,9 +170,10 @@ public class TelegramBot extends TelegramLongPollingBot {
     final private String SEND_TEXT_TO_REPORT = "Все замечания, предложения и найденные ошибки можно присылать" +
             " мне, @pavel_fortex " +
             "\n\nВыслушаю всех обязательно \uD83D\uDE0C";
-    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в заданное время \uD83D\uDE09\n \n\n" +
+    final private String THX_FOR_ASKING = "Спасибо за ответы! Завтра спишемся в заданное время \uD83D\uDE09\n \n" +
             "Узнать статистику за последние 7 дней /week\n\n"+
             "Узнать статистику за последние 30 дней /month\n\n"+
+            "(NEW) Узнать статистику по определённой категории за всё время /specificCategory\n\n"+
             "Список всех статистик /statistic\n\n";
     final private String THX_FOR_FEEDBACK = "Спасибо! Я зафиксировал информацию, и скоро она дойдет до админа. \n" +
             " Вернуться в главное меню\n /help";
@@ -197,10 +199,13 @@ public class TelegramBot extends TelegramLongPollingBot {
                     "/month - показать статистику за 30 дней \n\n" +
                     "/compareMonth - сравнить текущие 30 дней с 30-ю предыдущими днями \n\n" +
                             "/monthCategory - данные за определённый месяц\n\n" +
+                            "/specificCategory - данные по определенной категории за всё время\n\n" +
                             "/all - данные за всё время \n\n"+
                             "/help - главное меню \n\n";
 
     private Long ownerId;
+
+
 
 
     public TelegramBot(BotConfig config) {
@@ -221,6 +226,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         listofCommands.add(new BotCommand("/month", "показать статистику за месяц"));
         listofCommands.add(new BotCommand("/compareMonth", "сравнить с предыдущим месяцем"));
         listofCommands.add(new BotCommand("/all", "данные за все время"));
+        listofCommands.add(new BotCommand("/specificCategory", "данные по определенной категории за всё время"));
         listofCommands.add(new BotCommand("/monthCategory", "категории по месяцам"));
         listofCommands.add(new BotCommand("/report", "отправить сообщение об ошибке"));
         listofCommands.add(new BotCommand("/delete", "удалить все данные о пользователе"));
@@ -230,8 +236,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             log.error("Error setting bots command list" + e.getMessage());
         }
-
     }
+
 
 
 
@@ -251,6 +257,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+
         this.ownerId = config.getOwnerId();
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
@@ -269,6 +276,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 }
             }
 
+
             /**
              * Узнать, сколько за сегодня присоединилось пользователей
              */
@@ -279,7 +287,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                         .append("Из них ").append(countUser.countUserToday()).append(" живых пользователей\n\n")
                         .append("Всего пользователей: ").append(countUser.countAllUser()).append("\n")
                         .append("Активных пользователей: ").append(countUser.countAllActiveUser()).append("\n")
-                        .append("Ответов за сегодня: ").append(countUser.countActiveUserToday());
+                        .append("Ответов за сегодня: ").append(countUser.countActiveUserToday()).append("\n")
+                        .append("Ответов вчера: ").append(countUser.countActiveUserYesterday()).append("\n");
+
+
 
                 sendMessage(chatID, messageBuilder.toString());
             }
@@ -316,7 +327,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         break;
                     case "/sticker":
                         prepareAndSendMessage(chatID, STICKER_MESSAGE);
-                        executedMessage(keyboard.getKeyboard(chatID,CATEGORY_LIST));
+                        executedMessage(keyboard.getCategoryKeyboard(chatID,CATEGORY_LIST,StatCondition.CategoryState.RECOMMENDED_STICKER));
 
                         break;
                     case "/now":
@@ -357,15 +368,21 @@ public class TelegramBot extends TelegramLongPollingBot {
                         sendMessage(chatID, compareCurrentAndPreviousPeriod.compareWeekAndLastWeek(chatID,30,
                                 MONTH_COMPARE_TEXT));
                         break;
+                    case "/monthCategory":
+                        executedMessage(keyboard.getYearKeyboard(chatID, StatCondition.CategoryState.MONTH_CATEGORY));
+                        break;
+                    case "/specificCategory":
+                        executedMessage(keyboard.getCategoryKeyboard(chatID,CATEGORY_LIST,
+                                StatCondition.CategoryState.SPECIFIC_CATEGORY));
+
+                        break;
                     case "/all":
                         int dayRegistered = (int) daysRegistered.daysUserRegistered(chatID);
                         sendPieChart(chatID, currentStatValues.getMeanQuest(chatID,dayRegistered),
                                 newChart.generateTitleString(dayRegistered));
                         sendMessage(chatID, getStatCurrentPeriod.getStatFromCurrentDays(chatID,dayRegistered));
                         break;
-                    case "/monthCategory":
-                        executedMessage(keyboard.getKeyboard(chatID));
-                        break;
+
                     case "/report":
                         sendMessage(chatID, SEND_TEXT_TO_REPORT);
                         break;
@@ -506,7 +523,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             else if (callBackData.startsWith("YEAR_")) {
                 String[] data = callBackData.split("_");
                 int year = Integer.parseInt(data[1]);
-                executedMessage(keyboard.getKeyboard(chatId,year));
+                executedMessage(keyboard.getMonthKeyboard(chatId,year));
             }
             else if (callBackData.startsWith("MONTH_")) {
                 String[] data = callBackData.split("_");
@@ -515,9 +532,20 @@ public class TelegramBot extends TelegramLongPollingBot {
                 sendMessage(chatId, "Выводим значения за "  + month + " " +year + " года");
                 sendPieChart(chatId, currentStatValues.getMeanQuest(chatId,year,month),
                         newChart.generateTitleString(month,year));
-               // sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId,30));
+            }
+            else if (callBackData.startsWith("SPECIFIC_")) {
+                String[] data = callBackData.split("_");
+                String category = data[1];
+                sendMessage(chatId, "Статистика за всё время по категории: "  + category);
+                int dayRegistered = (int) daysRegistered.daysUserRegistered(chatId);
+                //sendLineChart(chatId,  ,category);
+                log.info("Начался процесс сбора данных. Дней с момента регистрации: " +dayRegistered);
+                String summaryStatValue = getStatCurrentPeriod.getMonthStatFromCurrentCategory(chatId,dayRegistered,category);
+                //sendMessage(chatId,summaryStatValue); //выводит текстом значения
+                sendLineChart(chatId,summaryStatValue, category );
 
             }
+
         }
 
 
@@ -546,6 +574,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             user.setLastName(update.getMessage().getChat().getLastName());
             user.setUserName("@" + update.getMessage().getChat().getUserName());
             user.setRegisteredAt(new Timestamp(System.currentTimeMillis()));
+            user.setWheelBalance(true);
             userRepository.save(user);
             log.info("Saved user: " + user);
         }
@@ -602,7 +631,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         String labels = newChart.createLabel(chartToSend);
         String data = newChart.createData(chartToSend);
 
-        // создаем график с помощью библиотеки QuickChart, вставляя в нее уже посчитанные значения data
+        // Создаем график с помощью библиотеки QuickChart, вставляя в нее уже посчитанные значения data
         // и готовые значения labels
         try {
 
@@ -614,7 +643,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             chart.setConfig(config);
 
             // собираем график в картинку
-            byte[] imageBytes = chart.toByteArray();
+            chart.toByteArray();
 
             // отправляем картинку пользователю
             SendPhoto sendPhotoRequest = new SendPhoto();
@@ -629,7 +658,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     /**
-     * Создаем график типа "Радар", с помощью которого сравнимаем разные временные периоды
+     * Создаем график типа "Радар", с помощью которого сравниваем разные временные периоды
      */
 
     public void sendRadarChart(long chatID, Map<String, Double> mapFirst, Map<String, Double> mapSecond,
@@ -678,70 +707,9 @@ public class TelegramBot extends TelegramLongPollingBot {
             chart.setWidth(1000);
             chart.setHeight(700);
             chart.setBackgroundColor("white");
-            chart.setConfig("{"
-                    + "type: 'radar',"
-                    + "data: {"
-                    + "labels: [" + labels + "],"
-                    + "datasets: [{"
-                    + "label: '"+firstCompareName+"',"
-                    + "data: [" + data1 + "],"
-                    + "backgroundColor: 'rgba(255, 99, 132, 0.2)',"
-                    + "borderColor: 'rgba(255, 99, 132, 1)',"
-                    + "borderWidth: 2,"
-                    + "pointBackgroundColor: 'rgba(255, 99, 132, 1)'"
-                    + "}, {"
-                    + "label: '"+secondCompareName+"',"
-                    + "data: [" + data2 + "],"
-                    + "backgroundColor: 'rgba(54, 162, 235, 0.2)',"
-                    + "borderColor: 'rgba(54, 162, 235, 1)',"
-                    + "borderWidth: 2,"
-                    + "pointBackgroundColor: 'rgba(54, 162, 235, 1)'"
-                    + "}]"
-                    + "},"
-                    + "options: {"
-                    + "title: {"
-                    + "display: true,"
-                    + "text: '" + titleString + "',"
-                    + "fontColor: '#141449',"
-                    + "fontSize: 25,"
-                    + "fontFamily: 'Georgia',"
-                    + "fontStyle: 'normal',"
-                    + "padding: 20"
-                    + "},"
-                    + "legend: {"
-                    + "position: 'bottom',"
-                    + "labels: {"
-                    + "fontColor: '#141449',"
-                    + "fontSize: 25,"
-                    + "fontFamily: 'Georgia',"
-                    + "fontStyle: 'normal',"
-                    + "padding: 20"
-                    + "}"
-                    + "},"
-                    + "scale: {"
-                    + "gridLines: {"
-                    + "color: '#9E9E9E'"
-                    + "},"
-                    + "pointLabels: {"
-                    + "fontSize: 18,"
-                    + "fontColor: '#9E9E9E'"
-                    + "},"
-                    + "ticks: {"
-                    + "display: false,"
-                    + "min: 0,"
-                    + "max: 10,"
-                    + "color: '#9E9E9E'"
-                    + "}"
-                    + "},"
-                    + "elements: {"
-                    + "line: {"
-                    + "tension: 0.4"
-                    + "}"
-                    + "}"
-                    + "}"
-                    + "}");
-
-
+            String config = newChart.generateRadarChart(labels,data1,data2, firstCompareName,
+                     secondCompareName,titleChart);
+            chart.setConfig(config);
 
             // Собираем график в картинку
             byte[] imageBytes = chart.toByteArray();
@@ -757,6 +725,43 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
+    public void sendLineChart(long chatID, String summaryStatValue, String category) {
+        // Парсим данные summaryStatValue в массивы labels и data
+        String[] pairs = summaryStatValue.split("; ");
+        String[] labels = Arrays.stream(pairs)
+                .map(pair -> pair.split(" - ")[0])
+                .toArray(String[]::new);
+        String[] data = Arrays.stream(pairs)
+                .map(pair -> pair.split(" - ")[1].replace(",", "."))
+                .toArray(String[]::new);
+
+        String labelsString = String.join("','", labels);
+        String dataString = String.join(",", data);
+
+        // Формируем конфигурацию для линейного графика
+        String config = newChart.generateLineChartConfig(labelsString, dataString, category);
+
+        // Создаем график и отправляем пользователю
+        QuickChart chart = new QuickChart();
+        chart.setWidth(1000);
+        chart.setHeight(700);
+        chart.setBackgroundColor("#FFFFFF");
+        chart.setConfig(config);
+
+        try {
+            // собираем график в картинку
+            chart.toByteArray();
+
+            // отправляем картинку пользователю
+            SendPhoto sendPhotoRequest = new SendPhoto();
+            sendPhotoRequest.setChatId(String.valueOf(chatID));
+            sendPhotoRequest.setPhoto(new InputFile(chart.getUrl()));
+             execute(sendPhotoRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Обработка ошибок
+        }
+    }
 
 
             ////////////////ПОСТОЯННАЯ КЛАВИАТУРА/////
@@ -830,6 +835,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setText(texToSend);
         executedMessage(message);
     }
+
+
 
     /**
      * Создает смарт клавиатуру с двумя кнопками
@@ -906,7 +913,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         questions.put("Работа", "Как ты оцениваешь свою работу?");
         questions.put("Саморазвитие", "Как ты оцениваешь свое саморазвитие?");
         questions.put("Деньги, капитал", "Как ты оценивешь свое имущество? (деньги,капитал)");
-        questions.put("Материальный мир", "Как ты оцениваешь свой материальный мир?");
+        questions.put("Бытовой комфорт", "Как ты оцениваешь свой бытовой комфорт?");
         questions.put("Отношения", "Как ты оцениваешь свои отношения?");
         questions.put("Развлечения", "Как ты оцениваешь свои развлечения?");
         questions.put("Семья", "Как ты оцениваешь отношения в семье?");

@@ -6,6 +6,7 @@ import com.testSpringBoot.SpringDemoBot.model.MonthConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,10 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.Month;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -76,20 +80,20 @@ public class CurrentStatValues {
      * Если столбца не существует, отправляем в класс CreateDateColumn и создаем столбец
      */
 
-    private List<String> getColumnNames(int currentDays) {
+    public List<String> getColumnNames(int currentDays) {
         List<String> columnNames = new ArrayList<>();
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -currentDays); // to get the date of last N days
+        cal.add(Calendar.DATE, -currentDays); // собирает календарь за последние currentDays дней
         SimpleDateFormat format1 = new SimpleDateFormat("dd_MM_yyyy");
         for (int i = 0; i < currentDays; i++) {
             cal.add(Calendar.DATE, 1);
             String columnName = "date_" + format1.format(cal.getTime());
             try {
                 jdbcTemplate.queryForObject("SELECT " + columnName + " FROM data_base_quest LIMIT 1", Object.class);
-                // If the column exists, add it to the columnNames list
+                // Если столбец существует, добавляем его в список
                 columnNames.add(columnName);
             } catch (DataAccessException e) {
-                // If the column does not exist, create it and then add it to the columnNames list
+                // Если столбца нет, создаём его и добавляем в лист
                 log.warn("Column {} does not exist in table data_base_quest.", columnName);
                 createDateColumn.addNewColumn(columnName);
                 columnNames.add(columnName);
@@ -98,6 +102,80 @@ public class CurrentStatValues {
         return columnNames;
     }
 
+
+    /**
+      Метод получает чат айди и дату месяца одного из столбцов. Он должен получить средннее арифметическое
+      значение за тот месяц по определенной категории
+     */
+
+    public Double getAverageFromCurrentMonth(Long chatId, String monthYearColumn, String category) {
+        YearMonth yearMonth = YearMonth.parse(monthYearColumn, DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
+        LocalDate startOfMonth = yearMonth.atDay(1);
+        LocalDate endOfMonth = yearMonth.atEndOfMonth();
+        LocalDate today = LocalDate.now();
+        // Если месяц еще не закончился, используйте текущую дату
+        LocalDate lastDate = yearMonth.equals(YearMonth.from(today)) ? today : endOfMonth;
+
+        StringBuilder sqlBuilder = new StringBuilder("SELECT ");
+        int daysCount = 0;
+        for (int day = 1; day <= lastDate.getDayOfMonth(); day++) {
+            String columnName = "date_" + startOfMonth.withDayOfMonth(day).format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+            sqlBuilder.append(columnName);
+            daysCount++;
+            if (day < lastDate.getDayOfMonth()) {
+                sqlBuilder.append(", ");
+            }
+        }
+
+        sqlBuilder.append(" FROM data_base_quest WHERE quest = ? AND chat_id = ?");
+        String sql = sqlBuilder.toString();
+
+        int finalDaysCount = daysCount;
+        return jdbcTemplate.queryForObject(sql, new Object[]{category, chatId}, (ResultSet rs, int rowNum) -> {
+            double total = 0;
+            int count = 0;
+            for (int i = 1; i <= finalDaysCount; i++) {
+                double value = rs.getDouble(i); // Here 'i' indexes the SQL query result columns, starting from 1
+                if (!rs.wasNull()) {
+                    total += value;
+                    count++;
+                }
+            }
+            return (count > 0) ? (total / count) : 0.0; // Return the mean or 0.0 if no values
+        });
+    }
+
+//    public Double getAverageFromCurrentMonth(Long chatId, String monthYearColumn, String category) {
+//        YearMonth yearMonth = YearMonth.parse(monthYearColumn, DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH));
+//        LocalDate startOfMonth = yearMonth.atDay(1);
+//        LocalDate endOfMonth = yearMonth.atEndOfMonth();
+//
+//        // Build SQL Query
+//        StringBuilder sqlBuilder = new StringBuilder("SELECT ");
+//        for (int day = 1; day <= endOfMonth.getDayOfMonth(); day++) {
+//            String columnName = "date_" + startOfMonth.withDayOfMonth(day).format(DateTimeFormatter.ofPattern("dd_MM_yyyy"));
+//            sqlBuilder.append(columnName).append(", ");
+//        }
+//        // Remove the last comma and space
+//        sqlBuilder.setLength(sqlBuilder.length() - 2);
+//
+//        sqlBuilder.append(" FROM data_base_quest WHERE quest = ? AND chat_id = ?");
+//
+//        String sql = sqlBuilder.toString();
+//
+//        return jdbcTemplate.queryForObject(sql, new Object[]{category, chatId}, (ResultSet rs, int rowNum) -> {
+//            double total = 0;
+//            int count = 0;
+//            for (int day = 1; day <= endOfMonth.getDayOfMonth(); day++) {
+//                double value = rs.getDouble(day);
+//                if (!rs.wasNull()) {
+//                    total += value;
+//                    count++;
+//                }
+//            }
+//            return count > 0 ? total / count : 0.0;
+//        });
+//    }
 
     private String buildSqlQuery(List<String> columnNames) {
         StringBuilder sb = new StringBuilder();
