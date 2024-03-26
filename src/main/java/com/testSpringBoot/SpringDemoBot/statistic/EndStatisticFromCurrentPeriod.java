@@ -26,7 +26,6 @@ public class EndStatisticFromCurrentPeriod {
         //получаем значения текущего и предыдущего периода
         Map<String, Double> currentResultMap = currentStatValues.getMeanQuest(chatId, currentDays);
         Map<String, Double> previousResultMap = previousStatValues.getMeanQuest(chatId,currentDays);
-
         //получаем общую сумму всех категорий в сравнении периодов
         double totalSum = calculateTotalSum(previousResultMap, currentResultMap);
 
@@ -42,6 +41,7 @@ public class EndStatisticFromCurrentPeriod {
         String formattedMaxCategoryValue = df.format(maxCategoryValue);
         String formattedMinCategoryValue = df.format(minCategoryValue);
         String formattedTotalSum = df.format(totalSum);
+
 
         //формируем сообщения пользователю на основе его значений
         StringBuilder mean = new StringBuilder();

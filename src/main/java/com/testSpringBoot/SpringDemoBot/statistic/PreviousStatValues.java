@@ -11,6 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -32,39 +35,49 @@ public class PreviousStatValues {
 
     public Map<String, Double> getMeanQuest(Long chatId, int currentDays) {
         Map<String, Double> result = new HashMap<>();
-
-        // Получаем список существующих столбцов
-        List<String> columnNames = currentStatValues.getColumnNames(currentDays);
-
-        // Формируем SQL запрос, используя только существующие столбцы
-        String sql = "SELECT quest, " + String.join(", ", columnNames) + " FROM data_base_quest WHERE chat_id = ?";
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -(2* currentDays)); // to get the date of last 'currentDays' days
+        SimpleDateFormat format1 = new SimpleDateFormat("dd_MM_yyyy");
+        String startDate = format1.format(cal.getTime());
+        cal.add(Calendar.DATE, currentDays);
+        String endDate = format1.format(cal.getTime());
+        String sql = "SELECT quest, ";
+        for (int i = 0; i < currentDays; i++) {
+            cal.add(Calendar.DATE, -1);
+            String columnName = "date_" + format1.format(cal.getTime());
+            sql += columnName + ", ";
+        }
+        sql = sql.substring(0, sql.length() - 2); // to remove last comma
+        sql += " FROM data_base_quest WHERE chat_id = ?";
 
         jdbcTemplate.query(sql, new Object[]{chatId}, new RowMapper<String>() {
             public String mapRow(ResultSet rs, int rowNum) throws SQLException {
                 String quest = rs.getString("quest");
                 double total = 0;
                 int count = 0;
-
-                for (int i = 0; i < columnNames.size(); i++) {
-                    double value = rs.getDouble(columnNames.get(i));
-                    if (!rs.wasNull()) {
-                        total += value;
+                for (int i = 0; i < currentDays; i++) {
+                    if (rs.getObject(i + 2) != null) { // checking if the value is not null
+                        total += rs.getDouble(i + 2);
                         count++;
                     }
                 }
+                double mean = 0;
 
                 if (count != 0) {
-                    double mean = total / count;
+                    mean = total / count;
+
                     DecimalFormat df = new DecimalFormat("#.#", new DecimalFormatSymbols(Locale.US));
                     df.setRoundingMode(RoundingMode.HALF_UP);
+
                     result.put(quest, Double.parseDouble(df.format(mean)));
                 }
 
                 return quest;
             }
         });
-
         return result;
     }
+
+
 
 }

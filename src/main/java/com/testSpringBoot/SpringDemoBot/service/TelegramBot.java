@@ -1036,6 +1036,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         checkEndPeriod(chatId);
     }
     private void checkEndPeriod (long chatId){
+
         if (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             sendMessage(chatId,SUNDAY_TEXT);
             if (previousStatValues.getMeanQuest(chatId,7).isEmpty()) {
@@ -1049,13 +1050,11 @@ public class TelegramBot extends TelegramLongPollingBot {
                         newChart.generateTitleString(7));
                 sendMessage(chatId,endStatisticFromCurrentPeriod.messageEndStatisticFromCurrentPeriod(chatId,7));
             }
-            log.info("Проверка на воскресенье");
         }
         if (Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH)) {
             sendPieChart(chatId, currentStatValues.getMeanQuest(chatId, 30),
                     newChart.generateTitleString(30));
             sendMessage(chatId, getStatCurrentPeriod.getStatFromCurrentDays(chatId, 30));
-            log.info("Проверка на конец месяца");
         }
     }
 
